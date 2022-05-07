@@ -1,5 +1,8 @@
 html {
-	box-siznig: border-box;
+	box-sizing: border-box;
+	background: radial-gradient(circle, skyblue, skyblue 50%, lightcyan 50%, LightCyan 50%, skyblue);
+	background-size: 8px 8px;
+
 }
 *, *:before, *:after {
 	box-sizing: inherit;
@@ -11,19 +14,19 @@ body {
 	margin-left:  auto;
 	margin-right: auto;
 	max-width: 1024px;
-	max-width: 256px;
+	min-width: 256px;
 	padding-top: 8px;
 	padding-bottom: 24px;
+	padding-left: 24px;
 	padding-right: 24px;
 }
 
 html {
-	background: radial-gradient(circle, skyblue, skyblue 50%, lightcyan 50%, LightCyan 50%, skyblue);
-	background-size: 8px 8px;
 }
 
 header {
 }
+
 header p {
 	float: left;
 	font-size: 16px;
@@ -69,7 +72,7 @@ section {
 	margin-bottom: 24px;
 	min-height: 320px;
 	padding-left: 24px;
-	padding right: 24px;
+	padding-right: 24px;
 }
 aside {
 
@@ -100,8 +103,8 @@ img.large {
 body, section, img {
 	border: 2px solid #B1B1B1;
 	border-radius: 16px;
-} {
-	article {
+} 
+article {
 	float: left;
 	width: 66%;
 }
@@ -110,8 +113,7 @@ aside {
 	padding-left: 24px;
 	width: 34%;
 }
+
 footer {
 	clear: both;
-}}
-
 }
