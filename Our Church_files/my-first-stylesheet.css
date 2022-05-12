@@ -1,0 +1,121 @@
+html {
+	box-sizing: border-box;
+	background: radial-gradient(circle, skyblue, skyblue 50%, lightcyan 50%, LightCyan 50%, skyblue);
+	background-size: 8px 8px;
+
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	background-color:thistle ;
+	font-family: sans-serif;
+	margin-left:  auto;
+	margin-right: auto;
+	max-width: 1024px;
+	min-width: 256px;
+	padding-top: 8px;
+	padding-bottom: 24px;
+	padding-left: 24px;
+	p
+	a
+	adding-right: 24px;
+}
+
+html {
+}
+
+header {
+}
+
+header p {
+	float: left;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 0px;
+}
+header h1 {
+	font-size: 16px;
+	text-align: right;
+}
+
+nav ul {
+	list-style-type: none;
+	background-color: #B577B5;
+	border: 2px solid Black;
+	border-radius: 10px;
+	font-family: sans-serif;
+	font-weight: bold;
+	padding: 16px;
+}
+
+nav ul li {
+	display: inline;
+	border-right: 2px solid #111111;
+	padding-right: 8px;
+	padding-left: 8px;
+}
+nav ul li: last-child {
+	border-right: none;
+}
+nav ul li a {
+	text-decoration: none;
+	color: #111111;
+}
+nav ul li.selected {
+	color: #606060;
+}
+nav ul li a:hover {
+	text-decoration: underline;
+}
+section {
+	background-color: #FFFFFF;
+	margin-bottom: 24px;
+	min-height: 320px;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+aside {
+
+}
+footer {
+
+}
+footer p.copyright {
+	float: left;
+	margin-top: 0px;
+}
+footer p.contact {
+	text-align: right;
+}
+img.small {
+	float: left;
+	height: 200px;
+	margin-bottom: 24px;
+	margin-right: 24px;
+}
+img.medium {
+	max-width: 360px;
+	width: 50%;
+}
+img.large {
+	width: 100%;
+}
+body, section, img {
+	border: 2px solid #B1B1B1;
+	border-radius: 16px;
+} 
+article {
+	float: left;
+	width: 66%;
+}
+aside {
+	float: left;
+	padding-left: 24px;
+	width: 34%;
+}
+
+footer {
+	clear: both;
+}
