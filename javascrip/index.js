@@ -1,3 +1,3 @@
-let naem = 'junha';
-let age = 13;
-let person = {}
+<HTMLAllCollection>
+    <parent>Hello world</parent>
+</HTMLAllCollection>
