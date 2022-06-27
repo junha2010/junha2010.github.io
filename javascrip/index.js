@@ -1,4 +1,3 @@
-let name = 'Junha';
-let age = '12';
-let isApproved = true;
-
+let naem = 'junha';
+let age = 13;
+let person = {}
