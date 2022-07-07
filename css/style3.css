@@ -8,10 +8,9 @@ header p {
 }
 
 header h1 {
-	font-size: 16px;
-	text-align: right;
+	text-align: center;
+	color: #666666;
 }
-
 
 	
 }
@@ -59,4 +58,10 @@ aside {
 
 footer {
 	clear: both;
+}
+sup {
+
+
+color: #00498c;
+
 }
