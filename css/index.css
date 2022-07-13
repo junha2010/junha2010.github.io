@@ -22,3 +22,7 @@ div {
 caret-color {
 	color: green;
 }
+
+li {
+	padding-bottom: 30px;
+}
