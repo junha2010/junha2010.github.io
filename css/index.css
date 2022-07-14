@@ -30,6 +30,11 @@ caret-color {
 li {
 	padding-bottom: 30px;
 }
+.noborders{
 
+	border: 0px solid white;
+	padding: 10px;
+	border-radius: 0px 0px;
+}
 
 
