@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<input id="searchbox">
+<button onclick="doSearch(searchbox.value)">Search</button>
+<script>
+    var webData=[
+    {tag: "videos", url: "https://www.youtube.com"},
+    {tag: "facts", url: "https://www.wikipedia.org"},
+    {tag: "news", url: "https://www.cnn.com"}
+    ];
+
+    function doSearch(x){
+        for(n=0; n<webData.length; n++){
+            if(x==webData[n].tag){
+                document.write('<a href="'+webData[n].url+'">'+webData[n].url+'</a>')
+            }
+        }
+    }
+</script>
+<ol><h3>videos = youtube</h3><h3>facts = wikipedia</h3><h3>news = cnn</h3></ol>
+</html>

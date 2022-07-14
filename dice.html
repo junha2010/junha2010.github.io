@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<button onclick="throwDice()">Throw</button>
+<h1 id="dice">0</h1>
+<script>
+    function throwDice(){
+        var d=Math.floor(1+Math.random()*6);
+        document.getElementById("dice").innerHTML=d;
+
+    }
+</script>
+</html>

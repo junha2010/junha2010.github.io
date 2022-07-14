@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<h1 id="display">rgb</h1>
+<input id="bar1" type="range" max="255" onchange="showCol()">
+<input id="bar2" type="range" max="255" onchange="showCol()">
+<input id="bar3" type="range" max="255" onchange="showCol()">    
+</body>
+
+<script>
+    function showCol() {
+    var r=document.getElementById("bar1").value;
+    var g=document.getElementById("bar2").value;
+    var b=document.getElementById("bar3").value;
+    var col="rgb("+r+","+g+" , "+b+")";
+    document.getElementById("display").innerHTML=col;
+    document.body.style.backgroundColor=col;
+
+
+    }
+</script>
+</html>

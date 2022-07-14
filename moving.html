@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<body style="background-color: skyblue";>
+    <img id="heli" style="position: absolute;" src="img/heli.png">
+</body>
+
+<script>
+    document.onkeydown=moveHeli;
+    var x=0, y=0;
+    function moveHeli (e){
+        if(e.keyCode==39){x+=10;}
+        if(e.keyCode==37){x-=10;;}
+        document.getElementById("heli").style.left=x+"px";
+        document.getElementById("heli").style.top=y+"px";
+    }
+</script>
+</html>
