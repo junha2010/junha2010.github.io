@@ -1,6 +1,6 @@
 nav {
 	/* class = "noborders" style="background-color: papayawhip; height: 50px; width: 100;" */
-	border: 1px solid rgb(248, 230, 114);
+	border: 1px solid wheat(248, 230, 114);
 	text-align: center;
 	background-color: wheat;
 }
@@ -15,6 +15,7 @@ nav ul {
 nav > ul > li {
 	display: inline-block;
 	position: relative;
+	
 }
 
 nav ul a {
@@ -28,7 +29,7 @@ nav ul li ul {
 	width: 130px;
 	
 	position: absolute;
-	left: -50px;
+	left: -40px;
 	z-index: 999;
 	text-align: left;
 	background-color: wheat;
