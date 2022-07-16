@@ -2,6 +2,7 @@ nav {
 	/* class = "noborders" style="background-color: papayawhip; height: 50px; width: 100;" */
 	border: 1px solid rgb(248, 230, 114);
 	text-align: center;
+	background-color: wheat;
 }
 
 /* Level 1 menu */
@@ -25,15 +26,19 @@ nav ul a {
 /* Level 2 menu */
 nav ul li ul {
 	width: 130px;
+	
 	position: absolute;
+	left: -50px;
 	z-index: 999;
 	text-align: left;
 	background-color: wheat;
-	box-shadow: 0 0 5px bla;
+	box-shadow: 0 0 5px black;
+	
 }
 
 nav ul li ul li a {
 	display: block;
+	text-align: center;
 }
 
 nav > ul > li > ul {
