@@ -12,6 +12,32 @@
 
 <video width="720" height="480" controls>
     <source src="video/Just a Normal Bike Math 0.5 х 2 = 1 Wheel.mp4">
-</video> 
+</video>
+<br>
+<video id="vp" width="720" height="720" controls>
+    <source src="video/slide.mp4">
+</video>
+
+<button onclick="playVideo()">Play</button>
+<button onclick="pauseVideo()">Pause</button> 
+
+<script>
+    function playVideo(){
+        document.getElementById("vp").play();
+    }
+    function pauseVideo(){
+        document.getElementById("vp").pause();
+    }
+</script>    
+
+
+<p><h1>Watch this for hour!</h1></p>
+<video id="slow" width="640" height="480" controls>
+<source src="video/pop.mp4" type="video/mp4">
+</video>
+
+<script>
+document.getElementById("slow").playbackRate=0.01;
+</script>
 
 </html>
