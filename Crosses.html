@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Noughts and Crosses</title>
+    </head>
+        <style>
+            .row div {
+                padding: 10px;
+                border: 3px solid black;
+                height: 30px;
+                width: 30px;
+                float: left;
+
+            }
+            .row {
+                clear: both;
+            }
+        </style>
+
+    <body>
+        <div onclick="alert('Player X');">
+        Click here to find out if you are Player X or Player O.</div>
+
+        Click here to play Noughts and Crosses.<br/>
+        <script>
+        function plan(){
+            alert("Get ready for the hackathon!");
+            alert("Learn JavaScript!");
+            alert("Code Noughts and Crosses!");
+
+        }
+        plan();
+        function showCatName(name) {
+            alert(name.innerText);
+
+        }
+            
+        </script>
+        <div onclick="showCatName(this)">Scratch</div>
+    <div>
+        <div class="row">
+            <div id = "0_0" onclick="place(this)"></div>
+            <div  id = "1_0" onclick="place(this)"></div>
+            <div  id = "2_0" onclick="place(this)"></div>
+        </div>
+        <div class="row">
+            <div id = "0_1" onclick="place(this)"></div>
+            <div  id = "1_1" onclick="place(this)"></div>
+            <div  id = "2_1" onclick="place(this)"></div>
+        </div>
+        <div class="row">
+            <div  id = "0_2" onclick="place(this)"></div>
+            <div  id = "1_2" onclick="place(this)"></div>
+            <div  id = "2_2" onclick="place(this)"></div>
+        </div>
+    </div>
+    <script>
+        var currentPlayer="O";
+
+
+        function place(box) {
+            if (box.innerText !== "") return;
+            box.innerText = currentPlayer;
+            currentPlayer == "O" ? currentPlayer = "X" : currentPlayer = "O";
+            checkGameBoard();
+        function checkGameBoard() {
+            for(var i = 0; i <= 2; i++){
+                var first = document.getElementById(i + "_0").innerText
+                var second = document.getElementById(i + "_1").innerText
+                var third = document.getElementById(i + "_2").innerText
+
+            if(first == "") continue;
+            if(first == second && first == third) {
+                    alert("Winner!")
+                }
+            }
+        }
+                var firstD1 = document.getElementById("0_0").innerText;
+                var secondD1 = document.getElementById("1_1").innerText;
+                var thirdD1 = document.getElementById("2_2").innerText;
+                if(firstD1 != "" && firstD1 == secondD1 && fisrstD1 == thirdD1) {
+                    alert("Winner!")
+                }
+                var firstD2 = document.getElementById("0_2").innerText;
+                var secondD2 = document.getElementById("1_1").innerText;
+                var thirdD2 = document.getElementById("2_0").innerText;
+                if(firstD2 != "" && firstD2 == secondD2 && fisrstD2 == thirdD2) {
+                    alert("Winner!")
+                }
+        }    
+            
+
+        
+    </script>
+        
+    
+   
+    </body>
+</html>
