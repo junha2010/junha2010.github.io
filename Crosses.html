@@ -56,18 +56,22 @@
     </div>
     <script>
         var currentPlayer="O";
+        var won = false;
 
 
         function place(box) {
-            if (box.innerText !== "") return;
+            if (box.innerText !== "" || won) return;
             box.innerText = currentPlayer;
             currentPlayer == "O" ? currentPlayer = "X" : currentPlayer = "O";
             checkGameBoard();
         function checkGameBoard() {
             for(var i = 0; i <= 2; i++){
-                var first = document.getElementById(i + "_0").innerText
-                var second = document.getElementById(i + "_1").innerText
-                var third = document.getElementById(i + "_2").innerText
+            checkWinner(document.getElementById(i + "_0").innerText,    
+                document.getElementById(i + "_1").innerText,
+                document.getElementById(i + "_2").innerText);
+            checkWinner(document.getElementById("0_" + i).innerText,    
+                document.getElementById("1_" + i).innerText,
+                document.getElementById("2_" + i).innerText);
 
             if(first == "") continue;
             if(first == second && first == third) {
