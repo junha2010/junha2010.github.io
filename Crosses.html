@@ -73,25 +73,26 @@
                 document.getElementById("1_" + i).innerText,
                 document.getElementById("2_" + i).innerText);
 
-            if(first == "") continue;
-            if(first == second && first == third) {
-                    alert("Winner!")
+            
+                }
+            checkWinner(document.getElementById("0_0").innerText,    
+                document.getElementById("1_1").innerText,
+                document.getElementById("2_2").innerText);
+            checkWinner(document.getElementById("0_2").innerText,    
+                document.getElementById("1_1").innerText,
+                document.getElementById("2_0").innerText);
+            }
+            function checkWinner(first, second, third) {
+                if(first !="" && first == second && first == third){
+                    alert("Winner!");
+                    won = true
                 }
             }
         }
-                var firstD1 = document.getElementById("0_0").innerText;
-                var secondD1 = document.getElementById("1_1").innerText;
-                var thirdD1 = document.getElementById("2_2").innerText;
-                if(firstD1 != "" && firstD1 == secondD1 && fisrstD1 == thirdD1) {
-                    alert("Winner!")
-                }
-                var firstD2 = document.getElementById("0_2").innerText;
-                var secondD2 = document.getElementById("1_1").innerText;
-                var thirdD2 = document.getElementById("2_0").innerText;
-                if(firstD2 != "" && firstD2 == secondD2 && fisrstD2 == thirdD2) {
-                    alert("Winner!")
-                }
-        }    
+             
+               
+                
+        
             
 
         
