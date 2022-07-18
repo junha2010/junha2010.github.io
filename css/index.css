@@ -15,6 +15,7 @@ nav ul {
 nav > ul > li {
 	display: inline-block;
 	position: relative;
+	padding: 10px;
 	
 }
 
@@ -91,3 +92,6 @@ li {
 }
 
 
+.nofair {
+	color: black;
+}
