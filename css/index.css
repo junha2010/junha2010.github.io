@@ -2,7 +2,7 @@ nav {
     /* class = "noborders" style="background-color: papayawhip; height: 50px; width: 100;" */
     border: 1px solid wheat(248, 230, 114);
     text-align: center;
-    background-color: wheat;
+    background-color: gray;
 }
 
 
@@ -34,7 +34,7 @@ nav ul li ul {
     left: -40px;
     z-index: 999;
     text-align: left;
-    background-color: wheat;
+    background-color: lightslategrey;
     box-shadow: 0 0 5px black;
 }
 
