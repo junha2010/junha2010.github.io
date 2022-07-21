@@ -28,13 +28,13 @@
 </style>
 <section>
     <form class="form1">
-        <label for="name">닉네임 :</label>
+        <label for="name">name :</label>
         <input type="text" name="name" id="name" required>
 
-        <label for="email">이메일 :</label>
+        <label for="email">email :</label>
         <input type="email" name="email" id="email" required>
 
-        <label for="password">비밀번호 :</label>
+        <label for="password">password :</label>
         <input type="password" name="password" id="password" required>
 
         <button>제출</button>
@@ -47,8 +47,8 @@
 
             const nameInput = event.target['name'];
 
-            alert(nameInput);
-            alert(`제출된 닉네임은 ${nameInput.value}입니다.`);
+
+            alert(`The name is ${nameInput.value}`);
         });
     </script>
 </section>
