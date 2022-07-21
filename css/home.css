@@ -357,3 +357,8 @@ header li a {
     color: black;
     text-decoration: none;
 }
+
+.but {
+    border: 0.05cm solid gray;
+    background-color: grey;
+}

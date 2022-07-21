@@ -1,97 +1,90 @@
 nav {
-	/* class = "noborders" style="background-color: papayawhip; height: 50px; width: 100;" */
-	border: 1px solid wheat(248, 230, 114);
-	text-align: center;
-	background-color: wheat;
+    /* class = "noborders" style="background-color: papayawhip; height: 50px; width: 100;" */
+    border: 1px solid wheat(248, 230, 114);
+    text-align: center;
+    background-color: wheat;
 }
+
 
 /* Level 1 menu */
+
 nav ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-nav > ul > li {
-	display: inline-block;
-	position: relative;
-	padding: 10px;
-	
+nav>ul>li {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
 }
 
 nav ul a {
-	color: black;
-	text-decoration: none;
+    color: black;
+    text-decoration: none;
 }
 
 
 /* Level 2 menu */
+
 nav ul li ul {
-	width: 130px;
-	
-	position: absolute;
-	left: -40px;
-	z-index: 999;
-	text-align: left;
-	background-color: wheat;
-	box-shadow: 0 0 5px black;
-	
+    width: 130px;
+    position: absolute;
+    left: -40px;
+    z-index: 999;
+    text-align: left;
+    background-color: wheat;
+    box-shadow: 0 0 5px black;
 }
 
 nav ul li ul li a {
-	display: block;
-	text-align: center;
+    display: block;
+    text-align: center;
 }
 
-nav > ul > li > ul {
-	display: none;
+nav>ul>li>ul {
+    display: none;
 }
 
-nav > ul > li:hover > ul {
-	display: block;
-} 
-
+nav>ul>li:hover>ul {
+    display: block;
+}
 
 .noborder {
-	border: 0px solid white;
+    border: 0px solid white;
 }
-
 
 img {
-
-	border: 2px solid gray;
-	border-radius: 25px;
+    border: 2px solid gray;
+    border-radius: 25px;
 }
 
-
 div {
-	border: 2px solid gray;
-	padding: 10px;
-	border-radius: 50px 20px;
+    border: 2px solid gray;
+    padding: 10px;
+    border-radius: 50px 20px;
 }
 
 .main_container {
-	display: grid;
-	grid-template-columns: 2fr 8fr 3fr;
+    display: grid;
+    grid-template-columns: 2fr 8fr 3fr;
 }
 
-
-
 caret-color {
-	color: green;
+    color: green;
 }
 
 li {
-	padding-bottom: 30px;
-}
-.noborders{
-
-	border: 0px solid white;
-	padding: 10px;
-	border-radius: 0px 0px;
+    padding-bottom: 30px;
 }
 
+.noborders {
+    border: 0px solid white;
+    padding: 10px;
+    border-radius: 0px 0px;
+}
 
 .nofair {
-	color: black;
+    color: black;
 }
