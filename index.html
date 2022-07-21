@@ -29,16 +29,28 @@
 <section>
     <form class="form1">
         <label for="name">닉네임 :</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
 
         <label for="email">이메일 :</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" required>
 
         <label for="password">비밀번호 :</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
 
         <button>제출</button>
     </form>
+    <script>
+        const signupForm = document.querySelector('form');
+
+        signupForm.addEventListener('submit', event => {
+            event.preventDefault();
+
+            const nameInput = event.target['name'];
+
+            alert(nameInput);
+            alert(`제출된 닉네임은 ${nameInput.value}입니다.`);
+        });
+    </script>
 </section>
 
 <body>
