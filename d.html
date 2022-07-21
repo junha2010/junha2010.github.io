@@ -3,39 +3,39 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Cocoon</title>
+    <title>Membership page</title>
 </head>
 
 <body>
 
     <section>
-        <h1>회원가입 페이지</h1>
+        <h1>Membership page</h1>
     </section>
 
     <section>
         <form name="login" action="index.html" method="post">
-            아이디확인<br>
-            <input type="text" name="user_ID" placeholder="아이디 입력">
-            <input type="button" name="user_IDcheck" value="아이디 확인">
-            <br> 비밀번호
+            ID verification<br>
+            <input type="text" name="user_ID" placeholder="ID input">
+            <input type="button" name="user_IDcheck" value="ID verification">
+            <br> password
             <br>
-            <input type="password" name="user_PW1" value="123456"><br> 비밀번호 재확인<br>
+            <input type="password" name="user_PW1" value="123456"><br> reconfirm password<br>
             <input type="password" name="user_PW2" value="123456">
-            <input type="button" name="user_PWcheck" value="비밀번호 재확인">
-            <br><br> 이름
-            <br> <input type="text" name="user_name" value=""> <br> 생년월일
+            <input type="button" name="user_PWcheck" value="reconfirm password">
+            <br><br> name
+            <br> <input type="text" name="user_name" value=""> <br> date of birth
             <br>
             <select name="year">
-        <option value="">-- 선택 --</option>
-        <option value="1995">1995</option>
-        <option value="1996">1996</option>
-        <option value="1997">1997</option>
-        <option value="1998">1998</option>
-        <option value="1999">1999</option>
-        <option value="2000">2000</option>
+        <option value="">-- Choice --</option>
+        <option value="1995">2010</option>
+        <option value="1996">2011</option>
+        <option value="1997">2012</option>
+        <option value="1998">2013</option>
+        <option value="1999">2014</option>
+        <option value="2000">2015</option>
       </select>
             <select name="month">
-        <option value="">-- 선택 --</option>
+        <option value="">-- Choice --</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -50,7 +50,7 @@
         <option value="12">12</option>
       </select>
             <select name="day">
-        <option value="">-- 선택 --</option>
+        <option value="">-- Choice --</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -91,14 +91,14 @@
             <input type="radio" name="gender" value="m" id="woman"> <br><br> email
             <br><input type="email" name="user_email" placeholder="email@gmail.com"><br><br> phone number
             <br>
-            <input type="text" name="user_phone" placeholder="010-****-****">
+            <input type="text" name="user_phone" placeholder="+1-****-****">
             <input type="button" name="certification" value="Get authentication number"><br>
             <input type="text" name="certification" placeholder="type password">
-            <input type="button" name="certification" value="확인"><br><br> 관심사
+            <input type="button" name="certification" value="Check"><br><br> Interest
             <br> IT
-            <input type="checkbox" name="check" value="hobby1"> 보안
-            <input type="checkbox" name="check" value="hobby2"> 웹
-            <input type="checkbox" name="check" value="hobby3"> 서버
+            <input type="checkbox" name="check" value="hobby1"> security
+            <input type="checkbox" name="check" value="hobby2"> web
+            <input type="checkbox" name="check" value="hobby3"> server
             <input type="checkbox" name="check" value="hobby4">
             <br><br> Your picture <br>
             <input type="file" name="" value="">
