@@ -1,3 +1,15 @@
-::backdrop {
-    border-radius: 15px;
+body {
+    height: 125vh;
+    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+.t {
+    border-radius: 10px 10px;
+    border: 10px solid lightslategray;
+    display: block;
+    background-color: lightslategray;
 }
