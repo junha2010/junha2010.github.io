@@ -1,0 +1,23 @@
+<html>
+
+
+<head>
+    <title>Using parameters</title>
+    <script type="text/javascript">
+        function calculateTotal(purchaseAmt, taxRate) {
+            tax = purchaseAmt * taxRate;
+            total = purchaseAmt + tax;
+            document.write(`Your total is $ $ {total}`);
+        }
+    </script>
+</head>
+
+<body>
+    <p>Amount purchased is $100.00, Tax rate is 0.065</p>
+    <p>Click Button 1 to calculate total, passing in 100.00, 0.065</p>
+    <input type="button" value="Button 1" onclick="calculateTotal(100,  .065)" />
+    <p>Click Button 2 to calculate the total, passing in 0.065, 100.00</p>
+    <input type="button" value="Button 2" onclick="calculateTotal(0.065, 100)" />
+</body>
+
+</html>
