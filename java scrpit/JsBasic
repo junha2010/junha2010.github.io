@@ -1,1 +1,4 @@
-const name = prompt('what is your name...?')
+function sayhello(name) {
+    const msg = `hello, ${name}`;
+    console.log(msg);
+}
