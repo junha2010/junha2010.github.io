@@ -34,8 +34,9 @@ nav ul li ul {
     left: -40px;
     z-index: 999;
     text-align: left;
-    background-color: lightslategrey;
+    background-color: white;
     box-shadow: 0 0 5px black;
+    box-sizing: border-box;
 }
 
 nav ul li ul li a {
@@ -92,4 +93,410 @@ li {
     background-position-x: right;
     background-color: wheat;
     display: inline;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+header img {
+    height: 80px;
+    border: 0px;
+}
+
+header>a {
+    padding: 0px;
+}
+
+header img {
+    height: 80px;
+}
+
+header img {
+    height: 80px;
+}
+
+body {
+    height: 125vh;
+    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+header img {
+    height: 80px;
+}
+
+body {
+    height: 125vh;
+    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+main {
+    color: white;
+}
+
+header img {
+    height: 80px;
+}
+
+body {
+    height: 125vh;
+    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+main {
+    color: white;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+header img {
+    height: 80px;
+}
+
+body {
+    height: 125vh;
+    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+}
+
+main {
+    color: white;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+header img {
+    height: 80px;
+}
+
+body {
+    height: 125vh;
+    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+main {
+    color: white;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+header img {
+    height: 80px;
+}
+
+body {
+    height: 125vh;
+    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+main {
+    color: white;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+}
+
+header * {
+    display: inline;
+}
+
+s header img {
+    height: 80px;
+}
+
+body {
+    height: 125vh;
+    background-image: "img/background.jpg";
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+main {
+    color: white;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+}
+
+header * {
+    display: inline;
+}
+
+header img {
+    height: 80px;
+}
+
+body {
+    height: 125vh;
+    background-image: "img/background.jpg";
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+main {
+    color: white;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+header * {
+    display: inline;
+}
+
+header img {
+    height: 80px;
+}
+
+body {
+    height: 125vh;
+    background-image: "img/background.jpg";
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+main {
+    color: white;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    margin: 20px;
+}
+
+header img {
+    height: 80px;
+}
+
+body {
+    height: 125vh;
+    background-image: "img/background.jpg";
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+main {
+    color: white;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    margin: 20px;
+}
+
+header li a {
+    color: black;
+    text-decoration: none;
+}
+
+header img {
+    height: 80px;
+    margin-left: 40px;
+}
+
+body {
+    height: 125vh;
+    background-image: "img/background.jpg";
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+main {
+    color: white;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    margin: 20px;
+}
+
+header li a {
+    color: black;
+    text-decoration: none;
+}
+
+header img {
+    height: 80px;
+    margin-left: 40px;
+}
+
+body {
+    height: 125vh;
+    background-image: "img/background.jpg";
+    background-size: cover;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+}
+
+main {
+    color: white;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+}
+
+header * {
+    display: inline;
+}
+
+header li {
+    margin: 20px;
+}
+
+header li a {
+    color: black;
+    text-decoration: none;
+}
+
+.but {
+    border: 0.05cm solid gray;
+    background-color: grey;
+}
+
+.but {
+    width: 6cm;
+    height: 50px;
+    margin: auto;
+    display: block;
+}
+
+.but {
+    background-color: grey;
+    color: black;
+    border: 2px solid #555555;
+    align-self: center;
+}
+
+.but:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.z {
+    text-align: center;
 }
