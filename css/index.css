@@ -2,7 +2,7 @@ nav {
     /* class = "noborders" style="background-color: papayawhip; height: 50px; width: 100;" */
     border: 1px solid wheat(248, 230, 114);
     text-align: center;
-    background-color: gray;
+    background-color: white;
 }
 
 
@@ -17,7 +17,7 @@ nav ul {
 nav>ul>li {
     display: inline-block;
     position: relative;
-    padding: 10px;
+    padding: 1px;
 }
 
 nav ul a {
@@ -52,6 +52,10 @@ nav>ul>li:hover>ul {
     display: block;
 }
 
+header>ul>li>ul {
+    size: 10mm;
+}
+
 .noborder {
     border: 0px solid white;
 }
@@ -82,10 +86,6 @@ caret-color {
 
 li {
     padding-bottom: 30px;
-}
-
-.nofair {
-    color: black;
 }
 
 .form1 {
