@@ -29,7 +29,7 @@ nav ul a {
 /* Level 2 menu */
 
 nav ul li ul {
-    width: 130px;
+    width: 250px;
     position: absolute;
     left: -40px;
     z-index: 999;
@@ -81,7 +81,7 @@ div {
 }
 
 caret-color {
-    color: green;
+    color: #4CAF50;
 }
 
 li {
@@ -509,4 +509,14 @@ header li a {
     font-size: 15px;
     background-color: #e7e7e7;
     color: black;
+}
+
+.notext:link {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.notext:hover {
+    color: #4CAF50;
+    text-decoration: underline;
 }
