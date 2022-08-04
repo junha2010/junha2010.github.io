@@ -500,3 +500,8 @@ header li a {
 .z {
     text-align: center;
 }
+
+.sant {
+    border: 1mm 5mm solid black;
+    background-color: lightgrey;
+}
