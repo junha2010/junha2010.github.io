@@ -505,3 +505,27 @@ header li a {
     border: 1mm 5mm solid black;
     background-color: lightgrey;
 }
+
+.but {
+    border: 0.05cm solid gray;
+    background-color: grey;
+}
+
+.but {
+    width: 6cm;
+    height: 50px;
+    margin: auto;
+    display: block;
+}
+
+.but {
+    background-color: grey;
+    color: black;
+    border: 2px solid #555555;
+    align-self: center;
+}
+
+.but:hover {
+    background-color: #555555;
+    color: white;
+}
