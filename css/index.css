@@ -501,31 +501,12 @@ header li a {
     text-align: center;
 }
 
-.sant {
+.sent {
     border: 1mm 5mm solid black;
     background-color: lightgrey;
-}
-
-.but {
-    border: 0.05cm solid gray;
-    background-color: grey;
-}
-
-.but {
-    width: 6cm;
-    height: 50px;
-    margin: auto;
-    display: block;
-}
-
-.but {
-    background-color: grey;
+    z-index: 999;
+    margin-left: 100px;
+    font-size: 15px;
+    background-color: #e7e7e7;
     color: black;
-    border: 2px solid #555555;
-    align-self: center;
-}
-
-.but:hover {
-    background-color: #555555;
-    color: white;
 }
