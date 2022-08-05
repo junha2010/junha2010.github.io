@@ -511,12 +511,15 @@ header li a {
     color: black;
 }
 
-.notext:link {
-    color: #4CAF50;
-    text-decoration: none;
+.bg {
+    background-color: darkgray;
+    border: 0px 0px solid darkgray;
 }
 
-.notext:hover {
-    color: #4CAF50;
-    text-decoration: underline;
+.nopadding {
+    padding: 0.
+}
+
+footer>div {
+    padding: 0px;
 }
