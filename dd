@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Never-Wet</title>
+    <link href="img/junha.png" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+
+
+</head>
+<style>
+    p {
+        font-family: "Arial Black", sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+    
+    .s1 {
+        text-shadow: 2px 2px 2px gray;
+    }
+    
+    .s2 {
+        text-shadow: 4px 2px 2px gray;
+    }
+    
+    .s3 {
+        color: black;
+    }
+    
+    .nn {
+        font-size: 30px;
+    }
+    
+    .w3rcontainer {
+        border: 1px solid #cccfdb;
+        border-radius: 2px;
+    }
+    
+    .hover-underline-animation {
+        display: inline-block;
+        position: relative;
+        color: black;
+    }
+    
+    .hover-underline-animation:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: green;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+    }
+    
+    .hover-underline-animation:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+</style>
+
+<body>
+    <header>
+        <a href="index.html"><img src="img/logo.gif" alt="" width="95px" height="150px"></a>
+        <nav>
+
+            <ul>
+                <li>
+
+                    <p class="s3 ">TEST</p>
+
+                    <ul>
+                        <h3>
+                            <li><a class="hover-underline-animation" target="_blank" href="cake.html">cake</a></li>
+                            <br>
+                            <li><a class="hover-underline-animation" target="_blank" href="sport.html">sport</a></li>
+                            <br>
+                            <li><a class="hover-underline-animation" target="_blank" href="dice.html">dice</a></li>
+                            <br>
+                            <li><a class="hover-underline-animation" target="_blank" href="moving.html">moving heli</a></li>
+                            <br>
+                            <li><a class="hover-underline-animation" target="_blank" href="RGB.html">rgb</a></li>
+                            <br>
+                            <li><a class="hover-underline-animation" target="_blank" href="seartch.html">searchbox</a></li>
+                            <br>
+                            <li><a class="hover-underline-animation" target="_blank" href="video.html">Downloads</a></li>
+                            <br>
+                            <li><a class="hover-underline-animation" target="_blank" href="camaera.html">Camaera Code</a></li>
+                            <br>
+                            <li><a class="hover-underline-animation" target="_blank" href="coloring.html">coloring</a></li>
+                            <br>
+                            <li><a class="hover-underline-animation" target="_blank" href="x3d.html">x3d</a></li>
+                            <br>
+                            <li><a class="hover-underline-animation" target="_blank" href="space.html">x3d space</a></li>
+                            <br>
+
+                            <li><a class="hover-underline-animation" target="_blank" href="index2.html">footer</a></li>
+                            <br>
+                        </h3>
+                    </ul>
+                </li>
+                <li>
+
+                </li>
+                <li>
+                    <p class="s3">GAMES</p>
+                    <ul>
+                        <h3>
+                            <li><a class="hover-underline-animation" target="_blank" href="Crosses.html">Noughts and Crosses</a></li>
+                            <li><a class="hover-underline-animation" target="_blank" href="snake.html">snake game</a></li>
+                        </h3>
+                    </ul>
+                </li>
+                <li>
+
+                </li>
+                <li>
+                    <p class="s3">ME!</p>
+                    <ul>
+                        <h3>
+                            <li><a class="hover-underline-animation" target="" href="home.html">home</a></li>
+                        </h3>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <p class="s3">
+                        <li>
+
+                            <a class="hover-underline-animation" style="color: #4CAF50; font-style:italic; font-size: 5vh;" href="d.html">Sign Up</a>
+
+                        </li>
+                    </p>
+                    <ul>
+                        <h3>
+
+                        </h3>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <p class="s3">
+
+                    </p>
+                    <ul>
+                        <h3>
+
+                        </h3>
+
+
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <h2 style="text-align:center">Welcome to Team never-wet!</h2>
+    <h2 style="text-align:center"></h2>
+
+    <h2 style="text-align:center"></h2>
+
+    <h2 style="text-align:center"></h2>
+
+    <h2 style="text-align:center"></h2>
+
+    <h2 style="text-align:center">This is our team member. if you want to join us? then send to my email or this email [parkj8325@wrdsb.ca].<br> here a condition of join<br> ↓
+        <ol>
+            <li> only 8~12 years old </li>
+            <li>Show me your NEVER-WET hat!</li>
+        </ol>
+
+    </h2>
+
+
+    <main class="main_container">
+        <aside class="leftside">
+
+            <img src="img/junha.png" alt="leader">
+            <div>Junha[Team Leader]</div>
+            <div>heavenly.junha@gmail.com</div>
+            <button class="send" type="button" class="navyBtn" onClick="location.href = 'mailto:heavenly.junha@gmail.com'">send email</button>
+        </aside>
+        <article class="main"></article>
+        <aside class="rightside">
+
+            <img src="img/junha.png" alt="otis">
+            <div>Otis[manager]</div>
+            <div>IDK</div>
+        </aside>
+
+        <aside class="middle" style="padding-top:10px ;">
+
+            <img src="img/junha.png" alt="Juha">
+            <div>Juha[manager]</div>
+            <div>heavenly.juha@gmail.com</div>
+        </aside>
+    </main>
+
+    <br>
+    <br><br><br><br><br><br><br>
+
+    <footer class="nopadding" style="background-color:rgb(56, 58, 56); padding: 0%;">
+        <div style="padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        ; border: 1px  solid gary ;
+        border-radius: 0px;     
+    padding:0; bottom: 0;
+    ">
+            <a target="_blank" href="https://www.facebook.com/groups/752841245981743"><img style="border:0px; padding: 10px; " src="img/facebook.png" width="42px" height="42px"></a>
+            <a target="_blank" href="https://scratch.mit.edu/studios/31940888"><img style="border:0px; padding: 10px; " src="img/scratch.png" width="42px" height="42px"></a>
+        </div>
+    </footer>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>

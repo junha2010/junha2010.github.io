@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="css/signup.css">
     <meta charset="utf-8" />
     <title>Sign up</title>
 </head>
@@ -11,21 +12,21 @@
     <section>
         <h1>Sign up page</h1>
     </section>
-
-    <section>
-        <form name="login" action="index.html" method="post">
-            ID verification<br>
-            <input type="text" name="user_ID" placeholder="ID input">
-            <input type="button" name="user_IDcheck" value="ID verification">
-            <br> password
-            <br>
-            <input type="password" name="user_PW1" value="123456"><br> reconfirm password<br>
-            <input type="password" name="user_PW2" value="123456">
-            <input type="button" name="user_PWcheck" value="reconfirm password">
-            <br><br> name
-            <br> <input type="text" name="user_name" value=""> <br> date of birth
-            <br>
-            <select name="year">
+    <div class="button">
+        <section>
+            <form name="login" action="index.html" method="post">
+                ID verification<br>
+                <input type="text" name="user_ID" placeholder="ID input">
+                <input type="button" name="user_IDcheck" value="ID verification">
+                <br> password
+                <br>
+                <input type="password" name="user_PW1" value="123456"><br> reconfirm password<br>
+                <input type="password" name="user_PW2" value="123456">
+                <input type="button" name="user_PWcheck" value="reconfirm password">
+                <br><br> name
+                <br> <input type="text" name="user_name" value=""> <br> date of birth
+                <br>
+                <select name="year">
         <option value="">-- Choice --</option>
         <option value="1995">2010</option>
         <option value="1996">2011</option>
@@ -34,7 +35,7 @@
         <option value="1999">2014</option>
         <option value="2000">2015</option>
       </select>
-            <select name="month">
+                <select name="month">
         <option value="">-- Choice --</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -49,7 +50,7 @@
         <option value="11">11</option>
         <option value="12">12</option>
       </select>
-            <select name="day">
+                <select name="day">
         <option value="">-- Choice --</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -83,31 +84,31 @@
         <option value="30">30</option>
         <option value="31">31</option>
       </select>
-            <br><br> jender
-            <br>
-            <label for="man">man</label>
-            <input type="radio" name="gender" value="m" id="man">
-            <label for="woman">woman</label>
-            <input type="radio" name="gender" value="m" id="woman"> <br><br> email
-            <br><input type="email" name="user_email" placeholder="email@gmail.com"><br><br> phone number
-            <br>
-            <input type="text" name="user_phone" placeholder="+1-****-****">
-            <input type="button" name="certification" value="Get authentication number"><br>
-            <input type="text" name="certification" placeholder="type password">
-            <input type="button" name="certification" value="Check"><br><br> Interest
-            <br> IT
-            <input type="checkbox" name="check" value="hobby1"> security
-            <input type="checkbox" name="check" value="hobby2"> web
-            <input type="checkbox" name="check" value="hobby3"> server
-            <input type="checkbox" name="check" value="hobby4">
-            <br><br> Your picture <br>
-            <input type="file" name="" value="">
-            <br><br><br>
-            <input type="submit" name="" value="submit">
+                <br><br> jender
+                <br>
+                <label for="man">man</label>
+                <input type="radio" name="gender" value="m" id="man">
+                <label for="woman">woman</label>
+                <input type="radio" name="gender" value="m" id="woman"> <br><br> email
+                <br><input type="email" name="user_email" placeholder="email@gmail.com"><br><br> phone number
+                <br>
+                <input type="text" name="user_phone" placeholder="+1-****-****">
+                <input type="button" name="certification" value="Get authentication number"><br>
+                <input type="text" name="certification" placeholder="type password">
+                <input type="button" name="certification" value="Check"><br><br> Interest
+                <br> IT
+                <input type="checkbox" name="check" value="hobby1"> security
+                <input type="checkbox" name="check" value="hobby2"> web
+                <input type="checkbox" name="check" value="hobby3"> server
+                <input type="checkbox" name="check" value="hobby4">
+                <br><br> Your picture <br>
+                <input type="file" name="" value="">
+                <br><br><br>
+                <input type="submit" name="" value="submit">
 
-        </form>
-    </section>
-
+            </form>
+        </section>
+    </div>
 
 </body>
 
