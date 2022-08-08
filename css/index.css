@@ -1,525 +1,532 @@
-nav {
-    /* class = "noborders" style="background-color: papayawhip; height: 50px; width: 100;" */
-    border: 1px solid wheat(248, 230, 114);
-    text-align: center;
-    background-color: white;
-}
-
-
-/* Level 1 menu */
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav>ul>li {
-    display: inline-block;
-    position: relative;
-    padding: 1px;
-}
-
-nav ul a {
-    color: black;
-    text-decoration: none;
-}
-
-
-/* Level 2 menu */
-
-nav ul li ul {
-    width: 250px;
-    position: absolute;
-    left: -40px;
-    z-index: 999;
-    text-align: left;
-    background-color: white;
-    box-shadow: 0 0 5px black;
-    box-sizing: border-box;
-}
-
-nav ul li ul li a {
-    display: block;
-    text-align: center;
-}
-
-nav>ul>li>ul {
-    display: none;
-}
-
-nav>ul>li:hover>ul {
-    display: block;
-}
-
-header>ul>li>ul {
-    size: 10mm;
-}
-
-.noborder {
-    border: 0px solid white;
-}
-
-.ttt {
-    border: 0px solid white;
-}
-
-img {
-    border: 2px solid gray;
-    border-radius: 25px;
-}
-
-div {
-    border: 2px solid gray;
-    padding: 10px;
-    border-radius: 50px 20px;
-}
-
-.main_container {
-    display: grid;
-    grid-template-columns: 2fr 8fr 3fr;
-}
-
-caret-color {
-    color: #4CAF50;
-}
-
-li {
-    padding-bottom: 30px;
-}
-
-.form1 {
-    position: initial;
-    background-position-x: right;
-    background-color: wheat;
-    display: inline;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-}
-
-header img {
-    height: 80px;
-    border: 0px;
-}
-
-header>a {
-    padding: 0px;
-}
-
-header img {
-    height: 80px;
-}
-
-header img {
-    height: 80px;
-}
-
-body {
-    height: 125vh;
-    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
-    background-size: cover;
-    font-family: sans-serif;
-}
-
-header img {
-    height: 80px;
-}
-
-body {
-    height: 125vh;
-    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
-    background-size: cover;
-    font-family: sans-serif;
-}
-
-main {
-    color: white;
-}
-
-header img {
-    height: 80px;
-}
-
-body {
-    height: 125vh;
-    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
-    background-size: cover;
-    font-family: sans-serif;
-}
-
-main {
-    color: white;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-}
-
-header img {
-    height: 80px;
-}
-
-body {
-    height: 125vh;
-    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-}
-
-main {
-    color: white;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-}
-
-header img {
-    height: 80px;
-}
-
-body {
-    height: 125vh;
-    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
-}
-
-main {
-    color: white;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-}
-
-header img {
-    height: 80px;
-}
-
-body {
-    height: 125vh;
-    background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
-}
-
-main {
-    color: white;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-}
-
-header * {
-    display: inline;
-}
-
-s header img {
-    height: 80px;
-}
-
-body {
-    height: 125vh;
-    background-image: "img/background.jpg";
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
-}
-
-main {
-    color: white;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    display: flex;
-}
-
-header * {
-    display: inline;
-}
-
-header img {
-    height: 80px;
-}
-
-body {
-    height: 125vh;
-    background-image: "img/background.jpg";
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
-}
-
-main {
-    color: white;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    display: flex;
-    align-items: center;
-}
-
-header * {
-    display: inline;
-}
-
-header img {
-    height: 80px;
-}
-
-body {
-    height: 125vh;
-    background-image: "img/background.jpg";
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
-}
-
-main {
-    color: white;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    display: flex;
-    align-items: center;
-}
-
-header * {
-    display: inline;
-}
-
-header li {
-    margin: 20px;
-}
-
-header img {
-    height: 80px;
-}
-
-body {
-    height: 125vh;
-    background-image: "img/background.jpg";
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
-}
-
-main {
-    color: white;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    display: flex;
-    align-items: center;
-}
-
-header * {
-    display: inline;
-}
-
-header li {
-    margin: 20px;
-}
-
-header li a {
-    color: black;
-    text-decoration: none;
-}
-
-header img {
-    height: 80px;
-    margin-left: 40px;
-}
-
-body {
-    height: 125vh;
-    background-image: "img/background.jpg";
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
-}
-
-main {
-    color: white;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    display: flex;
-    align-items: center;
-}
-
-header * {
-    display: inline;
-}
-
-header li {
-    margin: 20px;
-}
-
-header li a {
-    color: black;
-    text-decoration: none;
-}
-
-header img {
-    height: 80px;
-    margin-left: 40px;
-}
-
-body {
-    height: 125vh;
-    background-image: "img/background.jpg";
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
-}
-
-main {
-    color: white;
-}
-
-header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 0 25px 0 black;
-}
-
-header * {
-    display: inline;
-}
-
-header li {
-    margin: 20px;
-}
-
-header li a {
-    color: black;
-    text-decoration: none;
-}
-
-.but {
-    border: 0.05cm solid gray;
-    background-color: grey;
-}
-
-.but {
-    width: 6cm;
-    height: 50px;
-    margin: auto;
-    display: block;
-}
-
-.but {
-    background-color: grey;
-    color: black;
-    border: 2px solid #555555;
-    align-self: center;
-}
-
-.but:hover {
-    background-color: #555555;
-    color: white;
-}
-
-.z {
-    text-align: center;
-}
-
-.sent {
-    border: 1mm 5mm solid black;
-    background-color: lightgrey;
-    z-index: 999;
-    margin-left: 100px;
-    font-size: 15px;
-    background-color: #e7e7e7;
-    color: black;
-}
-
-.bg {
-    background-color: darkgray;
-    border: 0px 0px solid darkgray;
-}
-
-.nopadding {
-    padding: 0.
-}
-
-footer>div {
-    padding: 0px;
-}
+    nav {
+        /* class = "noborders" style="background-color: papayawhip; height: 50px; width: 100;" */
+        border: 1px solid wheat(248, 230, 114);
+        text-align: center;
+        background-color: white;
+    }
+    /* Level 1 menu */
+    
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    nav>ul>li {
+        display: inline-block;
+        position: relative;
+        padding: 1px;
+    }
+    
+    nav ul a {
+        color: black;
+        text-decoration: none;
+    }
+    /* Level 2 menu */
+    
+    nav ul li ul {
+        width: 250px;
+        position: absolute;
+        left: -40px;
+        z-index: 999;
+        text-align: left;
+        background-color: white;
+        box-shadow: 0 0 5px black;
+        box-sizing: border-box;
+    }
+    
+    nav ul li ul li a {
+        display: block;
+        text-align: center;
+    }
+    
+    nav>ul>li>ul {
+        display: none;
+    }
+    
+    nav>ul>li:hover>ul {
+        display: block;
+    }
+    
+    header>ul>li>ul {
+        size: 10mm;
+    }
+    
+    .noborder {
+        border: 0px solid white;
+    }
+    
+    .ttt {
+        border: 0px solid white;
+    }
+    
+    img {
+        border: 2px solid gray;
+        border-radius: 25px;
+    }
+    
+    div {
+        border: 2px solid gray;
+        padding: 10px;
+        border-radius: 50px 20px;
+    }
+    
+    .main_container {
+        display: grid;
+        grid-template-columns: 2fr 8fr 3fr;
+    }
+    
+    caret-color {
+        color: #4CAF50;
+    }
+    
+    li {
+        padding-bottom: 30px;
+    }
+    
+    .form1 {
+        position: initial;
+        background-position-x: right;
+        background-color: wheat;
+        display: inline;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+    }
+    
+    header img {
+        height: 80px;
+        border: 0px;
+    }
+    
+    header>a {
+        padding: 0px;
+    }
+    
+    header img {
+        height: 80px;
+    }
+    
+    header img {
+        height: 80px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+        background-size: cover;
+        font-family: sans-serif;
+    }
+    
+    header img {
+        height: 80px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+        background-size: cover;
+        font-family: sans-serif;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header img {
+        height: 80px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+        background-size: cover;
+        font-family: sans-serif;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+    }
+    
+    header img {
+        height: 80px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 80px;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+    }
+    
+    header img {
+        height: 80px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 80px;
+        padding: 30px;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+    }
+    
+    header img {
+        height: 80px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: url('https://codetheweb.blog/assets/img/posts/style-a-navigation-bar-css/background.jpg');
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 80px;
+        padding: 30px;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+    }
+    
+    header * {
+        display: inline;
+    }
+    
+    s header img {
+        height: 80px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: "img/background.jpg";
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 80px;
+        padding: 30px;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        display: flex;
+    }
+    
+    header * {
+        display: inline;
+    }
+    
+    header img {
+        height: 80px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: "img/background.jpg";
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 80px;
+        padding: 30px;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+    
+    header * {
+        display: inline;
+    }
+    
+    header img {
+        height: 80px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: "img/background.jpg";
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 80px;
+        padding: 30px;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+    
+    header * {
+        display: inline;
+    }
+    
+    header li {
+        margin: 20px;
+    }
+    
+    header img {
+        height: 80px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: "img/background.jpg";
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 80px;
+        padding: 30px;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+    
+    header * {
+        display: inline;
+    }
+    
+    header li {
+        margin: 20px;
+    }
+    
+    header li a {
+        color: black;
+        text-decoration: none;
+    }
+    
+    header img {
+        height: 80px;
+        margin-left: 40px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: "img/background.jpg";
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 80px;
+        padding: 30px;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+    
+    header * {
+        display: inline;
+    }
+    
+    header li {
+        margin: 20px;
+    }
+    
+    header li a {
+        color: black;
+        text-decoration: none;
+    }
+    
+    header img {
+        height: 80px;
+        margin-left: 40px;
+    }
+    
+    body {
+        height: 125vh;
+        background-image: "img/background.jpg";
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 80px;
+        padding: 30px;
+    }
+    
+    main {
+        color: white;
+    }
+    
+    header {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 0 25px 0 black;
+    }
+    
+    header * {
+        display: inline;
+    }
+    
+    header li {
+        margin: 20px;
+    }
+    
+    header li a {
+        color: black;
+        text-decoration: none;
+    }
+    
+    .but {
+        border: 0.05cm solid gray;
+        background-color: grey;
+    }
+    
+    .but {
+        width: 6cm;
+        height: 50px;
+        margin: auto;
+        display: block;
+    }
+    
+    .but {
+        background-color: grey;
+        color: black;
+        border: 2px solid #555555;
+        align-self: center;
+    }
+    
+    .but:hover {
+        background-color: #555555;
+        color: white;
+    }
+    
+    .z {
+        text-align: center;
+    }
+    
+    .send {
+        width: 100px;
+        height: 40px;
+        border-radius: 4px;
+        background-color: #F9423D;
+        outline: none;
+        border: none;
+        color: #fff;
+        font-size: 1rem;
+        z-index: 999;
+        position: relative;
+        left: 150px;
+        top: 2px;
+    }
+    
+    .send:hover {
+        cursor: pointer;
+        background-color: #337AF1;
+        transition: all 0.4s ease-out;
+    }
+    
+    .bg {
+        background-color: darkgray;
+        border: 0px 0px solid darkgray;
+    }
+    
+    .nopadding {
+        padding: 0.
+    }
+    
+    footer>div {
+        padding: 0px;
+    }
