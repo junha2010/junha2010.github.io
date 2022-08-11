@@ -17,3 +17,23 @@
 .header-common h2 {
     text-align: center;
 }
+
+.dashboard {
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #337AF1;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+.dashboard:hover {
+    cursor: pointer;
+    background-color: #F9423D;
+    transform-origin: bottom middle;
+    transition: 0.3s ease-out;
+    text-decoration: none;
+}
