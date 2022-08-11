@@ -27,7 +27,6 @@
     border: none;
     color: #fff;
     font-size: 1rem;
-    text-decoration: underline;
 }
 
 .dashboard:hover {
@@ -35,5 +34,4 @@
     background-color: #F9423D;
     transform-origin: bottom middle;
     transition: 0.3s ease-out;
-    text-decoration: none;
 }
