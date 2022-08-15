@@ -34,6 +34,10 @@ header .logo {
     letter-spacing: 2px;
 }
 
+header .logo img {
+    margin-bottom: -17px;
+}
+
 header ul {
     display: flex;
     justify-content: center;
