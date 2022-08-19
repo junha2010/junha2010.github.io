@@ -18,7 +18,11 @@ body {
     position: relative;
     width: 540px;
     height: 120px;
-    box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25), 10px 10px 70px rgba(0, 0, 0, 0.25), inset 5px 5px 10px rgba(0, 0, 0, 0.5), inset 5px 5px 20px rgba(255, 255, 255, 0.5), inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+    box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25), 
+    10px 10px 70px rgba(0, 0, 0, 0.25), 
+    inset 5px 5px 10px rgba(0, 0, 0, 0.5), 
+    inset 5px 5px 20px rgba(255, 255, 255, 0.5), 
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -37,7 +41,7 @@ body {
     position: absolute;
     top: 35px;
     left: 50%;
-    transform: translateX(-50px);
+    transform: translateX(-50%);
     width: 5px;
     height: 5px;
     background: #222;
@@ -72,15 +76,17 @@ body {
     transition-delay: 0.2s;
 }
 
-.navigation li .active a .icon {
+.navigation li.active a .icon {
     background: #29fd53;
     color: #fff;
     transform: translateY(-55px);
-    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25), inset 2px 2px 3px rgba(255, 255, 255, 0.25), inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25), 
+    inset 2px 2px 3px rgba(255, 255, 255, 0.25), 
+    inset -3px -3px 5px rgba(0, 0, 0, 0.5);
     transition-delay: 0s;
 }
 
-.navigation li .active a .icon::before {
+.navigation li.active a .icon::before {
     transform: scale(1);
 }
 
@@ -109,7 +115,7 @@ body {
     transition-delay: 0s;
 }
 
-.navigation li .active a .text {
+.navigation li.active a .text {
     opacity: 1;
     transform: translateY(10px);
     transition-delay: 0.2s;
