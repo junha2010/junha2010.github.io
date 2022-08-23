@@ -5,6 +5,7 @@
 .header-common {
     color: white;
     display: block;
+    /* padding: 100px; */
 }
 
 .header-img {
@@ -28,9 +29,117 @@
     font-size: 1rem;
 }
 
+div {
+    padding: 100px;
+}
+
 .dashboard:hover {
     cursor: pointer;
     background-color: #F9423D;
+    transform-origin: bottom middle;
+    transition: 0.3s ease-out;
+}
+
+.intro {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #999271;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.intro:hover {
+    cursor: pointer;
+    background-color: #98edae;
+    transform-origin: bottom middle;
+    transition: 0.3s ease-out;
+}
+
+.moonlighthh {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #6a3dda;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.moonlighthh:hover {
+    cursor: pointer;
+    background-color: purple;
+    transform-origin: bottom middle;
+    transition: 0.3s ease-out;
+}
+
+.csseffecyt {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #222232;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25), 10px 10px 70px rgba(0, 0, 0, 0.25), inset 5px 5px 10px rgba(0, 0, 0, 0.5), inset 5px 5px 20px rgba(255, 255, 255, 0.5), inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+    border-radius: 30px;
+}
+
+.csseffecyt:hover {
+    cursor: pointer;
+    background-color: gray;
+    transform-origin: bottom middle;
+    transition: 0.3s ease-out;
+}
+
+.navigation {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.navigation:hover {
+    cursor: pointer;
+    background-color: greenyellow;
+    transform-origin: bottom middle;
+    transition: 0.3s ease-out;
+}
+
+.simplenav {
+    color: peru;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.simplenav:hover {
+    cursor: pointer;
+    background-color: #246789;
+    transform-origin: bottom middle;
+    transition: 0.3s ease-out;
+}
+
+.simple {
+    color: #246789;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #246789;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.simple:hover {
+    cursor: pointer;
+    background-color: #019283;
     transform-origin: bottom middle;
     transition: 0.3s ease-out;
 }
