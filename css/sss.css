@@ -19,8 +19,7 @@
 }
 
 .dashboard {
-    width: 100px;
-    height: 40px;
+    padding: 10px;
     border-radius: 4px;
     background-color: #337AF1;
     outline: none;
