@@ -29,10 +29,6 @@
     font-size: 1rem;
 }
 
-div {
-    padding: 100px;
-}
-
 .dashboard:hover {
     cursor: pointer;
     background-color: #F9423D;
