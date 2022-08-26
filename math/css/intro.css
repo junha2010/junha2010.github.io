@@ -36,3 +36,27 @@ header .text {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+header ul {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+header ul li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #7b8aff;
+    border-radius: 20px;
+}
+
+header ul li a:hover,
+header ul li a.active {
+    background: #8fb8ff;
+    color: #2b1055;
+}
