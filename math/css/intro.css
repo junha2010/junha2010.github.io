@@ -38,9 +38,11 @@ header .text {
 }
 
 header ul {
+    padding-right: 40px;
     display: flex;
     justify-content: right;
     align-items: right;
+    transform: translateY(36px);
 }
 
 header ul li {
