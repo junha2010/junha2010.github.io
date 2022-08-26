@@ -84,8 +84,3 @@ header ul li a.active {
     color: #ffc7ff;
     transition: 0.3s ease-out;
 }
-
-hr {
-    border: 10px;
-    color: #000;
-}
