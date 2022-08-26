@@ -89,3 +89,12 @@ hr {
     border: 10px;
     color: #000;
 }
+
+#text {
+    position: absolute;
+    right: -350px;
+    color: #fff;
+    white-space: nowrap;
+    font-size: 7.5vw;
+    z-index: 9;
+}
