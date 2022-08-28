@@ -67,13 +67,22 @@ header ul li a.active {
     border: 2px solid #00aae3;
     border-radius: 20px;
     padding: 10px;
-    margin-left: 100px;
+    margin-left: 200px;
     transform: translateY(38vh);
+}
+
+.borderyoutube {
+    display: inline-block;
+    border: 2px solid #00aae3;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: -124px;
+    transform: translateY(64vh);
 }
 
 .send {
     margin-left: -22vh;
-    transform: translateY(60vh);
+    transform: translateY(90vh);
     border-radius: 20px;
     background: #fde6ff;
     border: 2px solid #be00e6;
