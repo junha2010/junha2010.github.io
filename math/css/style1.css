@@ -96,10 +96,10 @@ body {
 .text-rainbow-animation {
     font-family: arial black;
     font-size: 46px;
-    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+    background-image: linear-gradient(to right, #f5adbe, #16efe9, #f3f5a8, #b1f6e0, #c8e7f9, #aca8ff, #f6b6f2, #ffb1c4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: rainbow-animation 100s linear infinite;
+    animation: rainbow-animation 215s linear infinite;
 }
 
 @keyframes rainbow-animation {
