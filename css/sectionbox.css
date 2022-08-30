@@ -10,3 +10,83 @@ hr {
     text-align: center;
     height: 5px;
 }
+
+.underline {
+    border: 3px solid #277168;
+}
+
+.junha {
+    display: inline;
+}
+
+.text {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.text:hover {
+    color: #277168;
+    text-decoration: underline;
+    transition: 0.5s ease-out;
+}
+
+body {
+    padding: 100px 50px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 30px;
+    line-height: 1.3;
+    color: #fff;
+    background-color: #7eb4e2;
+}
+
+ul {
+    margin: 100px auto 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0;
+    max-width: 600px;
+}
+
+@media screen and (min-width: 600px) {
+    ul {
+        flex-direction: row;
+    }
+}
+
+li {
+    position: relative;
+    padding: 15px 0;
+}
+
+a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    background: none repeat scroll 0 0 transparent;
+    height: 2px;
+    width: 0;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+
+a:hover::after {
+    width: 100%;
+    left: 0;
+}
