@@ -3,10 +3,10 @@ body {
 }
 
 hr {
-    border: 1px solid gray;
-    border-radius: 10px;
-    background-color: antiquewhite;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    border: none;
+    border-top: 5px double #277168;
+    color: #277168;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
 }
