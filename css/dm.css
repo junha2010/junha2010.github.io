@@ -108,6 +108,10 @@ body {
     border-radius: 15px;
 }
 
+.menu li label .action input:checked~i {
+    background: #2aa0ff;
+}
+
 .menu li label .action i::before {
     content: '';
     position: absolute;
