@@ -15,6 +15,10 @@ body {
     transition: 0.5s;
 }
 
+.darkMode {
+    background: #222;
+}
+
 .box {
     position: relative;
     width: 300px;
@@ -22,6 +26,11 @@ body {
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+}
+
+.darkMode .box {
+    background: #292929;
 }
 
 .profile {
@@ -55,10 +64,18 @@ body {
     line-height: 1.2em;
 }
 
+.darkMode .profile .text {
+    color: #ddd;
+}
+
 .profile .text span {
     font-weight: 400;
     font-size: 0.85em;
     color: #555;
+}
+
+.darkMode .profile .text span {
+    color: #aaa;
 }
 
 .menu {
