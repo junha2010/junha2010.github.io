@@ -43,7 +43,17 @@
         </ul>
 
     </header>
-
+    <ul>
+        <li>
+            <label>
+            <span class="title"><ion-icon name="moon"></ion-icon> Dark Mode</span>
+            <span class="action">
+                <input type="checkbox" id="dark">
+                <i></i>
+            </span>
+        </label>
+        </li>
+    </ul>
     <table>
         <a target="_blank" class="border" style="margin-top: -579px; margin-right: auto;" href="https://scratch.mit.edu/"><img src="img/scratch.png" alt="" width="100px" height="100px"></a>
         <a target="_blank" class="borderyoutube" style="margin-top: -579px; margin-right: auto;" href="https://youtube.com"><img src="img/youtube.png" alt="" width="100px" height="100px"></a>
@@ -54,5 +64,17 @@
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+    let body = document.querySelector('body');
+    let dark = document.querySelector('#dark');
+
+    dark.onclick = function() {
+        if (dark.checked == true) {
+            body.classList.add('darkMode');
+        } else {
+            body.classList.remove('darkMode')
+        }
+    }
+</script>
 
 </html>
