@@ -10,7 +10,6 @@
 body {
     min-height: 100vh;
     /* overflow: hidden; */
-    background: linear-gradient(#b3feff, #ffdbfd);
 }
 
 header {
@@ -234,7 +233,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #f0f0f0;
+    background: linear-gradient(#b3feff, #ffdbfd);
     transition: 0.5s;
 }
 
