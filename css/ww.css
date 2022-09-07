@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+    border-radius: 50%;
+    border: 10px solid #12345670
+}
+
+.circle img {
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border-radius: 50%;
+}

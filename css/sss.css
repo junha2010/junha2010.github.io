@@ -140,6 +140,25 @@
     transition: 0.3s ease-out;
 }
 
+.clock {
+    color: #246789;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05), inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3), 0 15px 15px rgba(0, 0, 0, 0.3);
+    ;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.clock:hover {
+    cursor: pointer;
+    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05), inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3), 0 15px 15px rgba(0, 0, 0, 0.3);
+    ;
+    transform-origin: bottom middle;
+    transition: 0.3s ease-out;
+}
+
 * {
     padding: 0;
     margin: 0;
