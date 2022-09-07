@@ -15,6 +15,7 @@ body {
 .clock {
     width: 350px;
     height: 350px;
+    display: flex;
     align-items: center;
     justify-content: center;
     background: url(img/clock.png);
@@ -62,8 +63,10 @@ body {
 .mn,
 .sc {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
+    position: absolute;
+    border: 50%;
 }
 
 .hr::before {
@@ -72,4 +75,26 @@ body {
     width: 8px;
     height: 80px;
     background: #ff105e;
+    z-index: 10;
+    border-radius: 6px 6px 0 0;
+}
+
+.mn::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 90px;
+    background: #fff;
+    z-index: 11;
+    border-radius: 6px 6px 0 0;
+}
+
+.sc::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: #fff;
+    z-index: 12;
+    border-radius: 6px 6px 0 0;
 }
