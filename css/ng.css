@@ -53,9 +53,35 @@ body {
 
 @keyframes animate {
     0% {
-        transform: rotate(0edg);
+        transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360edg);
+        transform: rotate(360deg);
     }
+}
+
+.text {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    animation: animateText 25s linear infinite;
+}
+
+@keyframes animateText {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.text b {
+    position: absolute;
+    left: 50%;
+    display: block;
+    transform-origin: 0 170px;
+    font-weight: normal;
+    font-size: 1.4em;
 }

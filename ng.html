@@ -11,8 +11,16 @@
 
 <body>
     <div class="loader">
+        <div class="text">
+            <p>I'm in airport now in canada</p>
+        </div>
         <span><i></i></span>
     </div>
+    <script>
+        let text = document.querySelector('.text p');
+        text.innerHTML = text.innerText.split("").map((char, i) =>
+            `<b style="transform:rotate(${i * 7.35}deg)">${char}</b>`).join("");
+    </script>
 </body>
 
 </html>
