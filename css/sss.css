@@ -169,14 +169,12 @@
     outline: none;
     border: none;
     font-size: 1rem;
+    transition: 0.5s;
 }
 
-.mmg:hover {
-    cursor: pointer;
-    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05), inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3), 0 15px 15px rgba(0, 0, 0, 0.3);
-    ;
-    transform-origin: bottom middle;
-    transition: 0.3s ease-out;
+.mmg:active {
+    background: #d63c3c;
+    transform: scale(0.95);
 }
 
 * {
