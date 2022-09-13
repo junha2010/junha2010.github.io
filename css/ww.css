@@ -43,15 +43,6 @@ ul li a:hover {
     transition: 0.5s;
 }
 
-h2 {
-    color: #fff;
-    position: relative;
-    top: -500px;
-    margin-left: 555px;
-    letter-spacing: 10px;
-    border-radius: 5px;
-    display: inline-block;
-    padding: 10px;
-    background: linear-gradient(45deg, var(--i), var(--j));
-    transition: 0.5s;
+.img {
+    align-items: center;
 }
