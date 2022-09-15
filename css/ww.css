@@ -9,40 +9,26 @@ body {
 }
 
 ul {
-    align-items: center;
-    justify-content: center;
-    margin: 100px;
+    top: 0;
     left: 0;
-    position: relative;
     display: flex;
-    /* letter-spacing: 50px; */
+    position: relative;
 }
 
 ul li {
-    list-style: none;
-    min-height: 100vh;
-}
-
-ul li a {
-    padding: 50px;
-    width: 50px;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    width: 100px;
     height: 50px;
-    border-radius: 10px;
-    color: #fff;
-    text-decoration: none;
-    transition: 0.5s;
-}
-
-ul li a:hover {
-    color: #222;
-    content: '';
-    inset: 0;
-    border-radius: 10px;
-    background: linear-gradient(45deg, var(--i), var(--j));
-    opacity: 1;
-    transition: 0.5s;
-}
-
-.img {
+    background: #375d23;
+    justify-content: center;
     align-items: center;
+    display: block;
+}
+
+ul li ion-icon {
+    position: relative;
+    color: #333;
+    font-size: 4em;
 }
