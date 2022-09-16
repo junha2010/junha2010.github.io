@@ -8,27 +8,62 @@ body {
     background: #222;
 }
 
-ul {
-    top: 0;
-    left: 0;
-    display: flex;
+.box {
     position: relative;
-}
-
-ul li {
-    top: 0;
-    left: 0;
-    padding: 10px;
-    width: 100px;
-    height: 50px;
-    background: #375d23;
     justify-content: center;
     align-items: center;
-    display: block;
+    margin: auto;
+    margin-top: 250px;
+    width: 50px;
+    height: 50px;
+    background: #111;
+    border-radius: 5px;
 }
 
-ul li ion-icon {
+.box:hover {}
+
+.icon {
     position: relative;
-    color: #333;
-    font-size: 4em;
+    margin: auto;
+    margin-top: -50px;
+    width: 50px;
+    height: 50px;
+    background: #111;
+    opacity: 0;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.icon:hover {
+    opacity: 1;
+    margin: auto;
+    margin-top: -127px;
+    width: 200px;
+    height: 200px;
+}
+
+.open {
+    background: #222;
+    border-radius: 7px;
+}
+
+.icon i {
+    position: absolute;
+    padding: 4px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+ion-icon {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: #fff;
+    transition: 0.5s;
+}
+
+ion-icon:hover {
+    color: var(--i);
 }
