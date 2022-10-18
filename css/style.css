@@ -8,11 +8,11 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #297eff;
+    /* background: #297eff; */
 }
 
 .search {
-    position: relative;
+    position: absolute;
     width: 60px;
     height: 60px;
     background: #fff;
@@ -20,6 +20,7 @@ body {
     transition: 0.5s;
     box-shadow: 0 0 0 5px #2573ef;
     overflow: hidden;
+    z-index: 999;
 }
 
 .search.active {
