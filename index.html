@@ -499,7 +499,9 @@
             const mysearch = document.querySelector('#mysearch');
             mysearch.addEventListener("keypress", function(e) {
                 if (e.key == 'Enter') {
-                    if (mysearch.value === "projects") {
+                    let re = /project/i;
+
+                    if (mysearch.value.match(re) != null) {
                         window.location.href = "/projects.html";
                     }
                 }
