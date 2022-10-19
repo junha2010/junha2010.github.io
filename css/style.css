@@ -18,7 +18,7 @@ body {
     background: #fff;
     border-radius: 60px;
     transition: 0.5s;
-    box-shadow: -5px -5px 0px 5px rgba(247, 19, 57, 0.914), 5px 5px 0px 7px rgba(34, 208, 235, 0.8);
+    box-shadow: -3px -3px 3px 5px rgba(251, 195, 75, 0.914), 3px 3px 3px 7px rgba(250, 10, 234, 0.8);
     overflow: hidden;
     z-index: 999;
 }
