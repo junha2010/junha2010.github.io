@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index.html</title>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+    </script>
 </head>
 
 <body>
@@ -36,7 +38,7 @@
             <i style="--i:22;"></i>
             <i style="--i:7;"></i>
             <i style="--i:21;"></i>
-            <i style="--i:10;"></i>
+            <i style="--i:10;"></i> 
             <i style="--i:20;"></i>
             <i style="--i:1;"></i>
             <i style="--i:12;"></i>
@@ -500,6 +502,18 @@
             icon.onclick = function() {
                 search.classList.toggle('active')
             }
+
+            const mysearch = document.querySelector('#mysearch');
+            mysearch.addEventListener("keypress", function (e) {
+                if (e.key == 'Enter')
+                {
+                    if ( mysearch.value === "projects")
+                    {
+                        window.location.href = "#";
+                    }
+                }
+            })
+
         </script>
     </body>
 
