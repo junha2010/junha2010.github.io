@@ -5,76 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주하의 첫웹사이트</title>
+    <title>주하의 첫 웹사이트</title>
     <link rel="stylesheet" href="css/style1.css">
 </head>
 
 <body>
-    <header>
+    <form method=get action="http://www.google.co.kr/search" class="search" target="_blank">
 
-        <!-- <a href="https://junha2010.github.io/math/index.html"> -->
-        <div class="text-rainbow-animation" style="margin-left: -70px;">주하의 첫웹사이트</div>
-        <!-- <hr style="border: 10px;color: #4dd5da7b; "> -->
+        <table bgcolor="#FFFFFF">
 
-        <ul>
-            <li style="--i:#a955ff;--j:#ea51ff">
-                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                <span class="title"><a href="family/home.html" style="color:#fff;text-decoration: none; ">Home</a></span>
+            <tr>
 
-            </li>
-            <li style="--i:#56CCF2;--j:#2F80ED">
-                <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
-                <span class="title"><a href="intro.html" style="color:#fff;text-decoration: none; ">About</a></span>
-            </li>
-            <li style="--i:#FF9966;--j:#FF0000">
-                <span class="icon"><ion-icon name="videocam-outline"></ion-icon></span>
-                <span class="title"><a href="#" style="color:#fff;text-decoration: none; ">Videos</a></span>
-            </li>
-            <li style="--i:#80FF72;--j:#7EE8FA">
-                <span class="icon"><ion-icon name="browsers-outline"></ion-icon></span>
-                <span class="title"><a href="#" style="color:#fff;text-decoration: none; ">Browser</a></span>
-            </li>
-            <li style="--i:#ffa9c6;--j:#f434e2">
-                <span class="icon"><ion-icon name="language-outline"></ion-icon></span>
-                <span class="title"><a href="#" style="color:#fff;text-decoration: none; ">Language</a></span>
-            </li>
-
-
-        </ul>
-
-    </header>
-    <ul style="margin-left: 50vh;" class="Darkmdoes">
-        <li>
-            <label>
-            <span class="title"><ion-icon name="moon"></ion-icon> Dark Mode</span>
-            <span class="action">
-                <input type="checkbox" id="dark">
-                <i></i>
-            </span>
-        </label>
-        </li>
-    </ul>
-    <table>
-        <a target="_blank" class="border" style="margin-top: -579px; margin-right: auto;" href="https://scratch.mit.edu/"><img src="img/scratch.png" alt="" width="100px" height="100px"></a>
-        <a target="_blank" class="borderyoutube" style="margin-top: -579px; margin-right: auto;" href="https://youtube.com"><img src="img/youtube.png" alt="" width="100px" height="100px"></a>
-        <button class="send" style="margin-top:-579px; margin-right: 1100px;" type="button" onClick="location.href = 'mailto:heavenly.junha@gmail.com'"><img src="img/Gmail-Logo.png" alt="" width="132px" height="90px"></button>
-    </table>
+                <td>
+                    <input type=text name=q size=25 maxlength=255 value="" />
+                    <!-- 구글 검색 입력 창 -->
+                    <input type=submit name=btnG value="Google 검색" />
+                    <!-- 검색 버튼 -->
+                </td>
+            </tr>
+        </table>
+    </form>
 
 </body>
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script>
-    let body = document.querySelector('body');
-    let dark = document.querySelector('#dark');
-
-    dark.onclick = function() {
-        if (dark.checked == true) {
-            body.classList.add('darkMode');
-        } else {
-            body.classList.remove('darkMode')
-        }
-    }
-</script>
 
 </html>
