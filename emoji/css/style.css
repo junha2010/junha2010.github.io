@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: serif;
+}
+body {
+    background: #eaeef0;
+}
+
+.box {
+    font-family: sans-serif;
+    letter-spacing: 5px;
+    width: 200px;
+    height: -5px;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+/* .emoji-box {
+    marign: 30px;
+} */
