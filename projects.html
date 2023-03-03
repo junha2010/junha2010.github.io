@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    
 
     <div class="search" style="margin-right: 0vh; margin-top: -70vh;">
         <div class="icon"></div>
@@ -19,17 +18,22 @@
         </div>
         <span class="clear" onclick="document.getElementById('mysearch').value = ''"></span>
     </div>
-    <a class="img-box" href="index.html"><div class="box box1"><p class="text">Home</p></div></a>
-   
+    <div class="box box1">
+        <a class="img-box" href="index.html">
+            <img src="img/home.png" style="display: block; align-content: center; width: 100%; height: 40%;"><br>
+            <p class="text">Home</p>
+        </a>
+    </div>
+
     <script>
         const icon = document.querySelector('.icon');
         const search = document.querySelector('.search');
-        icon.onclick = function() {
+        icon.onclick = function () {
             search.classList.toggle('active')
         }
 
         const mysearch = document.querySelector('#mysearch');
-        mysearch.addEventListener("keypress", function(e) {
+        mysearch.addEventListener("keypress", function (e) {
             if (e.key == 'Enter') {
                 let re = /home/i;
                 if (mysearch.value.match(re) != null) {

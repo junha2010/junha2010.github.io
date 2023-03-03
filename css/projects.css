@@ -121,27 +121,29 @@ body {
 
 
 .box {
-    width: 400px; height: 400px;
+    width: 30%; height: 50%;
+    /* max-width: 50em;
+    max-height: 50em; */
     background: #fff;
-    border-radius: 50px;
+    border-radius: 20px;
+    display: inline-box;
+    text-align: center;
+    overflow: hidden;
 }
 
 a {
-    color: #222;
-    margin-left: -800px;
-    margin-bottom: -120px;
-    font-size: 50px;
+    text-decoration: none;
+    color: #000;
 }
 
 
 .text {
-    display: inline-block;
+    display: inline-box;
     position: relative;
     color: #666;
+    font-size: 3em;
     font-weight: 600;
-    top: 330px;
-    left: 125px;
-    
+    text-align: center;
   }
   
   .text:after {
@@ -162,6 +164,4 @@ a {
     transform-origin: bottom left;
   }
 
-  .img {
-    overflow: hidden;
-  }
+ 
