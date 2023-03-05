@@ -122,8 +122,7 @@ body {
 
 .box {
     width: 30%; height: 50%;
-    /* max-width: 50em;
-    max-height: 50em; */
+    
     background: #fff;
     border-radius: 20px;
     display: inline-box;
@@ -134,6 +133,7 @@ body {
 a {
     text-decoration: none;
     color: #000;
+   
 }
 
 
