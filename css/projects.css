@@ -164,4 +164,12 @@ a {
     transform-origin: bottom left;
   }
 
- 
+  .container {
+	align-content: stretch;
+	align-content: start;
+	align-content: center;
+	align-content: end;
+	align-content: space-between;
+	align-content: space-around;
+	/* /* align-content: space-evenly; */
+}
