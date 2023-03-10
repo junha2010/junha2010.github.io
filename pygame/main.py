@@ -13,8 +13,11 @@ SPACESHIP_WIDHT, SPACESHIP_HEIGHT = 55, 40
 
 
 YELLOW_SPACE_IMAGE = pygame.image.load(os.path.join('Assets', 'spaceship_yellow.png'))
-YELLOW_SPACESHIP = pygame.transform.scale(YELLOW_SPACE_IMAGE, (SPACESHIP_WIDHT, SPACESHIP_HEIGHT))
+
+YELLOW_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(YELLOW_SPACE_IMAGE, (SPACESHIP_WIDHT, SPACESHIP_HEIGHT)), 90)
+
 RED_SPACE_IMAGE = pygame.image.load(os.path.join('Assets', 'spaceship_red.png'))  
+
 RED_SPACESHIP = pygame.transform.scale(RED_SPACE_IMAGE, (SPACESHIP_WIDHT, SPACESHIP_HEIGHT))
 
 
