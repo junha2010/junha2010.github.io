@@ -41,7 +41,7 @@ def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_hea
 
     red_health_text = HEALTH_FONT.render("Health: " + str(red_health), 1, WHITE)
     yellow_health_text = HEALTH_FONT.render("Health: " + str(yellow_health), 1, WHITE)
-    WIN.blit(red_health_text, (WIDTH - red_health.text.get_width() - 10, 10))
+    WIN.blit(red_health_text, (WIDTH - red_health_text.get_width() - 10, 10))
     WIN.blit(yellow_health_text, (10, 10))
 
     WIN.blit(YELLOW_SPACESHIP, (yellow.x, yellow.y))
