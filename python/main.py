@@ -1,9 +1,18 @@
-weight = int(input("Weight: "))
-unit = input("(K)g or (L)bs: ")
-if unit == "K":
-    converted = weight / 0.45
-    print("Weight in  Lbs:" + str(converted))
-else:
-    converted = weight * 0.45
-    print("Weight in Kgs:" + str(converted))
+command = ""
 
+while command.lower != "quit":
+    command = input("> ")
+    if command == "help":
+        print("""
+        website - to show my website URL
+        friends - to show my friends list
+        to do - to show to do list""")
+    if command == "website":
+        print("https://junha2010.github.io/ ctrl + click to open")
+    if command == "friends":
+        print("""Damien, Erik""")
+    if command == "to do":
+        print("""
+        complate Python and Pygame
+        complate JavaScript
+        """)
