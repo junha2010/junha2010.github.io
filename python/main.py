@@ -1,9 +1,6 @@
 from datetime import date
 
 command = ""
-is_cul = False
-
-
 
 while command.lower != "quit":
     command = input("> ")
@@ -32,4 +29,5 @@ while command.lower != "quit":
     if command == "date":
         today = date.today()
         print("Today's date:", today)
+    
     
