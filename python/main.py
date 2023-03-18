@@ -1,10 +1,4 @@
-message = input(">>>")
-words = message.split(' ')
-emojis = {
-    ":)": "😊",
-    ":(": "😢",
-}
-output = ""
-for word in words:
-    output += emojis.get(word, word) + " "
-print(output)
+import random
+
+for i in range (1):
+    print(random.randint(1, 100))

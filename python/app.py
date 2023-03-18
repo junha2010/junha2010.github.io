@@ -3,7 +3,7 @@ from datetime import date
 command = ""
 
 while command.lower != "quit":
-    command = input("> ")
+    command = input("--> ")
     # words = command.split(' ')
     message = {
         "help": """website - to show my website URL
@@ -27,10 +27,7 @@ while command.lower != "quit":
         """,
         # "date": today = date.today()
         #     print("Today's date:", today),
-
-
-        
-    }
+}
 output = ""
 for word in command:
     output += message.get(word, word) + " "
