@@ -1,0 +1,35 @@
+* {
+    padding:0;
+    margin: 0;
+}
+
+body {
+    background: #222;
+}
+
+.main_text {
+    position: relative;
+    padding-top: 5%;
+    font-size: 500%;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.item {
+    position: absolute;
+    width: 60%;
+    height: 36%;
+    left: 2%; top: 40%;
+    border: #f82761 solid 3px;
+}
+.box1 {
+    background-color: aquamarine;
+}
+
+.santance {
+    font-family: "Anton";
+    background-color: aquamarine;
+}
