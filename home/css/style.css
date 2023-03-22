@@ -12,6 +12,7 @@ body {
     position: relative;
     padding-top: 5%;
     font-size: 500%;
+    /* display: inline; */
     text-align: center;
     justify-content: center;
     color: #fff;
@@ -32,7 +33,7 @@ body {
 
 .haed_line {
     position: absolute;
-    display: inline;
+    display: inline-block;
     font-family: "Anton";
     font-size: 200%;
     /* font-weight: 600; */
