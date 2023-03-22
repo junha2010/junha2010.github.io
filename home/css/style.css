@@ -1,6 +1,7 @@
 * {
     padding:0;
     margin: 0;
+    /* font:"https://fonts.googleapis.com/css?family=Anton"; */
 }
 
 body {
@@ -29,7 +30,29 @@ body {
     background-color: aquamarine;
 }
 
-.santance {
+.haed_line {
+    position: relative;
+    display: inline;
     font-family: "Anton";
-    background-color: aquamarine;
+    font-size: 200%;
+    /* font-weight: 600; */
+    /* background-color: aquamarine; */
+    letter-spacing: 20px;
+    left: 33%;
+    top: -2%;
+}
+
+.pic {
+    background-size: fill;
+    position: absolute;
+    top: -0.1%;
+}
+
+.santance {
+    position: relative;
+    font-family: sans-serif;
+    font-size: 120%;
+    right: -32%;
+    top: 20%;
+
 }
