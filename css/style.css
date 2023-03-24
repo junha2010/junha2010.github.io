@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&family=Edu+NSW+ACT+Foundation&Raleway:ital,wght@1,100&display=swap');
 
 * {
     padding: 0;
@@ -11,11 +11,28 @@ body {
 }
 
 p {
-    font-family: "Signika Negative", sans-serif;
+    font-family: "Raleway", sans-serif;
+    display: inline;
+    color: rgb(255, 255, 255);
+    font-size: 630%;
+    position: absolute;
+    left: 1%;
+    top: 20%;
 }
 
-.head_line {
-    /* position: absolute; */
+.haed_line_main_text {
+    position: absolute;
     display: inline;
-    font-size: 100px;
+    font-family: "Edu NSW ACT Foundation", sans-serif;
+    font-size: 150%;
+    left: 11%;
+    top: 60%;
+}
+
+#head_line_div {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    left: 3%;
+    top: 10%;
 }
