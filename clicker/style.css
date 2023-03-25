@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.saveAndLoad {
+    width: 10vh;
+    height: 3vh;
+    margin: 2vh;
+    border-radius: 15px;
+}
+
+.now {
+    font-size: 2em;
+    text-align: center;
+}
+
+.position {
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.counting {
+    margin: 12vh auto;
+    text-align: center;
+    height: 10vh;
+    font-size: 2em;
+    width: auto;
+    font-weight: 800;
+}
+
+.count {
+    display: flex;
+    justify-content: space-around;
+}
