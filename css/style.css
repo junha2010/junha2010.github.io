@@ -36,3 +36,12 @@ p {
     left: 3%;
     top: 10%;
 }
+
+.logo {
+    position: absolute;
+    width: 30%;
+    height: 60%;
+    left: 60%;
+    top: 20%;
+    border-radius: 5%;
+}
