@@ -7,13 +7,14 @@ function add() {
 }
 
 function update() {
-    document.querySelector("#countNum").value = score;
-    document.querySelector("#nowPlusScore").innerHTML = "Plus Score: " + plusScore;
+    document.getElementById("countNum").value = score;
+    document.getElementById("nowPlusScore").innerHTML = "Plus Score: " + plusScore;
+    document.querySelector("#nowNeedScore").innerHTML = "you need" + (20*(1+plusScore)) + "score.";
 }
 
 function store() {
     if(score >= (20 * (1 + plusScore))) {
-        score = (20*(1+plusScore)) - score;
+        score = score - (20*(1+plusScore)) ;
         plusScore = plusScore + 1;
         update()
     }
@@ -34,8 +35,4 @@ function load() {
     plusScore = localStorage.getItem("plusScore");
     plusScore = parseInt(plusScore);
     update()
-}
-
-function update() {
-    document.querySelector("#nowNeedScore").innerHTML = "you need" + (20*(1+plusScore)) + "score.";
 }
