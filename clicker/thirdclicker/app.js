@@ -15,9 +15,8 @@ function save() {
     localStorage.setItem("score", score);
 }
 
-function load() {
-    score = localStorage.getItem("score");
-    score = parseInt(score);
+function Load() {
+    score = parseInt(localStorage.getItem("score"));
     update()
 }
 
