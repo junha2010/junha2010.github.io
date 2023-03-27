@@ -9,19 +9,28 @@
 </head>
 <body>
 <center>
-    <button style="width: 50em; height: 5em;" onclick="save()">Save</button>
-    <button style="width: 50em; height: 5em;" onclick="Load()">Load</button>
+    <button class="button" style="width: 15em; height: 5em;" onclick="save()">Save</button>
+    <button class="button" style="width: 15em; height: 5em;" onclick="Load()">Load</button>
+    
 <br><br><br><br><br><br>
     <div>
-        <input id="number" style="width: 50em; height: 5em;" disabled="" type="text" value="0">
+        <input id="number" style="width: 20em; height: 5em;" disabled="" type="text" value="0">
     </div>
 <br><br><br><br><br>
-    <div>
-        <button style="width: 10em; height: 5em;" id="click">Click</button>
-    </div>
+    
+        <button style="width: 10em; height: 5em;" id="click" onclick="add()">Click</button>
+        
+    
 
+
+        
+   
 
     <script src="app.js"></script>
 </center>
+
+<div>
+    <button id="reset" onclick="reset()">reset</button>
+</div>
 </body>
 </html>

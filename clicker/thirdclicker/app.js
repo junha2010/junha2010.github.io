@@ -6,6 +6,24 @@ function add() {
 }
 
 function update() {
-    document.getElementById("#number").value = score;
-    document.getElementById("#number").innerHTML.score;
+    document.getElementById("number").value = score;
+    document.getElementById("number").innerHTML = score;
+}
+
+
+function save() {
+    localStorage.setItem("score", score);
+}
+
+function load() {
+    score = localStorage.getItem("score");
+    score = parseInt(score);
+    update()
+}
+
+function reset() {
+    if (confirm("Are you sure you want to reset?") === true) {
+        score = 0;
+        update();
+      }
 }
