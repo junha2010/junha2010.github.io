@@ -4,15 +4,19 @@ msec = 0;
 upcost = 15;
 catcost = 25;
 workercost = 250;
+buildingcost = 5000;
 upown = 0;
 catown = 0;
 workerown = 0;
+buildingown = 0;
 catadd = 1;
 workadd = 15;
+builingadd = 1000;
 cboost = 1;
 wboost = 1;
 catmax = 0;
 workmax = 0;
+building = 0;
 
 //save before exiting
 function closingCode() {
@@ -35,6 +39,8 @@ function reloadall() {
   document.getElementById("worker").innerHTML =
     workerown + "-worker: " + addcomma(workercost) + " | +" + addcomma(workadd) + "/sec";
   document.getElementById("upgrade").innerHTML =
+    building + "-building: " + addcomma(buildingcost) + " | +" + addcomma(buildingadd) + "/sec";
+  document.getElementById("upgrade").innerHTML =
     addcomma(upown) + "-main upgrade: " + addcomma(upcost);
 }
 //overwrites save file
@@ -56,6 +62,10 @@ function save() {
   localStorage.setItem("wboost", wboost);
   localStorage.setItem("catmax", catmax);
   localStorage.setItem("workmax", workmax);
+  localStorage.setItem("building", building);
+  localStorage.setItem("buildingadd", buildingadd);
+  localStorage.setItem("buildingcost", buildingcost);
+  localStorage.setItem("buildingown", buildingown);
 }
 //loads save file
 function load() {
@@ -76,6 +86,10 @@ function load() {
   wboost = parseInt(localStorage.getItem("wboost"));
   catmax = parseInt(localStorage.getItem("catmax"));
   workmax = parseInt(localStorage.getItem("workmax"));
+  building = parseInt(localStorage.getItem("building"));
+  building = parseInt(localStorage.getItem("buildingadd"));
+  building = parseInt(localStorage.getItem("buildingcost"));
+  building = parseInt(localStorage.getItem("buildingown"));
 
   reloadall();
 }
@@ -93,6 +107,9 @@ function reset() {
     upown = 0;
     catadd = 1;
     workadd = 15;
+    building = 0;
+    buildingadd = 1000;
+    buildingcost = 5000;
     reloadall();
   }
 }
@@ -193,6 +210,48 @@ function upgrade(name) {
     } else if (workerown == 50) {
       document.getElementById("worker").innerHTML =
         workerown + "-worker: MAX | +35% click/sec";
+    }
+  }
+  if (name == "building") {
+    if (money >= buildingcost && buildingown < 50) {
+      
+      if (buildingown <= 13) {
+        msec += buildingadd;
+        buildingadd++;
+        wboost = 1;
+      } else if (buildingown == 14) {
+        msec += buildingadd;
+        buildingadd++;
+        wboost = 200;
+      } else if (buildingown <= 23) {
+        msec += 200 * buildingadd;
+        buildingadd++;
+        wboost = 200;
+      } else if (buildingown == 24) {
+        msec += 200 * buildingadd;
+        buildingadd++;
+        wboost = 5000;
+      } else if (buildingown <= 48) {
+        msec += 5000 * buildingadd;
+        buildingadd++;
+        wboost = 5000;
+      } else if (buildingown == 49) {
+        msec += 5000 * buildingadd;
+        buildingadd++;
+        wboost = 15000;
+      } else {
+        msec += 15000 * buildingadd;
+        buildingadd++;
+        wboost = 15000;
+      }
+      buildingown += 1;
+      money -= buildingcost;
+      buildingcost = buildingcost * 1000;
+      document.getElementById("building").innerHTML = 
+        buildingown + "-building: " + addcomma(buildingcost) + " | +" + addcomma(buildingadd * wboost) + "/sec";
+    } else if (buildingown == 50) {
+      document.getElementById("building").innerHTML =
+        buildingown + "-builing: MAX | +500% click/sec";
     }
   }
 
