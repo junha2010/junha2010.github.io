@@ -205,13 +205,14 @@
             <div>Juha[manager]</div>
             <div>heavenly.juha@gmail.com</div>
         </aside>
-        <aside class="middle" style="padding-top:10px ;">
-
-            <img src="img/junha.png" alt="Damien">
-            <div>Juha[manager]</div>
-            <div>relpd9268@wrdsb.ca</div>
-        </aside>
     </main>
+    <aside class="middle" style="padding-top:10px ;">
+
+        <img src="img/junha.png" alt="Damien">
+        <div>Damien[manager]</div>
+        <div>relpd9268@wrdsb.ca</div>
+    </aside>
+</main>
 
     <br>
     <br><br><br><br><br><br><br>
