@@ -7,96 +7,27 @@
     <script src="main.js"></script>
   <div class='topbar'>
   </div>
-    <center class='center' style="color: #fff;">
+    <div class='center' style="color: #fff;">
       <h1 id='total'>LB: 0</h1>
       <h5 id="click" style="font-family:trebuchet MS;">LB/click: 1 | LB/sec: 0</h5>
-      <img class="round" src="img/junha.png" width="150" onclick='clicked()' style="border-radius: 20px;  font-size: 12px;
-      color: #4D5259;
-      line-height: 1.5;
-      font-weight: bold;
-      padding: .5em 2em;
-      background: #FFFFFF;
-      border: 2px solid #4D5259;
-      box-shadow: 4px 4px 0 0 #4D5259;
-      border-radius: 100px;
-      outline:0;
-      transition: ease all .1s;"></img>
+      <img class="round" src="img/junha.png" width="150" onclick='clicked()' style="border-radius: 20px;  font-size: 12px;"></img>
       <br><br>
-      <button id='upgrade' class="round" onclick='upgrade("upgrade")' style="font-family:courier;  font-size: 12px;
-      color: #4D5259;
-      line-height: 1.5;
-      font-weight: bold;
-      padding: .5em 2em;
-      background: #FFFFFF;
-      border: 2px solid #4D5259;
-      box-shadow: 4px 4px 0 0 #4D5259;
-      border-radius: 100px;
-      outline:0;
-      transition: ease all .1s;">0-main upgrade: 15</button>
-      <br><br>
-      <button id='cat' class="round" onclick='upgrade("clicker cat")' style="font-family:courier;  font-size: 12px;
-      color: #4D5259;
-      line-height: 1.5;
-      font-weight: bold;
-      padding: .5em 2em;
-      background: #FFFFFF;
-      border: 2px solid #4D5259;
-      box-shadow: 4px 4px 0 0 #4D5259;
-      border-radius: 100px;
-      outline:0;
-      transition: ease all .1s;">0-clicker cat: 25 | +1/sec</button>
-      <br><br>
-      <button id='worker' class="round" onclick='upgrade("worker")' style="font-family:courier;  font-size: 12px;
-      color: #4D5259;
-      line-height: 1.5;
-      font-weight: bold;
-      padding: .5em 2em;
-      background: #FFFFFF;
-      border: 2px solid #4D5259;
-      box-shadow: 4px 4px 0 0 #4D5259;
-      border-radius: 100px;
-      outline:0;
-      transition: ease all .1s;">0-worker: 250 | +15/sec</button>
-      <br><br>
-      <button id='building' class="round" onclick='upgrade("building")' style="font-family:courier;  font-size: 12px;
-      color: #4D5259;
-      line-height: 1.5;
-      font-weight: bold;
-      padding: .5em 2em;
-      background: #FFFFFF;
-      border: 2px solid #4D5259;
-      box-shadow: 4px 4px 0 0 #4D5259;
-      border-radius: 100px;
-      outline:0;
-      transition: ease all .1s;">0-building: 5000 | +100/sec</button><br><br>
-      <button class="settings" onclick="save()" style="font-size: 10px;
-      color: #4D5259;
-      line-height: 1.5;
-      font-weight: bold;
-      padding: .5em 2em;
-      background: #FFFFFF;
-      border: 2px solid #4D5259;
-      box-shadow: 4px 4px 0 0 #4D5259;
-      outline:0;">Save</button>
-      <button class="settings" onclick="load()" style="font-size: 10px;
-      color: #4D5259;
-      line-height: 1.5;
-      font-weight: bold;
-      padding: .5em 2em;
-      background: #FFFFFF;
-      border: 2px solid #4D5259;
-      box-shadow: 4px 4px 0 0 #4D5259;
-      outline:0;">Load</button>
-      <button class="settings" onclick="reset()" style=" font-size: 10px;
-      color: #4D5259;
-      line-height: 1.5;
-      font-weight: bold;
-      padding: .5em 2em;
-      background: #FFFFFF;
-      border: 2px solid #4D5259;
-      box-shadow: 4px 4px 0 0 #4D5259;
-      outline:0;">Reset</button><br><br>
-    </center>
+  <div style="width:300px;height:590px;line-height:2em;overflow:auto;padding:5px; position: absolute; left: 75%; top: -4%; border-left: 2px solid #287193;">
+    <h2 style="display: flex; padding: 10px; color: #fff;">UPGRADE</h2>
+    <button id='upgrade' class="round" class="scroll" onclick='upgrade("upgrade")' style="font-family:courier;  font-size: 12px;">0-main upgrade: 15</button>
+    <br><br>
+    <button id='cat' class="round" class="scroll" onclick='upgrade("clicker cat")' style="font-family:courier;  font-size: 12px;">0-clicker cat: 25 | +1/sec</button>
+    <br><br>
+    <button id='worker' class="round" class="scroll" onclick='upgrade("worker")' style="font-family:courier;  font-size: 12px;">0-worker: 250 | +15/sec</button>
+    <br><br>
+    <button id='building' class="round" class="scroll" onclick='upgrade("building")' style="font-family:courier;  font-size: 12px;">0-building: 5000 | +100/sec</button><br><br>
+    <button class="settings" class="scroll" onclick="save()" style="font-size: 10px;">Save</button>
+    <button class="settings" class="scroll" onclick="load()" style="font-size: 10px;">Load</button>
+    <button class="settings" class="scroll" onclick="reset()" style="font-size: 10px;">Reset</button>
+    <br><br>
+    
+  </div>
+  </div>
   </link>
 </body>
 </meta>

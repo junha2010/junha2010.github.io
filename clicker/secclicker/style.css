@@ -72,3 +72,8 @@ body {
   .settings:hover {
     background: #d3d3d3;
   }
+
+
+.scroll {
+  overflow: scroll;
+}
