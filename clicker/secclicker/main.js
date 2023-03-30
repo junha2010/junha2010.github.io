@@ -109,6 +109,7 @@ function reset() {
     workadd = 15;
     building = 0;
     buildingadd = 1000;
+    buildingown = 0;
     buildingcost = 5000;
     reloadall();
   }
@@ -249,11 +250,11 @@ function upgrade(name) {
       buildingcost = buildingcost * 1000;
       document.getElementById("building").innerHTML =
         buildingown + "-building: " + addcomma(buildingcost) + " | +" + addcomma(buildingadd * wboost) + "/sec";
-    // } else if (buildingown == 50) {
-    //   document.getElementById("building").innerHTML =
-    //     buildingown + "-builing: MAX | +500% click/sec";
+    } else if (buildingown == 50) {
+      document.getElementById("building").innerHTML =
+        buildingown + "-builing: MAX | +500% click/sec";
     }
-  // }
+  }
 
   if (name == "upgrade") {
     if (money >= upcost) {
