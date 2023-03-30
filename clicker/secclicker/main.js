@@ -70,6 +70,9 @@ function save() {
   localStorage.setItem("buildingadd", buildingadd);
   localStorage.setItem("buildingcost", buildingcost);
   localStorage.setItem("buildingown", buildingown);
+  localStorage.setItem("toweradd", toweradd);
+  localStorage.setItem("towerown", towerown);
+  localStorage.setItem("towercost", towercost);
 }
 //loads save file
 function load() {
@@ -94,6 +97,9 @@ function load() {
   building = parseInt(localStorage.getItem("buildingadd"));
   building = parseInt(localStorage.getItem("buildingcost"));
   building = parseInt(localStorage.getItem("buildingown"));
+  tower = parseInt(localStorage.getItem("towerown"));
+  tower = parseInt(localStorage.getItem("toweradd"));
+  tower = parseInt(localStorage.getItem("towercost"));
 
   reloadall();
 }
@@ -114,6 +120,9 @@ function reset() {
     building = 0;
     buildingadd = 1000;
     buildingcost = 5000;
+    toweradd = 5000;
+    towercost = 10000;
+    towerown = 0;
     reloadall();
   }
 }
