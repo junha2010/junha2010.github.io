@@ -128,7 +128,7 @@ function clicked() {
 //upgrade function
 function upgrade(name) {
   if (name == "clicker cat") {
-    if (money >= catcost && catown < 50) {
+    if (money >= catcost) {
       
       if (catown <= 13) {
         msec += catadd;
@@ -160,7 +160,9 @@ function upgrade(name) {
         cboost = 15000;
       }
       catown += 1;
-      money -= catcost;
+      if (catcost != Infinity)
+        money -= catcost;
+
       catcost = catcost * 2;
       document.getElementById("cat").innerHTML =
         catown + "-clicker cat: " + addcomma(catcost) + " | +" + addcomma(catadd * cboost) + "/sec";
@@ -171,7 +173,7 @@ function upgrade(name) {
   }
 
   if (name == "worker") {
-    if (money >= workercost && workerown < 50) {
+    if (money >= workercost) {
       
       if (workerown <= 13) {
         msec += workadd;
@@ -203,7 +205,10 @@ function upgrade(name) {
         wboost = 15000;
       }
       workerown += 1;
-      money -= workercost;
+      if (workercost != Infinity) {
+        money -= workercost;
+      }
+      
       workercost = workercost * 3;
       document.getElementById("worker").innerHTML = 
         workerown + "-worker: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
@@ -213,7 +218,7 @@ function upgrade(name) {
     }
   }
   if (name == "building") {
-    if (money >= buildingcost && buildingown < 50) {
+    if (money >= buildingcost) {
       
       if (buildingown <= 13) {
         msec += buildingadd;
@@ -245,7 +250,11 @@ function upgrade(name) {
         wboost = 15000;
       }
       buildingown += 1;
-      money -= buildingcost;
+
+      if (buildingcost != Infinity) {
+         money -= buildingcost;
+      }
+
       buildingcost = buildingcost * 1000;
       document.getElementById("building").innerHTML = 
         buildingown + "-building: " + addcomma(buildingcost) + " | +" + addcomma(buildingadd * wboost) + "/sec";
@@ -258,7 +267,8 @@ function upgrade(name) {
   if (name == "upgrade") {
     if (money >= upcost) {
       moneyup += upcost / 15;
-      money -= upcost;
+      if (upcost != Infinity)
+        money -= upcost;
       upown += 1;
       upcost = upcost * 5;
       document.getElementById("upgrade").innerHTML =
