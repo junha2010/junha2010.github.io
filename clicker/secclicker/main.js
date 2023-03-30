@@ -109,14 +109,13 @@ function reset() {
     workadd = 15;
     building = 0;
     buildingadd = 1000;
-    buildingown = 0;
     buildingcost = 5000;
     reloadall();
   }
 }
 //timer
 function myTimer() {
-  money += msec;
+    money += msec;
   document.getElementById("total").innerHTML = "LB: " + addcomma(money);
 }
 setInterval(myTimer, 1000);
@@ -130,7 +129,7 @@ function clicked() {
 function upgrade(name) {
   if (name == "clicker cat") {
     if (money >= catcost && catown < 50) {
-
+      
       if (catown <= 13) {
         msec += catadd;
         catadd++;
@@ -173,7 +172,7 @@ function upgrade(name) {
 
   if (name == "worker") {
     if (money >= workercost && workerown < 50) {
-
+      
       if (workerown <= 13) {
         msec += workadd;
         workadd++;
@@ -206,7 +205,7 @@ function upgrade(name) {
       workerown += 1;
       money -= workercost;
       workercost = workercost * 3;
-      document.getElementById("worker").innerHTML =
+      document.getElementById("worker").innerHTML = 
         workerown + "-worker: " + addcomma(workercost) + " | +" + addcomma(workadd * wboost) + "/sec";
     } else if (workerown == 50) {
       document.getElementById("worker").innerHTML =
@@ -214,8 +213,8 @@ function upgrade(name) {
     }
   }
   if (name == "building") {
-    if (money >= buildingcost && buildingown < Infinity) {
-
+    if (money >= buildingcost && buildingown < 50) {
+      
       if (buildingown <= 13) {
         msec += buildingadd;
         buildingadd++;
@@ -248,7 +247,7 @@ function upgrade(name) {
       buildingown += 1;
       money -= buildingcost;
       buildingcost = buildingcost * 1000;
-      document.getElementById("building").innerHTML =
+      document.getElementById("building").innerHTML = 
         buildingown + "-building: " + addcomma(buildingcost) + " | +" + addcomma(buildingadd * wboost) + "/sec";
     } else if (buildingown == 50) {
       document.getElementById("building").innerHTML =
@@ -264,6 +263,15 @@ function upgrade(name) {
       upcost = upcost * 5;
       document.getElementById("upgrade").innerHTML =
         addcomma(upown) + "-main upgrade: " + addcomma(upcost);
+      if (catown == 50) {
+        msec -= catmax;
+        catmax = Math.floor(moneyup * 0.15);
+        msec += catmax;
+      }
+      if (workerown == 50) {
+        msec -= workmax;
+        workmax = Math.floor(moneyup * 0.35);
+        msec += workmax;
       }
     }
   }
