@@ -5,18 +5,22 @@ upcost = 15;
 catcost = 25;
 workercost = 250;
 buildingcost = 5000;
+towercost = 10000;
 upown = 0;
 catown = 0;
 workerown = 0;
 buildingown = 0;
+towerown = 0;
 catadd = 1;
 workadd = 15;
 buildingadd = 1000;
+toweradd = 5000;
 cboost = 1;
 wboost = 1;
 catmax = 0;
 workmax = 0;
 building = 0;
+tower = 0;
 
 //save before exiting
 function closingCode() {
@@ -263,7 +267,52 @@ function upgrade(name) {
         buildingown + "-builing: MAX | +500% click/sec";
     }
   }
+  if (name == "tower") {
+    if (money >= towercost) {
+      
+      if (towerown <= 13) {
+        msec += toweradd;
+        toweradd++;
+        wboost = 1;
+      } else if (towerown == 14) {
+        msec += toweradd;
+        toweradd++;
+        wboost = 200;
+      } else if (towerown <= 23) {
+        msec += 2000 * toweradd;
+        toweradd++;
+        wboost = 200;
+      } else if (towerown == 24) {
+        msec += 2000 * toweradd;
+        toweradd++;
+        wboost = 50000;
+      } else if (towerown <= 48) {
+        msec += 50000000 * toweradd;
+        toweradd++;
+        wboost = 500000;
+      } else if (towerown == 49) {
+        msec += 5000 * toweradd;
+        toweradd++;
+        wboost = 15000;
+      } else {
+        msec += 15000 * toweradd;
+        toweradd++;
+        wboost = 15000000;
+      }
+      towerown += 1;
 
+      if (towercost != Infinity) {
+         money -= towercost;
+      }
+
+      towercost = towercost * 100000;
+      document.getElementById("tower").innerHTML = 
+        towerown + "-tower: " + addcomma(towercost) + " | +" + addcomma(toweradd * wboost) + "/sec";
+    } else if (towerown == 50) {
+      document.getElementById("tower").innerHTML =
+        towerown + "-tower: MAX | +50000% click/sec";
+    }
+  }
   if (name == "upgrade") {
     if (money >= upcost) {
       moneyup += upcost / 15;
