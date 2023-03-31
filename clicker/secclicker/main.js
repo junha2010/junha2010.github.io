@@ -21,6 +21,10 @@ catmax = 0;
 workmax = 0;
 building = 0;
 tower = 0;
+company = 0;
+companyadd = 50000;
+companyown = 0;
+companycost = 10000000;
 
 //save before exiting
 function closingCode() {
@@ -73,6 +77,9 @@ function save() {
   localStorage.setItem("toweradd", toweradd);
   localStorage.setItem("towerown", towerown);
   localStorage.setItem("towercost", towercost);
+  localStorage.setItem("companyadd", companyadd);
+  localStorage.setItem("companyown", companyown);
+  localStorage.setItem("companycost", companycost);
 }
 //loads save file
 function load() {
@@ -100,6 +107,9 @@ function load() {
   tower = parseInt(localStorage.getItem("towerown"));
   tower = parseInt(localStorage.getItem("toweradd"));
   tower = parseInt(localStorage.getItem("towercost"));
+  tower = parseInt(localStorage.getItem("companyown"));
+  tower = parseInt(localStorage.getItem("companycost"));
+  tower = parseInt(localStorage.getItem("companyadd"));
 
   reloadall();
 }
@@ -123,6 +133,9 @@ function reset() {
     toweradd = 5000;
     towercost = 10000;
     towerown = 0;
+    companyadd = 50000;
+    companyown = 0;
+    companycost = 10000000;
     reloadall();
   }
 }
@@ -320,6 +333,52 @@ function upgrade(name) {
     } else if (towerown == 50) {
       document.getElementById("tower").innerHTML =
         towerown + "-tower: MAX | +50000% click/sec";
+    }
+  }
+  if (name == "company") {
+    if (money >= companycost) {
+      
+      if (companyown <= 13) {
+        msec += companyadd;
+        companyadd++;
+        wboost = 1;
+      } else if (companyown == 14) {
+        msec += companyadd;
+        companyadd++;
+        wboost = 200;
+      } else if (companyown <= 23) {
+        msec += 2000 * companyadd;
+        companyadd++;
+        wboost = 200;
+      } else if (companyown == 24) {
+        msec += 2000 * companyadd;
+        companyadd++;
+        wboost = 500000;
+      } else if (companyown <= 48) {
+        msec += 5000000000 * companyown;
+        companyadd++;
+        wboost = 50000000;
+      } else if (companyown == 49) {
+        msec += 50000000000 * companyadd;
+        companyadd++;
+        wboost = 150000000000;
+      } else {
+        msec += 1500000000000 * companyadd;
+        companyadd++;
+        wboost = 15000000000000000;
+      }
+      companyown += 1;
+
+      if (companycost != Infinity) {
+         money -= companycost;
+      }
+
+      companycost = companycost * 1000000000000000;
+      document.getElementById("company").innerHTML = 
+        companyown + "-company: " + addcomma(companycost) + " | +" + addcomma(companyadd * wboost) + "/sec";
+    } else if (companyown == 50) {
+      document.getElementById("company").innerHTML =
+        companyown + "-company: MAX | +5000000000000000000000% click/sec";
     }
   }
   if (name == "upgrade") {
