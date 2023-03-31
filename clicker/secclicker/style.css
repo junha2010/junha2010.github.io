@@ -74,3 +74,25 @@ body {
   }
 
 
+.text_none {
+  text-decoration: none;
+  color: red;
+  font-weight: 100;
+}
+
+.line {
+  width: 30%;
+  height: 15%;
+  border: 5px solid black;
+  border-radius: 10px;
+  background: yellow;
+  color: black;
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-align: center;
+  font-weight: 600;
+}
+
+.point {
+  pointer-events: visibleStroke;
+}
