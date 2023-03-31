@@ -133,6 +133,7 @@ function reset() {
     toweradd = 5000;
     towercost = 10000;
     towerown = 0;
+    company = 0;
     companyadd = 50000;
     companyown = 0;
     companycost = 10000000;
