@@ -25,6 +25,10 @@ company = 0;
 companyadd = 50000;
 companyown = 0;
 companycost = 10000000;
+band = 0;
+bandadd = 1000000;
+bandcost = 10000000000000;
+bandown = 0;
 
 //save before exiting
 function closingCode() {
@@ -75,11 +79,17 @@ function save() {
   localStorage.setItem("buildingcost", buildingcost);
   localStorage.setItem("buildingown", buildingown);
   localStorage.setItem("toweradd", toweradd);
+  localStorage.setItem("tower", tower);
   localStorage.setItem("towerown", towerown);
   localStorage.setItem("towercost", towercost);
   localStorage.setItem("companyadd", companyadd);
+  localStorage.setItem("company", company);
   localStorage.setItem("companyown", companyown);
   localStorage.setItem("companycost", companycost);
+  localStorage.setItem("bandadd", bandadd);
+  localStorage.setItem("band", band);
+  localStorage.setItem("bandown", bandown);
+  localStorage.setItem("bandcost", bandcost);
 }
 //loads save file
 function load() {
@@ -101,16 +111,21 @@ function load() {
   catmax = parseInt(localStorage.getItem("catmax"));
   workmax = parseInt(localStorage.getItem("workmax"));
   building = parseInt(localStorage.getItem("building"));
-  building = parseInt(localStorage.getItem("buildingadd"));
-  building = parseInt(localStorage.getItem("buildingcost"));
-  building = parseInt(localStorage.getItem("buildingown"));
-  tower = parseInt(localStorage.getItem("towerown"));
-  tower = parseInt(localStorage.getItem("toweradd"));
-  tower = parseInt(localStorage.getItem("towercost"));
-  tower = parseInt(localStorage.getItem("companyown"));
-  tower = parseInt(localStorage.getItem("companycost"));
-  tower = parseInt(localStorage.getItem("companyadd"));
-
+  buildingadd = parseInt(localStorage.getItem("buildingadd"));
+  buildingcost = parseInt(localStorage.getItem("buildingcost"));
+  buildingown = parseInt(localStorage.getItem("buildingown"));
+  towerown = parseInt(localStorage.getItem("towerown"));
+  toweradd = parseInt(localStorage.getItem("toweradd"));
+  towercost = parseInt(localStorage.getItem("towercost"));
+  tower = parseInt(localStorage.getItem("tower"));
+  companyown = parseInt(localStorage.getItem("companyown"));
+  companycost = parseInt(localStorage.getItem("companycost"));
+  companyadd = parseInt(localStorage.getItem("companyadd"));
+  company = parseInt(localStorage.getItem("company"));
+  band = parseInt(localStorage.getItem("band"));
+  bandcost = parseInt(localStorage.getItem("bandcost"));
+  bandadd = parseInt(localStorage.getItem("bandadd"));
+  bandown = parseInt(localStorage.getItem("bandown"));
   reloadall();
 }
 //resets all values
@@ -137,6 +152,10 @@ function reset() {
     companyadd = 50000;
     companyown = 0;
     companycost = 10000000;
+    band = 0;
+    bandadd = 1000000;
+    bandcost = 10000000000000;
+    bandown = 0;
     reloadall();
   }
 }
@@ -380,6 +399,52 @@ function upgrade(name) {
     } else if (companyown == 50) {
       document.getElementById("company").innerHTML =
         companyown + "-company: MAX | +5000000000000000000000% click/sec";
+    }
+  }
+  if (name == "band") {
+    if (money >= bandcost) {
+      
+      if (bandown <= 13) {
+        msec += bandadd;
+        bandadd++;
+        wboost = 1;
+      } else if (bandown == 14) {
+        msec += bandadd;
+        bandadd++;
+        wboost = 200;
+      } else if (bandown <= 23) {
+        msec += 2000000000 * bandadd;
+        bandadd++;
+        wboost = 200;
+      } else if (bandown == 24) {
+        msec += 200000 * bandadd;
+        bandadd++;
+        wboost = 500000;
+      } else if (bandown <= 48) {
+        msec += 500000000000000 * bandown;
+        bandadd++;
+        wboost = 50000000000;
+      } else if (bandown == 49) {
+        msec += 5000000000000000000000 * bandadd;
+        bandadd++;
+        wboost = 15000000000000;
+      } else {
+        msec += 150000000000000000000000000000000000 * bandadd;
+        bandadd++;
+        wboost = 15000000000000000;
+      }
+      bandown += 1;
+
+      if (bandcost != Infinity) {
+         money -= bandcost;
+      }
+
+      bandcost = bandcost * 100000000000000000000000;
+      document.getElementById("band").innerHTML = 
+        bandown + "-band: " + addcomma(bandcost) + " | +" + addcomma(bandadd * wboost) + "/sec";
+    } else if (bandown == 50) {
+      document.getElementById("band").innerHTML =
+        bandown + "-band: MAX | +500000000000000000000000000000% click/sec";
     }
   }
   if (name == "upgrade") {
