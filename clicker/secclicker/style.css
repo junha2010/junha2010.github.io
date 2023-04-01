@@ -33,6 +33,7 @@ body {
   }
   
   .round{
+    size: auto;
     font-size: 12px;
     color: #4D5259;
     line-height: 1.5;
@@ -109,17 +110,16 @@ body {
 }
 
 .pluseClicks {
-  width: 30%;
-  height: 25%;
+  width: 20%;
+  height: 50%;
   position: absolute;
-  top: 10%;
-  left: 30%;
-  border: 5px solid black;
-  border-radius: 10px;
-  background: yellow;
-  color: black;
-  text-decoration: line-through;
-  text-decoration-color: red;
-  text-align: center;
-  font-weight: 600;
+  top: 40px;
+  left: 47%;
+  border-radius: 20px;
+  border: #4CAF50 solid;
+}
+
+#plus_click_area {
+  overflow: auto;
+
 }

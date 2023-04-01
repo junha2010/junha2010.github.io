@@ -29,6 +29,10 @@ band = 0;
 bandadd = 1000000;
 bandcost = 10000000000000;
 bandown = 0;
+plusClick = 0;
+plusClickadd = 10;
+plusClickcost = 1000;
+plusClickown = 0;
 
 //save before exiting
 function closingCode() {
@@ -54,6 +58,7 @@ function reloadall() {
     building + "-building: " + addcomma(buildingcost) + " | +" + addcomma(buildingadd) + "/sec";
   document.getElementById("upgrade").innerHTML =
     addcomma(upown) + "-main upgrade: " + addcomma(upcost);
+  document.getElementById("pc").innerHTML = "PC: " + addcomma(plusClickown) + " | + " + addcomma(plusClickadd) + "/sec";
 }
 //overwrites save file
 function save() {
@@ -90,6 +95,10 @@ function save() {
   localStorage.setItem("band", band);
   localStorage.setItem("bandown", bandown);
   localStorage.setItem("bandcost", bandcost);
+  localStorage.setItem("plusClickadd", plusClickadd);
+  localStorage.setItem("plusClick", plusClick);
+  localStorage.setItem("plusClickown", plusClickown);
+  localStorage.setItem("plusClickcost", plusClickcost);
 }
 //loads save file
 function load() {
@@ -126,6 +135,10 @@ function load() {
   bandcost = parseInt(localStorage.getItem("bandcost"));
   bandadd = parseInt(localStorage.getItem("bandadd"));
   bandown = parseInt(localStorage.getItem("bandown"));
+  plusClick = parseInt(localStorage.getItem("plusClick"));
+  plusClickcost = parseInt(localStorage.getItem("plusClickcost"));
+  plusClickadd = parseInt(localStorage.getItem("plusClickadd"));
+  plusClickown = parseInt(localStorage.getItem("plusClickown"));
   reloadall();
 }
 //resets all values
@@ -156,6 +169,10 @@ function reset() {
     bandadd = 1000000;
     bandcost = 10000000000000;
     bandown = 0;
+    plusClick = 0;
+    plusClickadd = 10;
+    plusClickcost = 1000;
+    plusClickown = 0;
     reloadall();
   }
 }
@@ -447,6 +464,52 @@ function upgrade(name) {
         bandown + "-band: MAX | +500000000000000000000000000000% click/sec";
     }
   }
+  if (name == "plusClick") {
+    if (money >= plusClickcost) {
+      
+      if (plusClickown <= 13) {
+        msec += plusClickadd;
+        plusClickadd++;
+        wboost = 1;
+      } else if (plusClickown == 14) {
+        msec += plusClickadd;
+        plusClickadd++;
+        wboost = 200;
+      } else if (plusClickown <= 23) {
+        msec += 20000 * plusClickadd;
+        plusClickadd++;
+        wboost = 200;
+      } else if (plusClickown == 24) {
+        msec += 200000 * plusClickadd;
+        plusClickadd++;
+        wboost = 500000;
+      } else if (plusClickown <= 48) {
+        msec += 5000000 * plusClickown;
+        plusClickadd++;
+        wboost = 500000000;
+      } else if (plusClickown == 49) {
+        msec += 5000000000000 * plusClickadd;
+        plusClickadd++;
+        wboost = 1500000000000000;
+      } else {
+        msec += 150000000000000000000 * plusClickadd;
+        plusClickadd++;
+        wboost = 15000000000000000;
+      }
+      plusClickown += 1;
+
+      if (plusClickcost != Infinity) {
+         money -= plusClickcost;
+      }
+
+      plusClickcost = plusClickcost * 100000000;
+      document.getElementById("plusClick").innerHTML = 
+      plusClickown + "PC: " + addcomma(plusClickown) + " | +" + addcomma(plusClickadd * wboost) + "/sec";
+    } else if (plusClickown == 50) {
+      document.getElementById("plusClick").innerHTML =
+      plusClickown + "-plusClick: MAX | +500000% click/sec";
+    }
+  }
   if (name == "upgrade") {
     if (money >= upcost) {
       moneyup += upcost / 15;
@@ -468,8 +531,12 @@ function upgrade(name) {
       }
     }
   }
+  
 
   document.getElementById("click").innerHTML =
     "LB/click: " + addcomma(moneyup) + " | LB/sec: " + addcomma(msec);
   document.getElementById("total").innerHTML = "LB: " + addcomma(money);
 }
+
+
+
