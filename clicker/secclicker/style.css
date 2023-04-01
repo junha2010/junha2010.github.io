@@ -78,6 +78,8 @@ body {
   text-decoration: none;
   color: red;
   font-weight: 100;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .line {
@@ -93,3 +95,31 @@ body {
   font-weight: 600;
 }
 
+.casino_area {
+  width: 30%;
+  height: 15%;
+  border: 5px solid black;
+  border-radius: 10px;
+  background: yellow;
+  color: black;
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-align: center;
+  font-weight: 600;
+}
+
+.pluseClicks {
+  width: 30%;
+  height: 25%;
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  border: 5px solid black;
+  border-radius: 10px;
+  background: yellow;
+  color: black;
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-align: center;
+  font-weight: 600;
+}
