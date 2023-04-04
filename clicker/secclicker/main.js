@@ -540,3 +540,27 @@ function upgrade(name) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function copyright() {
+  alert("copyright you dumb dum");
+  
+  var replace = copyright();
+  var replacecopyright = replace.replace(copyright, "copyright you dumb dum");
+  document.innerHTML = replacecopyright;
+}
