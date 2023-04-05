@@ -24,24 +24,81 @@ p {
     position: absolute;
     display: inline;
     font-family: "Edu NSW ACT Foundation", sans-serif;
-    font-size: 150%;
+    font-size: 15em;
     left: 11%;
     top: 60%;
 }
 
 #head_line_div {
     position: absolute;
+    display: inline;
+    /* border: red solid; */
     width: 30%;
-    height: 50%;
-    left: 3%;
-    top: 10%;
+    height: auto;
+    left: 4em;
+    top: 15em;
 }
 
 .logo {
     position: absolute;
-    width: 30%;
-    height: 60%;
-    left: 60%;
-    top: 20%;
-    border-radius: 5%;
+    display: inline;
+    align-items: center;
+    justify-items: center;
+    /* border: red solid; */
+    width: auto;
+    height: auto;
+    left: 40em;
+    top: 2em;
+    border-radius: 2em;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:700");
+
+* {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+min-height: 100vh;
+font-family: "Open Sans", sans-serif;
+font-weight: 700;
+background: #c1f7f5;
+/* padding: 1rem; */
+}
+
+p {
+max-width: 50ch;
+}
+
+.a {
+color: inherit;
+text-decoration: none;
+}
+
+.a {
+background: 
+linear-gradient(to right, rgba(100, 200, 200, 1), rgba(100, 200, 200, 1)),
+linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1));
+background-size: 100% 0.1em, 0 0.1em;
+background-position: 100% 100%, 0 100%;
+background-repeat: no-repeat;
+transition: background-size 400ms;
+}
+
+.a:hover,
+.a:focus {
+background-size: 0 0.1em, 100% 0.1em;
+}
+
+.footer {
+    background: #222;
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+
+font {
+    color: #fff;
 }
