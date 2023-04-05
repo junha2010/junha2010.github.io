@@ -539,9 +539,6 @@ function upgrade(name) {
 }
 
 function copyright() {
-  alert("copyright you dumb dum");
-  
-  // var replace = copyright();
-  // document.querySelector(replace).innerHTML = "©copyright you dumb dum";
   document.getElementById("copyright").innerHTML = "©copyright you dumb dum";
+  alert("copyright you dumb dum");
 }
