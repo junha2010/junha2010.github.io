@@ -538,29 +538,9 @@ function upgrade(name) {
   document.getElementById("total").innerHTML = "LB: " + addcomma(money);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function copyright() {
   alert("copyright you dumb dum");
   
   var replace = copyright();
-  var replacecopyright = replace.replace(copyright, "copyright you dumb dum");
-  document.innerHTML = replacecopyright;
+  document.querySelector(replace).innerHTML = "©copyright you dumb dum";
 }
