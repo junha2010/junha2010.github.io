@@ -159,3 +159,9 @@ background-size: 0 0.1em, 100% 0.1em;
     font-size: 1em;
     top: 5em;
 }
+
+
+.footer h2 {
+    color: #fff;
+    /* position: absolute; */
+}
