@@ -63,7 +63,7 @@
     position: absolute;
     align-items: center;
     justify-content: center;
-    left: 27em;
+    /* left: 27em; */
     cursor: default;
     background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
     border-radius: 10px;
