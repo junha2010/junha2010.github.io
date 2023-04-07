@@ -9,12 +9,17 @@
     width: 100%;
     min-height: 100vh;
     padding: 5%;
+    background: #000;
     background-image: linear-gradient(rgb(0,8,51,0.9), rgb(0,8,51,0.9)), url(img/logo.png);
     background-position: center;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.container img {
+    background: inherit;
 }
 
 .search-bar {
@@ -65,7 +70,7 @@
     justify-content: center;
     /* left: 27em; */
     cursor: default;
-    background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+    /* background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0); */
     border-radius: 10px;
     animation: animate 1.5s linear infinite;
 }
