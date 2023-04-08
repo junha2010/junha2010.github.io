@@ -30,6 +30,10 @@ body {
     font-size: 150%;
 }
 
+.main {
+    overflow: hidden;
+}
+
 .main h2 {
     background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
     -webkit-background-clip: text;
@@ -37,12 +41,14 @@ body {
     position: relative;
     text-align: center;
     top: 200px;
+    overflow: hidden;
 }
 
 .member {
     flex-direction: row;
     display: inline;
     cursor: no-drop;
+    overflow: hidden;
 }
 
 #member-otis {
