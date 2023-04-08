@@ -5,7 +5,7 @@
 
 body {
     background-image: linear-gradient(rgb(0,8,51,0.9), rgb(0,8,51,0.9)), url(img/logo.png);
-    background-size: 70%;
+    background-size: 60%;
     background-position: center;
 }
 
@@ -28,4 +28,43 @@ body {
     top: -40px;
     padding-left: 10px;
     font-size: 150%;
+}
+
+.main h2 {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-align: center;
+    top: 200px;
+}
+
+.member {
+    flex-direction: row;
+    display: inline;
+    cursor: no-drop;
+}
+
+#member-otis {
+    position: relative;
+    padding-left: 20px;
+    top: 250px;
+    align-items: center;
+    text-align: left;
+}
+
+#member-juha {
+    position: relative;
+    /* padding-right: 350px; */
+    top: 225px;
+    align-items: center;
+    text-align: center;
+}
+
+#member-damien {
+    position: relative;
+    padding-right: 20px;
+    align-items: center;
+    /* top: 50%; */
+    text-align: right;
 }
