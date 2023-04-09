@@ -42,6 +42,7 @@ body {
     text-align: center;
     top: 200px;
     overflow: hidden;
+    z-index: 9;
 }
 
 .member {
