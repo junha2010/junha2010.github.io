@@ -21,7 +21,6 @@ h1 {
     /* border: red solid; */
     cursor: alias;
     background: #222;
-    align-items: left;
 }
 
 .alias p {
@@ -30,13 +29,19 @@ h1 {
     color: #fff;
 }
 
-.t {
+.all-scroll {
     position: absolute;
     width: 30%;
     height: 50%;
     /* border: red solid; */
     cursor: all-scroll;
-    background: #eee;
-    align-items: right;
-    left: 50%;
+    background: #dadada;
+    left: 30%;
+    /* padding-left: 45%; */
+}
+
+.all-scroll p {
+    position: absolute;
+    font-size: 5em;
+    color: #222;
 }
