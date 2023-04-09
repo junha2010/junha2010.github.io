@@ -7,6 +7,7 @@ body {
     background-image: linear-gradient(rgb(0,8,51,0.9), rgb(0,8,51,0.9)), url(img/logo.png);
     background-size: 60%;
     background-position: center;
+    cursor: all-scroll;
 }
 
 .top-bar {
@@ -15,6 +16,7 @@ body {
     height: 6em;
     background: #fff;
     box-shadow: 0 1px 10px 1px #222;
+    cursor: none;
 }
 
 .top-bar img {
