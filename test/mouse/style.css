@@ -45,3 +45,13 @@ h1 {
     font-size: 5em;
     color: #222;
 }
+
+.th {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    background: #aaa;
+    cursor: cell;
+    left: 30%;
+}
