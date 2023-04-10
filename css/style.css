@@ -1,167 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative&family=Edu+NSW+ACT+Foundation&Raleway:ital,wght@1,100&display=swap');
-
 * {
     padding: 0;
     margin: 0;
 }
 
 body {
-    background: #dbd031;
+    background: #222;
 }
 
-p {
-    font-family: "Raleway", sans-serif;
-    display: inline;
-    color: rgb(255, 255, 255);
-    font-size: 630%;
-    position: absolute;
-    left: 1%;
-    top: 20%;
+.search {
+    width: 100%;
+    min-height: 100vh;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.haed_line_main_text {
-    position: absolute;
-    display: inline;
-    font-family: "Edu NSW ACT Foundation", sans-serif;
-    font-size: 15em;
-    left: 11%;
-    top: 60%;
+.search-bar {
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    backdrop-filter: blur(4px) saturate(180%);
+    box-shadow: 1px 10px 50px 4px #c7c7c7c7;
 }
 
-#head_line_div {
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 20px;
+    font-size: 20px;
+    color: #cac7ff;
+}
+
+::placeholder {
+    color: #515154;
+}
+
+
+.search-bar button ion-icon {
+    width: 25px;
+    font-size: 60px;
+}
+
+.search-bar button {
     position: absolute;
-    display: inline;
-    /* border: red solid; */
-    width: 30%;
-    height: auto;
-    left: 4em;
-    top: 15em;
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    left: 90%;
+    align-items: center;
+    justify-content: center;
+    cursor: vertical-text;
 }
 
 .logo {
     position: absolute;
-    display: inline;
-    align-items: center;
-    justify-items: center;
-    /* border: red solid; */
-    width: auto;
-    height: auto;
-    left: 40em;
-    top: 2em;
-    border-radius: 2em;
-}
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:700");
-
-* {
-box-sizing: border-box;
-}
-
-body {
-margin: 0;
-min-height: 100vh;
-font-family: "Open Sans", sans-serif;
-font-weight: 700;
-background: #c1f7f5;
-/* padding: 1rem; */
-}
-
-p {
-max-width: 50ch;
-}
-
-.a {
-color: inherit;
-text-decoration: none;
-}
-
-.a {
-background: 
-linear-gradient(to right, rgba(100, 200, 200, 1), rgba(100, 200, 200, 1)),
-linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1));
-background-size: 100% 0.1em, 0 0.1em;
-background-position: 100% 100%, 0 100%;
-background-repeat: no-repeat;
-transition: background-size 400ms;
-}
-
-.a:hover,
-.a:focus {
-background-size: 0 0.1em, 100% 0.1em;
-}
-
-.footer {
-    background: #222;
-    color: #666;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: auto;
-    text-align: center;
-}
-
-.footer h2 {
-    display: block;
-}
-
-.footer il {
-   display: block;
-}
-
-.footer a {
-    align-items: center;
-    justify-content: center;
-}
-
-.label_input {
-    position: absolute;
-    background: #fff;
-    font-family: "Edu NSW ACT Foundation";
-    font-size: large;
-    border: 2px;
-    border-top-left-radius: 0.5em;
-    border-bottom-left-radius: 0.5em;
-    display: inline;
-    width: 12em;
-    height: 2em;
-    /* padding: 1em; */
-    /* left: 1em; */
-}
-
-.label {
-    position: absolute;
-    left: 1em;
-    padding-top: 2em;
-}
-
-.label_button {
-    position: absolute;
-    left: 16.2em;
-    top: 2.4em;
-    width: 5em;
-    height: 2.7em;
-    border: 2px;
-    border-top-right-radius: 0.5em;
-    border-bottom-right-radius: 0.5em;
-    color: #222;
-    background: #fff;
-}
-
-.label_button:hover {
-    transition: 0.5s;
-    background: red;
-    color: #fff;
-}
-
-.label_p {
-    position: absolute;
-    font-size: 1em;
-    top: 5em;
-}
-
-
-.footer h2 {
-    color: #fff;
-    /* position: absolute; */
 }
