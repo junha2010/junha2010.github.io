@@ -85,6 +85,7 @@ ul {
     justify-content: right;
     align-items: right;
     font-family: monospace;
+    background: inherit;
 }
 
 ul li {
@@ -97,6 +98,7 @@ ul li {
     padding: 6px 15px;
     color: #fff;
     border-radius: 20px;
+    box-shadow: 1px 10px 50px 4px #c7c7c7c7;
 }
 
 ul li a:hover,
