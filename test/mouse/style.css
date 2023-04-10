@@ -46,12 +46,86 @@ h1 {
     color: #222;
 }
 
-.th {
+.cell {
     position: absolute;
     width: 30%;
     height: 50%;
     /* border: red solid; */
     background: #aaa;
     cursor: cell;
+    left: 60%;
+}
+
+.cell p {
+    position: absolute;
+    font-size: 5em;
+    color: #ddd;
+}
+
+.col-resize {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    background: #456;
+    cursor: col-resize;
+    top: 60%;
+    /* left: 60%; */
+}
+
+.col-resize p {
+    position: absolute;
+    font-size: 5em;
+    color: #000;
+}
+
+.context-menu {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    background: #123456;
+    cursor: context-menu;
+    top: 60%;
     left: 30%;
+}
+
+.context-menu p {
+    position: absolute;
+    font-size: 5em;
+    color: #000;
+}
+
+.copy {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    background: #654321;
+    cursor: copy;
+    top: 60%;
+    left: 60%;
+}
+
+.copy p {
+    position: absolute;
+    font-size: 5em;
+    color: #1234;
+}
+
+.crosshair {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    background: #456726;
+    cursor: crosshair;
+    top: 115%;
+    /* left: 60%; */
+}
+
+.crosshair p {
+    position: absolute;
+    font-size: 5em;
+    color: #13453032;
 }
