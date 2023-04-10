@@ -52,9 +52,9 @@ body {
     position: absolute;
     border: 0;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    left: 90%;
+    width: 80px;
+    height: 80px;
+    transform: translate(470%, -8%);
     background: inherit;
     align-items: center;
     justify-content: center;
