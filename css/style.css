@@ -77,3 +77,30 @@ center {
     text-transform: uppercase;
     letter-spacing: 5px;
 }
+
+ul {
+    padding-top: 20px;
+    /* text-align: left; */
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    font-family: monospace;
+}
+
+ul li {
+    list-style: none;
+    margin-left: 20px;
+}
+
+ ul li a {
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+ul li a:hover,
+ul li a.active {
+    background: #fff;
+    color: #2b1055;
+}
