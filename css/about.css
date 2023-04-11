@@ -18,7 +18,7 @@ body {
     letter-spacing: 10px;
 }
 
-ul {
+.aboutus ul {
     display: flex;
     justify-content: right;
     align-items: right;
@@ -27,12 +27,12 @@ ul {
     background: inherit;
 }
 
-ul li {
+.aboutus ul li {
     list-style: none;
     margin-left: 20px;
 }
 
- ul li a {
+.aboutus ul li a {
     text-decoration: none;
     padding: 6px 15px;
     color: #fff;
@@ -40,8 +40,31 @@ ul li {
     box-shadow: 1px 10px 50px 4px #c7c7c7c7;
 }
 
-ul li a:hover,
-ul li a.active {
+.aboutus ul li a:hover,
+.aboutus ul li a.active {
     background: #fff;
     color: #2b1055;
+}
+
+.leftside_div {
+    position: absolute;
+    border: #eee solid;
+    background: inherit;
+}
+
+.leftside_div ul {
+    list-style-type: none;
+    padding: 10px;
+    background: inherit;
+}
+
+.leftside_div ul li a {
+    text-decoration: none;
+    color: #eee;
+    background: inherit;
+    transition: 0.5s;
+}
+
+.leftside_div ul li a:hover {
+    color: red;
 }
