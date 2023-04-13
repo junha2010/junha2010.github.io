@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vertecal-align test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    <h1 class="leftside">test</h1>
+    <div class="test">
+        <p>djfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        <br>
+        <p>djfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        jfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        <br>
+        <p>djfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        <br>
+        <p>djfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        <br>
+        <p>djfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        <br>
+        <p>
+            <br><br><br><br><br><b>rb
+                rb
+                rbr
+                <br><b><br><br><b>brb
+                    rb
+                    rb
+                    rb
+                    rb
+                    <br><br><br><br><b>rbr
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </b>
+                </b></b>
+            </b>
+    </div>
+    <div class="test2">
+        <p>djfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        <br>
+        <p>djfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        jfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        <br>
+        <p>djfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        <br>
+        <p>djfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        <br>
+        <p>djfalk jflkdsajflkdsajfksajf;ladsjflkdsajflksa;jflkdsajflkdsajf;dsajflkdsajflkdsa;jflkdsajflkdsajflkdsajfsl</p>
+        <br>
+        <p>
+            <br><br><br><br><br><b>rb
+                rb
+                rbr
+                <br><b><br><br><b>brb
+                    rb
+                    rb
+                    rb
+                    rb
+                    <br><br><br><br><b>rbr
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </b>
+                </b></b>
+            </b>
+    </div>
+   
+</body>
+<script>
+    var fixmeTop = $('.fixme').offset().top;       // get initial position of the element
+
+$(window).scroll(function() {                  // assign scroll event listener
+
+    var currentScroll = $(window).scrollTop(); // get current position
+
+    if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+        $('.fixme').css({                      // scroll to that element or below it
+            position: 'fixed',
+            top: '0',
+            left: '0'
+        });
+    } else {                                   // apply position: static
+        $('.fixme').css({                      // if you scroll above it
+            position: 'static'
+        });
+    }
+
+});
+</script>
+</html>
