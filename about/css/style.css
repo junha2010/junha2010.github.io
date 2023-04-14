@@ -82,3 +82,7 @@ body {
     right: 0%;
     color: #444;
 }
+
+mark {
+    background: powderblue;
+}
