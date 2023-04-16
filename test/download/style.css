@@ -28,3 +28,7 @@ h2 {
     cursor: pointer;
     border:none;
 }
+
+input {
+    text-transform: capitalize;
+}
