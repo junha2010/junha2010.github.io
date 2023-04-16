@@ -13,8 +13,8 @@
 //     }
 // }
 
-// function minecraft() {
-//     var x = document.getElementById("minecraft").value("minecraft");
-//     const url = "https://launcher.mojang.com/download/MinecraftInstaller.exe"
-//     document.write(url);
-// }
+function minecraft() {
+    var x = document.getElementById("minecraft").value("minecraft");
+    const url = "https://launcher.mojang.com/download/MinecraftInstaller.exe"
+    {document.write(url);}
+}

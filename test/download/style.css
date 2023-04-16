@@ -30,5 +30,14 @@ h2 {
 }
 
 input {
-    text-transform: capitalize;
+    position: absolute;
+    right: 0%;
+    text-transform: lowercase;
+}
+
+
+input button {
+    position: absolute;
+    right: 0%;
+    text-transform: lowercase;
 }
