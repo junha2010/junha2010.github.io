@@ -6,9 +6,9 @@ var webData=[
     ];
 
 function doSearch(x){
-    for(n=0; n<webData.length; n++){
-        if(x==webData[n].tag){
-            document.write('<a href="'+webData[n].url+'">'+webData[n].url+'</a>')
+    for(n = 0; n <webData.length; n++){
+        if(x == webData[n].tag){
+            document.write('<a href=" ' + webData[n].url + ' ">' + webData[n].url + '</a>')
         }
     }
 }
