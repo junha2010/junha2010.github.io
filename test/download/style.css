@@ -1,3 +1,7 @@
+body {
+    background: #eee;
+}
+
 .down_btn button{
     background: #222;
     font-size: 12px;
