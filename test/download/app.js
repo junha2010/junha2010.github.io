@@ -1,1 +1,0 @@
-$("#fileRequest").click(function(){ /* code to download? */ });

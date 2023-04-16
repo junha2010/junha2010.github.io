@@ -1,3 +1,7 @@
+* {
+    padding: 10px;
+}
+
 body {
     background: #eee;
 }
@@ -11,9 +15,16 @@ body {
     line-height: 20px;
     border-radius:30px;
     border:none;
-    letter-spacing:-1px;
+    letter-spacing: 1px;
 }
 .down_btn button:hover{
    box-shadow:1px 1px 4px rgba(0,0,0,0.4);
 
+}
+
+h2 {
+    color: #222;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    border:none;
 }
