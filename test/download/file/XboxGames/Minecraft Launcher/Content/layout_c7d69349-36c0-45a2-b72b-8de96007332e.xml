@@ -1,0 +1,23 @@
+<Package>
+  <Chunk Id="1000" Marker="Launch">
+    <FileGroup DestinationPath="." SourcePath="." Include="Minecraft.exe" />
+    <FileGroup DestinationPath="." SourcePath="." Include="MicrosoftGame.Config" />
+    <FileGroup DestinationPath="." SourcePath="." Include="GraphicsLogo.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.altform-lightunplated.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.altform-lightunplated_targetsize-256.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.altform-unplated.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.altform-unplated_targetsize-256.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SplashScreen.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="StoreLogo.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.contrast-black.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.contrast-black_altform-unplated_targetsize-256.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.contrast-high.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.contrast-high_altform-unplated_targetsize-256.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.contrast-white.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.contrast-white_altform-unplated_targetsize-256.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.scale-200.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="SmallLogo.scale-400.png" />
+    <FileGroup DestinationPath="." SourcePath="." Include="resources.pri" />
+  </Chunk>
+</Package>
