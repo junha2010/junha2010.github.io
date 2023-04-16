@@ -1,6 +1,6 @@
 #progressBar {
-    --scrollAmount: 10%;
-    background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+    --scrollAmount: 0%;
+    background-image: linear-gradient(to right, #5ee7df 0%, #b490ca 100%);
     width: var(--scrollAmount);
     height: 4px;
     position: fixed;
