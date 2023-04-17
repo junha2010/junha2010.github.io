@@ -1,9 +1,9 @@
 * {
     padding: 10px;
 }
-
 body {
     background: #eee;
+    text-rendering: optimizeLegibility;
 }
 
 .down_btn button{
@@ -21,6 +21,10 @@ body {
    box-shadow:1px 1px 4px rgba(0,0,0,0.4);
 
 }
+.down_btn button:active{
+    box-shadow:1px 1px 4px rgba(0,0,0,0.4);
+    transform: translateY(10%)
+ }
 
 h2 {
     color: #222;
@@ -29,15 +33,36 @@ h2 {
     border:none;
 }
 
-input {
+form {
     position: absolute;
-    right: 0%;
-    text-transform: lowercase;
+    right: 0;
+    top: 0;
+    visibility: inherit;
 }
 
-
-input button {
-    position: absolute;
-    right: 0%;
-    text-transform: lowercase;
+form input {
+    background: transparent;
+    flex: 1;
+    /* border: green solid; */
+    outline: none;
+    border-radius: 100px;
+    padding: 24px 20px;
+    font-size: 20px;
+    color: #222;
 }
+
+form button {
+    position: absolute;
+    transform: translate(-40%, 15%);
+    font-size: 123%;
+    right: 0%;
+    /* border: red solid; */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: inherit;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
