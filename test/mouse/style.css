@@ -1,131 +1,57 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
 body {
-    flex-direction: column;
-    /* padding: 5%; */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgb(0,8,51,0.9), rgb(0,8,51,0.9)), url(/img/logo.png);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
 }
 
-h1 {
-    /* position: absolute; */
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow';
-}
-
-.alias {
+.pointer {
     position: absolute;
-    width: 30%;
-    height: 50%;
-    /* border: red solid; */
-    cursor: alias;
-    background: #222;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 50%;
+    pointer-events: none;
+    box-sizing: border-box;
+    /* animation: animate 1.5s linear infinite; */
+    transition: 0.2s;
 }
 
-.alias p {
-    position: absolute;
-    font-size: 5em;
-    color: #fff;
-}
+/* @keyframes animate {
+    100%
+    {
+        filter: hue-rotate(360deg);
+    }
+} */
 
-.all-scroll {
-    position: absolute;
-    width: 30%;
-    height: 50%;
-    /* border: red solid; */
-    cursor: all-scroll;
-    background: #dadada;
-    left: 30%;
-    /* padding-left: 45%; */
+.pointer1 {
+    transition: 0.05s;
 }
-
-.all-scroll p {
-    position: absolute;
-    font-size: 5em;
-    color: #222;
+.pointer2 {
+    transition: 0.1s;
 }
-
-.cell {
-    position: absolute;
-    width: 30%;
-    height: 50%;
-    /* border: red solid; */
-    background: #aaa;
-    cursor: cell;
-    left: 60%;
+.pointer3 {
+    transition: 0.15s;
 }
-
-.cell p {
-    position: absolute;
-    font-size: 5em;
-    color: #ddd;
+.pointer4 {
+    transition: 0.2s;
 }
-
-.col-resize {
-    position: absolute;
-    width: 30%;
-    height: 50%;
-    /* border: red solid; */
-    background: #456;
-    cursor: col-resize;
-    top: 60%;
-    /* left: 60%; */
-}
-
-.col-resize p {
-    position: absolute;
-    font-size: 5em;
-    color: #000;
-}
-
-.context-menu {
-    position: absolute;
-    width: 30%;
-    height: 50%;
-    /* border: red solid; */
-    background: #123456;
-    cursor: context-menu;
-    top: 60%;
-    left: 30%;
-}
-
-.context-menu p {
-    position: absolute;
-    font-size: 5em;
-    color: #000;
+.pointer5 {
+    transition: 0.25s;
 }
 
 .copy {
     position: absolute;
-    width: 30%;
-    height: 50%;
-    /* border: red solid; */
-    background: #654321;
-    cursor: copy;
-    top: 60%;
-    left: 60%;
-}
-
-.copy p {
-    position: absolute;
-    font-size: 5em;
-    color: #1234;
-}
-
-.crosshair {
-    position: absolute;
-    width: 30%;
-    height: 50%;
-    /* border: red solid; */
-    background: #456726;
-    cursor: crosshair;
-    top: 115%;
-    /* left: 60%; */
-}
-
-.crosshair p {
-    position: absolute;
-    font-size: 5em;
-    color: #13453032;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #eee;
 }

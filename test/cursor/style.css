@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    flex-direction: column;
+    /* padding: 5%; */
+}
+
+h1 {
+    /* position: absolute; */
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+}
+
+.alias {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    cursor: alias;
+    background: #222;
+}
+
+.alias p {
+    position: absolute;
+    font-size: 5em;
+    color: #fff;
+}
+
+.all-scroll {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    cursor: all-scroll;
+    background: #dadada;
+    left: 30%;
+    /* padding-left: 45%; */
+}
+
+.all-scroll p {
+    position: absolute;
+    font-size: 5em;
+    color: #222;
+}
+
+.cell {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    background: #aaa;
+    cursor: cell;
+    left: 60%;
+}
+
+.cell p {
+    position: absolute;
+    font-size: 5em;
+    color: #ddd;
+}
+
+.col-resize {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    background: #456;
+    cursor: col-resize;
+    top: 60%;
+    /* left: 60%; */
+}
+
+.col-resize p {
+    position: absolute;
+    font-size: 5em;
+    color: #000;
+}
+
+.context-menu {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    background: #123456;
+    cursor: context-menu;
+    top: 60%;
+    left: 30%;
+}
+
+.context-menu p {
+    position: absolute;
+    font-size: 5em;
+    color: #000;
+}
+
+.copy {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    background: #654321;
+    cursor: copy;
+    top: 60%;
+    left: 60%;
+}
+
+.copy p {
+    position: absolute;
+    font-size: 5em;
+    color: #1234;
+}
+
+.crosshair {
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    /* border: red solid; */
+    background: #456726;
+    cursor: crosshair;
+    top: 115%;
+    /* left: 60%; */
+}
+
+.crosshair p {
+    position: absolute;
+    font-size: 5em;
+    color: #13453032;
+}
