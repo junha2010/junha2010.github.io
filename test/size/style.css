@@ -58,7 +58,7 @@ div img {
     transition: 0.2s;
 }
 
-.hover:hover {
+.hover i:hover {
     width: 10px;
     height: 15px;
     border-radius: 30%;
