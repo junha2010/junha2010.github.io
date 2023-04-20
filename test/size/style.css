@@ -7,7 +7,7 @@ body {
     background: #222;
 }
 
-div {
+.box img{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -15,15 +15,48 @@ div {
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    overflow: hidden;
+    /* overflow: hidden; */
     transition: 0.2s;
 }
 
-div:hover {
+.box img:hover {
     border-radius: 20%;
 }
 
 div img {
     position: absolute;
     transform: translate(-50%, -50%);
+}
+
+.hover img {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    /* overflow: hidden; */
+    transition: 0.2s;
+}
+
+
+.hover img:hover {
+    border-radius: 20%;
+}
+
+.hover i {
+    position: absolute;
+    left: 10%;
+    display: inline;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: #fff;
+    background: #fff;
+}
+
+.hover:hover {
+    width: 10px;
+    height: 15px;
 }
