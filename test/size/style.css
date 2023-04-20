@@ -47,16 +47,19 @@ div img {
 
 .hover i {
     position: absolute;
-    left: 10%;
+    left: 45%;
+    top: 80%;
     display: inline;
     width: 10px;
     height: 10px;
-    border-radius: 50%;
+    border-radius: 40%;
     border: #fff;
     background: #fff;
+    transition: 0.2s;
 }
 
 .hover:hover {
     width: 10px;
     height: 15px;
+    border-radius: 30%;
 }
