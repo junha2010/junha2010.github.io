@@ -150,24 +150,30 @@ function reset() {
     upcost = 15;
     catcost = 25;
     workercost = 250;
+    buildingcost = 50000;
+    towercost = 100000;
+    upown = 0;
     catown = 0;
     workerown = 0;
-    upown = 0;
+    buildingown = 0;
+    towerown = 0;
     catadd = 1;
     workadd = 15;
-    building = 0;
     buildingadd = 1000;
-    buildingcost = 5000;
     toweradd = 5000;
-    towercost = 10000;
-    towerown = 0;
+    cboost = 1;
+    wboost = 1;
+    catmax = 0;
+    workmax = 0;
+    building = 0;
+    tower = 0;
     company = 0;
     companyadd = 50000;
     companyown = 0;
-    companycost = 10000000;
+    companycost = 1000000000;
     band = 0;
-    bandadd = 1000000;
-    bandcost = 10000000000000;
+    bandadd = 100000;
+    bandcost = 10000000000000000000000;
     bandown = 0;
     plusClick = 0;
     plusClickadd = 10;
@@ -292,7 +298,7 @@ function upgrade(name) {
         buildingadd++;
         wboost = 200;
       } else if (buildingown <= 23) {
-        msec += 200 * buildingadd;
+        msec += 20 * buildingadd;
         buildingadd++;
         wboost = 200;
       } else if (buildingown == 24) {
@@ -300,13 +306,13 @@ function upgrade(name) {
         buildingadd++;
         wboost = 5000;
       } else if (buildingown <= 48) {
-        msec += 5000 * buildingadd;
+        msec += 500 * buildingadd;
         buildingadd++;
         wboost = 5000;
       } else if (buildingown == 49) {
         msec += 5000 * buildingadd;
         buildingadd++;
-        wboost = 15000;
+        wboost = 1500;
       } else {
         msec += 15000 * buildingadd;
         buildingadd++;
@@ -338,17 +344,17 @@ function upgrade(name) {
         toweradd++;
         wboost = 200;
       } else if (towerown <= 23) {
-        msec += 2000 * toweradd;
+        msec += 200 * toweradd;
         toweradd++;
         wboost = 200;
       } else if (towerown == 24) {
         msec += 2000 * toweradd;
         toweradd++;
-        wboost = 50000;
+        wboost = 5000;
       } else if (towerown <= 48) {
-        msec += 50000000 * toweradd;
+        msec += 500000 * toweradd;
         toweradd++;
-        wboost = 500000;
+        wboost = 50100;
       } else if (towerown == 49) {
         msec += 5000 * toweradd;
         toweradd++;
@@ -356,7 +362,7 @@ function upgrade(name) {
       } else {
         msec += 15000 * toweradd;
         toweradd++;
-        wboost = 15000000;
+        wboost = 150000;
       }
       towerown += 1;
 
@@ -390,19 +396,19 @@ function upgrade(name) {
       } else if (companyown == 24) {
         msec += 2000 * companyadd;
         companyadd++;
-        wboost = 500000;
+        wboost = 50000;
       } else if (companyown <= 48) {
-        msec += 5000000000 * companyown;
+        msec += 500000 * companyown;
         companyadd++;
-        wboost = 50000000;
+        wboost = 50000;
       } else if (companyown == 49) {
-        msec += 50000000000 * companyadd;
+        msec += 5000 * companyadd;
         companyadd++;
-        wboost = 150000000000;
+        wboost = 15000;
       } else {
-        msec += 1500000000000 * companyadd;
+        msec += 1500 * companyadd;
         companyadd++;
-        wboost = 15000000000000000;
+        wboost = 1500000;
       }
       companyown += 1;
 
@@ -438,17 +444,17 @@ function upgrade(name) {
         bandadd++;
         wboost = 500000;
       } else if (bandown <= 48) {
-        msec += 500000000000000 * bandown;
+        msec += 500000 * bandown;
         bandadd++;
-        wboost = 50000000000;
+        wboost = 500000;
       } else if (bandown == 49) {
-        msec += 5000000000000000000000 * bandadd;
+        msec += 5000000000 * bandadd;
         bandadd++;
-        wboost = 15000000000000;
+        wboost = 1500000000;
       } else {
-        msec += 150000000000000000000000000000000000 * bandadd;
+        msec += 150000000 * bandadd;
         bandadd++;
-        wboost = 15000000000000000;
+        wboost = 1500000000;
       }
       bandown += 1;
 
@@ -484,17 +490,17 @@ function upgrade(name) {
         plusClickadd++;
         wboost = 500000;
       } else if (plusClickown <= 48) {
-        msec += 5000000 * plusClickown;
+        msec += 500000 * plusClickown;
         plusClickadd++;
-        wboost = 500000000;
+        wboost = 5000000;
       } else if (plusClickown == 49) {
-        msec += 5000000000000 * plusClickadd;
+        msec += 5000000 * plusClickadd;
         plusClickadd++;
-        wboost = 1500000000000000;
+        wboost = 150000000;
       } else {
-        msec += 150000000000000000000 * plusClickadd;
+        msec += 1500000000 * plusClickadd;
         plusClickadd++;
-        wboost = 15000000000000000;
+        wboost = 1500000;
       }
       plusClickown += 1;
 
