@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slot Machine Game</title>
+  <style>
+    body {
+        background: #222;
+    }
+  </style>
+</head>
+<body>
+  <div id="slot-machine">
+    <div class="reel" id="reel-1"></div>
+    <div class="reel" id="reel-2"></div>
+    <div class="reel" id="reel-3"></div>
+    <button id="spin-button">Spin</button>
+    <div id="results"></div>
+  </div>
+
+  <script>
+    const reels = document.querySelectorAll('.reel');
+    const spinButton = document.querySelector('#spin-button');
+    const results = document.querySelector('#results');
+
+    spinButton.addEventListener('click', () => {
+      // generate random numbers for each reel
+      const symbols = ['cherry', 'lemon', 'orange', 'plum', 'bell', 'bar'];
+      const results = [
+        symbols[Math.floor(Math.random() * symbols.length)],
+        symbols[Math.floor(Math.random() * symbols.length)],
+        symbols[Math.floor(Math.random() * symbols.length)]
+      ];
+
+      // update the reels with the new symbols
+      reels[0].classList.add(`symbol-${results[0]}`);
+      reels[1].classList.add(`symbol-${results[1]}`);
+      reels[2].classList.add(`symbol-${results[2]}`);
+
+      // check for a winning combination
+      if (results[0] === results[1] && results[1] === results[2]) {
+        results.textContent = 'You win!';
+      } else {
+        results.textContent = 'Try again!';
+      }
+    });
+  </script>
+</body>
+</html>
