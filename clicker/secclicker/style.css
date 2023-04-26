@@ -1,3 +1,7 @@
+* {
+  cursor: cell;
+}
+
 body {
     margin:0px;
     cursor: cell;
