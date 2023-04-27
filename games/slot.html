@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <style>
+    .slot-machine {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 2rem;
+    }
+
+    .slot-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .slot {
+      width: 3rem;
+      height: 3rem;
+      margin: 0 0.5rem;
+      border: 1px solid black;
+    }
+
+    .spin-button {
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      background-color: #f7b733;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+
+
+  <div class="slot-machine">
+    <div class="slot-container">
+      <div class="slot"></div>
+      <div class="slot"></div>
+      <div class="slot"></div>
+    </div>
+    <button class="spin-button">Spin</button>
+  </div>
+
+
+  <script>
+    const slotValues = ["🍒", "🍊", "🍇", "🍓", "🍉"];
+
+    const slots = document.querySelectorAll(".slot");
+    var spinInterval = null;
+
+    function sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    function spin() {
+      slots.forEach((slot) => {
+        const randomValue = slotValues[Math.floor(Math.random() * slotValues.length)];
+        slot.textContent = randomValue;
+      });
+    }
+
+    function stop() {
+      clearInterval(spinInterval);
+      // var uniqueResults = [...new Set(results)];
+      // if (uniqueResults.length == 1) {
+      //   $("#popup").show();
+      // }
+      spinning = false;
+    }
+
+
+    function start() {
+      spinInterval = setInterval(spin, 100);
+      setTimeout(stop, 2000);
+
+
+    }
+
+    const spinButton = document.querySelector(".spin-button");
+    spinButton.addEventListener("click", start);
+
+  </script>
+
+</body>
+
+</html>
