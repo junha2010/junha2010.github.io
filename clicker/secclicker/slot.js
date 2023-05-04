@@ -31,5 +31,5 @@ function start() {
 
 }
 
-const spinButton = document.querySelector(".spin-button");
+const spinButton = document.getElementById("spin-button");
 spinButton.addEventListener("click", start);
