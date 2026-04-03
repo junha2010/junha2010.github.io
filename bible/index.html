@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Genesis 1 Viewer</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: #ffffff; color: #1a1a1a; }
+    .topbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 25; background: #ffffff; border-bottom: 1px solid #e5e5e5; display: flex; align-items: center; padding: 0.9rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+    .menu-btn { border: 1px solid #d0d0d0; background: #ffffff; color: #666666; padding: 0.7rem 1.2rem; border-radius: 0.6rem; cursor: pointer; font-size: 0.95rem; font-weight: 500; font-family: inherit; transition: all 0.2s ease; }
+    .menu-btn:hover { background: #f8f8f8; border-color: #999999; color: #333333; }
+    .menu-btn:focus { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .menu-drop { display: none; position: absolute; top: 3.8rem; left: 1.2rem; width: min(92vw, 380px); max-height: 500px; overflow-y: auto; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 0.8rem; box-shadow: 0 4px 16px rgba(0,0,0,.12); z-index: 26; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; padding: 1rem; }
+    .menu-drop.open { display: grid; }
+    .menu-drop button { aspect-ratio: 1; border: 1px solid #d0d0d0; background: #f8f8f8; color: #1a1a1a; cursor: pointer; font-size: 1rem; font-family: inherit; transition: all 0.15s ease; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+    .menu-drop button:hover { background: #0066cc; color: #ffffff; border-color: #0066cc; }
+    .menu-drop .back-btn { background: #666666 !important; color: #ffffff !important; margin-bottom: 0.5rem; }
+    .menu-drop .current-chapter { background: #0066cc; color: #ffffff; border-color: #0066cc; }
+    .menu-drop .book-btn { background: #e6f3ff; color: #0066cc; border-color: #0066cc; font-weight: bold; }
+    .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
+    .chapter-title { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; color: #000000; text-align: center; }
+    .hint { color: #666666; margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
+    .verse-card { background: transparent; border: none; border-left: 3px solid #0066cc; border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; }
+    .verse-line { margin: 0; line-height: 1.75; font-size: 1.05rem; color: #1a1a1a; }
+    .verse-number { position: absolute; left: 0; top: 0; color: #0066cc; font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
+    .verse-number.single-digit { font-size: 1.08rem; }
+    .verse-number.double-digit { font-size: 1rem; }
+    .nav-btn { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; border: 1px solid #d0d0d0; background: #ffffff; color: #0066cc; font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .nav-btn:hover { background: #f8f8f8; border-color: #0066cc; box-shadow: 0 4px 12px rgba(0,102,204,.12); }
+    .nav-btn:disabled { opacity: 0; visibility: hidden; }
+    .prev-btn { right: auto; left: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <button id="menuButton" class="menu-btn" aria-haspopup="true" aria-expanded="false">Bible ▼</button>
+    <div id="menuDrop" class="menu-drop" aria-label="Verse list"></div>
+  </div>
+  <button id="prevChapterBtn" class="nav-btn prev-btn" aria-label="Previous chapter">←</button>
+  <button id="nextChapterBtn" class="nav-btn next-btn" aria-label="Next chapter">→</button>
+
+  <main class="content">
+    <h1 class="chapter-title">Genesis 1</h1>
+    <p class="hint">Scroll down to read, or use menu to jump to any verse.</p>
+    <div id="verseContainer"></div>
+  </main>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const menuDrop = document.getElementById('menuDrop');
+    const verseContainer = document.getElementById('verseContainer');
+    const nextChapterBtn = document.getElementById('nextChapterBtn');
+    const prevChapterBtn = document.getElementById('prevChapterBtn');
+    let verses = [];
+    let currentChapter = 1;
+    let menuState = 'books'; // 'books', 'chapters', or 'verses'
+    let selectedBook = null;
+    let selectedChapterForVerses = null;
+
+    function closeMenu() {
+      menuDrop.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuState = 'books'; // Reset to books view when menu closes
+    }
+
+    function openMenu() {
+      menuDrop.classList.add('open');
+      menuButton.setAttribute('aria-expanded', 'true');
+      renderMenu();
+    }
+
+    menuButton.addEventListener('click', () => {
+      if (menuDrop.classList.contains('open')) closeMenu(); else openMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuDrop.contains(e.target) && e.target !== menuButton) closeMenu();
+    });
+
+    nextChapterBtn.addEventListener('click', () => {
+      const nextChapter = currentChapter + 1;
+      if (bibleData.Genesis && bibleData.Genesis[nextChapter]) {
+        currentChapter = nextChapter;
+        verses = bibleData.Genesis[nextChapter];
+        document.querySelector('.chapter-title').textContent = `Genesis ${currentChapter}`;
+        renderVerses();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        updateNavBtns();
+      }
+    });
+
+    prevChapterBtn.addEventListener('click', () => {
+      const prevChapter = currentChapter - 1;
+      if (bibleData.Genesis && bibleData.Genesis[prevChapter]) {
+        currentChapter = prevChapter;
+        verses = bibleData.Genesis[prevChapter];
+        document.querySelector('.chapter-title').textContent = `Genesis ${currentChapter}`;
+        renderVerses();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        updateNavBtns();
+      }
+    });
+
+    function renderMenu() {
+      menuDrop.innerHTML = '';
+      
+      if (menuState === 'books') {
+        // Render book buttons
+        const books = Object.keys(bibleData);
+        books.forEach(book => {
+          const bookBtn = document.createElement('button');
+          bookBtn.textContent = book;
+          bookBtn.className = 'book-btn';
+          bookBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedBook = book;
+            menuState = 'chapters';
+            renderMenu();
+          });
+          menuDrop.appendChild(bookBtn);
+        });
+      } else if (menuState === 'chapters') {
+        // Back button
+        const backBtn = document.createElement('button');
+        backBtn.textContent = '←';
+        backBtn.className = 'back-btn';
+        backBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          menuState = 'books';
+          renderMenu();
+        });
+        menuDrop.appendChild(backBtn);
+        
+        // Render chapter buttons for selected book
+        const chapters = Object.keys(bibleData[selectedBook] || {}).sort((a, b) => parseInt(a) - parseInt(b));
+        chapters.forEach(chapterNum => {
+          const chapterBtn = document.createElement('button');
+          chapterBtn.textContent = chapterNum;
+          chapterBtn.className = (selectedBook === 'Genesis' && chapterNum == currentChapter) ? 'current-chapter' : '';
+          chapterBtn.addEventListener('click', () => {            e.stopPropagation();            selectedChapterForVerses = chapterNum;
+            menuState = 'verses';
+            renderMenu();
+          });
+          menuDrop.appendChild(chapterBtn);
+        });
+      } else if (menuState === 'verses') {
+        // Back button
+        const backBtn = document.createElement('button');
+        backBtn.textContent = '←';
+        backBtn.className = 'back-btn';
+        backBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          menuState = 'chapters';
+          renderMenu();
+        });
+        menuDrop.appendChild(backBtn);
+        
+        // Render verse buttons for selected chapter
+        const chapterVerses = bibleData[selectedBook][selectedChapterForVerses] || [];
+        chapterVerses.forEach((text, idx) => {
+          const verseNum = idx + 1;
+          const verseBtn = document.createElement('button');
+          verseBtn.textContent = `${verseNum}`;
+          verseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Navigate to the chapter if different
+            if (selectedBook !== 'Genesis' || selectedChapterForVerses != currentChapter) {
+              currentChapter = parseInt(selectedChapterForVerses);
+              verses = bibleData[selectedBook][currentChapter];
+              document.querySelector('.chapter-title').textContent = `${selectedBook} ${currentChapter}`;
+              renderVerses();
+              updateNavBtns();
+            }
+            
+            // Scroll to verse
+            const target = document.getElementById('verse-' + verseNum);
+            if (target) {
+              const topOffset = 80;
+              const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+              const offsetPosition = elementPosition - topOffset;
+              window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+              closeMenu();
+            }
+          });
+          menuDrop.appendChild(verseBtn);
+        });
+      }
+    }
+
+    function renderVerses() {
+      verseContainer.innerHTML = '';
+      verses.forEach((text, idx) => {
+        const number = idx + 1;
+
+        const card = document.createElement('article');
+        card.id = 'verse-' + number;
+        card.className = 'verse-card';
+        const numSpan = `<span class="verse-number ${number < 10 ? 'single-digit' : 'double-digit'}">${number}</span>`;
+        card.innerHTML = `<p class="verse-line">${numSpan} ${text}</p>`;
+        verseContainer.appendChild(card);
+      });
+    }
+
+    async function loadGenesis() {
+      try {
+        const res = await fetch('data/verses.json');
+        if (!res.ok) throw new Error('Unable to read verses data');
+        bibleData = await res.json();
+        verses = bibleData.Genesis?.['1'] || [];
+        if (!verses.length) {
+          verseContainer.innerHTML = '<p class="hint">Genesis 1 not found.</p>';
+          return;
+        }
+        renderVerses();
+        updateNavBtns();
+      } catch (err) {
+        verseContainer.innerHTML = `<p class="hint">${err.message}</p>`;
+      }
+    }
+
+    function updateNavBtns() {
+      const nextChapter = currentChapter + 1;
+      const prevChapter = currentChapter - 1;
+      
+      if (bibleData.Genesis && bibleData.Genesis[nextChapter]) {
+        nextChapterBtn.disabled = false;
+      } else {
+        nextChapterBtn.disabled = true;
+      }
+      
+      if (bibleData.Genesis && bibleData.Genesis[prevChapter]) {
+        prevChapterBtn.disabled = false;
+      } else {
+        prevChapterBtn.disabled = true;
+      }
+    }
+
+    loadGenesis();
+  </script>
+</body>
+</html>
