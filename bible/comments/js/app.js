@@ -3,6 +3,8 @@ const menuClose = document.getElementById('menuClose');
 const verseMenu = document.getElementById('verseMenu');
 const verseList = document.getElementById('verseList');
 const chapterEl = document.getElementById('chapter');
+const LOCAL_BUNDLE = '../data/verses.js';
+const LOCAL_JSON = '../data/verses.json';
 
 menuToggle.addEventListener('click', () => {
   verseMenu.classList.add('open');
@@ -14,11 +16,36 @@ menuClose.addEventListener('click', () => {
   verseMenu.setAttribute('aria-hidden', 'true');
 });
 
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error(`Could not load ${src}`));
+    document.head.appendChild(script);
+  });
+}
+
+async function loadGenesisData() {
+  if (window.BIBLE_DATA) {
+    return window.BIBLE_DATA;
+  }
+
+  if (window.location.protocol === 'file:') {
+    await loadScript(LOCAL_BUNDLE);
+    return window.BIBLE_DATA || null;
+  }
+
+  const res = await fetch(LOCAL_JSON);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return await res.json();
+}
+
 async function render() {
   try {
-    const res = await fetch('data/verses.json');
-    if (!res.ok) throw new Error('Could not load Genesis data');
-    const data = await res.json();
+    const data = await loadGenesisData();
+    if (!data) throw new Error('Could not load Genesis data');
     const verses = data.Genesis['1'];
     if (!Array.isArray(verses)) throw new Error('Genesis 1 not found');
 
