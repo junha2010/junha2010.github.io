@@ -1,4 +1,0 @@
-function sayhello(name) {
-    const msg = `hello, ${name}`;
-    console.log(msg);
-}
