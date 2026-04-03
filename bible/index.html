@@ -15,7 +15,7 @@
     .menu-drop.open { display: grid; }
     .menu-drop button { aspect-ratio: 1; border: 1px solid #d0d0d0; background: #f8f8f8; color: #1a1a1a; cursor: pointer; font-size: 1rem; font-family: inherit; transition: all 0.15s ease; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; font-weight: 600; }
     .menu-drop button:hover { background: #0066cc; color: #ffffff; border-color: #0066cc; }
-    .menu-drop .back-btn { background: #666666 !important; color: #ffffff !important; margin-bottom: 0.5rem; }
+    .menu-drop .back-btn { background: #f8f8f8; color: #1a1a1a; margin-bottom: 0.5rem; }
     .menu-drop .current-chapter { background: #0066cc; color: #ffffff; border-color: #0066cc; }
     .menu-drop .book-btn { background: #e6f3ff; color: #0066cc; border-color: #0066cc; font-weight: bold; }
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
@@ -46,12 +46,14 @@
     <div id="verseContainer"></div>
   </main>
 
+  <script src="data/verses.js"></script>
   <script>
     const menuButton = document.getElementById('menuButton');
     const menuDrop = document.getElementById('menuDrop');
     const verseContainer = document.getElementById('verseContainer');
     const nextChapterBtn = document.getElementById('nextChapterBtn');
     const prevChapterBtn = document.getElementById('prevChapterBtn');
+    let bibleData = window.BIBLE_DATA || {};
     let verses = [];
     let currentChapter = 1;
     let menuState = 'books'; // 'books', 'chapters', or 'verses'
@@ -138,7 +140,9 @@
           const chapterBtn = document.createElement('button');
           chapterBtn.textContent = chapterNum;
           chapterBtn.className = (selectedBook === 'Genesis' && chapterNum == currentChapter) ? 'current-chapter' : '';
-          chapterBtn.addEventListener('click', () => {            e.stopPropagation();            selectedChapterForVerses = chapterNum;
+          chapterBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedChapterForVerses = chapterNum;
             menuState = 'verses';
             renderMenu();
           });
@@ -204,9 +208,6 @@
 
     async function loadGenesis() {
       try {
-        const res = await fetch('data/verses.json');
-        if (!res.ok) throw new Error('Unable to read verses data');
-        bibleData = await res.json();
         verses = bibleData.Genesis?.['1'] || [];
         if (!verses.length) {
           verseContainer.innerHTML = '<p class="hint">Genesis 1 not found.</p>';
