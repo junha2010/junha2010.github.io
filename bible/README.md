@@ -4,7 +4,7 @@
 
 This repository is a small static Bible viewer built with plain HTML, CSS, and JavaScript. There is no build step, package manager, or backend.
 
-The main page opens directly from [`index.html`](./index.html) and works without a web server. Verse data is loaded from [`data/verses.js`](./data/verses.js), which defines `window.BIBLE_DATA` for the browser at startup.
+The main page opens directly from [`index.html`](./index.html). When you open it from disk, it falls back to the bundled offline data in [`data/verses.js`](./data/verses.js); when you serve the repo over HTTP, it uses the full `Bible-niv-main` folder data.
 
 ## Current Content
 
@@ -25,11 +25,12 @@ The root page contains the full UI and logic in one file:
 
 At runtime the page:
 
-1. Reads Bible data from [`data/verses.js`](./data/verses.js)
-2. Loads `Genesis 1` by default
-3. Renders each verse into a card in the main content area
-4. Provides a menu for books, chapters, and verses
-5. Provides previous and next chapter buttons
+1. Reads Bible data from [`data/verses.js`](./data/verses.js) when opened from disk
+2. Loads the full `Bible-niv-main` chapter data when served over HTTP
+3. Loads `Genesis 1` by default
+4. Renders each verse into a card in the main content area
+5. Provides a menu for books, chapters, and verses
+6. Provides previous and next chapter buttons
 
 ## Data Files
 
@@ -79,4 +80,4 @@ If you want to regenerate the JavaScript data bundle from the JSON source, the c
 
 ## Current State
 
-The project is working as a lightweight offline Bible reader. The main thing to keep in sync is the verse content between [`data/verses.json`](./data/verses.json) and [`data/verses.js`](./data/verses.js).
+The project is working as a lightweight Bible reader. The main thing to keep in sync is the verse content between [`data/verses.json`](./data/verses.json) and [`data/verses.js`](./data/verses.js), and the full `Bible-niv-main` folder if you update the main viewer data set.

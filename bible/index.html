@@ -44,12 +44,13 @@
 
   <main class="content">
     <h1 class="chapter-title">Loading...</h1>
-    <p class="hint">Loading Bible data from the Bible-niv-main folder...</p>
+    <p class="hint">Loading Bible data...</p>
     <div id="verseContainer"></div>
   </main>
 
   <script>
     const DATA_DIR = 'Bible-niv-main';
+    const LOCAL_BUNDLE = 'data/verses.js';
 
     const menuButton = document.getElementById('menuButton');
     const menuDrop = document.getElementById('menuDrop');
@@ -77,6 +78,38 @@
     function showError(message) {
       chapterTitleEl.textContent = 'Bible Viewer';
       verseContainer.innerHTML = '<p class="hint">' + message + '</p>';
+    }
+
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error(`Could not load ${src}`));
+        document.head.appendChild(script);
+      });
+    }
+
+    async function loadBundledBibleData() {
+      if (window.BIBLE_DATA) {
+        return window.BIBLE_DATA;
+      }
+
+      if (window.location.protocol !== 'file:') {
+        return null;
+      }
+
+      await loadScript(LOCAL_BUNDLE);
+      return window.BIBLE_DATA || null;
+    }
+
+    function seedBookCacheFromData(data) {
+      state.bookOrder = Object.keys(data);
+      state.bookCache.clear();
+      Object.entries(data).forEach(([bookName, chapters]) => {
+        state.bookCache.set(bookName, chapters);
+      });
     }
 
     async function fetchJson(path) {
@@ -420,16 +453,25 @@
 
     async function loadBible() {
       try {
-        await loadBookList();
+        const bundledBible = await loadBundledBibleData();
+
+        if (bundledBible) {
+          seedBookCacheFromData(bundledBible);
+        } else {
+          await loadBookList();
+        }
 
         const defaultBook = state.bookOrder.includes('Genesis')
           ? 'Genesis'
           : state.bookOrder[0];
 
         await goToChapter(defaultBook, 1, { scrollToTop: false });
+        if (bundledBible) {
+          setHint('Loaded from the local offline bundle. Use the menu to jump to any available verse.');
+        }
       } catch (error) {
         const localFileHint = window.location.protocol === 'file:'
-          ? ' Browsers usually block multi-file JSON loading from file://. Use a local server or GitHub Pages for the Bible-niv-main folder version.'
+          ? ' Browsers usually block multi-file JSON loading from file://. The page now falls back to the local bundle when available, but the full Bible-niv-main data still requires a local server.'
           : '';
 
         showError(error.message + localFileHint);
