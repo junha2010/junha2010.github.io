@@ -4,25 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bible Viewer</title>
+  <link rel="icon" type="image/png" href="img/junha.png" />
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: #ffffff; color: #1a1a1a; }
-    .topbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 25; background: #ffffff; border-bottom: 1px solid #e5e5e5; display: flex; align-items: center; padding: 0.9rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+    .topbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 25; background: #ffffff; border-bottom: 1px solid #e5e5e5; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+    .topbar-left { position: relative; display: flex; align-items: center; }
     .menu-btn { border: 1px solid #d0d0d0; background: #ffffff; color: #666666; padding: 0.7rem 1.2rem; border-radius: 0.6rem; cursor: pointer; font-size: 0.95rem; font-weight: 500; font-family: inherit; transition: all 0.2s ease; }
     .menu-btn:hover { background: #f8f8f8; border-color: #999999; color: #333333; }
     .menu-btn:focus { outline: 2px solid #0066cc; outline-offset: 2px; }
-    .menu-drop { display: none; position: absolute; top: 3.8rem; left: 1.2rem; width: min(92vw, 420px); max-height: 500px; overflow-y: auto; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 0.8rem; box-shadow: 0 4px 16px rgba(0,0,0,.12); z-index: 26; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; padding: 1rem; }
-    .menu-drop.open { display: grid; }
+    .menu-drop { display: grid; position: absolute; top: 3.8rem; left: 1.2rem; width: min(92vw, 640px); max-height: 500px; overflow-x: hidden; overflow-y: auto; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 0.8rem; box-shadow: 0 4px 16px rgba(0,0,0,.12); z-index: 26; gap: 0.8rem; padding: 1rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.75rem) scaleY(0.92); transform-origin: top left; transition: opacity 0.2s ease, transform 0.22s ease, visibility 0.22s ease; }
+    .menu-drop.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scaleY(1); }
+    .menu-drop.slide-in-next { animation: menu-slide-next 0.22s ease; }
+    .menu-drop.slide-in-back { animation: menu-slide-back 0.22s ease; }
     .menu-drop button { aspect-ratio: 1; border: 1px solid #d0d0d0; background: #f8f8f8; color: #1a1a1a; cursor: pointer; font-size: 1rem; font-family: inherit; transition: all 0.15s ease; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; font-weight: 600; }
     .menu-drop button:hover { background: #0066cc; color: #ffffff; border-color: #0066cc; }
+    .menu-drop.books-view { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
+    .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(56px, 56px)); justify-content: start; }
+    .menu-drop.number-grid-view button { width: 56px; height: 56px; font-size: 0.95rem; }
     .menu-drop .back-btn { background: #f8f8f8; color: #1a1a1a; margin-bottom: 0.5rem; }
     .menu-drop .current-chapter { background: #0066cc; color: #ffffff; border-color: #0066cc; }
     .menu-drop .book-btn { background: #e6f3ff; color: #0066cc; border-color: #0066cc; font-weight: bold; aspect-ratio: auto; min-height: 3rem; padding: 0.5rem; }
+    .menu-subhead { grid-column: 1 / -1; margin: 0; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7280; }
     .menu-status { grid-column: 1 / -1; padding: 0.6rem; color: #666666; text-align: center; font-size: 0.95rem; }
+    .reading-status { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; min-width: 0; padding: 0.45rem 0.8rem; border: 1px solid #dbe3ef; border-radius: 0.85rem; background: rgba(248, 250, 252, 0.96); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); }
+    .reading-status-label { margin: 0; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; }
+    .reading-status-value { margin: 0.15rem 0 0; font-size: 0.94rem; font-weight: 700; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 38vw; }
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
     .chapter-title { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; color: #000000; text-align: center; }
     .hint { color: #666666; margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
     .verse-card { background: transparent; border: none; border-left: 3px solid #0066cc; border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; }
+    .verse-card.verse-flash { animation: verse-flash 1s ease; }
     .verse-line { margin: 0; line-height: 1.75; font-size: 1.05rem; color: #1a1a1a; }
     .verse-number { position: absolute; left: 0; top: 0; color: #0066cc; font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
     .verse-number.single-digit { font-size: 1.08rem; }
@@ -31,12 +43,40 @@
     .nav-btn:hover { background: #f8f8f8; border-color: #0066cc; box-shadow: 0 4px 12px rgba(0,102,204,.12); }
     .nav-btn:disabled { opacity: 0; visibility: hidden; }
     .prev-btn { right: auto; left: 1.5rem; }
+    @keyframes menu-slide-next {
+      from { opacity: 0; transform: translateX(1.4rem); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes menu-slide-back {
+      from { opacity: 0; transform: translateX(-1.4rem); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes verse-flash {
+      0% { background: rgba(0, 102, 204, 0); border-left-color: #0066cc; }
+      35% { background: rgba(0, 102, 204, 0.14); border-left-color: #1d4ed8; }
+      100% { background: rgba(0, 102, 204, 0); border-left-color: #0066cc; }
+    }
+    @media (max-width: 520px) {
+      .topbar { align-items: flex-start; }
+      .reading-status { padding: 0.35rem 0.6rem; }
+      .reading-status-value { font-size: 0.82rem; max-width: 44vw; }
+      .menu-drop { left: 4vw; width: 92vw; gap: 0.65rem; }
+      .menu-drop.books-view { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(48px, 48px)); }
+      .menu-drop.number-grid-view button { width: 48px; height: 48px; font-size: 0.9rem; }
+    }
   </style>
 </head>
 <body>
   <div class="topbar">
-    <button id="menuButton" class="menu-btn" aria-haspopup="true" aria-expanded="false">Bible ▼</button>
-    <div id="menuDrop" class="menu-drop" aria-label="Bible navigation menu"></div>
+    <div class="topbar-left">
+      <button id="menuButton" class="menu-btn" aria-haspopup="true" aria-expanded="false">Bible ▼</button>
+      <div id="menuDrop" class="menu-drop" aria-label="Bible navigation menu"></div>
+    </div>
+    <div class="reading-status" aria-live="polite">
+      <p class="reading-status-label">Reading</p>
+      <p id="readingStatusValue" class="reading-status-value">Loading...</p>
+    </div>
   </div>
 
   <button id="prevChapterBtn" class="nav-btn prev-btn" aria-label="Previous chapter">←</button>
@@ -59,6 +99,7 @@
     const prevChapterBtn = document.getElementById('prevChapterBtn');
     const chapterTitleEl = document.querySelector('.chapter-title');
     const hintEl = document.querySelector('.hint');
+    const readingStatusValueEl = document.getElementById('readingStatusValue');
 
     const state = {
       bookOrder: [],
@@ -68,7 +109,10 @@
       verses: [],
       menuState: 'books', // books | chapters | verses
       selectedBook: null,
-      selectedChapterForVerses: null
+      selectedChapterForVerses: null,
+      menuTransition: null,
+      activeVerse: null,
+      readingStatusRaf: null
     };
 
     function setHint(text) {
@@ -78,6 +122,7 @@
     function showError(message) {
       chapterTitleEl.textContent = 'Bible Viewer';
       verseContainer.innerHTML = '<p class="hint">' + message + '</p>';
+      readingStatusValueEl.textContent = 'Unavailable';
     }
 
     function loadScript(src) {
@@ -176,6 +221,37 @@
       state.menuState = 'books';
     }
 
+    function applyMenuLayout() {
+      menuDrop.classList.remove('books-view', 'number-grid-view');
+
+      if (state.menuState === 'books') {
+        menuDrop.classList.add('books-view');
+        return;
+      }
+
+      menuDrop.classList.add('number-grid-view');
+    }
+
+    function applyMenuTransition() {
+      menuDrop.classList.remove('slide-in-next', 'slide-in-back');
+
+      if (!state.menuTransition) {
+        return;
+      }
+
+      // Restart the animation each time the menu changes views.
+      void menuDrop.offsetWidth;
+      menuDrop.classList.add(state.menuTransition);
+      state.menuTransition = null;
+    }
+
+    function appendMenuSubhead(text) {
+      const subhead = document.createElement('p');
+      subhead.className = 'menu-subhead';
+      subhead.textContent = text;
+      menuDrop.appendChild(subhead);
+    }
+
     async function openMenu() {
       menuDrop.classList.add('open');
       menuButton.setAttribute('aria-expanded', 'true');
@@ -188,6 +264,19 @@
         : 'Bible Viewer';
       chapterTitleEl.textContent = title;
       document.title = title;
+    }
+
+    function updateReadingStatus(verseNum = null) {
+      if (!state.currentBook || !state.currentChapter) {
+        readingStatusValueEl.textContent = 'Loading...';
+        return;
+      }
+
+      const verseText = verseNum != null
+        ? `${state.currentBook} ${state.currentChapter}:${verseNum}`
+        : `${state.currentBook} ${state.currentChapter}`;
+
+      readingStatusValueEl.textContent = verseText;
     }
 
     function renderVerses() {
@@ -208,6 +297,61 @@
         card.innerHTML = `<p class="verse-line">${numSpan} ${text}</p>`;
         verseContainer.appendChild(card);
       });
+
+      state.activeVerse = state.verses.length ? 1 : null;
+      updateReadingStatus(state.activeVerse);
+    }
+
+    function findClosestVisibleVerse() {
+      const verseCards = verseContainer.querySelectorAll('.verse-card');
+      if (!verseCards.length) return null;
+
+      const targetLine = 140;
+      let closestVerse = 1;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      verseCards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs(rect.top - targetLine);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestVerse = index + 1;
+        }
+      });
+
+      return closestVerse;
+    }
+
+    function syncReadingStatusToScroll() {
+      state.readingStatusRaf = null;
+
+      if (!state.verses.length) {
+        updateReadingStatus();
+        return;
+      }
+
+      const visibleVerse = findClosestVisibleVerse();
+      if (visibleVerse == null || visibleVerse === state.activeVerse) {
+        return;
+      }
+
+      state.activeVerse = visibleVerse;
+      updateReadingStatus(visibleVerse);
+    }
+
+    function scheduleReadingStatusSync() {
+      if (state.readingStatusRaf != null) {
+        return;
+      }
+
+      state.readingStatusRaf = window.requestAnimationFrame(syncReadingStatusToScroll);
+    }
+
+    function flashVerse(target) {
+      target.classList.remove('verse-flash');
+      void target.offsetWidth;
+      target.classList.add('verse-flash');
+      window.setTimeout(() => target.classList.remove('verse-flash'), 1100);
     }
 
     function scrollToVerse(verseNum) {
@@ -217,7 +361,16 @@
       const topOffset = 80;
       const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - topOffset;
+      const scrollDistance = Math.abs(window.pageYOffset - offsetPosition);
+      const highlightDelay = Math.min(700, Math.max(180, Math.round(scrollDistance * 0.35)));
+
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      state.activeVerse = verseNum;
+      updateReadingStatus(verseNum);
+      window.setTimeout(() => {
+        flashVerse(target);
+        scheduleReadingStatusSync();
+      }, highlightDelay);
     }
 
     async function goToChapter(bookName, chapterNumber, options = {}) {
@@ -244,9 +397,12 @@
       setHint('Scroll down to read, or use the menu to jump to any verse.');
       renderVerses();
       updateNavBtns();
+      updateReadingStatus(state.activeVerse);
 
       if (scrollToTop) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        state.activeVerse = 1;
+        updateReadingStatus(1);
       }
 
       if (scrollVerse != null) {
@@ -315,10 +471,13 @@
 
     async function renderMenu() {
       menuDrop.innerHTML = '<div class="menu-status">Loading...</div>';
+      applyMenuLayout();
+      applyMenuTransition();
 
       try {
         if (state.menuState === 'books') {
           menuDrop.innerHTML = '';
+          appendMenuSubhead('Choose a book');
           state.bookOrder.forEach((book) => {
             const bookBtn = document.createElement('button');
             bookBtn.textContent = book;
@@ -327,6 +486,7 @@
               e.stopPropagation();
               state.selectedBook = book;
               await ensureBookLoaded(book);
+              state.menuTransition = 'slide-in-next';
               state.menuState = 'chapters';
               await renderMenu();
             });
@@ -340,12 +500,14 @@
           const chapters = getChapterNumbers(state.selectedBook);
 
           menuDrop.innerHTML = '';
+          appendMenuSubhead(`Choose a chapter in ${state.selectedBook}`);
 
           const backBtn = document.createElement('button');
           backBtn.textContent = '←';
           backBtn.className = 'back-btn';
           backBtn.addEventListener('click', async (e) => {
             e.stopPropagation();
+            state.menuTransition = 'slide-in-back';
             state.menuState = 'books';
             await renderMenu();
           });
@@ -361,6 +523,7 @@
             chapterBtn.addEventListener('click', async (e) => {
               e.stopPropagation();
               state.selectedChapterForVerses = String(chapterNum);
+              state.menuTransition = 'slide-in-next';
               state.menuState = 'verses';
               await renderMenu();
             });
@@ -376,12 +539,14 @@
           const chapterVerses = bookData[state.selectedChapterForVerses] || [];
 
           menuDrop.innerHTML = '';
+          appendMenuSubhead(`Choose a verse in ${state.selectedBook} ${state.selectedChapterForVerses}`);
 
           const backBtn = document.createElement('button');
           backBtn.textContent = '←';
           backBtn.className = 'back-btn';
           backBtn.addEventListener('click', async (e) => {
             e.stopPropagation();
+            state.menuTransition = 'slide-in-back';
             state.menuState = 'chapters';
             await renderMenu();
           });
@@ -428,6 +593,9 @@
         closeMenu();
       }
     });
+
+    window.addEventListener('scroll', scheduleReadingStatusSync, { passive: true });
+    window.addEventListener('resize', scheduleReadingStatusSync);
 
     nextChapterBtn.addEventListener('click', async () => {
       try {

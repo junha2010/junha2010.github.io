@@ -8,12 +8,7 @@ The main page opens directly from [`index.html`](./index.html). When you open it
 
 ## Current Content
 
-The checked-in content currently includes:
-
-- `Genesis 1` with 31 verses
-- `Genesis 2` with 25 verses
-
-The viewer is centered on Genesis, but the menu structure is written to support more books and chapters later.
+The checked-in content currently includes the full 66-book Bible data set in canonical order.
 
 ## How It Works
 
@@ -69,7 +64,7 @@ window.BIBLE_DATA = { ... }
 
 Open [`index.html`](./index.html) directly in your browser. No local server is required.
 
-If you want to regenerate the JavaScript data bundle from the JSON source, the current file was produced from `data/verses.json`.
+If you want to regenerate the offline JSON and JavaScript bundles from the `Bible-niv-main` source files, run `powershell -ExecutionPolicy Bypass -File .\build_full_bundle.ps1` from the [`bible`](./) folder.
 
 ## Notes
 
