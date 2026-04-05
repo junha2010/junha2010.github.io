@@ -30,6 +30,7 @@
     .chapter-title { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; color: #000000; text-align: center; }
     .hint { color: #666666; margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
     .verse-card { background: transparent; border: none; border-left: 3px solid #0066cc; border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; }
+    .verse-card.verse-flash { animation: verse-flash 1s ease; }
     .verse-line { margin: 0; line-height: 1.75; font-size: 1.05rem; color: #1a1a1a; }
     .verse-number { position: absolute; left: 0; top: 0; color: #0066cc; font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
     .verse-number.single-digit { font-size: 1.08rem; }
@@ -45,6 +46,11 @@
     @keyframes menu-slide-back {
       from { opacity: 0; transform: translateX(-1.4rem); }
       to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes verse-flash {
+      0% { background: rgba(0, 102, 204, 0); border-left-color: #0066cc; }
+      35% { background: rgba(0, 102, 204, 0.14); border-left-color: #1d4ed8; }
+      100% { background: rgba(0, 102, 204, 0); border-left-color: #0066cc; }
     }
     @media (max-width: 520px) {
       .menu-drop { left: 4vw; width: 92vw; gap: 0.65rem; }
@@ -263,6 +269,13 @@
       });
     }
 
+    function flashVerse(target) {
+      target.classList.remove('verse-flash');
+      void target.offsetWidth;
+      target.classList.add('verse-flash');
+      window.setTimeout(() => target.classList.remove('verse-flash'), 1100);
+    }
+
     function scrollToVerse(verseNum) {
       const target = document.getElementById('verse-' + verseNum);
       if (!target) return;
@@ -270,7 +283,11 @@
       const topOffset = 80;
       const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - topOffset;
+      const scrollDistance = Math.abs(window.pageYOffset - offsetPosition);
+      const highlightDelay = Math.min(700, Math.max(180, Math.round(scrollDistance * 0.35)));
+
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      window.setTimeout(() => flashVerse(target), highlightDelay);
     }
 
     async function goToChapter(bookName, chapterNumber, options = {}) {
