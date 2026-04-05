@@ -8,7 +8,8 @@
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: #ffffff; color: #1a1a1a; }
-    .topbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 25; background: #ffffff; border-bottom: 1px solid #e5e5e5; display: flex; align-items: center; padding: 0.9rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+    .topbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 25; background: #ffffff; border-bottom: 1px solid #e5e5e5; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+    .topbar-left { position: relative; display: flex; align-items: center; }
     .menu-btn { border: 1px solid #d0d0d0; background: #ffffff; color: #666666; padding: 0.7rem 1.2rem; border-radius: 0.6rem; cursor: pointer; font-size: 0.95rem; font-weight: 500; font-family: inherit; transition: all 0.2s ease; }
     .menu-btn:hover { background: #f8f8f8; border-color: #999999; color: #333333; }
     .menu-btn:focus { outline: 2px solid #0066cc; outline-offset: 2px; }
@@ -26,6 +27,9 @@
     .menu-drop .book-btn { background: #e6f3ff; color: #0066cc; border-color: #0066cc; font-weight: bold; aspect-ratio: auto; min-height: 3rem; padding: 0.5rem; }
     .menu-subhead { grid-column: 1 / -1; margin: 0; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7280; }
     .menu-status { grid-column: 1 / -1; padding: 0.6rem; color: #666666; text-align: center; font-size: 0.95rem; }
+    .reading-status { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; min-width: 0; padding: 0.45rem 0.8rem; border: 1px solid #dbe3ef; border-radius: 0.85rem; background: rgba(248, 250, 252, 0.96); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); }
+    .reading-status-label { margin: 0; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; }
+    .reading-status-value { margin: 0.15rem 0 0; font-size: 0.94rem; font-weight: 700; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 38vw; }
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
     .chapter-title { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; color: #000000; text-align: center; }
     .hint { color: #666666; margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
@@ -53,6 +57,9 @@
       100% { background: rgba(0, 102, 204, 0); border-left-color: #0066cc; }
     }
     @media (max-width: 520px) {
+      .topbar { align-items: flex-start; }
+      .reading-status { padding: 0.35rem 0.6rem; }
+      .reading-status-value { font-size: 0.82rem; max-width: 44vw; }
       .menu-drop { left: 4vw; width: 92vw; gap: 0.65rem; }
       .menu-drop.books-view { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(48px, 48px)); }
@@ -62,8 +69,14 @@
 </head>
 <body>
   <div class="topbar">
-    <button id="menuButton" class="menu-btn" aria-haspopup="true" aria-expanded="false">Bible ▼</button>
-    <div id="menuDrop" class="menu-drop" aria-label="Bible navigation menu"></div>
+    <div class="topbar-left">
+      <button id="menuButton" class="menu-btn" aria-haspopup="true" aria-expanded="false">Bible ▼</button>
+      <div id="menuDrop" class="menu-drop" aria-label="Bible navigation menu"></div>
+    </div>
+    <div class="reading-status" aria-live="polite">
+      <p class="reading-status-label">Reading</p>
+      <p id="readingStatusValue" class="reading-status-value">Loading...</p>
+    </div>
   </div>
 
   <button id="prevChapterBtn" class="nav-btn prev-btn" aria-label="Previous chapter">←</button>
@@ -86,6 +99,7 @@
     const prevChapterBtn = document.getElementById('prevChapterBtn');
     const chapterTitleEl = document.querySelector('.chapter-title');
     const hintEl = document.querySelector('.hint');
+    const readingStatusValueEl = document.getElementById('readingStatusValue');
 
     const state = {
       bookOrder: [],
@@ -96,7 +110,9 @@
       menuState: 'books', // books | chapters | verses
       selectedBook: null,
       selectedChapterForVerses: null,
-      menuTransition: null
+      menuTransition: null,
+      activeVerse: null,
+      readingStatusRaf: null
     };
 
     function setHint(text) {
@@ -106,6 +122,7 @@
     function showError(message) {
       chapterTitleEl.textContent = 'Bible Viewer';
       verseContainer.innerHTML = '<p class="hint">' + message + '</p>';
+      readingStatusValueEl.textContent = 'Unavailable';
     }
 
     function loadScript(src) {
@@ -249,6 +266,19 @@
       document.title = title;
     }
 
+    function updateReadingStatus(verseNum = null) {
+      if (!state.currentBook || !state.currentChapter) {
+        readingStatusValueEl.textContent = 'Loading...';
+        return;
+      }
+
+      const verseText = verseNum != null
+        ? `${state.currentBook} ${state.currentChapter}:${verseNum}`
+        : `${state.currentBook} ${state.currentChapter}`;
+
+      readingStatusValueEl.textContent = verseText;
+    }
+
     function renderVerses() {
       verseContainer.innerHTML = '';
 
@@ -267,6 +297,54 @@
         card.innerHTML = `<p class="verse-line">${numSpan} ${text}</p>`;
         verseContainer.appendChild(card);
       });
+
+      state.activeVerse = state.verses.length ? 1 : null;
+      updateReadingStatus(state.activeVerse);
+    }
+
+    function findClosestVisibleVerse() {
+      const verseCards = verseContainer.querySelectorAll('.verse-card');
+      if (!verseCards.length) return null;
+
+      const targetLine = 140;
+      let closestVerse = 1;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      verseCards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs(rect.top - targetLine);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestVerse = index + 1;
+        }
+      });
+
+      return closestVerse;
+    }
+
+    function syncReadingStatusToScroll() {
+      state.readingStatusRaf = null;
+
+      if (!state.verses.length) {
+        updateReadingStatus();
+        return;
+      }
+
+      const visibleVerse = findClosestVisibleVerse();
+      if (visibleVerse == null || visibleVerse === state.activeVerse) {
+        return;
+      }
+
+      state.activeVerse = visibleVerse;
+      updateReadingStatus(visibleVerse);
+    }
+
+    function scheduleReadingStatusSync() {
+      if (state.readingStatusRaf != null) {
+        return;
+      }
+
+      state.readingStatusRaf = window.requestAnimationFrame(syncReadingStatusToScroll);
     }
 
     function flashVerse(target) {
@@ -287,7 +365,12 @@
       const highlightDelay = Math.min(700, Math.max(180, Math.round(scrollDistance * 0.35)));
 
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-      window.setTimeout(() => flashVerse(target), highlightDelay);
+      state.activeVerse = verseNum;
+      updateReadingStatus(verseNum);
+      window.setTimeout(() => {
+        flashVerse(target);
+        scheduleReadingStatusSync();
+      }, highlightDelay);
     }
 
     async function goToChapter(bookName, chapterNumber, options = {}) {
@@ -314,9 +397,12 @@
       setHint('Scroll down to read, or use the menu to jump to any verse.');
       renderVerses();
       updateNavBtns();
+      updateReadingStatus(state.activeVerse);
 
       if (scrollToTop) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        state.activeVerse = 1;
+        updateReadingStatus(1);
       }
 
       if (scrollVerse != null) {
@@ -507,6 +593,9 @@
         closeMenu();
       }
     });
+
+    window.addEventListener('scroll', scheduleReadingStatusSync, { passive: true });
+    window.addEventListener('resize', scheduleReadingStatusSync);
 
     nextChapterBtn.addEventListener('click', async () => {
       try {
