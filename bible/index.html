@@ -9,8 +9,8 @@
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: #ffffff; color: #1a1a1a; }
     .topbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 25; background: #ffffff; border-bottom: 1px solid #e5e5e5; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
-    .topbar-left { position: relative; display: flex; align-items: center; min-width: 0; }
-    .topbar-right { margin-left: auto; display: flex; align-items: center; gap: 0.75rem; min-width: 0; flex-wrap: wrap; justify-content: flex-end; }
+    .topbar-left { position: relative; display: flex; align-items: center; gap: 0.75rem; min-width: 0; flex: 1 1 auto; }
+    .topbar-right { margin-left: auto; display: flex; align-items: center; gap: 0.75rem; min-width: 0; justify-content: flex-end; flex-shrink: 0; }
     .menu-btn { border: 1px solid #d0d0d0; background: #ffffff; color: #666666; padding: 0.7rem 1.2rem; border-radius: 0.6rem; cursor: pointer; font-size: 0.95rem; font-weight: 500; font-family: inherit; transition: all 0.2s ease; }
     .menu-btn:hover { background: #f8f8f8; border-color: #999999; color: #333333; }
     .menu-btn:focus { outline: 2px solid #0066cc; outline-offset: 2px; }
@@ -137,29 +137,31 @@
       100% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); border-left-color: var(--verse-accent, #0066cc); }
     }
     @media (max-width: 720px) {
-      .topbar { align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; }
-      .topbar-left { width: 100%; }
-      .topbar-right { width: 100%; margin-left: 0; justify-content: space-between; }
-      .content { margin-top: 6.6rem; }
+      .topbar { gap: 0.7rem; }
+      .topbar-left { min-width: 0; }
+      .reading-status-value { max-width: 30vw; }
+      .content { margin-top: 5.9rem; }
     }
     @media (max-width: 520px) {
       .topbar { padding: 0.8rem 0.85rem; }
-      .menu-btn { padding: 0.7rem 1rem; min-height: 2.8rem; }
-      .topbar-right { align-items: stretch; gap: 0.6rem; }
-      .settings-btn { width: 2.8rem; height: 2.8rem; }
+      .topbar-left { gap: 0.5rem; min-width: 0; }
+      .menu-btn { padding: 0.62rem 0.82rem; min-height: 2.55rem; font-size: 0.89rem; flex-shrink: 0; }
+      .topbar-right { gap: 0.45rem; }
+      .settings-btn { width: 2.55rem; height: 2.55rem; }
       .translation-switch { padding: 0.24rem; }
       .translation-btn { padding: 0.5rem 0.75rem; font-size: 0.82rem; min-height: 2.5rem; min-width: 3.25rem; }
       .mode-toggle { padding: 0.24rem; }
       .mode-btn { padding: 0.5rem 0.7rem; font-size: 0.82rem; min-height: 2.5rem; }
-      .reading-status { flex: 1 1 auto; align-items: flex-start; padding: 0.45rem 0.65rem; min-width: 0; }
-      .reading-status-value { font-size: 0.82rem; max-width: 100%; }
+      .reading-status { flex: 1 1 auto; align-items: flex-start; padding: 0.34rem 0.52rem; min-width: 0; border-radius: 0.72rem; }
+      .reading-status-label { font-size: 0.56rem; letter-spacing: 0.06em; }
+      .reading-status-value { font-size: 0.76rem; max-width: 100%; margin-top: 0.08rem; }
       .menu-drop { left: 4vw; width: 92vw; gap: 0.65rem; }
       .menu-drop.books-view { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(48px, 48px)); }
       .menu-drop.number-grid-view button { width: 48px; height: 48px; font-size: 0.9rem; }
       .settings-modal { align-items: flex-end; padding: 0; }
       .settings-modal-card { width: 100%; border-radius: 1.2rem 1.2rem 0 0; }
-      .content { margin-top: 7.1rem; margin-bottom: 7rem; padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom)); }
+      .content { margin-top: 5.3rem; margin-bottom: 7rem; padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom)); }
       .verse-container.reading-mode .verse-line { font-size: 1.04rem; line-height: 2; }
       .nav-btn { top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); transform: none; width: calc(50vw - 1.35rem); height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: 35; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); }
       .prev-btn { left: 0.85rem; right: auto; }
