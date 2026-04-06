@@ -44,13 +44,18 @@
     .location-link { border: none; background: none; padding: 0; color: inherit; font: inherit; font-weight: 700; text-decoration: underline; text-decoration-color: var(--verse-accent, #0066cc); text-decoration-thickness: 2px; text-underline-offset: 0.16em; cursor: pointer; transition: color 0.18s ease, text-decoration-color 0.18s ease; }
     .location-link:hover { color: var(--verse-accent, #0066cc); }
     .location-link:focus { outline: 2px solid var(--verse-accent, #0066cc); outline-offset: 2px; border-radius: 0.2rem; }
+    .word-link { border: none; background: none; padding: 0; color: inherit; font: inherit; cursor: pointer; }
+    .word-link:hover { color: #0f172a; background: rgba(148, 163, 184, 0.16); border-radius: 0.2rem; }
+    .word-link:focus { outline: 2px solid #94a3b8; outline-offset: 2px; border-radius: 0.2rem; }
     .verse-number { position: absolute; left: 0; top: 0; color: var(--verse-accent, #0066cc); font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
     .verse-number.single-digit { font-size: 1.08rem; }
     .verse-number.double-digit { font-size: 1rem; }
-    .nav-btn { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; border: 1px solid #d0d0d0; background: #ffffff; color: #0066cc; font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    .nav-btn { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; border: 1px solid #d0d0d0; background: #ffffff; color: #0066cc; font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,.08); display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; }
     .nav-btn:hover { background: #f8f8f8; border-color: #0066cc; box-shadow: 0 4px 12px rgba(0,102,204,.12); }
     .nav-btn:disabled { opacity: 0; visibility: hidden; }
     .prev-btn { right: auto; left: 1.5rem; }
+    .nav-btn-label { display: none; font-size: 0.96rem; font-weight: 700; letter-spacing: 0.01em; }
+    .nav-btn-icon { line-height: 1; }
     .location-modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem; background: rgba(15, 23, 42, 0.62); z-index: 80; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s ease, visibility 0.2s ease; }
     .location-modal.open { opacity: 1; visibility: visible; pointer-events: auto; }
     .location-modal-card { width: min(92vw, 620px); max-height: min(88vh, 820px); overflow: auto; background: #ffffff; border-radius: 1rem; box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24); }
@@ -79,6 +84,13 @@
     .location-references li { padding: 0.7rem 0.8rem; border: 1px solid #e5e7eb; border-radius: 0.8rem; background: #f8fafc; }
     .location-reference-label { font-weight: 700; color: #0f172a; }
     .location-reference-text { margin: 0.24rem 0 0; color: #334155; font-size: 0.92rem; }
+    .word-modal-card { width: min(92vw, 460px); max-height: min(78vh, 560px); overflow: auto; background: #ffffff; border-radius: 1rem; box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24); }
+    .word-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1rem 1rem 0.4rem; }
+    .word-modal-title { margin: 0; font-size: 1.4rem; color: #111827; }
+    .word-modal-subtitle { margin: 0.25rem 0 0; color: #64748b; font-size: 0.9rem; }
+    .word-modal-body { padding: 0 1rem 1rem; }
+    .word-meaning-card { padding: 1rem; border-radius: 0.95rem; background: #f8fafc; border: 1px solid #dbe3ef; }
+    .word-meaning-korean { margin: 0; font-size: 1.06rem; line-height: 1.8; color: #111827; }
     @keyframes menu-slide-next {
       from { opacity: 0; transform: translateX(1.4rem); }
       to { opacity: 1; transform: translateX(0); }
@@ -100,6 +112,11 @@
       .menu-drop.books-view { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(48px, 48px)); }
       .menu-drop.number-grid-view button { width: 48px; height: 48px; font-size: 0.9rem; }
+      .content { margin-bottom: 7rem; padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+      .nav-btn { top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); transform: none; width: calc(50vw - 1.35rem); height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: 35; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); }
+      .prev-btn { left: 0.85rem; right: auto; }
+      .next-btn { right: 0.85rem; left: auto; }
+      .nav-btn-label { display: inline; }
       .location-modal-header { padding: 0.9rem 0.9rem 0.3rem; }
       .location-modal-body { padding: 0 0.9rem 0.9rem; }
     }
@@ -117,8 +134,14 @@
     </div>
   </div>
 
-  <button id="prevChapterBtn" class="nav-btn prev-btn" aria-label="Previous chapter">←</button>
-  <button id="nextChapterBtn" class="nav-btn next-btn" aria-label="Next chapter">→</button>
+  <button id="prevChapterBtn" class="nav-btn prev-btn" aria-label="Previous chapter">
+    <span class="nav-btn-icon">←</span>
+    <span class="nav-btn-label">Prev</span>
+  </button>
+  <button id="nextChapterBtn" class="nav-btn next-btn" aria-label="Next chapter">
+    <span class="nav-btn-label">Next</span>
+    <span class="nav-btn-icon">→</span>
+  </button>
 
   <main class="content">
     <h1 class="chapter-title">Loading...</h1>
@@ -155,11 +178,30 @@
     </div>
   </div>
 
+  <div id="wordModal" class="location-modal" aria-hidden="true">
+    <div class="word-modal-card" role="dialog" aria-modal="true" aria-labelledby="wordModalTitle">
+      <div class="word-modal-header">
+        <div>
+          <h2 id="wordModalTitle" class="word-modal-title">Word</h2>
+          <p id="wordModalSubtitle" class="word-modal-subtitle">Korean meaning</p>
+        </div>
+        <button id="wordModalClose" class="location-close" type="button" aria-label="Close word popup">×</button>
+      </div>
+      <div class="word-modal-body">
+        <div class="word-meaning-card">
+          <p id="wordMeaningText" class="word-meaning-korean"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     const DATA_DIR = 'Bible-niv-main';
     const LOCAL_BUNDLE = 'data/verses.js';
     const LOCATION_DATA_PATH = 'data/locations.json';
     const LOCAL_LOCATION_BUNDLE = 'data/locations.js';
+    const WORD_MEANING_DATA_PATH = 'data/word-meanings.json';
+    const LOCAL_WORD_MEANING_BUNDLE = 'data/word-meanings.js';
 
     const menuButton = document.getElementById('menuButton');
     const menuDrop = document.getElementById('menuDrop');
@@ -181,6 +223,11 @@
     const locationZoomOutBtn = document.getElementById('locationZoomOut');
     const locationZoomResetBtn = document.getElementById('locationZoomReset');
     const locationZoomInBtn = document.getElementById('locationZoomIn');
+    const wordModal = document.getElementById('wordModal');
+    const wordModalTitleEl = document.getElementById('wordModalTitle');
+    const wordModalSubtitleEl = document.getElementById('wordModalSubtitle');
+    const wordMeaningTextEl = document.getElementById('wordMeaningText');
+    const wordModalCloseBtn = document.getElementById('wordModalClose');
 
     const state = {
       bookOrder: [],
@@ -199,7 +246,8 @@
       locationPattern: null,
       locationMapFiles: [],
       activeLocationMap: null,
-      locationMapZoom: 1
+      locationMapZoom: 1,
+      wordMeaningLookup: new Map()
     };
 
     const OLD_TESTAMENT_ACCENT = {
@@ -389,6 +437,19 @@
       return window.BIBLE_LOCATIONS || null;
     }
 
+    async function loadBundledWordMeaningData() {
+      if (window.BIBLE_WORD_MEANINGS) {
+        return window.BIBLE_WORD_MEANINGS;
+      }
+
+      if (window.location.protocol !== 'file:') {
+        return null;
+      }
+
+      await loadScript(LOCAL_WORD_MEANING_BUNDLE);
+      return window.BIBLE_WORD_MEANINGS || null;
+    }
+
     function seedBookCacheFromData(data) {
       state.bookOrder = Object.keys(data);
       state.bookCache.clear();
@@ -431,6 +492,20 @@
         state.locationEntries = [];
         state.locationLookup = new Map();
         state.locationPattern = null;
+      }
+    }
+
+    async function loadWordMeaningData() {
+      try {
+        const bundledWordMeanings = await loadBundledWordMeaningData();
+        const data = bundledWordMeanings || await fetchJson(WORD_MEANING_DATA_PATH);
+        const words = data && typeof data.words === 'object' ? data.words : {};
+        state.wordMeaningLookup = new Map(
+          Object.entries(words).map(([word, meaning]) => [word.toLowerCase(), meaning])
+        );
+      } catch (error) {
+        console.warn('Could not load word meanings:', error);
+        state.wordMeaningLookup = new Map();
       }
     }
 
@@ -555,23 +630,55 @@
 
     function buildVerseMarkup(text) {
       const plainText = text ?? '';
-      if (!state.locationPattern) {
-        return escapeHtml(plainText);
+      const locationRanges = [];
+      if (state.locationPattern) {
+        state.locationPattern.lastIndex = 0;
+        for (const match of plainText.matchAll(state.locationPattern)) {
+          const index = match.index ?? 0;
+          locationRanges.push({
+            start: index,
+            end: index + match[0].length,
+            value: match[0]
+          });
+        }
+      }
+
+      function findLocationRange(index) {
+        return locationRanges.find((range) => index >= range.start && index < range.end);
       }
 
       let markup = '';
-      let lastIndex = 0;
+      let cursor = 0;
+      const wordMatches = plainText.matchAll(/[A-Za-z]+(?:'[A-Za-z]+)?/g);
 
-      state.locationPattern.lastIndex = 0;
-      for (const match of plainText.matchAll(state.locationPattern)) {
-        const locationName = match[0];
+      for (const match of wordMatches) {
+        const word = match[0];
         const index = match.index ?? 0;
-        markup += escapeHtml(plainText.slice(lastIndex, index));
-        markup += `<button type="button" class="location-link" data-location-name="${escapeHtml(locationName)}">${escapeHtml(locationName)}</button>`;
-        lastIndex = index + locationName.length;
+        const locationRange = findLocationRange(index);
+
+        if (locationRange) {
+          if (cursor < locationRange.start) {
+            markup += escapeHtml(plainText.slice(cursor, locationRange.start));
+          }
+          if (cursor <= locationRange.start) {
+            markup += `<button type="button" class="location-link" data-location-name="${escapeHtml(locationRange.value)}">${escapeHtml(locationRange.value)}</button>`;
+            cursor = locationRange.end;
+          }
+          continue;
+        }
+
+        markup += escapeHtml(plainText.slice(cursor, index));
+        const normalizedWord = word.toLowerCase();
+        const meaning = state.wordMeaningLookup.get(normalizedWord);
+        if (meaning) {
+          markup += `<button type="button" class="word-link" data-word-key="${escapeHtml(normalizedWord)}">${escapeHtml(word)}</button>`;
+        } else {
+          markup += escapeHtml(word);
+        }
+        cursor = index + word.length;
       }
 
-      markup += escapeHtml(plainText.slice(lastIndex));
+      markup += escapeHtml(plainText.slice(cursor));
       return markup;
     }
 
@@ -712,6 +819,26 @@
     function closeLocationModal() {
       locationModal.classList.remove('open');
       locationModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function openWordModal(wordKey, displayWord) {
+      const meaning = state.wordMeaningLookup.get(wordKey.toLowerCase());
+      if (!meaning) {
+        return;
+      }
+
+      wordModalTitleEl.textContent = displayWord;
+      wordModalSubtitleEl.textContent = 'Korean meaning';
+      wordMeaningTextEl.textContent = meaning;
+      wordModal.classList.add('open');
+      wordModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeWordModal() {
+      wordModal.classList.remove('open');
+      wordModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
 
@@ -1039,6 +1166,12 @@
     verseContainer.addEventListener('click', (e) => {
       const locationButton = e.target.closest('.location-link');
       if (!locationButton) {
+        const wordButton = e.target.closest('.word-link');
+        if (!wordButton) {
+          return;
+        }
+
+        openWordModal(wordButton.dataset.wordKey, wordButton.textContent);
         return;
       }
 
@@ -1072,10 +1205,19 @@
         closeLocationModal();
       }
     });
+    wordModalCloseBtn.addEventListener('click', closeWordModal);
+    wordModal.addEventListener('click', (e) => {
+      if (e.target === wordModal) {
+        closeWordModal();
+      }
+    });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && locationModal.classList.contains('open')) {
         closeLocationModal();
+      }
+      if (e.key === 'Escape' && wordModal.classList.contains('open')) {
+        closeWordModal();
       }
     });
 
@@ -1107,6 +1249,7 @@
     async function loadBible() {
       try {
         await loadLocationData();
+        await loadWordMeaningData();
         const bundledBible = await loadBundledBibleData();
 
         if (bundledBible) {
