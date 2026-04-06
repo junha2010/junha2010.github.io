@@ -19,12 +19,17 @@
     .menu-drop.slide-in-back { animation: menu-slide-back 0.22s ease; }
     .menu-drop button { aspect-ratio: 1; border: 1px solid #d0d0d0; background: #f8f8f8; color: #1a1a1a; cursor: pointer; font-size: 1rem; font-family: inherit; transition: all 0.15s ease; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; font-weight: 600; }
     .menu-drop button:hover { background: #0066cc; color: #ffffff; border-color: #0066cc; }
+    .menu-drop.new-testament-menu button:hover { background: #dc2626; color: #ffffff; border-color: #dc2626; }
     .menu-drop.books-view { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
     .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(56px, 56px)); justify-content: start; }
     .menu-drop.number-grid-view button { width: 56px; height: 56px; font-size: 0.95rem; }
     .menu-drop .back-btn { background: #f8f8f8; color: #1a1a1a; margin-bottom: 0.5rem; }
     .menu-drop .current-chapter { background: #0066cc; color: #ffffff; border-color: #0066cc; }
-    .menu-drop .book-btn { background: #e6f3ff; color: #0066cc; border-color: #0066cc; font-weight: bold; aspect-ratio: auto; min-height: 3rem; padding: 0.5rem; }
+    .menu-drop .book-btn { font-weight: bold; aspect-ratio: auto; min-height: 3rem; padding: 0.5rem; }
+    .menu-drop .book-btn.old-testament { background: #e6f3ff; color: #0066cc; border-color: #0066cc; }
+    .menu-drop .book-btn.new-testament { background: #fee2e2; color: #b91c1c; border-color: #dc2626; }
+    .menu-drop .book-btn.old-testament:hover { background: #0066cc; color: #ffffff; border-color: #0066cc; }
+    .menu-drop .book-btn.new-testament:hover { background: #dc2626; color: #ffffff; border-color: #dc2626; }
     .menu-subhead { grid-column: 1 / -1; margin: 0; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7280; }
     .menu-status { grid-column: 1 / -1; padding: 0.6rem; color: #666666; text-align: center; font-size: 0.95rem; }
     .reading-status { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; min-width: 0; padding: 0.45rem 0.8rem; border: 1px solid #dbe3ef; border-radius: 0.85rem; background: rgba(248, 250, 252, 0.96); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); }
@@ -33,10 +38,10 @@
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
     .chapter-title { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; color: #000000; text-align: center; }
     .hint { color: #666666; margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
-    .verse-card { background: transparent; border: none; border-left: 3px solid #0066cc; border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; }
+    .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; }
     .verse-card.verse-flash { animation: verse-flash 1s ease; }
     .verse-line { margin: 0; line-height: 1.75; font-size: 1.05rem; color: #1a1a1a; }
-    .verse-number { position: absolute; left: 0; top: 0; color: #0066cc; font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
+    .verse-number { position: absolute; left: 0; top: 0; color: var(--verse-accent, #0066cc); font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
     .verse-number.single-digit { font-size: 1.08rem; }
     .verse-number.double-digit { font-size: 1rem; }
     .nav-btn { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; border: 1px solid #d0d0d0; background: #ffffff; color: #0066cc; font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
@@ -52,9 +57,9 @@
       to { opacity: 1; transform: translateX(0); }
     }
     @keyframes verse-flash {
-      0% { background: rgba(0, 102, 204, 0); border-left-color: #0066cc; }
-      35% { background: rgba(0, 102, 204, 0.14); border-left-color: #1d4ed8; }
-      100% { background: rgba(0, 102, 204, 0); border-left-color: #0066cc; }
+      0% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); border-left-color: var(--verse-accent, #0066cc); }
+      35% { background: var(--verse-flash-bg-mid, rgba(0, 102, 204, 0.14)); border-left-color: var(--verse-accent-strong, #1d4ed8); }
+      100% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); border-left-color: var(--verse-accent, #0066cc); }
     }
     @media (max-width: 520px) {
       .topbar { align-items: flex-start; }
@@ -114,6 +119,38 @@
       activeVerse: null,
       readingStatusRaf: null
     };
+
+    const OLD_TESTAMENT_ACCENT = {
+      accent: '#0066cc',
+      accentStrong: '#1d4ed8',
+      flashStart: 'rgba(0, 102, 204, 0)',
+      flashMid: 'rgba(0, 102, 204, 0.14)'
+    };
+
+    const NEW_TESTAMENT_ACCENT = {
+      accent: '#dc2626',
+      accentStrong: '#b91c1c',
+      flashStart: 'rgba(220, 38, 38, 0)',
+      flashMid: 'rgba(220, 38, 38, 0.14)'
+    };
+
+    const NEW_TESTAMENT_BOOKS = new Set([
+      'Matthew', 'Mark', 'Luke', 'John', 'Acts', 'Romans', '1 Corinthians', '2 Corinthians',
+      'Galatians', 'Ephesians', 'Philippians', 'Colossians', '1 Thessalonians', '2 Thessalonians',
+      '1 Timothy', '2 Timothy', 'Titus', 'Philemon', 'Hebrews', 'James', '1 Peter', '2 Peter',
+      '1 John', '2 John', '3 John', 'Jude', 'Revelation'
+    ]);
+
+    function updateVerseAccentTheme(bookName) {
+      const accentTheme = NEW_TESTAMENT_BOOKS.has(bookName)
+        ? NEW_TESTAMENT_ACCENT
+        : OLD_TESTAMENT_ACCENT;
+
+      document.documentElement.style.setProperty('--verse-accent', accentTheme.accent);
+      document.documentElement.style.setProperty('--verse-accent-strong', accentTheme.accentStrong);
+      document.documentElement.style.setProperty('--verse-flash-bg-start', accentTheme.flashStart);
+      document.documentElement.style.setProperty('--verse-flash-bg-mid', accentTheme.flashMid);
+    }
 
     function setHint(text) {
       hintEl.textContent = text;
@@ -230,6 +267,11 @@
       }
 
       menuDrop.classList.add('number-grid-view');
+    }
+
+    function updateMenuTheme() {
+      const shouldUseNewTestamentTheme = state.menuState !== 'books' && NEW_TESTAMENT_BOOKS.has(state.selectedBook);
+      menuDrop.classList.toggle('new-testament-menu', shouldUseNewTestamentTheme);
     }
 
     function applyMenuTransition() {
@@ -393,6 +435,7 @@
       state.selectedChapterForVerses = String(safeChapter);
       state.verses = bookData[String(safeChapter)] || [];
 
+      updateVerseAccentTheme(bookName);
       updatePageTitle();
       setHint('Scroll down to read, or use the menu to jump to any verse.');
       renderVerses();
@@ -472,16 +515,42 @@
     async function renderMenu() {
       menuDrop.innerHTML = '<div class="menu-status">Loading...</div>';
       applyMenuLayout();
+      updateMenuTheme();
       applyMenuTransition();
 
       try {
         if (state.menuState === 'books') {
           menuDrop.innerHTML = '';
-          appendMenuSubhead('Choose a book');
+          updateMenuTheme();
+          appendMenuSubhead('Old Testament');
           state.bookOrder.forEach((book) => {
+            if (NEW_TESTAMENT_BOOKS.has(book)) {
+              return;
+            }
+
             const bookBtn = document.createElement('button');
             bookBtn.textContent = book;
-            bookBtn.className = 'book-btn';
+            bookBtn.className = 'book-btn old-testament';
+            bookBtn.addEventListener('click', async (e) => {
+              e.stopPropagation();
+              state.selectedBook = book;
+              await ensureBookLoaded(book);
+              state.menuTransition = 'slide-in-next';
+              state.menuState = 'chapters';
+              await renderMenu();
+            });
+            menuDrop.appendChild(bookBtn);
+          });
+
+          appendMenuSubhead('New Testament');
+          state.bookOrder.forEach((book) => {
+            if (!NEW_TESTAMENT_BOOKS.has(book)) {
+              return;
+            }
+
+            const bookBtn = document.createElement('button');
+            bookBtn.textContent = book;
+            bookBtn.className = 'book-btn new-testament';
             bookBtn.addEventListener('click', async (e) => {
               e.stopPropagation();
               state.selectedBook = book;
@@ -500,6 +569,7 @@
           const chapters = getChapterNumbers(state.selectedBook);
 
           menuDrop.innerHTML = '';
+          updateMenuTheme();
           appendMenuSubhead(`Choose a chapter in ${state.selectedBook}`);
 
           const backBtn = document.createElement('button');
@@ -539,6 +609,7 @@
           const chapterVerses = bookData[state.selectedChapterForVerses] || [];
 
           menuDrop.innerHTML = '';
+          updateMenuTheme();
           appendMenuSubhead(`Choose a verse in ${state.selectedBook} ${state.selectedChapterForVerses}`);
 
           const backBtn = document.createElement('button');
