@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" href="img/junha.png" />
   <style>
     * { box-sizing: border-box; }
+    :root { --verse-scroll-margin: 96px; --verse-scroll-margin-reading: 88px; }
     body { margin: 0; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: #ffffff; color: #1a1a1a; }
     .topbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 25; background: #ffffff; border-bottom: 1px solid #e5e5e5; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
     .topbar-left { position: relative; display: flex; align-items: center; gap: 0.75rem; min-width: 0; flex: 1 1 auto; }
@@ -62,11 +63,11 @@
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
     .chapter-title { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; color: #000000; text-align: center; }
     .hint { color: #666666; margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
-    .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; }
+    .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; scroll-margin-top: var(--verse-scroll-margin); }
     .verse-card.verse-flash { animation: verse-flash 1s ease; }
     .verse-line { margin: 0; line-height: 1.75; font-size: 1.05rem; color: #1a1a1a; }
     .verse-container.reading-mode { max-width: 760px; margin: 0 auto; padding: 0.25rem 0; color: #111827; }
-    .verse-container.reading-mode .verse-card { display: inline; border-left: none; padding: 0; margin: 0; position: static; }
+    .verse-container.reading-mode .verse-card { display: inline; border-left: none; padding: 0; margin: 0; position: static; scroll-margin-top: var(--verse-scroll-margin-reading); }
     .verse-container.reading-mode .verse-card + .verse-card::before { content: ' '; white-space: pre; }
     .verse-container.reading-mode .verse-line { display: inline; margin: 0; line-height: 2.05; font-size: 1.12rem; }
     .verse-container.reading-mode .verse-number { position: static; display: inline; padding-left: 0; width: auto; margin-right: 0.28rem; font-size: 0.78em; vertical-align: super; }
@@ -137,12 +138,14 @@
       100% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); border-left-color: var(--verse-accent, #0066cc); }
     }
     @media (max-width: 720px) {
+      :root { --verse-scroll-margin: 84px; --verse-scroll-margin-reading: 78px; }
       .topbar { gap: 0.7rem; }
       .topbar-left { min-width: 0; }
       .reading-status-value { max-width: 30vw; }
       .content { margin-top: 5.9rem; }
     }
     @media (max-width: 520px) {
+      :root { --verse-scroll-margin: 68px; --verse-scroll-margin-reading: 62px; }
       .topbar { padding: 0.8rem 0.85rem; }
       .topbar-left { gap: 0.5rem; min-width: 0; }
       .menu-btn { padding: 0.62rem 0.82rem; min-height: 2.55rem; font-size: 0.89rem; flex-shrink: 0; }
@@ -275,6 +278,13 @@
               <button id="readingModeOnBtn" class="mode-btn" type="button" data-reading-mode="on" role="tab" aria-selected="false">Reading Mode</button>
             </div>
           </div>
+          <div class="settings-row">
+            <p class="settings-section-label">Chapter Tap</p>
+            <div class="mode-toggle" role="tablist" aria-label="Chapter tap behavior">
+              <button id="chapterTapVerseBtn" class="mode-btn active" type="button" data-chapter-tap="verse-menu" role="tab" aria-selected="true">Ask Verse</button>
+              <button id="chapterTapDirectBtn" class="mode-btn" type="button" data-chapter-tap="direct" role="tab" aria-selected="false">Open Chapter</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -308,6 +318,7 @@
     const settingsButton = document.getElementById('settingsButton');
     const translationButtons = Array.from(document.querySelectorAll('.translation-btn'));
     const readingModeButtons = Array.from(document.querySelectorAll('.mode-btn'));
+    const chapterTapButtons = Array.from(document.querySelectorAll('[data-chapter-tap]'));
     const verseContainer = document.getElementById('verseContainer');
     const nextChapterBtn = document.getElementById('nextChapterBtn');
     const prevChapterBtn = document.getElementById('prevChapterBtn');
@@ -350,6 +361,7 @@
       flashTimeoutId: null,
       flashClearTimeoutId: null,
       readingMode: false,
+      chapterTapMode: 'verse-menu',
       readingStatusRaf: null,
       locationEntries: [],
       locationLookup: new Map(),
@@ -526,11 +538,22 @@
 
     function updateReadingModeControls() {
       readingModeButtons.forEach((button) => {
+        if (!button.dataset.readingMode) {
+          return;
+        }
         const isActive = (button.dataset.readingMode === 'on') === state.readingMode;
         button.classList.toggle('active', isActive);
         button.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
       verseContainer.classList.toggle('reading-mode', state.readingMode);
+    }
+
+    function updateChapterTapControls() {
+      chapterTapButtons.forEach((button) => {
+        const isActive = button.dataset.chapterTap === state.chapterTapMode;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
     }
 
     function loadScript(src) {
@@ -883,6 +906,14 @@
       requestAnimationFrame(() => restoreVerseViewportAnchor(anchor));
     }
 
+    function setChapterTapMode(mode) {
+      state.chapterTapMode = mode === 'direct' ? 'direct' : 'verse-menu';
+      updateChapterTapControls();
+    }
+
+    updateReadingModeControls();
+    updateChapterTapControls();
+
     function getLocationReferenceBooks(entry) {
       const books = [];
       const seen = new Set();
@@ -1093,21 +1124,12 @@
       }, 1100);
     }
 
-    function getVerseScrollOffset() {
-      const topbar = document.querySelector('.topbar');
-      const topbarHeight = topbar ? topbar.getBoundingClientRect().height : 0;
-      const extraGap = window.matchMedia('(max-width: 520px)').matches ? 28 : 18;
-      return Math.ceil(topbarHeight + extraGap);
-    }
-
     function scrollToVerse(verseNum) {
       const target = document.getElementById('verse-' + verseNum);
       if (!target) return;
 
-      const topOffset = getVerseScrollOffset();
-      const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - topOffset;
-      const scrollDistance = Math.abs(window.pageYOffset - offsetPosition);
+      const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
+      const scrollDistance = Math.abs(window.pageYOffset - targetTop);
       const highlightDelay = Math.min(700, Math.max(180, Math.round(scrollDistance * 0.35)));
 
       if (state.flashTimeoutId != null) {
@@ -1115,7 +1137,7 @@
         state.flashTimeoutId = null;
       }
 
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      target.scrollIntoView({ block: 'start', behavior: 'smooth' });
       state.activeVerse = verseNum;
       updateReadingStatus(verseNum);
       state.flashTimeoutId = window.setTimeout(() => {
@@ -1333,6 +1355,12 @@
             chapterBtn.addEventListener('click', async (e) => {
               e.stopPropagation();
               state.selectedChapterForVerses = String(chapterNum);
+              if (state.chapterTapMode === 'direct') {
+                await goToChapter(state.selectedBook, chapterNum);
+                closeMenu();
+                return;
+              }
+
               state.menuTransition = 'slide-in-next';
               state.menuState = 'verses';
               await renderMenu();
@@ -1474,8 +1502,16 @@
       });
     });
     readingModeButtons.forEach((button) => {
+      if (!button.dataset.readingMode) {
+        return;
+      }
       button.addEventListener('click', () => {
         setReadingMode(button.dataset.readingMode === 'on');
+      });
+    });
+    chapterTapButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        setChapterTapMode(button.dataset.chapterTap);
       });
     });
 
