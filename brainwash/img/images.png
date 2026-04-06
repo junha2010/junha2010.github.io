@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+<!--<title>SHERLOCK HOLMES - 셜록홈즈 방탈출 게임</title>-->
+<title>셜록홈즈 방탈출 카페</title>
+<script language="javascript">
+document.title="SHERLOCK HOLMES - 셜록홈즈 방탈출 게임";
+</script>
+<link rel="canonical" href="https://sherlock-holmes.co.kr">
+
+	<meta name="keywords" content="신천 방탈출카페,신림 방탈출카페,홍대 방탈출카페,잠실 방탈출카페,강남 방탈출카페,방탈출카페">
+<meta name="description" content="강남,홍대,잠실,노량진,신림 등 전국 40호점 국내최대 셜록 방탈출 카페">
+<meta property="og:description" content="강남,홍대,잠실,노량진,신림 등 전국 40호점 국내최대 셜록 방탈출 카페">
+<meta name="naver-site-verification" content="90315006b3ecb880974d00ad95d55b4518b7de7b"/>
+	
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="셜록홈즈 방탈출 카페">
+<meta property="og:image" content="http://sherlock-holmes.co.kr/images/main/og.png">
+<meta property="og:url" content="http://sherlock-holmes.co.kr">
+
+<link rel="stylesheet" href="/css/privacy.css" type="text/css">
+<link rel="stylesheet" href="/css/jquery-ui.css" type="text/css">
+<link rel="stylesheet" href="/css/slick.css" type="text/css">
+<link rel="stylesheet" href="/css/default.css" type="text/css">
+<link rel="stylesheet" href="/css/style.css?v1812211743" type="text/css">
+<script type="text/javascript" src="/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/js/jquery.tweenmax.js"></script>
+<script type="text/javascript" src="/js/slick.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body>
+	<header id="header">
+		<div class="inner">
+			<div class="header_logo">
+				<a href="/"><img src="/images/common/header_logo.png"></a>
+			</div>
+			<nav class="header_nav">
+				<ul class="depth1">
+					<li class="theme">
+						<a href="/theme">테마</a>
+					</li>
+										<li class="activity">
+						<a href="/activity/activity.php">Activity</a>
+					</li>
+										<li class="branch">
+						<a href="/branch">지점소개</a>
+					</li>
+					<li class="board">
+						<a href="/board/press.php">게시판</a>
+						<ul class="depth2">
+							<li><a href="/board/press.php">언론속의 셜록홈즈</a></li>
+							<li><a href="/board/event.php">이벤트</a></li>
+							<li><a href="/board/qna.php">지점질문</a></li>
+							<li><a href="/contact">가맹문의</a></li>
+						</ul>
+					</li>
+					
+					<li class="franchise">
+						<!-- <a href="/franchise">프랜차이즈</a> -->
+						<a href="http://unreal-company.co.kr" title="새 창 열기" target="_blank">프랜차이즈</a>
+						 <!-- <ul class="depth2">
+							<li><a href="#">Team unreal company</a></li>
+							<li><a href="#">셜록홈즈 가맹본부</a></li>
+							<li><a href="#">About us</a></li>
+						</ul>  -->
+					</li>
+					
+					<li class="reservation">
+						<a href="/reservation">예약하기</a>
+					</li>
+					<li class="unreal">
+						<a href="http://www.unrealcompany.co.kr" title="새 창 열기" target="_blank">언리얼 컴퍼니</a>
+					</li>
+					<li class="lang">
+						<a href="javascript:void(0);">KOR</a>
+						<ul>
+							<li><a href="#">KOR</a></li>
+							<li><a href="#none">ENG</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<div class="m_util">
+				<ul class="lang">
+					<li class="active"><a href="#">KOR</a></li>
+					<li><a href="#none">ENG</a></li>
+				</ul>
+				<div class="m_btns">
+					<a href="javascript:void(0);" class="menu_open">open</a>
+					<a href="javascript:void(0);" class="menu_close">close</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+<div id="main" class="main_body">
+	<section id="main_intro">
+		<div class="container">
+			<div class="middle">
+				<div class="intro_logo"><img src="/images/main/intro_logo.png" class="paraShowing" data-dirc='s' data-dura='1.5'></div>
+				<button type="button" class="btn white_trans paraShowing" data-dirc='s' data-delay='0.5' onclick="window.location.href='/reservation'">예약하기</button>
+				<div class="scroll_down" data-delay='1' data-dist='0'>
+					<p>SCROLL DOWN</p>
+					<img class="scroll" alt="Scroll down indicator" src="/images/main/scroll_down.png">
+				</div>
+		</div>
+	</section>
+	<section id="main_propos">
+		<div class="container">
+			<div class="middle paraShowing" data-dirc='s' data-delay='0.5'>
+				<div class="tit_top">
+					<h1 class="feature_title"><img src="/images/main/propos_tit.png"></h1>
+					<div class="feature_desc">
+						각기 다른 테마의 방안에 갇힌 참가자가 되어 숨겨진 단서를 통해 <br/>
+						<span>60분의 시간안에 공간을 탈출</span>하는 체험중심의 신개념 놀이문화 입니다.
+					</div>
+				</div>
+				<div class="tit_bottom">
+					<h1 class="feature_title">전국 <span>55개 지점</span> 및 <span>60여개</span> 테마</h1>
+					<div class="feature_desc">
+						<span>셜록홈즈는 작가 코난도일의 원작 셜록홈즈의 기반이 되는 18세기 영국 베이커가에서 발생하는 이야기를 <br/>재구성
+한 한국 현실판 방탈출 체험 카페 입니다.</span><br/><br/>
+						셜록홈즈의 테마는 가족과, 연인과, 직장 동료들과 함께 울고 웃으면서 다 같이 머리를 맞대고 <br/>협동, 경쟁을 통해
+문제 해결의 희열을 맛볼 수 있습니다.<br/><br/>
+						특허중인 새로운 기술, 참신한 아이디어를 통해 다양한 연령층, 소비자를 만족시킬 수 있는<br/>
+체험 문화를 선도해 가고 있습니다.<br/><br/>
+새로운 경험을 원하는 탐정 당신만의 셜록홈즈를 찾습니다!
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="main_media">
+		<div class="container">
+			<div class="middle">
+				<div class="contant">
+					<div class="vod paraShowing">
+						<div class="cover_img">
+							<div class="inner">
+								<span><img src="/images/main/vod_img.jpg" onclick="onPlayerReady();"></span>
+							</div>
+						</div>
+						<div id="player"> </div>
+					</div>
+					<div class="row stats">
+						<div class="col s4 paraShowing">
+							<div class="stat numCntMotion">44</div>
+							<p>셜록홈즈 운영기간</p>
+						</div>
+						<div class="col s4 paraShowing" >
+							<div class="stat numCntMotion">55</div>
+							<p>전국 매장수</p>
+						</div>
+						<div class="col s4 paraShowing">
+							<div class="stat numCntMotion">60</div>
+							<p>총 테마 제공수</p>
+						</div>
+					</div>
+					<div class="row desc paraShowing">
+						<div class="col s8 txt">
+							국내 최대의 매장을 가지고 있는 셜록홈즈 방탈출카페는
+서울, 대전, 광주, 제주 등 전국 어디서나 경험할 수 있도록
+좀더 색다르고 참신한 테마를 준비하고 있습니다.
+
+						</div>
+						<div class="col s4 map">
+							<img src="/images/main/map.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="main_guide">
+		<div class="container">
+			<div class="middle">
+				<h2 class="feature_title">Beginners Guide</h2>
+				<div class="row feature_desc">
+					<div class="col s4 paraShowing" data-delay='0.3'>
+						<img src="/images/main/guide_01.png">
+						<p>당신은 셜록홈즈가 되었습니다. <br/>제한된 시간안에 추리하고 범인을 잡으세요.</p>
+					</div>
+					<div class="col s4 paraShowing" data-delay='0.3'>
+						<img src="/images/main/guide_02.png">
+						<p>협동하고 빠르게 움직이십시오. <br/>역할을 분담하고 다양한 관점에서 도전하십시요.</p>
+					</div>
+					<div class="col s4 paraShowing" data-delay='0.3'>
+						<img src="/images/main/guide_03.png">
+						<p>출생의 비밀, 반전, 범죄의 사연등을 캐치하고 <br/>탈출하시면서 한편의 영화속을 느끼실 겁니다.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="main_different">
+		<div class="container">
+			<div class="middle">
+				<h2 class="feature_title">Don’t Ever Compare!</h2>
+				<div class="feature_desc">
+					<p>셜록홈즈는 모두가 함께 즐길 수 있는 체험 공간을 제공합니다.<br/>
+					여러분이 테마에서 체험할 분위기와 스토리, 아이디어는 나이, 특정 취향의 대상이 아닌 남녀노소 어느 누구나가
+주인공이 될 수 있는 소재들로 준비되어 있습니다.</p>
+
+					<p>셜록홈즈의 게임 제작진은 주변에서 흔히 볼 수있는 2-30대 청년들입니다. <br/>음악을 하던 A군, 만화 그리기를 좋아
+하던 K양. 젊은 친구들의 아이디어는 코난도일의 원작 셜록홈즈를 현대 한국의 이야기로 재구성됩니다.</p>
+
+					<p>셜록홈즈의 전체적인 스토리는 우리 주변에서 발생할 수 있는 이야기를 다루고 있습니다.<br/>
+그러나 여러분은 이야기 속에서 그 동안 경험해 보지 못한, 색다른 분위기, 아이디어, 기술을 경험하게 될 것입니다.<br/>
+지금 셜록홈즈에 도전하십시오. 그리고 결말까지 다다른다면 진정한 감동을 받게 될 것입니다. </p>
+				</div>
+				<div class="row">
+					<div class="col s3 paraShowing" data-delay='0.3'>
+						<h4>Customer Service</h4>
+						<img src="/images/main/diff_01.png">
+					</div>
+					<div class="col s3 paraShowing" data-delay='0.3'>
+						<h4>Creativity</h4>
+						<img src="/images/main/diff_02.png">
+					</div>
+					<div class="col s3 paraShowing" data-delay='0.3'>
+						<h4>Story and  logic</h4>
+						<img src="/images/main/diff_03.png">
+					</div>
+					<div class="col s3 paraShowing" data-delay='0.3'>
+						<h4> visual Design</h4>
+						<img src="/images/main/diff_04.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="main_stats">
+		<div class="container">
+			<div class="middle">
+				<div class="row">
+					<div class="col s3 paraShowing" data-dirc='s' data-dura='0.1'>
+						<div class="stat"><span class="numCntMotion">100</span> K+</div>
+						<p>Participants</p>
+					</div>
+					<div class="col s3 paraShowing" data-dirc='s' data-dura='0.1'>
+						<div class="stat"><span class="numCntMotion">2123</span></div>
+						<p>Company Events</p>
+					</div>
+					<div class="col s3 paraShowing" data-dirc='s' data-dura='0.1'>
+						<div class="stat"><span class="numCntMotion">30</span> K+</div>
+						<p>Facebook Likes</p>
+					</div>
+					<div class="col s3 paraShowing" data-dirc='s' data-dura='0.1'>
+						<div class="stat"><span class="numCntMotion">4</span> %</div>
+						<p>Success Rate</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+<script type="text/javascript">
+// 비동기방식으로 아이프레임 플레이어 API 코드를 불러옵니다.
+var tag = document.createElement('script');
+tag.src = "http://www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+ 
+// api 코드 다운로드 후 제어관련 함수 생성.
+var player;
+function onYouTubePlayerAPIReady() {
+    player = new YT.Player('player', {
+        height: '340',
+        width: '100%',
+        playerVars: {'showinfo': 0 },
+        videoId: 'jS7RmsQ-QrU'
+    });
+};
+ 
+function onPlayerReady (event) {    
+	$(".cover_img").remove();
+	    player.playVideo();
+}
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		$("#header").addClass("main_header");
+
+	});
+
+	$(window).resize(function(e) {
+		var winH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		$("#main_intro").css({height: winH})
+	}).resize();
+</script>
+
+
+		<script type="text/javascript">
+		<!--
+		$(document).ready(function(){
+			if(notice_getCookie("popup65") != "done"){
+				divSlideToggle('#pop_65');
+			}
+		});
+		function closewin_65(){
+			if ( document.form_65.popup65.checked )
+			setCookie( "popup65", "done" , 1);
+			divSlideToggle('#pop_65');
+		}
+		//-->
+		</script>
+
+		<div class="popupclass" id="pop_65" style="position:absolute;z-index:100000; background:#ffffff; padding:5px; width:330px;height:590px; top:10px; left:400px; border: #dddddd 1px solid; display:none;">
+			<form name="form_65" id="form_65">
+			<table style="width:330px;height:550px; padding:0;margin:0;border:0;">
+			<tr>
+				<td  style="" title="9명의 번역가"><p style="text-align: left;"><img src="/attach/plupload/o_1ga8jb3snuo8hhp17ag1cmhvrna.jpg" alt="KakaoTalk_20220812_173827851.jpg" class="txc-image" style="clear:none;float:none;"></p></td>
+			</tr>
+			<tr>
+				<td>
+				<table width="330" style="padding:0;margin:0;border:0;">
+				<tr>
+					<td><input type="checkbox" name="popup65" id="popup65" value="checkbox" onclick="closewin_65();"><label for="popup65"> 오늘하루 열지않기</label></td>
+					<td style="text-align:right;"><span style="cursor:pointer;" onclick="divSlideToggle('#pop_65');">닫기</span></td>
+				</tr>
+				</table>
+				</td>
+			</tr>
+			</table>
+			</form>
+		</div>
+
+	<footer id="footer">
+		<section class="footer_top">
+			<div class="inner container">
+				<ul class="footer_list">
+	                <li><a href="/privacy/personal.php">개인정보취급방침</a></li>
+	                <li><a href="/privacy/agreement.php">이용약관</a></li>
+	                <li><a href="/branch">지점소개</a></li>
+	                <li><a href="/contact">프랜차이즈 가맹문의</a></li>
+	            </ul>
+	            <button type="button" class="btn_top">BACK TO TOP</button>
+			</div>
+		</section>
+		<section class="footer_bottom">
+			<div class="inner container">
+				<div class="site_info">
+					<a href="/" class="footer_logo"><img src="/images/common/footer_logo.png" /></a>
+					<ul class="site_info_1">
+		                <li><span>상호명</span> 셜록홈즈</li>
+		                <li><span>주소</span> 서울특별시 강남구 밤고개로 14길 13-34 (자곡동)</li>
+		            </ul>
+		            <ul class="site_info_2">
+		               <li><span>(주)언리얼컴퍼니</span> </li>
+					   <li><span> 사업자등록번호</span> 848-81-00487</li>
+					   <li><span> 통신판매업 신고 </span> 2017-서울강남-01467 </li>
+					   <!-- 190926 요청에 따라 연락 이메일 교체 -->
+		                <li><span>대표전화</span> 1800.6777  &nbsp;&nbsp;  / &nbsp;&nbsp;  E-mail <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b7c2d9c5d2d6dbd4d8dac7d6d9cef7d9d6c1d2c599d4d8da">[email&#160;protected]</a><!--info@unrealcompany.co.kr--></li>
+		            </ul>
+		            <div class="copyright">Copyright ⓒ The Team Sherlock-Hormes. All rights reserved.</div>
+				</div>
+				<!-- <div class="bank_info">
+					<p>신한은행 / 예금주 : 권충도 </p>
+					<div class="acount_num">
+						<img src="/images/common/bank_logo.png">
+						1104470884800
+					</div>
+				</div> -->
+	            <ul class="sns">
+	            	<li><a href="#"><img src="/images/common/ico_facebook.png" alt="facebook"></a></li>
+	            	<li><a href="#"><img src="/images/common/ico_blogger.png" alt="blogger"></a></li>
+	            	<li><a href="#"><img src="/images/common/ico_twitter.png" alt="twitter"></a></li>
+	            	<li><a href="#"><img src="/images/common/ico_youtube.png" alt="youtube"></a></li>
+	            	<li><a href="#"><img src="/images/common/ico_instagram.png" alt="instagram"></a></li>
+	            </ul>
+			</div>
+		</section>
+	</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+

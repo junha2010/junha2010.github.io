@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <title>Camaera</title>
+    <body>
+        <video id="vp" autoplay="true"></video>
+    </body>
+    <script>
+        var video=document.getElementById("vp")
+        navigator.mediaDevices.getUserMedia({video:true}).then(function(stream){video.srcobject=stream;});
+
+    </script>
+</html>

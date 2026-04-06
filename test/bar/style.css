@@ -1,0 +1,18 @@
+#progressBar {
+    --scrollAmount: 0%;
+    background-image: linear-gradient(to right, #5ee7df 0%, #b490ca 100%);
+    width: var(--scrollAmount);
+    height: 4px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+h1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

@@ -1,0 +1,64 @@
+* {
+    padding:0;
+    margin: 0;
+    /* font:"https://fonts.googleapis.com/css?family=Anton"; */
+}
+
+body {
+    background: #222;
+}
+
+.main_text {
+    position: relative;
+    padding-top: 5%;
+    font-size: 500%;
+    /* display: inline; */
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.item {
+    position: absolute;
+    width: 60%;
+    height: 36%;
+    left: 2%; top: 40%;
+    border: #f82761 solid 3px;
+}
+.box1 {
+    background-color: aquamarine;
+}
+
+.haed_line {
+    position: absolute;
+    display: inline-block;
+    font-family: "Anton";
+    font-size: 200%;
+    /* font-weight: 600; */
+    /* background-color: aquamarine; */
+    letter-spacing: 20px;
+    left: 33%;
+    top: -2%;
+}
+
+.pic {
+    background-size: fill;
+    position: absolute;
+    top: -0.1%;
+}
+
+.santance {
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 120%;
+    right: 4%;
+    top: 20%;
+
+}
+
+div {
+    position: absolute;
+    display: flex;
+}

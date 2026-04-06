@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #eee;
+}
+
+.leftside {
+    position: fixed;
+    color: #444;
+    font-family: fantasy;
+    padding: 10px;
+    vertical-align: middle;
+    position: -webkit-sticky; /* Safari & IE */
+    position: sticky;
+    top: 0;
+}
+
+.test {
+    position: absolute;
+    right: 0%;
+}
+
+.test2 {
+    /* position: absolute; */
+    /* background: black; */
+    right: 10%;
+    /* bottom: -100%; */
+    transform: translate(50%, 50%);
+}

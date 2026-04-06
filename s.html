@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <style>
+        body {
+            background-image: url("images/bg.jpg");
+        }
+    </style>
+
+    <title>Duni's web page</title>
+</head>
+​
+<center>
+
+    <body>
+        <span>Account Register</span>
+        <form method="post" action="membersave.php">
+            ​
+            <div data-validate="Enter NAME">
+                <input type="text" name="name" placeholder="NAME">
+            </div>
+
+            <div data-validate="Enter ID">
+                <input type="text" name="userID" placeholder="ID">
+            </div>
+            ​
+            <div data-validate="Enter PASSWORD">
+                <input type="password" name="userPw" placeholder="PASSWORD">
+            </div>
+            ​
+            <div data-validate="Enter PASSWORD2">
+                <input type="password" name="userPw2" placeholder="PASSWORD CHECK">
+            </div>
+
+            <button class="btn btn-default" input type="submit" value="REGISTER" onclick="">
+REGISTER
+</button> ​
+            <input type="button" class="btn btn-default" value="CANCEL" onclick="javascript:location.href='index.html'">
+
+        </form>
+        ​
+    </body>
+</center>
+
+</html>
