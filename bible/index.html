@@ -157,6 +157,9 @@
     .nav-btn { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; border: 1px solid var(--border-strong); background: var(--surface); color: #0066cc; font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: all 0.2s ease; box-shadow: var(--shadow-sm); display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; }
     .nav-btn:hover { background: var(--bg-soft); border-color: #0066cc; box-shadow: 0 4px 12px rgba(0,102,204,.12); }
     .nav-btn:disabled { opacity: 0; visibility: hidden; }
+    body.menu-open .nav-btn:not(:disabled) { opacity: 0.32; filter: saturate(0.7); pointer-events: none; }
+    body.menu-open .content,
+    body.settings-open .content { pointer-events: none; }
     .prev-btn { right: auto; left: 1.5rem; }
     .nav-btn-label { display: none; font-size: 0.96rem; font-weight: 700; letter-spacing: 0.01em; }
     .nav-btn-icon { line-height: 1; }
@@ -231,7 +234,26 @@
       .reading-status { flex: 1 1 auto; align-items: flex-start; padding: 0.34rem 0.52rem; min-width: 0; border-radius: 0.72rem; }
       .reading-status-label { font-size: 0.56rem; letter-spacing: 0.06em; }
       .reading-status-value { font-size: 0.76rem; max-width: 100%; margin-top: 0.08rem; }
-      .menu-drop { left: 4vw; width: 92vw; gap: 0.65rem; }
+      .menu-drop {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        width: min(92vw, 420px);
+        max-height: min(72vh, 620px);
+        gap: 0.65rem;
+        padding: 1rem;
+        border-radius: 1.2rem;
+        background: var(--surface-elevated);
+        z-index: 90;
+        transform: translate(-50%, calc(-50% + 1.1rem)) scale(0.98);
+        transform-origin: center center;
+      }
+      .menu-drop.open {
+        box-shadow: var(--shadow-lg), 0 0 0 100vmax var(--overlay);
+        transform: translate(-50%, -50%) scale(1);
+      }
       .menu-drop.books-view { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(48px, 48px)); }
       .menu-drop.number-grid-view button { width: 48px; height: 48px; font-size: 0.9rem; }
@@ -858,6 +880,7 @@
     function closeMenu() {
       menuDrop.classList.remove('open');
       menuButton.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
       state.menuState = 'books';
     }
 
@@ -900,6 +923,7 @@
     async function openMenu() {
       menuDrop.classList.add('open');
       menuButton.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
       await renderMenu();
     }
 
@@ -1170,6 +1194,7 @@
       settingsModal.classList.add('open');
       settingsModal.setAttribute('aria-hidden', 'false');
       settingsButton.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('settings-open');
       document.body.style.overflow = 'hidden';
     }
 
@@ -1177,6 +1202,7 @@
       settingsModal.classList.remove('open');
       settingsModal.setAttribute('aria-hidden', 'true');
       settingsButton.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('settings-open');
       document.body.style.overflow = '';
     }
 
