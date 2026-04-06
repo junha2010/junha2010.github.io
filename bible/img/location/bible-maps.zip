@@ -1,0 +1,356 @@
+
+<!doctype html>
+<html lang="en-gb" dir="ltr">
+	<head>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta charset="utf-8">
+	<meta name="author" content="Cory Baugher">
+	<meta property="og:url" content="https://www.knowingthebible.net/">
+	<meta property="og:site_name" content="Knowing the Bible">
+	<meta name="description" content="Knowing the Bible is dedicated to expanding your understanding of the Bible by explaining concepts in their biblical, literary, and cultural contexts.">
+	<meta name="generator" content="XR2000">
+	<title>Knowing the Bible</title>
+	<link href="/images/favicon/favicon-16x16.png" rel="icon" type="image/png">
+	<link href="https://www.knowingthebible.net/search?format=opensearch" rel="search" title="OpenSearch Knowing the Bible" type="application/opensearchdescription+xml">
+<link href="/media/vendor/awesomplete/css/awesomplete.css?1.1.7" rel="stylesheet">
+	<link href="/media/vendor/joomla-custom-elements/css/joomla-alert.min.css?0.4.1" rel="stylesheet">
+	<link href="/media/plg_system_jcemediabox/css/jcemediabox.min.css?7d30aa8b30a57b85d658fcd54426884a" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Philosopher:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=cyrillic&amp;display=swap" rel="stylesheet" media="none" onload="media=&quot;all&quot;">
+	<link href="/templates/shaper_helixultimate/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/plugins/system/helixultimate/assets/css/system-j4.min.css" rel="stylesheet">
+	<link href="/media/system/css/joomla-fontawesome.min.css?c2a4aa" rel="stylesheet">
+	<link href="/templates/shaper_helixultimate/css/template.css" rel="stylesheet">
+	<link href="/templates/shaper_helixultimate/css/presets/default.css" rel="stylesheet">
+	<link href="/templates/shaper_helixultimate/css/custom.css" rel="stylesheet">
+	<style>body{font-family: 'Helvetica', sans-serif;text-decoration: none;}
+</style>
+	<style>h1{font-family: 'Philosopher', sans-serif;text-decoration: none;}
+</style>
+	<style>h2{font-family: 'Philosopher', sans-serif;text-decoration: none;}
+</style>
+	<style>h3{font-family: 'Philosopher', sans-serif;text-decoration: none;}
+</style>
+	<style>.sp-megamenu-parent > li > a, .sp-megamenu-parent > li > span, .sp-megamenu-parent .sp-dropdown li.sp-menu-item > a{font-family: 'Verdana', sans-serif;text-decoration: none;}
+</style>
+	<style>.menu.nav-pills > li > a, .menu.nav-pills > li > span, .menu.nav-pills .sp-dropdown li.sp-menu-item > a{font-family: 'Verdana', sans-serif;text-decoration: none;}
+</style>
+	<style>.logo-image {height:55px;}.logo-image-phone {height:55px;}</style>
+<script src="/media/vendor/jquery/js/jquery.min.js?3.7.1"></script>
+	<script src="/media/legacy/js/jquery-noconflict.min.js?504da4"></script>
+	<script type="application/json" class="joomla-script-options new">{"data":{"breakpoints":{"tablet":991,"mobile":480},"header":{"stickyOffset":"100"}},"joomla.jtext":{"MOD_FINDER_SEARCH_VALUE":"Search &hellip;","COM_FINDER_SEARCH_FORM_LIST_LABEL":"Search Results","JLIB_JS_AJAX_ERROR_OTHER":"An error has occurred while fetching the JSON data: HTTP %s status code.","JLIB_JS_AJAX_ERROR_PARSE":"A parse error has occurred while processing the following JSON data:<br><code style=\"color:inherit;white-space:pre-wrap;padding:0;margin:0;border:0;background:inherit;\">%s<\/code>","ERROR":"Error","MESSAGE":"Message","NOTICE":"Notice","WARNING":"Warning","JCLOSE":"Close","JOK":"OK","JOPEN":"Open"},"finder-search":{"url":"\/component\/finder\/?task=suggestions.suggest&format=json&tmpl=component&Itemid=101"},"joomla.messages":[{"info":["The requested file was not found. Please inform the webmaster.: Bible Maps.zip"]}],"system.paths":{"root":"","rootFull":"https:\/\/www.knowingthebible.net\/","base":"","baseFull":"https:\/\/www.knowingthebible.net\/"},"csrf.token":"fe6bdfaad45492174d1672c1d0de472b"}</script>
+	<script src="/media/system/js/core.min.js?a3d8f8"></script>
+	<script src="/media/vendor/bootstrap/js/alert.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/button.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/carousel.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/collapse.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/dropdown.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/modal.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/offcanvas.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/popover.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/scrollspy.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/tab.min.js?5.3.8" type="module"></script>
+	<script src="/media/vendor/bootstrap/js/toast.min.js?5.3.8" type="module"></script>
+	<script src="/media/system/js/showon.min.js?e51227" type="module"></script>
+	<script src="/media/vendor/awesomplete/js/awesomplete.min.js?1.1.7" defer></script>
+	<script src="/media/com_finder/js/finder.min.js?755761" type="module"></script>
+	<script src="/media/mod_menu/js/menu.min.js?c2a4aa" type="module"></script>
+	<script src="/media/system/js/messages.min.js?9a4811" type="module"></script>
+	<script src="/media/plg_system_jcemediabox/js/jcemediabox.min.js?7d30aa8b30a57b85d658fcd54426884a"></script>
+	<script src="/templates/shaper_helixultimate/js/main.js"></script>
+	<script src="/templates/shaper_helixultimate/js/lazysizes.min.js"></script>
+	<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.knowingthebible.net/#/schema/Organization/base","name":"Knowing the Bible","url":"https://www.knowingthebible.net/"},{"@type":"WebSite","@id":"https://www.knowingthebible.net/#/schema/WebSite/base","url":"https://www.knowingthebible.net/","name":"Knowing the Bible","publisher":{"@id":"https://www.knowingthebible.net/#/schema/Organization/base"},"potentialAction":{"@type":"SearchAction","target":"https://www.knowingthebible.net/search?q={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.knowingthebible.net/#/schema/WebPage/base","url":"https://www.knowingthebible.net/","name":"Knowing the Bible","description":"Knowing the Bible is dedicated to expanding your understanding of the Bible by explaining concepts in their biblical, literary, and cultural contexts.","isPartOf":{"@id":"https://www.knowingthebible.net/#/schema/WebSite/base"},"about":{"@id":"https://www.knowingthebible.net/#/schema/Organization/base"},"inLanguage":"en-GB"}]}</script>
+	<script>jQuery(document).ready(function(){WfMediabox.init({"base":"\/","theme":"standard","width":"","height":"","lightbox":0,"shadowbox":0,"icons":1,"overlay":1,"overlay_opacity":0,"overlay_color":"","transition_speed":500,"close":2,"labels":{"close":"Close","next":"Next","previous":"Previous","cancel":"Cancel","numbers":"{{numbers}}","numbers_count":"{{current}} of {{total}}","download":"Download"},"swipe":true,"expand_on_click":true});});</script>
+	<script>template="shaper_helixultimate";</script>
+<!--FAVICON-->
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+<link rel="manifest" href="/images/favicon/site.webmanifest">
+			
+<!-- BEGIN Advanced Google Analytics - http://deconf.com/advanced-google-analytics-joomla/ -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C9TB5LYCQJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C9TB5LYCQJ', {
+  'anonymize_ip': true
+  });
+  if (window.performance) {
+    var timeSincePageLoad = Math.round(performance.now());
+    gtag('event', 'timing_complete', {
+      'name': 'load',
+      'value': timeSincePageLoad,
+      'event_category': 'JS Dependencies'
+    });
+  }
+</script>
+<!-- END Advanced Google Analytics -->
+
+
+</head>
+	<body class="site helix-ultimate hu com_content com-content view-article layout-default task-none itemid-101 en-gb ltr layout-fluid offcanvas-init offcanvs-position-right  frontpage">
+
+		
+		
+		<div class="body-wrapper">
+			<div class="body-innerwrapper">
+								<main id="sp-main">
+					
+<section id="sp-top-bar" >
+
+						<div class="container">
+				<div class="container-inner">
+			
+	
+<div class="row">
+	<div id="sp-top1" class="col-lg-12 "><div class="sp-column "></div></div></div>
+							</div>
+			</div>
+			
+	</section>
+
+<header id="sp-header" >
+
+						<div class="container">
+				<div class="container-inner">
+			
+	
+<div class="row">
+	<div id="sp-logo" class="col-7 col-lg-3 "><div class="sp-column  d-flex align-items-center"><div class="logo"><a href="/">
+				<img class="logo-image  lazyload"
+					data-srcset='https://www.knowingthebible.net/images/global/logo.png 1x'
+					data-src='https://www.knowingthebible.net/images/global/logo.png'
+					height='55'
+					alt='Knowing the Bible'
+				 data-size="auto" />
+				</a></div></div></div><div id="sp-menu" class="col-5 col-lg-9 "><div class="sp-column  d-flex align-items-center justify-content-end"><nav class="sp-megamenu-wrapper d-flex" role="navigation" aria-label="navigation"><ul class="sp-megamenu-parent menu-animation-none d-none d-lg-block"><li class="sp-menu-item current-item active"><a aria-current="page"  href="/"  >Home</a></li><li class="sp-menu-item sp-has-child"><span  class="menu-heading-nolink sp-menu-heading"  >Studies</span><div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 260px;"><div class="sp-dropdown-inner"><ul class="sp-dropdown-items"><li class="sp-menu-item"><a   href="/bible-studies"  >Bible Studies</a></li><li class="sp-menu-item"><a   href="/first-testament-survey"  >First Testament Survey</a></li><li class="sp-menu-item"><a   href="/comparative-religions"  >Comparative Religions</a></li><li class="sp-menu-item"><a   href="/recommended-resources"  >Recommended Resources</a></li></ul></div></div></li><li class="sp-menu-item"><a   href="/bible-maps"  >Bible Maps</a></li><li class="sp-menu-item sp-has-child"><span  class="menu-heading-nolink sp-menu-heading"  >About</span><div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 260px;"><div class="sp-dropdown-inner"><ul class="sp-dropdown-items"><li class="sp-menu-item"><a   href="/about/about-me"  >About Me</a></li><li class="sp-menu-item"><a   href="/about/how-i-approach-the-bible"  >How I Approach the Bible</a></li><li class="sp-menu-item"><a   href="/about/subscribe-to-mailing-list"  >Subscribe to Mailing List</a></li></ul></div></div></li><li class="sp-menu-item"><a   href="/donate"  >Donate</a></li><li class="sp-menu-item"><a   href="/contact"  >Contact</a></li><li class="sp-menu-item sp-has-child"><a  class="menu-heading-nolink menu-search-link" href="/search"  ><span class="fas fa-search"></span></a><div class="sp-dropdown sp-dropdown-main sp-dropdown-mega sp-menu-left" style="width: 600px;"><div class="sp-dropdown-inner"><div class="row"><div class="col-sm-12"><ul class="sp-mega-group"><li class="item-116 module "><div class="sp-module "><div class="sp-module-content">
+<form class="mod-finder js-finder-searchform form-search" action="/search" method="get" role="search">
+    <label for="mod-finder-searchword116" class="visually-hidden finder">Search</label><input type="text" name="q" id="mod-finder-searchword116" class="js-finder-search-query form-control" value="" placeholder="Search &hellip;">
+            </form>
+</div></div></li></ul></div></div></div></div></li></ul><a id="offcanvas-toggler" aria-label="Menu" class="offcanvas-toggler-right offcanvas-toggler-custom d-lg-none" href="#" title="Menu"><div class="burger-icon" aria-hidden="true"><span></span><span></span><span></span></div></a></nav></div></div></div>
+							</div>
+			</div>
+			
+	</header>
+
+<section id="sp-main-body" >
+
+										<div class="container">
+					<div class="container-inner">
+						
+	
+<div class="row">
+	
+<div id="sp-component" class="col-lg-12 ">
+	<div class="sp-column ">
+		<div id="system-message-container" aria-live="polite"><noscript><div class="alert alert-info">The requested file was not found. Please inform the webmaster.: Bible Maps.zip</div></noscript></div>
+
+
+		
+		<div class="article-details  frontpage" itemscope itemtype="https://schema.org/Article">
+    <meta itemprop="inLanguage" content="en-GB">
+
+    
+    
+    
+    
+    
+    <div class="article-can-edit d-flex flex-wrap justify-content-between">
+                
+            </div>
+
+    
+        
+                
+    
+        
+        
+        
+        <div itemprop="articleBody">
+            <div class="frontpage-wrap">
+<section class="front-top-banner-wrap">
+<div class="front-top-banner-background">
+<img class="front-top-banner-background-image lazyload" data-src="https://www.knowingthebible.net/images/featured/front-top-banner.jpg" fetchpriority="high" width="1600" height="1200" alt="Mission Banner">
+</div>
+<div class="front-top-banner-content-wrap">
+<div class="inner-wrap">
+<div class="front-top-banner-content">
+<h1>Taking you deeper in understanding the Bible in its cultural and literary context so that you may know Yahweh and His Word better.</h1>
+</div>
+</div>
+</div>
+</section>
+<!--
+<section class="class-banner-wrap">
+<div class="inner-wrap">
+<div class="class-banner">
+<a href="/bible-study-class"><img alt="Bible Class Banner" data-src="https://www.knowingthebible.net/images/featured/bible-class-banner.jpg" class="lazyload" /></a>
+<div class="class-banner-title">
+<a href="/bible-study-class">
+<p>Exodus</p>
+<p>Sept. 8 – Dec. 15, Mondays 7–9 PM (EST)</p>
+<p>Zoom Live Streaming Available</p>
+<p>Register Now!</p>
+</a>
+</div>
+</div>
+</div>
+</section>
+-->
+<section class="featured-items-wrap">
+<div class="inner-wrap">
+<div class="featured-items">
+<a href="/bible-studies"><img alt="Bible Studies" data-src="https://www.knowingthebible.net/images/featured/bible-studies.jpg" class="lazyload" /></a>
+<h2><a href="/bible-studies">Bible Studies</a></h2>
+<p class="featured-items-info">Free Audio and Commentaries</p>
+</div>
+<div class="featured-items"><a href="/topical-studies/bible-overview"><img alt="Bible Overview" data-src="https://www.knowingthebible.net/images/featured/bible-overview.jpg" class="lazyload" /></a>
+<h2><a href="/topical-studies/bible-overview">Bible Overview</a></h2>
+<p class="featured-items-info">A&nbsp;Journey&nbsp;through the Bible</p>
+</div>
+<div class="featured-items"><a href="/bible-maps"><img alt="Bible maps" data-src="https://www.knowingthebible.net/images/featured/bible-maps.jpg" class="lazyload" /></a>
+<h2><a href="/bible-maps">Bible Maps</a></h2>
+<p class="featured-items-info">Free High-Resolution Maps</p>
+</div>
+</div>
+</section>
+<section class="recent-studies-wrap">
+<div class="inner-wrap">
+<h2>Recent Studies</h2>
+<div class="recent-studies"><a href="/bible-studies/exodus"><img data-src="https://www.knowingthebible.net/images/featured/exodus.jpg" alt="Exodus" class="lazyload" /></a></div>
+<div class="recent-studies"><a href="/bible-studies/genesis"><img data-src="https://www.knowingthebible.net/images/featured/genesis.jpg" alt="Genesis" class="lazyload" /></a></div>
+<div class="recent-studies"><a href="/topical-studies/the-culture-of-the-ancient-near-east"><img data-src="https://www.knowingthebible.net/images/featured/the-culture-of-the-ancient-near-east.jpg" alt="the-culture-of-the-ancient-near-east" class="lazyload" /></a></div>
+<div class="recent-studies"><a href="/topical-studies/the-nature-of-the-ancient-near-eastern-gods"><img data-src="https://www.knowingthebible.net/images/featured/the-nature-of-the-ancient-near-eastern-gods.jpg" alt="the-nature-of-the-ancient-near-eastern-gods" class="lazyload" /></a></div>
+<div class="recent-studies"><a href="/topical-studies/the-divine-council-of-yahweh"><img data-src="https://www.knowingthebible.net/images/featured/the-divine-council-of-yahweh.jpg" alt="The Divine Council of Yahweh" class="lazyload" /></a></div>
+<div class="recent-studies"><a href="/bible-studies/1-3-john"><img data-src="https://www.knowingthebible.net/images/featured/1-3-john.jpg" alt="1-3 John" class="lazyload" /></a></div>
+<div class="recent-studies"><a href="/bible-studies/revelation"><img data-src="https://www.knowingthebible.net/images/featured/revelation.jpg" alt="Revelation" class="lazyload" /></a></div>
+<div class="recent-studies"><a href="/bible-studies/acts"><img data-src="https://www.knowingthebible.net/images/featured/acts.jpg" alt="Acts" class="lazyload" /></a></div>
+<div class="recent-studies"><a href="/bible-studies/luke"><img data-src="https://www.knowingthebible.net/images/featured/luke.jpg" alt="Luke" class="lazyload" /></a></div>
+<div class="recent-studies"><a href="/topical-studies/the-intertestamental-history"><img data-src="https://www.knowingthebible.net/images/featured/intertestamental-history.jpg" alt="The Intertestamental History" class="lazyload" /></a></div>
+</div>
+</section>
+<section class="upcoming-wrap">
+<div class="inner-wrap">
+<h2>Upcoming Bible Classes</h2>
+<div class="upcoming-class">John</div>
+<div class="upcoming-date">September 7—December 14, 2026 (TBD)</div>
+</div>
+</section>
+         </div>
+
+        
+        
+        
+    
+
+        
+    
+
+   
+                </div>
+
+			</div>
+</div>
+</div>
+											</div>
+				</div>
+						
+	</section>
+
+<section id="sp-bottom" >
+
+						<div class="container">
+				<div class="container-inner">
+			
+	
+<div class="row">
+	<div id="sp-bottom1" class="col-sm-col-sm-6 col-lg-12 "><div class="sp-column "><div class="sp-module  footer-module"><div class="sp-module-content">
+<div id="mod-custom115" class="mod-custom custom">
+    <ul>
+<li><a href="/about/subscribe-to-mailing-list" title="Subscribe to the Mailing List">Subscribe</a></li>
+<li><a href="/terms-and-conditions" title="Terms and Conditions">Terms and Conditions</a></li>
+<li><a href="/site-map" title="Site Map">Site Map</a></li>
+</ul></div>
+</div></div></div></div></div>
+							</div>
+			</div>
+			
+	</section>
+
+<footer id="sp-footer" >
+
+						<div class="container">
+				<div class="container-inner">
+			
+	
+<div class="row">
+	<div id="sp-footer1" class="col-lg-12 "><div class="sp-column "><span class="sp-copyright">Copyright © 2004-2026 Knowing the Bible LLC</span></div></div></div>
+							</div>
+			</div>
+			
+	</footer>
+				</main>
+			</div>
+		</div>
+
+		<!-- Off Canvas Menu -->
+		<div class="offcanvas-overlay"></div>
+		<!-- Rendering the offcanvas style -->
+		<!-- If canvas style selected then render the style -->
+		<!-- otherwise (for old templates) attach the offcanvas module position -->
+					<div class="offcanvas-menu left-1 offcanvas-arrow-right" tabindex="-1" inert>
+	<div class="d-flex align-items-center justify-content-between p-3 pt-4">
+				<a href="#" class="close-offcanvas" role="button" aria-label="Close Off-canvas">
+			<div class="burger-icon" aria-hidden="true">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</a>
+	</div>
+	
+	<div class="offcanvas-inner">
+		<div class="d-flex header-modules mb-3">
+			
+					</div>
+		
+					<div class="sp-module "><div class="sp-module-content"><ul class="mod-menu mod-list menu">
+<li class="item-101 default current active"><a href="/" aria-current="page">Home</a></li><li class="item-136 menu-deeper menu-parent"><span class="mod-menu__heading nav-header menu-heading-nolink">Studies<span class="menu-toggler"></span></span>
+<ul class="mod-menu__sub list-unstyled small menu-child"><li class="item-142"><a href="/bible-studies" >Bible Studies</a></li><li class="item-139"><a href="/first-testament-survey" >First Testament Survey</a></li><li class="item-140"><a href="/comparative-religions" >Comparative Religions</a></li><li class="item-138"><a href="/recommended-resources" >Recommended Resources</a></li></ul></li><li class="item-135"><a href="/bible-maps" >Bible Maps</a></li><li class="item-128 menu-deeper menu-parent"><span class="mod-menu__heading nav-header menu-heading-nolink">About<span class="menu-toggler"></span></span>
+<ul class="mod-menu__sub list-unstyled small menu-child"><li class="item-129"><a href="/about/about-me" >About Me</a></li><li class="item-130"><a href="/about/how-i-approach-the-bible" >How I Approach the Bible</a></li><li class="item-131"><a href="/about/subscribe-to-mailing-list" >Subscribe to Mailing List</a></li></ul></li><li class="item-132"><a href="/donate" >Donate</a></li><li class="item-134"><a href="/contact" >Contact</a></li><li class="item-137"><a href="/search" class="menu-heading-nolink menu-search-link">Search</a></li></ul>
+</div></div><div class="sp-module "><div class="sp-module-content">
+<form class="mod-finder js-finder-searchform form-search" action="/search" method="get" role="search">
+    <label for="mod-finder-searchword116" class="visually-hidden finder">Search</label><input type="text" name="q" id="mod-finder-searchword116" class="js-finder-search-query form-control" value="" placeholder="Search &hellip;">
+            </form>
+</div></div>
+		
+		
+		
+		
+				
+		<!-- custom module position -->
+		
+	</div>
+</div>				
+
+		<!--BLUE LETTER TAGGER-->
+<script src="https://www.blueletterbible.org/assets-v3/scripts/blbToolTip/BLB_ScriptTagger-min.js" type="text/javascript"></script>
+<script type="text/javascript">
+BLB.Tagger.Translation = "NET";
+BLB.Tagger.HyperLinks = "none";
+BLB.Tagger.HideTanslationAbbrev = "false";
+BLB.Tagger.TargetNewWindow = "true";
+BLB.Tagger.Style = "par";
+BLB.Tagger.NoSearchTagNames = "h1 h2 h3";
+BLB.Tagger.NoSearchClassNames = "description notag abbr class-description bibliography footnotes";
+</script>
+
+		
+
+		<!-- Go to top -->
+					<a href="#" class="sp-scroll-up" aria-label="Scroll to top"><span class="fas fa-angle-up" aria-hidden="true"></span></a>
+					</body>
+</html>
