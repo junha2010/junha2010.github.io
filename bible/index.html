@@ -104,14 +104,28 @@
     .mode-btn:active { transform: scale(0.97); }
     .mode-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
     .mode-btn.active { color: #ffffff; }
-    .translation-switch { --toggle-count: 2; --toggle-gap: 0.25rem; --toggle-pad: 0.28rem; --active-index: 0; position: relative; display: inline-flex; align-items: center; gap: var(--toggle-gap); padding: var(--toggle-pad); border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 1px 2px rgba(15, 23, 42, 0.06); width: 100%; justify-content: stretch; }
-    .translation-switch::before { content: ''; position: absolute; top: var(--toggle-pad); bottom: var(--toggle-pad); left: var(--toggle-pad); width: calc((100% - (var(--toggle-pad) * 2) - (var(--toggle-gap) * (var(--toggle-count) - 1))) / var(--toggle-count)); border-radius: 999px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16); transform: translateX(calc(var(--active-index) * (100% + var(--toggle-gap)))); transition: transform 0.28s cubic-bezier(.22,1,.36,1), background 0.22s ease; pointer-events: none; }
-    .translation-btn { position: relative; z-index: 1; border: none; background: transparent; color: var(--text-soft); padding: 0.48rem 0.9rem; border-radius: 999px; font: inherit; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.03em; cursor: pointer; min-height: 2.35rem; min-width: 3.5rem; transition: color 0.22s ease, transform 0.18s ease; }
-    .translation-btn:hover { color: var(--text-strong); background: var(--control-hover); }
-    .translation-btn:active { transform: scale(0.97); }
-    .translation-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
-    .translation-btn.active { color: #ffffff; }
-    .translation-switch .translation-btn { flex: 1 1 0; }
+    .translation-picker { position: relative; }
+    .translation-picker.open .translation-options { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
+    .settings-select-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; border: 1px solid var(--border-soft); border-radius: 0.95rem; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-strong); padding: 0.82rem 0.95rem; font: inherit; font-size: 0.92rem; font-weight: 700; cursor: pointer; transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
+    .settings-select-btn:hover { border-color: #94a3b8; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); }
+    .settings-select-btn:active { transform: scale(0.99); }
+    .settings-select-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .settings-select-value { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 0.14rem; text-align: left; }
+    .settings-select-title { color: var(--text-strong); }
+    .settings-select-caption { font-size: 0.78rem; font-weight: 600; color: var(--text-soft); }
+    .settings-select-caret { flex-shrink: 0; color: var(--text-soft); transition: transform 0.22s ease; }
+    .translation-picker.open .settings-select-caret { transform: rotate(180deg); }
+    .translation-options { position: absolute; top: calc(100% + 0.55rem); left: 0; right: 0; display: grid; gap: 0.45rem; padding: 0.55rem; border: 1px solid var(--border-soft); border-radius: 1rem; background: var(--surface-elevated); box-shadow: var(--shadow-md); max-height: 250px; overflow-y: auto; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.3rem) scale(0.98); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index: 3; }
+    .translation-option { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; border: 1px solid transparent; border-radius: 0.85rem; background: transparent; color: var(--text); padding: 0.72rem 0.85rem; font: inherit; text-align: left; cursor: pointer; transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease; }
+    .translation-option:hover { background: var(--control-hover); border-color: var(--border-soft); }
+    .translation-option:active { transform: scale(0.99); }
+    .translation-option:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .translation-option.active { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; }
+    .translation-option-meta { display: flex; flex-direction: column; gap: 0.12rem; min-width: 0; }
+    .translation-option-label { font-size: 0.9rem; font-weight: 700; }
+    .translation-option-description { font-size: 0.76rem; font-weight: 600; color: inherit; opacity: 0.78; }
+    .translation-option-check { font-size: 0.86rem; font-weight: 800; opacity: 0; transition: opacity 0.18s ease; }
+    .translation-option.active .translation-option-check { opacity: 1; }
     .menu-drop { display: grid; position: absolute; top: 3.8rem; left: 1.2rem; width: min(92vw, 640px); max-height: 500px; overflow-x: hidden; overflow-y: auto; background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 0.8rem; box-shadow: var(--shadow-md); z-index: 26; gap: 0.8rem; padding: 1rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.75rem) scaleY(0.92); transform-origin: top left; transition: opacity 0.2s ease, transform 0.22s ease, visibility 0.22s ease; }
     .menu-drop.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scaleY(1); }
     .menu-drop.slide-in-next { animation: menu-slide-next 0.22s ease; }
@@ -234,8 +248,9 @@
       .menu-btn { padding: 0.62rem 0.82rem; min-height: 2.55rem; font-size: 0.89rem; flex-shrink: 0; }
       .topbar-right { gap: 0.45rem; }
       .settings-btn { width: 2.55rem; height: 2.55rem; }
-      .translation-switch { --toggle-pad: 0.24rem; padding: 0.24rem; }
-      .translation-btn { padding: 0.5rem 0.75rem; font-size: 0.82rem; min-height: 2.5rem; min-width: 3.25rem; }
+      .settings-select-btn { padding: 0.72rem 0.82rem; font-size: 0.88rem; }
+      .settings-select-caption { font-size: 0.74rem; }
+      .translation-option { padding: 0.68rem 0.75rem; }
       .mode-toggle { --toggle-pad: 0.24rem; padding: 0.24rem; }
       .mode-btn { padding: 0.5rem 0.7rem; font-size: 0.82rem; min-height: 2.5rem; }
       .reading-status { flex: 1 1 auto; align-items: flex-start; padding: 0.34rem 0.52rem; min-width: 0; border-radius: 0.72rem; }
@@ -372,9 +387,15 @@
         <div class="settings-group">
           <div class="settings-row">
             <p class="settings-section-label">Bible Version</p>
-            <div class="translation-switch" role="tablist" aria-label="Bible translation">
-              <button id="translationNivBtn" class="translation-btn active" type="button" data-translation="niv" role="tab" aria-selected="true">NIV</button>
-              <button id="translationKjvBtn" class="translation-btn" type="button" data-translation="kjv" role="tab" aria-selected="false">KJV</button>
+            <div id="translationPicker" class="translation-picker">
+              <button id="translationPickerButton" class="settings-select-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="translationOptions">
+                <span class="settings-select-value">
+                  <span id="translationPickerValue" class="settings-select-title">NIV</span>
+                  <span class="settings-select-caption">Choose the version you want to read</span>
+                </span>
+                <span class="settings-select-caret">▼</span>
+              </button>
+              <div id="translationOptions" class="translation-options" role="listbox" aria-label="Bible versions"></div>
             </div>
           </div>
           <div class="settings-row">
@@ -429,7 +450,10 @@
     const menuButton = document.getElementById('menuButton');
     const menuDrop = document.getElementById('menuDrop');
     const settingsButton = document.getElementById('settingsButton');
-    const translationButtons = Array.from(document.querySelectorAll('.translation-btn'));
+    const translationPicker = document.getElementById('translationPicker');
+    const translationPickerButton = document.getElementById('translationPickerButton');
+    const translationPickerValue = document.getElementById('translationPickerValue');
+    const translationOptions = document.getElementById('translationOptions');
     const readingModeButtons = Array.from(document.querySelectorAll('.mode-btn'));
     const chapterTapButtons = Array.from(document.querySelectorAll('[data-chapter-tap]'));
     const themeModeButtons = Array.from(document.querySelectorAll('[data-theme-mode]'));
@@ -648,18 +672,48 @@
       return TRANSLATIONS[translationId] || TRANSLATIONS[DEFAULT_TRANSLATION_ID];
     }
 
+    function getTranslationButtons() {
+      return Array.from(translationOptions.querySelectorAll('[data-translation]'));
+    }
+
+    function setTranslationPickerOpen(isOpen) {
+      translationPicker.classList.toggle('open', isOpen);
+      translationPickerButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function renderTranslationOptions() {
+      const entries = Object.values(TRANSLATIONS);
+      translationOptions.innerHTML = '';
+
+      entries.forEach((translation) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'translation-option';
+        button.dataset.translation = translation.id;
+        button.setAttribute('role', 'option');
+        button.innerHTML = `
+          <span class="translation-option-meta">
+            <span class="translation-option-label">${escapeHtml(translation.label)}</span>
+            <span class="translation-option-description">Open ${escapeHtml(translation.label)} in the reader</span>
+          </span>
+          <span class="translation-option-check" aria-hidden="true">✓</span>
+        `;
+        translationOptions.appendChild(button);
+      });
+    }
+
     function updateMenuButtonLabel() {
       const translation = getTranslationConfig();
-      const translationContainer = translationButtons[0]?.closest('.translation-switch');
+      const translationButtons = getTranslationButtons();
       menuButton.textContent = `${translation.label} Bible ▼`;
+      translationPickerValue.textContent = translation.label;
+      menuButton.textContent = `${translation.label} Bible ▼`;
+      menuButton.textContent = `${translation.label} Bible ${'\u25BE'}`;
       translationButtons.forEach((button) => {
         const isActive = button.dataset.translation === translation.id;
         button.classList.toggle('active', isActive);
         button.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
-      if (translationContainer) {
-        translationContainer.style.setProperty('--active-index', translation.id === 'kjv' ? '1' : '0');
-      }
     }
 
     function updateReadingModeControls() {
@@ -1220,6 +1274,7 @@
       settingsButton.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('settings-open');
       document.body.style.overflow = '';
+      setTranslationPickerOpen(false);
     }
 
     function findClosestVisibleVerse() {
@@ -1585,7 +1640,9 @@
       const previousBook = state.currentBook;
       const previousChapter = state.currentChapter;
       const previousAnchor = captureVerseViewportAnchor();
-      translationButtons.forEach((button) => { button.disabled = true; });
+      translationPickerButton.disabled = true;
+      getTranslationButtons().forEach((button) => { button.disabled = true; });
+      setTranslationPickerOpen(false);
       closeMenu();
 
       try {
@@ -1621,7 +1678,8 @@
 
         closeSettingsModal();
       } finally {
-        translationButtons.forEach((button) => { button.disabled = false; });
+        translationPickerButton.disabled = false;
+        getTranslationButtons().forEach((button) => { button.disabled = false; });
       }
     }
 
@@ -1647,16 +1705,25 @@
       if (!menuDrop.contains(e.target) && e.target !== menuButton) {
         closeMenu();
       }
+      if (!translationPicker.contains(e.target)) {
+        setTranslationPickerOpen(false);
+      }
     });
-    translationButtons.forEach((button) => {
-      button.addEventListener('click', async () => {
-        try {
-          await switchTranslation(button.dataset.translation);
-        } catch (error) {
-          updateMenuButtonLabel();
-          showError(error.message);
-        }
-      });
+    translationPickerButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setTranslationPickerOpen(!translationPicker.classList.contains('open'));
+    });
+    translationOptions.addEventListener('click', async (e) => {
+      const button = e.target.closest('[data-translation]');
+      if (!button) {
+        return;
+      }
+      try {
+        await switchTranslation(button.dataset.translation);
+      } catch (error) {
+        updateMenuButtonLabel();
+        showError(error.message);
+      }
     });
     readingModeButtons.forEach((button) => {
       if (!button.dataset.readingMode) {
@@ -1733,6 +1800,9 @@
     });
 
     document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && translationPicker.classList.contains('open')) {
+        setTranslationPickerOpen(false);
+      }
       if (e.key === 'Escape' && locationModal.classList.contains('open')) {
         closeLocationModal();
       }
@@ -1771,6 +1841,8 @@
 
     async function loadBible() {
       try {
+        renderTranslationOptions();
+        updateMenuButtonLabel();
         await loadLocationData();
         await loadWordMeaningData();
         const translationState = await ensureTranslationReady(DEFAULT_TRANSLATION_ID);
