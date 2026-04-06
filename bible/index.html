@@ -24,6 +24,13 @@
     .settings-modal-subtitle { margin: 0.25rem 0 0; color: #64748b; font-size: 0.9rem; }
     .settings-modal-body { padding: 0 1rem 1rem; }
     .settings-section-label { margin: 0 0 0.7rem; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; }
+    .settings-group { display: grid; gap: 1rem; }
+    .settings-row { display: grid; gap: 0.7rem; }
+    .mode-toggle { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.28rem; border: 1px solid #dbe3ef; border-radius: 999px; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(15, 23, 42, 0.06); width: 100%; }
+    .mode-btn { flex: 1 1 0; border: none; background: transparent; color: #64748b; padding: 0.55rem 0.8rem; border-radius: 999px; font: inherit; font-size: 0.86rem; font-weight: 700; cursor: pointer; min-height: 2.35rem; transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease; }
+    .mode-btn:hover { color: #0f172a; background: rgba(148, 163, 184, 0.14); }
+    .mode-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .mode-btn.active { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16); }
     .translation-switch { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.28rem; border: 1px solid #dbe3ef; border-radius: 999px; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(15, 23, 42, 0.06); width: 100%; justify-content: stretch; }
     .translation-btn { border: none; background: transparent; color: #64748b; padding: 0.48rem 0.9rem; border-radius: 999px; font: inherit; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.03em; cursor: pointer; min-height: 2.35rem; min-width: 3.5rem; transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
     .translation-btn:hover { color: #0f172a; background: rgba(148, 163, 184, 0.14); }
@@ -58,6 +65,14 @@
     .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; }
     .verse-card.verse-flash { animation: verse-flash 1s ease; }
     .verse-line { margin: 0; line-height: 1.75; font-size: 1.05rem; color: #1a1a1a; }
+    .verse-container.reading-mode { max-width: 760px; margin: 0 auto; padding: 0.25rem 0; color: #111827; }
+    .verse-container.reading-mode .verse-card { display: inline; border-left: none; padding: 0; margin: 0; position: static; }
+    .verse-container.reading-mode .verse-card + .verse-card::before { content: ' '; white-space: pre; }
+    .verse-container.reading-mode .verse-line { display: inline; margin: 0; line-height: 2.05; font-size: 1.12rem; }
+    .verse-container.reading-mode .verse-number { position: static; display: inline; padding-left: 0; width: auto; margin-right: 0.28rem; font-size: 0.78em; vertical-align: super; }
+    .verse-container.reading-mode .verse-number.single-digit,
+    .verse-container.reading-mode .verse-number.double-digit { font-size: 0.78em; }
+    .verse-container.reading-mode .verse-card.verse-flash { border-radius: 0.45rem; box-shadow: none; }
     .location-link { border: none; background: none; padding: 0; color: inherit; font: inherit; font-weight: 700; text-decoration: underline; text-decoration-color: var(--verse-accent, #0066cc); text-decoration-thickness: 2px; text-underline-offset: 0.16em; cursor: pointer; transition: color 0.18s ease, text-decoration-color 0.18s ease; }
     .location-link:hover { color: var(--verse-accent, #0066cc); }
     .location-link:focus { outline: 2px solid var(--verse-accent, #0066cc); outline-offset: 2px; border-radius: 0.2rem; }
@@ -134,6 +149,8 @@
       .settings-btn { width: 2.8rem; height: 2.8rem; }
       .translation-switch { padding: 0.24rem; }
       .translation-btn { padding: 0.5rem 0.75rem; font-size: 0.82rem; min-height: 2.5rem; min-width: 3.25rem; }
+      .mode-toggle { padding: 0.24rem; }
+      .mode-btn { padding: 0.5rem 0.7rem; font-size: 0.82rem; min-height: 2.5rem; }
       .reading-status { flex: 1 1 auto; align-items: flex-start; padding: 0.45rem 0.65rem; min-width: 0; }
       .reading-status-value { font-size: 0.82rem; max-width: 100%; }
       .menu-drop { left: 4vw; width: 92vw; gap: 0.65rem; }
@@ -143,6 +160,7 @@
       .settings-modal { align-items: flex-end; padding: 0; }
       .settings-modal-card { width: 100%; border-radius: 1.2rem 1.2rem 0 0; }
       .content { margin-top: 7.1rem; margin-bottom: 7rem; padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom)); }
+      .verse-container.reading-mode .verse-line { font-size: 1.04rem; line-height: 2; }
       .nav-btn { top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); transform: none; width: calc(50vw - 1.35rem); height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: 35; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); }
       .prev-btn { left: 0.85rem; right: auto; }
       .next-btn { right: 0.85rem; left: auto; }
@@ -181,7 +199,7 @@
   <main class="content">
     <h1 class="chapter-title">Loading...</h1>
     <p class="hint">Loading Bible data...</p>
-    <div id="verseContainer"></div>
+    <div id="verseContainer" class="verse-container"></div>
   </main>
 
   <div id="locationModal" class="location-modal" aria-hidden="true">
@@ -240,10 +258,21 @@
         <button id="settingsModalClose" class="location-close" type="button" aria-label="Close settings">×</button>
       </div>
       <div class="settings-modal-body">
-        <p class="settings-section-label">Bible Version</p>
-        <div class="translation-switch" role="tablist" aria-label="Bible translation">
-          <button id="translationNivBtn" class="translation-btn active" type="button" data-translation="niv" role="tab" aria-selected="true">NIV</button>
-          <button id="translationKjvBtn" class="translation-btn" type="button" data-translation="kjv" role="tab" aria-selected="false">KJV</button>
+        <div class="settings-group">
+          <div class="settings-row">
+            <p class="settings-section-label">Bible Version</p>
+            <div class="translation-switch" role="tablist" aria-label="Bible translation">
+              <button id="translationNivBtn" class="translation-btn active" type="button" data-translation="niv" role="tab" aria-selected="true">NIV</button>
+              <button id="translationKjvBtn" class="translation-btn" type="button" data-translation="kjv" role="tab" aria-selected="false">KJV</button>
+            </div>
+          </div>
+          <div class="settings-row">
+            <p class="settings-section-label">Reading Mode</p>
+            <div class="mode-toggle" role="tablist" aria-label="Reading mode">
+              <button id="readingModeOffBtn" class="mode-btn active" type="button" data-reading-mode="off" role="tab" aria-selected="true">Verse View</button>
+              <button id="readingModeOnBtn" class="mode-btn" type="button" data-reading-mode="on" role="tab" aria-selected="false">Reading Mode</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -276,6 +305,7 @@
     const menuDrop = document.getElementById('menuDrop');
     const settingsButton = document.getElementById('settingsButton');
     const translationButtons = Array.from(document.querySelectorAll('.translation-btn'));
+    const readingModeButtons = Array.from(document.querySelectorAll('.mode-btn'));
     const verseContainer = document.getElementById('verseContainer');
     const nextChapterBtn = document.getElementById('nextChapterBtn');
     const prevChapterBtn = document.getElementById('prevChapterBtn');
@@ -315,6 +345,9 @@
       selectedChapterForVerses: null,
       menuTransition: null,
       activeVerse: null,
+      flashTimeoutId: null,
+      flashClearTimeoutId: null,
+      readingMode: false,
       readingStatusRaf: null,
       locationEntries: [],
       locationLookup: new Map(),
@@ -487,6 +520,15 @@
         button.classList.toggle('active', isActive);
         button.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
+    }
+
+    function updateReadingModeControls() {
+      readingModeButtons.forEach((button) => {
+        const isActive = (button.dataset.readingMode === 'on') === state.readingMode;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      verseContainer.classList.toggle('reading-mode', state.readingMode);
     }
 
     function loadScript(src) {
@@ -805,6 +847,7 @@
 
     function renderVerses() {
       verseContainer.innerHTML = '';
+      updateReadingModeControls();
 
       if (!state.verses.length) {
         verseContainer.innerHTML = '<p class="hint">No verses available for this chapter.</p>';
@@ -824,6 +867,18 @@
 
       state.activeVerse = state.verses.length ? 1 : null;
       updateReadingStatus(state.activeVerse);
+    }
+
+    function setReadingMode(enabled) {
+      if (state.readingMode === enabled) {
+        updateReadingModeControls();
+        return;
+      }
+
+      const anchor = captureVerseViewportAnchor();
+      state.readingMode = enabled;
+      renderVerses();
+      requestAnimationFrame(() => restoreVerseViewportAnchor(anchor));
     }
 
     function getLocationReferenceBooks(entry) {
@@ -1023,27 +1078,47 @@
     }
 
     function flashVerse(target) {
+      if (state.flashClearTimeoutId != null) {
+        window.clearTimeout(state.flashClearTimeoutId);
+        state.flashClearTimeoutId = null;
+      }
       target.classList.remove('verse-flash');
       void target.offsetWidth;
       target.classList.add('verse-flash');
-      window.setTimeout(() => target.classList.remove('verse-flash'), 1100);
+      state.flashClearTimeoutId = window.setTimeout(() => {
+        target.classList.remove('verse-flash');
+        state.flashClearTimeoutId = null;
+      }, 1100);
+    }
+
+    function getVerseScrollOffset() {
+      const topbar = document.querySelector('.topbar');
+      const topbarHeight = topbar ? topbar.getBoundingClientRect().height : 0;
+      const extraGap = window.matchMedia('(max-width: 520px)').matches ? 28 : 18;
+      return Math.ceil(topbarHeight + extraGap);
     }
 
     function scrollToVerse(verseNum) {
       const target = document.getElementById('verse-' + verseNum);
       if (!target) return;
 
-      const topOffset = window.matchMedia('(max-width: 520px)').matches ? 132 : 80;
+      const topOffset = getVerseScrollOffset();
       const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - topOffset;
       const scrollDistance = Math.abs(window.pageYOffset - offsetPosition);
       const highlightDelay = Math.min(700, Math.max(180, Math.round(scrollDistance * 0.35)));
 
+      if (state.flashTimeoutId != null) {
+        window.clearTimeout(state.flashTimeoutId);
+        state.flashTimeoutId = null;
+      }
+
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       state.activeVerse = verseNum;
       updateReadingStatus(verseNum);
-      window.setTimeout(() => {
+      state.flashTimeoutId = window.setTimeout(() => {
         flashVerse(target);
+        state.flashTimeoutId = null;
         scheduleReadingStatusSync();
       }, highlightDelay);
     }
@@ -1394,6 +1469,11 @@
           updateMenuButtonLabel();
           showError(error.message);
         }
+      });
+    });
+    readingModeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        setReadingMode(button.dataset.readingMode === 'on');
       });
     });
 
