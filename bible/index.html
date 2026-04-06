@@ -19,12 +19,17 @@
     .menu-drop.slide-in-back { animation: menu-slide-back 0.22s ease; }
     .menu-drop button { aspect-ratio: 1; border: 1px solid #d0d0d0; background: #f8f8f8; color: #1a1a1a; cursor: pointer; font-size: 1rem; font-family: inherit; transition: all 0.15s ease; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; font-weight: 600; }
     .menu-drop button:hover { background: #0066cc; color: #ffffff; border-color: #0066cc; }
+    .menu-drop.new-testament-menu button:hover { background: #dc2626; color: #ffffff; border-color: #dc2626; }
     .menu-drop.books-view { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
     .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(56px, 56px)); justify-content: start; }
     .menu-drop.number-grid-view button { width: 56px; height: 56px; font-size: 0.95rem; }
     .menu-drop .back-btn { background: #f8f8f8; color: #1a1a1a; margin-bottom: 0.5rem; }
     .menu-drop .current-chapter { background: #0066cc; color: #ffffff; border-color: #0066cc; }
-    .menu-drop .book-btn { background: #e6f3ff; color: #0066cc; border-color: #0066cc; font-weight: bold; aspect-ratio: auto; min-height: 3rem; padding: 0.5rem; }
+    .menu-drop .book-btn { font-weight: bold; aspect-ratio: auto; min-height: 3rem; padding: 0.5rem; }
+    .menu-drop .book-btn.old-testament { background: #e6f3ff; color: #0066cc; border-color: #0066cc; }
+    .menu-drop .book-btn.new-testament { background: #fee2e2; color: #b91c1c; border-color: #dc2626; }
+    .menu-drop .book-btn.old-testament:hover { background: #0066cc; color: #ffffff; border-color: #0066cc; }
+    .menu-drop .book-btn.new-testament:hover { background: #dc2626; color: #ffffff; border-color: #dc2626; }
     .menu-subhead { grid-column: 1 / -1; margin: 0; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6b7280; }
     .menu-status { grid-column: 1 / -1; padding: 0.6rem; color: #666666; text-align: center; font-size: 0.95rem; }
     .reading-status { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; min-width: 0; padding: 0.45rem 0.8rem; border: 1px solid #dbe3ef; border-radius: 0.85rem; background: rgba(248, 250, 252, 0.96); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); }
@@ -33,16 +38,47 @@
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
     .chapter-title { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; color: #000000; text-align: center; }
     .hint { color: #666666; margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
-    .verse-card { background: transparent; border: none; border-left: 3px solid #0066cc; border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; }
+    .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; }
     .verse-card.verse-flash { animation: verse-flash 1s ease; }
     .verse-line { margin: 0; line-height: 1.75; font-size: 1.05rem; color: #1a1a1a; }
-    .verse-number { position: absolute; left: 0; top: 0; color: #0066cc; font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
+    .location-link { border: none; background: none; padding: 0; color: inherit; font: inherit; font-weight: 700; text-decoration: underline; text-decoration-color: var(--verse-accent, #0066cc); text-decoration-thickness: 2px; text-underline-offset: 0.16em; cursor: pointer; transition: color 0.18s ease, text-decoration-color 0.18s ease; }
+    .location-link:hover { color: var(--verse-accent, #0066cc); }
+    .location-link:focus { outline: 2px solid var(--verse-accent, #0066cc); outline-offset: 2px; border-radius: 0.2rem; }
+    .verse-number { position: absolute; left: 0; top: 0; color: var(--verse-accent, #0066cc); font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
     .verse-number.single-digit { font-size: 1.08rem; }
     .verse-number.double-digit { font-size: 1rem; }
     .nav-btn { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; border: 1px solid #d0d0d0; background: #ffffff; color: #0066cc; font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
     .nav-btn:hover { background: #f8f8f8; border-color: #0066cc; box-shadow: 0 4px 12px rgba(0,102,204,.12); }
     .nav-btn:disabled { opacity: 0; visibility: hidden; }
     .prev-btn { right: auto; left: 1.5rem; }
+    .location-modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem; background: rgba(15, 23, 42, 0.62); z-index: 80; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s ease, visibility 0.2s ease; }
+    .location-modal.open { opacity: 1; visibility: visible; pointer-events: auto; }
+    .location-modal-card { width: min(92vw, 620px); max-height: min(88vh, 820px); overflow: auto; background: #ffffff; border-radius: 1rem; box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24); }
+    .location-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1rem 1rem 0.4rem; }
+    .location-modal-title { margin: 0; font-size: 1.35rem; color: #111827; }
+    .location-modal-subtitle { margin: 0.25rem 0 0; color: #64748b; font-size: 0.9rem; }
+    .location-close { width: 2.5rem; height: 2.5rem; border: 1px solid #d0d0d0; border-radius: 999px; background: #ffffff; color: #475569; cursor: pointer; font-size: 1.3rem; line-height: 1; }
+    .location-close:hover { background: #f8fafc; }
+    .location-modal-body { padding: 0 1rem 1rem; }
+    .location-map-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .location-map-toolbar p { margin: 0; color: #475569; font-size: 0.92rem; }
+    .location-map-controls { display: flex; gap: 0.5rem; }
+    .location-map-controls button { border: 1px solid #cbd5e1; background: #ffffff; color: #0f172a; border-radius: 0.7rem; padding: 0.45rem 0.7rem; cursor: pointer; font: inherit; font-weight: 600; }
+    .location-map-controls button:hover { background: #f8fafc; }
+    .location-map-frame { aspect-ratio: 1 / 1; width: 100%; border-radius: 0.9rem; overflow: hidden; background: #f8fafc; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; }
+    .location-map-frame img { width: 100%; height: 100%; object-fit: contain; display: block; transform: scale(var(--location-map-scale, 1)); transform-origin: center center; transition: transform 0.18s ease; }
+    .location-map-gallery { margin: 0.85rem 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 0.6rem; }
+    .location-map-gallery button { width: 100%; border: 1px solid #cbd5e1; border-radius: 0.8rem; background: #ffffff; padding: 0.35rem; cursor: pointer; text-align: left; }
+    .location-map-gallery button:hover { border-color: #94a3b8; background: #f8fafc; }
+    .location-map-gallery button.active { border-color: var(--verse-accent, #0066cc); box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12); }
+    .location-map-gallery img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 0.55rem; display: block; }
+    .location-map-gallery span { display: block; margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.35; color: #334155; }
+    .location-map-caption { margin: 0.75rem 0 0; color: #475569; font-size: 0.92rem; }
+    .location-description { margin: 1rem 0 0; color: #1f2937; line-height: 1.6; }
+    .location-references { margin: 1rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.55rem; }
+    .location-references li { padding: 0.7rem 0.8rem; border: 1px solid #e5e7eb; border-radius: 0.8rem; background: #f8fafc; }
+    .location-reference-label { font-weight: 700; color: #0f172a; }
+    .location-reference-text { margin: 0.24rem 0 0; color: #334155; font-size: 0.92rem; }
     @keyframes menu-slide-next {
       from { opacity: 0; transform: translateX(1.4rem); }
       to { opacity: 1; transform: translateX(0); }
@@ -52,9 +88,9 @@
       to { opacity: 1; transform: translateX(0); }
     }
     @keyframes verse-flash {
-      0% { background: rgba(0, 102, 204, 0); border-left-color: #0066cc; }
-      35% { background: rgba(0, 102, 204, 0.14); border-left-color: #1d4ed8; }
-      100% { background: rgba(0, 102, 204, 0); border-left-color: #0066cc; }
+      0% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); border-left-color: var(--verse-accent, #0066cc); }
+      35% { background: var(--verse-flash-bg-mid, rgba(0, 102, 204, 0.14)); border-left-color: var(--verse-accent-strong, #1d4ed8); }
+      100% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); border-left-color: var(--verse-accent, #0066cc); }
     }
     @media (max-width: 520px) {
       .topbar { align-items: flex-start; }
@@ -64,6 +100,8 @@
       .menu-drop.books-view { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(48px, 48px)); }
       .menu-drop.number-grid-view button { width: 48px; height: 48px; font-size: 0.9rem; }
+      .location-modal-header { padding: 0.9rem 0.9rem 0.3rem; }
+      .location-modal-body { padding: 0 0.9rem 0.9rem; }
     }
   </style>
 </head>
@@ -88,9 +126,40 @@
     <div id="verseContainer"></div>
   </main>
 
+  <div id="locationModal" class="location-modal" aria-hidden="true">
+    <div class="location-modal-card" role="dialog" aria-modal="true" aria-labelledby="locationModalTitle">
+      <div class="location-modal-header">
+        <div>
+          <h2 id="locationModalTitle" class="location-modal-title">Location</h2>
+          <p id="locationModalSubtitle" class="location-modal-subtitle"></p>
+        </div>
+        <button id="locationModalClose" class="location-close" type="button" aria-label="Close location popup">×</button>
+      </div>
+      <div class="location-modal-body">
+        <div class="location-map-toolbar">
+          <p>Related Bible maps</p>
+          <div class="location-map-controls">
+            <button id="locationZoomOut" type="button" aria-label="Zoom out map">-</button>
+            <button id="locationZoomReset" type="button">Reset</button>
+            <button id="locationZoomIn" type="button" aria-label="Zoom in map">+</button>
+          </div>
+        </div>
+        <div class="location-map-frame">
+          <img id="locationModalImage" alt="" />
+        </div>
+        <p id="locationMapCaption" class="location-map-caption"></p>
+        <ul id="locationMapGallery" class="location-map-gallery"></ul>
+        <p id="locationDescription" class="location-description"></p>
+        <ul id="locationReferences" class="location-references"></ul>
+      </div>
+    </div>
+  </div>
+
   <script>
     const DATA_DIR = 'Bible-niv-main';
     const LOCAL_BUNDLE = 'data/verses.js';
+    const LOCATION_DATA_PATH = 'data/locations.json';
+    const LOCAL_LOCATION_BUNDLE = 'data/locations.js';
 
     const menuButton = document.getElementById('menuButton');
     const menuDrop = document.getElementById('menuDrop');
@@ -100,6 +169,18 @@
     const chapterTitleEl = document.querySelector('.chapter-title');
     const hintEl = document.querySelector('.hint');
     const readingStatusValueEl = document.getElementById('readingStatusValue');
+    const locationModal = document.getElementById('locationModal');
+    const locationModalTitleEl = document.getElementById('locationModalTitle');
+    const locationModalSubtitleEl = document.getElementById('locationModalSubtitle');
+    const locationModalImageEl = document.getElementById('locationModalImage');
+    const locationMapCaptionEl = document.getElementById('locationMapCaption');
+    const locationMapGalleryEl = document.getElementById('locationMapGallery');
+    const locationDescriptionEl = document.getElementById('locationDescription');
+    const locationReferencesEl = document.getElementById('locationReferences');
+    const locationModalCloseBtn = document.getElementById('locationModalClose');
+    const locationZoomOutBtn = document.getElementById('locationZoomOut');
+    const locationZoomResetBtn = document.getElementById('locationZoomReset');
+    const locationZoomInBtn = document.getElementById('locationZoomIn');
 
     const state = {
       bookOrder: [],
@@ -112,11 +193,157 @@
       selectedChapterForVerses: null,
       menuTransition: null,
       activeVerse: null,
-      readingStatusRaf: null
+      readingStatusRaf: null,
+      locationEntries: [],
+      locationLookup: new Map(),
+      locationPattern: null,
+      locationMapFiles: [],
+      activeLocationMap: null,
+      locationMapZoom: 1
     };
+
+    const OLD_TESTAMENT_ACCENT = {
+      accent: '#0066cc',
+      accentStrong: '#1d4ed8',
+      flashStart: 'rgba(0, 102, 204, 0)',
+      flashMid: 'rgba(0, 102, 204, 0.14)'
+    };
+
+    const NEW_TESTAMENT_ACCENT = {
+      accent: '#dc2626',
+      accentStrong: '#b91c1c',
+      flashStart: 'rgba(220, 38, 38, 0)',
+      flashMid: 'rgba(220, 38, 38, 0.14)'
+    };
+
+    const NEW_TESTAMENT_BOOKS = new Set([
+      'Matthew', 'Mark', 'Luke', 'John', 'Acts', 'Romans', '1 Corinthians', '2 Corinthians',
+      'Galatians', 'Ephesians', 'Philippians', 'Colossians', '1 Thessalonians', '2 Thessalonians',
+      '1 Timothy', '2 Timothy', 'Titus', 'Philemon', 'Hebrews', 'James', '1 Peter', '2 Peter',
+      '1 John', '2 John', '3 John', 'Jude', 'Revelation'
+    ]);
+
+    const BOOK_TO_MAP = {
+      Genesis: '03 The Near East During the Time of the Patriarchs.png',
+      Exodus: '08 Israels Exodus and Wanderings.png',
+      Leviticus: '09 The Promised Land.png',
+      Numbers: '08 Israels Exodus and Wanderings.png',
+      Deuteronomy: '09 The Promised Land.png',
+      Joshua: '13 The Conquest of Canaan Under Joshua.png',
+      Judges: '15 Israel During the Time of the Judges.png',
+      Ruth: '15 Israel During the Time of the Judges.png',
+      '1 Samuel': '16 The Kingdom of Saul.png',
+      '2 Samuel': '18 The Kingdom of David.png',
+      '1 Kings': '21 The Divided Kingdom.png',
+      '2 Kings': '21 The Divided Kingdom.png',
+      '1 Chronicles': '18 The Kingdom of David.png',
+      '2 Chronicles': '21 The Divided Kingdom.png',
+      Ezra: '27 Judah After the Return from Exile.png',
+      Nehemiah: '27 Judah After the Return from Exile.png',
+      Esther: '26 The Persian Empire.png',
+      Job: '01 The Near East.png',
+      Psalms: '18 The Kingdom of David.png',
+      Proverbs: '19 The Kingdom of Solomon.png',
+      Ecclesiastes: '19 The Kingdom of Solomon.png',
+      'Song Of Solomon': '19 The Kingdom of Solomon.png',
+      Isaiah: '21 The Divided Kingdom.png',
+      Jeremiah: '24 The Babylonian Empire.png',
+      Lamentations: '24 The Babylonian Empire.png',
+      Ezekiel: '24 The Babylonian Empire.png',
+      Daniel: '26 The Persian Empire.png',
+      Hosea: '21 The Divided Kingdom.png',
+      Joel: '21 The Divided Kingdom.png',
+      Amos: '21 The Divided Kingdom.png',
+      Obadiah: '21 The Divided Kingdom.png',
+      Jonah: '22 The Assyrian Empire.png',
+      Micah: '21 The Divided Kingdom.png',
+      Nahum: '22 The Assyrian Empire.png',
+      Habakkuk: '24 The Babylonian Empire.png',
+      Zephaniah: '24 The Babylonian Empire.png',
+      Haggai: '27 Judah After the Return from Exile.png',
+      Zechariah: '27 Judah After the Return from Exile.png',
+      Malachi: '27 Judah After the Return from Exile.png',
+      Matthew: '36 Israel During the Time of Jesus.png',
+      Mark: '36 Israel During the Time of Jesus.png',
+      Luke: '36 Israel During the Time of Jesus.png',
+      John: '36 Israel During the Time of Jesus.png',
+      Acts: '37 Israel During the Time of Acts.png',
+      Romans: '33 The Roman Empire.png',
+      '1 Corinthians': '38 The Mediterranean World During the Time of Acts.png',
+      '2 Corinthians': '38 The Mediterranean World During the Time of Acts.png',
+      Galatians: '38 The Mediterranean World During the Time of Acts.png',
+      Ephesians: '38 The Mediterranean World During the Time of Acts.png',
+      Philippians: '38 The Mediterranean World During the Time of Acts.png',
+      Colossians: '38 The Mediterranean World During the Time of Acts.png',
+      '1 Thessalonians': '38 The Mediterranean World During the Time of Acts.png',
+      '2 Thessalonians': '38 The Mediterranean World During the Time of Acts.png',
+      '1 Timothy': '42 Pauls Journey to Rome.png',
+      '2 Timothy': '42 Pauls Journey to Rome.png',
+      Titus: '38 The Mediterranean World During the Time of Acts.png',
+      Philemon: '38 The Mediterranean World During the Time of Acts.png',
+      Hebrews: '36 Israel During the Time of Jesus.png',
+      James: '36 Israel During the Time of Jesus.png',
+      '1 Peter': '38 The Mediterranean World During the Time of Acts.png',
+      '2 Peter': '38 The Mediterranean World During the Time of Acts.png',
+      '1 John': '36 Israel During the Time of Jesus.png',
+      '2 John': '36 Israel During the Time of Jesus.png',
+      '3 John': '36 Israel During the Time of Jesus.png',
+      Jude: '36 Israel During the Time of Jesus.png',
+      Revelation: '43 The Churches of Revelation.png'
+    };
+
+    const LOCATION_TO_MAPS = {
+      Asia: ['Asia.png', '38 The Mediterranean World During the Time of Acts.png'],
+      Egypt: ['Egypt.png', '01 The Near East.png', '08 Israels Exodus and Wanderings.png'],
+      Syria: ['Syria.png', '01 The Near East.png'],
+      Rome: ['33 The Roman Empire.png', '32 The Rise of the Roman Empire.png', '42 Pauls Journey to Rome.png'],
+      Jerusalem: ['36 Israel During the Time of Jesus.png', '37 Israel During the Time of Acts.png', '18 The Kingdom of David.png'],
+      Jericho: ['36 Israel During the Time of Jesus.png', '13 The Conquest of Canaan Under Joshua.png', '09 The Promised Land.png'],
+      Bethlehem: ['36 Israel During the Time of Jesus.png', '18 The Kingdom of David.png', '15 Israel During the Time of the Judges.png'],
+      Bethany: ['36 Israel During the Time of Jesus.png', '37 Israel During the Time of Acts.png'],
+      Nazareth: ['36 Israel During the Time of Jesus.png', '37 Israel During the Time of Acts.png'],
+      Galilee: ['36 Israel During the Time of Jesus.png', '37 Israel During the Time of Acts.png'],
+      Samaria: ['36 Israel During the Time of Jesus.png', '21 The Divided Kingdom.png', '37 Israel During the Time of Acts.png'],
+      Judea: ['36 Israel During the Time of Jesus.png', '27 Judah After the Return from Exile.png', '37 Israel During the Time of Acts.png'],
+      Damascus: ['Syria.png', '39 Pauls First Missionary Journey.png', '01 The Near East.png'],
+      Babylon: ['24 The Babylonian Empire.png', '01 The Near East.png', '26 The Persian Empire.png'],
+      Nineveh: ['22 The Assyrian Empire.png', '01 The Near East.png'],
+      Persia: ['26 The Persian Empire.png', '25 The Median Empire.png', '01 The Near East.png'],
+      Corinth: ['38 The Mediterranean World During the Time of Acts.png', '40 Pauls Second Missionary Journey.png', '41 Pauls Third Missionary Journey.png'],
+      Ephesus: ['38 The Mediterranean World During the Time of Acts.png', '41 Pauls Third Missionary Journey.png', '43 The Churches of Revelation.png'],
+      Philippi: ['40 Pauls Second Missionary Journey.png', '38 The Mediterranean World During the Time of Acts.png'],
+      Thessalonica: ['40 Pauls Second Missionary Journey.png', '38 The Mediterranean World During the Time of Acts.png'],
+      Athens: ['40 Pauls Second Missionary Journey.png', '38 The Mediterranean World During the Time of Acts.png'],
+      Malta: ['42 Pauls Journey to Rome.png', '38 The Mediterranean World During the Time of Acts.png'],
+      Patmos: ['43 The Churches of Revelation.png', '38 The Mediterranean World During the Time of Acts.png']
+    };
+
+    function updateVerseAccentTheme(bookName) {
+      const accentTheme = NEW_TESTAMENT_BOOKS.has(bookName)
+        ? NEW_TESTAMENT_ACCENT
+        : OLD_TESTAMENT_ACCENT;
+
+      document.documentElement.style.setProperty('--verse-accent', accentTheme.accent);
+      document.documentElement.style.setProperty('--verse-accent-strong', accentTheme.accentStrong);
+      document.documentElement.style.setProperty('--verse-flash-bg-start', accentTheme.flashStart);
+      document.documentElement.style.setProperty('--verse-flash-bg-mid', accentTheme.flashMid);
+    }
 
     function setHint(text) {
       hintEl.textContent = text;
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function escapeRegExp(text) {
+      return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
     function showError(message) {
@@ -149,6 +376,19 @@
       return window.BIBLE_DATA || null;
     }
 
+    async function loadBundledLocationData() {
+      if (window.BIBLE_LOCATIONS) {
+        return window.BIBLE_LOCATIONS;
+      }
+
+      if (window.location.protocol !== 'file:') {
+        return null;
+      }
+
+      await loadScript(LOCAL_LOCATION_BUNDLE);
+      return window.BIBLE_LOCATIONS || null;
+    }
+
     function seedBookCacheFromData(data) {
       state.bookOrder = Object.keys(data);
       state.bookCache.clear();
@@ -163,6 +403,35 @@
         throw new Error('Could not load ' + path + ' (HTTP ' + response.status + ')');
       }
       return await response.json();
+    }
+
+    function buildLocationMatcher(locations) {
+      const names = locations
+        .map((entry) => entry.name)
+        .filter(Boolean)
+        .sort((a, b) => b.length - a.length);
+
+      if (!names.length) {
+        return null;
+      }
+
+      return new RegExp(`(?<![A-Za-z])(${names.map(escapeRegExp).join('|')})(?![A-Za-z])`, 'g');
+    }
+
+    async function loadLocationData() {
+      try {
+        const bundledLocations = await loadBundledLocationData();
+        const data = bundledLocations || await fetchJson(LOCATION_DATA_PATH);
+        const entries = Array.isArray(data.locations) ? data.locations : [];
+        state.locationEntries = entries;
+        state.locationLookup = new Map(entries.map((entry) => [entry.name, entry]));
+        state.locationPattern = buildLocationMatcher(entries);
+      } catch (error) {
+        console.warn('Could not load location data:', error);
+        state.locationEntries = [];
+        state.locationLookup = new Map();
+        state.locationPattern = null;
+      }
     }
 
     function normalizeBookPayload(raw) {
@@ -232,6 +501,11 @@
       menuDrop.classList.add('number-grid-view');
     }
 
+    function updateMenuTheme() {
+      const shouldUseNewTestamentTheme = state.menuState !== 'books' && NEW_TESTAMENT_BOOKS.has(state.selectedBook);
+      menuDrop.classList.toggle('new-testament-menu', shouldUseNewTestamentTheme);
+    }
+
     function applyMenuTransition() {
       menuDrop.classList.remove('slide-in-next', 'slide-in-back');
 
@@ -279,6 +553,28 @@
       readingStatusValueEl.textContent = verseText;
     }
 
+    function buildVerseMarkup(text) {
+      const plainText = text ?? '';
+      if (!state.locationPattern) {
+        return escapeHtml(plainText);
+      }
+
+      let markup = '';
+      let lastIndex = 0;
+
+      state.locationPattern.lastIndex = 0;
+      for (const match of plainText.matchAll(state.locationPattern)) {
+        const locationName = match[0];
+        const index = match.index ?? 0;
+        markup += escapeHtml(plainText.slice(lastIndex, index));
+        markup += `<button type="button" class="location-link" data-location-name="${escapeHtml(locationName)}">${escapeHtml(locationName)}</button>`;
+        lastIndex = index + locationName.length;
+      }
+
+      markup += escapeHtml(plainText.slice(lastIndex));
+      return markup;
+    }
+
     function renderVerses() {
       verseContainer.innerHTML = '';
 
@@ -294,12 +590,129 @@
         card.className = 'verse-card';
 
         const numSpan = `<span class="verse-number ${number < 10 ? 'single-digit' : 'double-digit'}">${number}</span>`;
-        card.innerHTML = `<p class="verse-line">${numSpan} ${text}</p>`;
+        card.innerHTML = `<p class="verse-line">${numSpan} ${buildVerseMarkup(text)}</p>`;
         verseContainer.appendChild(card);
       });
 
       state.activeVerse = state.verses.length ? 1 : null;
       updateReadingStatus(state.activeVerse);
+    }
+
+    function getLocationReferenceBooks(entry) {
+      const books = [];
+      const seen = new Set();
+
+      (entry.references || []).forEach((reference) => {
+        const match = reference.match(/^(.+?) \d+:\d+$/);
+        if (!match) {
+          return;
+        }
+
+        const bookName = match[1];
+        if (!seen.has(bookName)) {
+          seen.add(bookName);
+          books.push(bookName);
+        }
+      });
+
+      return books;
+    }
+
+    function getMapFilesForLocation(entry) {
+      const maps = [];
+      const seen = new Set();
+
+      function addMap(fileName) {
+        if (!fileName || seen.has(fileName)) {
+          return;
+        }
+        seen.add(fileName);
+        maps.push(fileName);
+      }
+
+      (LOCATION_TO_MAPS[entry.name] || []).forEach(addMap);
+      addMap(BOOK_TO_MAP[state.currentBook]);
+
+      getLocationReferenceBooks(entry)
+        .slice(0, 4)
+        .forEach((bookName) => addMap(BOOK_TO_MAP[bookName]));
+
+      if (NEW_TESTAMENT_BOOKS.has(state.currentBook)) {
+        addMap('37 Israel During the Time of Acts.png');
+        addMap('38 The Mediterranean World During the Time of Acts.png');
+      } else {
+        addMap('09 The Promised Land.png');
+        addMap('01 The Near East.png');
+      }
+
+      addMap('Near East.png');
+      return maps.slice(0, 6);
+    }
+
+    function updateLocationMapZoom() {
+      locationModalImageEl.style.setProperty('--location-map-scale', String(state.locationMapZoom));
+    }
+
+    function selectLocationMap(mapFile) {
+      state.activeLocationMap = mapFile;
+      state.locationMapZoom = 1;
+      updateLocationMapZoom();
+      locationModalImageEl.src = `img/location/${encodeURIComponent(mapFile)}`;
+      locationModalImageEl.alt = `${locationModalTitleEl.textContent} biblical map`;
+      locationMapCaptionEl.textContent = `Related Bible map: ${mapFile.replace(/\.png$/i, '')}`;
+
+      const buttons = locationMapGalleryEl.querySelectorAll('button');
+      buttons.forEach((button) => {
+        button.classList.toggle('active', button.dataset.mapFile === mapFile);
+      });
+    }
+
+    function renderLocationMapGallery(mapFiles) {
+      locationMapGalleryEl.innerHTML = mapFiles.map((mapFile) => `
+        <li>
+          <button type="button" data-map-file="${escapeHtml(mapFile)}">
+            <img src="img/location/${encodeURIComponent(mapFile)}" alt="${escapeHtml(mapFile.replace(/\.png$/i, ''))}" loading="lazy" />
+            <span>${escapeHtml(mapFile.replace(/\.png$/i, ''))}</span>
+          </button>
+        </li>
+      `).join('');
+
+      const firstMap = mapFiles[0];
+      if (firstMap) {
+        selectLocationMap(firstMap);
+      }
+    }
+
+    function openLocationModal(locationName) {
+      const entry = state.locationLookup.get(locationName);
+      if (!entry) {
+        return;
+      }
+
+      const mapFiles = getMapFilesForLocation(entry);
+      state.locationMapFiles = mapFiles;
+      locationModalTitleEl.textContent = entry.name;
+      locationModalSubtitleEl.textContent = `${entry.occurrence_count} verse reference${entry.occurrence_count === 1 ? '' : 's'} in the location index`;
+      renderLocationMapGallery(mapFiles);
+      locationDescriptionEl.textContent = entry.description || 'No description available for this location.';
+
+      const previewVerses = Array.isArray(entry.verses) ? entry.verses.slice(0, 4) : [];
+      locationReferencesEl.innerHTML = previewVerses.map((item) => `
+        <li>
+          <div class="location-reference-label">${escapeHtml(item.reference)}</div>
+          <p class="location-reference-text">${escapeHtml(item.text || 'Verse text unavailable.')}</p>
+        </li>
+      `).join('');
+
+      locationModal.classList.add('open');
+      locationModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLocationModal() {
+      locationModal.classList.remove('open');
+      locationModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
     }
 
     function findClosestVisibleVerse() {
@@ -393,6 +806,7 @@
       state.selectedChapterForVerses = String(safeChapter);
       state.verses = bookData[String(safeChapter)] || [];
 
+      updateVerseAccentTheme(bookName);
       updatePageTitle();
       setHint('Scroll down to read, or use the menu to jump to any verse.');
       renderVerses();
@@ -472,16 +886,42 @@
     async function renderMenu() {
       menuDrop.innerHTML = '<div class="menu-status">Loading...</div>';
       applyMenuLayout();
+      updateMenuTheme();
       applyMenuTransition();
 
       try {
         if (state.menuState === 'books') {
           menuDrop.innerHTML = '';
-          appendMenuSubhead('Choose a book');
+          updateMenuTheme();
+          appendMenuSubhead('Old Testament');
           state.bookOrder.forEach((book) => {
+            if (NEW_TESTAMENT_BOOKS.has(book)) {
+              return;
+            }
+
             const bookBtn = document.createElement('button');
             bookBtn.textContent = book;
-            bookBtn.className = 'book-btn';
+            bookBtn.className = 'book-btn old-testament';
+            bookBtn.addEventListener('click', async (e) => {
+              e.stopPropagation();
+              state.selectedBook = book;
+              await ensureBookLoaded(book);
+              state.menuTransition = 'slide-in-next';
+              state.menuState = 'chapters';
+              await renderMenu();
+            });
+            menuDrop.appendChild(bookBtn);
+          });
+
+          appendMenuSubhead('New Testament');
+          state.bookOrder.forEach((book) => {
+            if (!NEW_TESTAMENT_BOOKS.has(book)) {
+              return;
+            }
+
+            const bookBtn = document.createElement('button');
+            bookBtn.textContent = book;
+            bookBtn.className = 'book-btn new-testament';
             bookBtn.addEventListener('click', async (e) => {
               e.stopPropagation();
               state.selectedBook = book;
@@ -500,6 +940,7 @@
           const chapters = getChapterNumbers(state.selectedBook);
 
           menuDrop.innerHTML = '';
+          updateMenuTheme();
           appendMenuSubhead(`Choose a chapter in ${state.selectedBook}`);
 
           const backBtn = document.createElement('button');
@@ -539,6 +980,7 @@
           const chapterVerses = bookData[state.selectedChapterForVerses] || [];
 
           menuDrop.innerHTML = '';
+          updateMenuTheme();
           appendMenuSubhead(`Choose a verse in ${state.selectedBook} ${state.selectedChapterForVerses}`);
 
           const backBtn = document.createElement('button');
@@ -594,6 +1036,49 @@
       }
     });
 
+    verseContainer.addEventListener('click', (e) => {
+      const locationButton = e.target.closest('.location-link');
+      if (!locationButton) {
+        return;
+      }
+
+      openLocationModal(locationButton.dataset.locationName);
+    });
+
+    locationMapGalleryEl.addEventListener('click', (e) => {
+      const mapButton = e.target.closest('button[data-map-file]');
+      if (!mapButton) {
+        return;
+      }
+
+      selectLocationMap(mapButton.dataset.mapFile);
+    });
+
+    locationModalCloseBtn.addEventListener('click', closeLocationModal);
+    locationZoomOutBtn.addEventListener('click', () => {
+      state.locationMapZoom = Math.max(1, Number((state.locationMapZoom - 0.2).toFixed(2)));
+      updateLocationMapZoom();
+    });
+    locationZoomResetBtn.addEventListener('click', () => {
+      state.locationMapZoom = 1;
+      updateLocationMapZoom();
+    });
+    locationZoomInBtn.addEventListener('click', () => {
+      state.locationMapZoom = Math.min(2.4, Number((state.locationMapZoom + 0.2).toFixed(2)));
+      updateLocationMapZoom();
+    });
+    locationModal.addEventListener('click', (e) => {
+      if (e.target === locationModal) {
+        closeLocationModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && locationModal.classList.contains('open')) {
+        closeLocationModal();
+      }
+    });
+
     window.addEventListener('scroll', scheduleReadingStatusSync, { passive: true });
     window.addEventListener('resize', scheduleReadingStatusSync);
 
@@ -621,6 +1106,7 @@
 
     async function loadBible() {
       try {
+        await loadLocationData();
         const bundledBible = await loadBundledBibleData();
 
         if (bundledBible) {
