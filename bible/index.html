@@ -41,6 +41,9 @@
       --control-grad-start: #ffffff;
       --control-grad-end: #f8fafc;
       --control-hover: rgba(148, 163, 184, 0.14);
+      --nav-accent: #0066cc;
+      --nav-accent-hover-bg: rgba(0, 102, 204, 0.08);
+      --nav-accent-shadow: rgba(0, 102, 204, 0.12);
       --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
       --shadow-md: 0 4px 16px rgba(0,0,0,.12);
       --shadow-lg: 0 24px 70px rgba(15, 23, 42, 0.24);
@@ -154,15 +157,15 @@
     .verse-number { position: absolute; left: 0; top: 0; color: var(--verse-accent, #0066cc); font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
     .verse-number.single-digit { font-size: 1.08rem; }
     .verse-number.double-digit { font-size: 1rem; }
-    .nav-btn { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; border: 1px solid var(--border-strong); background: var(--surface); color: #0066cc; font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: all 0.2s ease; box-shadow: var(--shadow-sm); display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; }
-    .nav-btn:hover { background: var(--bg-soft); border-color: #0066cc; box-shadow: 0 4px 12px rgba(0,102,204,.12); }
+    .nav-btn { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; border: 1px solid color-mix(in srgb, var(--nav-accent) 50%, var(--border-strong)); background: var(--surface); color: var(--nav-accent); font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: all 0.2s ease; box-shadow: var(--shadow-sm); display: inline-flex; align-items: center; justify-content: center; gap: 0; padding: 0; }
+    .nav-btn:hover { background: var(--nav-accent-hover-bg); border-color: var(--nav-accent); box-shadow: 0 4px 12px var(--nav-accent-shadow); }
     .nav-btn:disabled { opacity: 0; visibility: hidden; }
     body.menu-open .nav-btn:not(:disabled) { opacity: 0.32; filter: saturate(0.7); pointer-events: none; }
     body.menu-open .content,
     body.settings-open .content { pointer-events: none; }
     .prev-btn { right: auto; left: 1.5rem; }
     .nav-btn-label { display: none; font-size: 0.96rem; font-weight: 700; letter-spacing: 0.01em; }
-    .nav-btn-icon { line-height: 1; }
+    .nav-btn-icon { line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
     .location-modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem; background: var(--overlay); z-index: 80; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s ease, visibility 0.2s ease; }
     .location-modal.open { opacity: 1; visibility: visible; pointer-events: auto; }
     .location-modal-card { width: min(92vw, 620px); max-height: min(88vh, 820px); overflow: auto; background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
@@ -205,6 +208,10 @@
     @keyframes menu-slide-back {
       from { opacity: 0; transform: translateX(-1.4rem); }
       to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes mobile-menu-fade {
+      from { opacity: 0; transform: translate(-50%, -50%) scale(0.985); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
     }
     @keyframes verse-flash {
       0% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); border-left-color: var(--verse-accent, #0066cc); }
@@ -254,6 +261,8 @@
         box-shadow: var(--shadow-lg), 0 0 0 100vmax var(--overlay);
         transform: translate(-50%, -50%) scale(1);
       }
+      .menu-drop.slide-in-next { animation: mobile-menu-fade 0.18s ease; }
+      .menu-drop.slide-in-back { animation: mobile-menu-fade 0.18s ease; }
       .menu-drop.books-view { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(48px, 48px)); }
       .menu-drop.number-grid-view button { width: 48px; height: 48px; font-size: 0.9rem; }
@@ -481,6 +490,8 @@
     const OLD_TESTAMENT_ACCENT = {
       accent: '#0066cc',
       accentStrong: '#1d4ed8',
+      navHoverBg: 'rgba(0, 102, 204, 0.08)',
+      navShadow: 'rgba(0, 102, 204, 0.12)',
       flashStart: 'rgba(0, 102, 204, 0)',
       flashMid: 'rgba(0, 102, 204, 0.14)'
     };
@@ -488,6 +499,8 @@
     const NEW_TESTAMENT_ACCENT = {
       accent: '#dc2626',
       accentStrong: '#b91c1c',
+      navHoverBg: 'rgba(220, 38, 38, 0.1)',
+      navShadow: 'rgba(220, 38, 38, 0.16)',
       flashStart: 'rgba(220, 38, 38, 0)',
       flashMid: 'rgba(220, 38, 38, 0.14)'
     };
@@ -603,6 +616,9 @@
       document.documentElement.style.setProperty('--verse-accent-strong', accentTheme.accentStrong);
       document.documentElement.style.setProperty('--verse-flash-bg-start', accentTheme.flashStart);
       document.documentElement.style.setProperty('--verse-flash-bg-mid', accentTheme.flashMid);
+      document.documentElement.style.setProperty('--nav-accent', accentTheme.accent);
+      document.documentElement.style.setProperty('--nav-accent-hover-bg', accentTheme.navHoverBg);
+      document.documentElement.style.setProperty('--nav-accent-shadow', accentTheme.navShadow);
     }
 
     function setHint(text) {
