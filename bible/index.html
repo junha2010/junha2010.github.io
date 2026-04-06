@@ -9,10 +9,27 @@
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: #ffffff; color: #1a1a1a; }
     .topbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 25; background: #ffffff; border-bottom: 1px solid #e5e5e5; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
-    .topbar-left { position: relative; display: flex; align-items: center; }
+    .topbar-left { position: relative; display: flex; align-items: center; min-width: 0; }
+    .topbar-right { margin-left: auto; display: flex; align-items: center; gap: 0.75rem; min-width: 0; flex-wrap: wrap; justify-content: flex-end; }
     .menu-btn { border: 1px solid #d0d0d0; background: #ffffff; color: #666666; padding: 0.7rem 1.2rem; border-radius: 0.6rem; cursor: pointer; font-size: 0.95rem; font-weight: 500; font-family: inherit; transition: all 0.2s ease; }
     .menu-btn:hover { background: #f8f8f8; border-color: #999999; color: #333333; }
     .menu-btn:focus { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .settings-btn { display: inline-flex; align-items: center; justify-content: center; width: 2.9rem; height: 2.9rem; border: 1px solid #d0d7e2; border-radius: 999px; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); color: #334155; cursor: pointer; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06); transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, color 0.18s ease; flex-shrink: 0; }
+    .settings-btn:hover { color: #0f172a; border-color: #94a3b8; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12); }
+    .settings-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .settings-icon { font-size: 1.2rem; line-height: 1; }
+    .settings-modal-card { width: min(92vw, 420px); background: #ffffff; border-radius: 1rem; box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24); }
+    .settings-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1rem 1rem 0.5rem; }
+    .settings-modal-title { margin: 0; font-size: 1.2rem; color: #111827; }
+    .settings-modal-subtitle { margin: 0.25rem 0 0; color: #64748b; font-size: 0.9rem; }
+    .settings-modal-body { padding: 0 1rem 1rem; }
+    .settings-section-label { margin: 0 0 0.7rem; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; }
+    .translation-switch { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.28rem; border: 1px solid #dbe3ef; border-radius: 999px; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(15, 23, 42, 0.06); width: 100%; justify-content: stretch; }
+    .translation-btn { border: none; background: transparent; color: #64748b; padding: 0.48rem 0.9rem; border-radius: 999px; font: inherit; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.03em; cursor: pointer; min-height: 2.35rem; min-width: 3.5rem; transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
+    .translation-btn:hover { color: #0f172a; background: rgba(148, 163, 184, 0.14); }
+    .translation-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .translation-btn.active { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16); }
+    .translation-switch .translation-btn { flex: 1 1 0; }
     .menu-drop { display: grid; position: absolute; top: 3.8rem; left: 1.2rem; width: min(92vw, 640px); max-height: 500px; overflow-x: hidden; overflow-y: auto; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 0.8rem; box-shadow: 0 4px 16px rgba(0,0,0,.12); z-index: 26; gap: 0.8rem; padding: 1rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.75rem) scaleY(0.92); transform-origin: top left; transition: opacity 0.2s ease, transform 0.22s ease, visibility 0.22s ease; }
     .menu-drop.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scaleY(1); }
     .menu-drop.slide-in-next { animation: menu-slide-next 0.22s ease; }
@@ -104,15 +121,28 @@
       35% { background: var(--verse-flash-bg-mid, rgba(0, 102, 204, 0.14)); border-left-color: var(--verse-accent-strong, #1d4ed8); }
       100% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); border-left-color: var(--verse-accent, #0066cc); }
     }
+    @media (max-width: 720px) {
+      .topbar { align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; }
+      .topbar-left { width: 100%; }
+      .topbar-right { width: 100%; margin-left: 0; justify-content: space-between; }
+      .content { margin-top: 6.6rem; }
+    }
     @media (max-width: 520px) {
-      .topbar { align-items: flex-start; }
-      .reading-status { padding: 0.35rem 0.6rem; }
-      .reading-status-value { font-size: 0.82rem; max-width: 44vw; }
+      .topbar { padding: 0.8rem 0.85rem; }
+      .menu-btn { padding: 0.7rem 1rem; min-height: 2.8rem; }
+      .topbar-right { align-items: stretch; gap: 0.6rem; }
+      .settings-btn { width: 2.8rem; height: 2.8rem; }
+      .translation-switch { padding: 0.24rem; }
+      .translation-btn { padding: 0.5rem 0.75rem; font-size: 0.82rem; min-height: 2.5rem; min-width: 3.25rem; }
+      .reading-status { flex: 1 1 auto; align-items: flex-start; padding: 0.45rem 0.65rem; min-width: 0; }
+      .reading-status-value { font-size: 0.82rem; max-width: 100%; }
       .menu-drop { left: 4vw; width: 92vw; gap: 0.65rem; }
       .menu-drop.books-view { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .menu-drop.number-grid-view { grid-template-columns: repeat(auto-fit, minmax(48px, 48px)); }
       .menu-drop.number-grid-view button { width: 48px; height: 48px; font-size: 0.9rem; }
-      .content { margin-bottom: 7rem; padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+      .settings-modal { align-items: flex-end; padding: 0; }
+      .settings-modal-card { width: 100%; border-radius: 1.2rem 1.2rem 0 0; }
+      .content { margin-top: 7.1rem; margin-bottom: 7rem; padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom)); }
       .nav-btn { top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); transform: none; width: calc(50vw - 1.35rem); height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: 35; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); }
       .prev-btn { left: 0.85rem; right: auto; }
       .next-btn { right: 0.85rem; left: auto; }
@@ -128,9 +158,14 @@
       <button id="menuButton" class="menu-btn" aria-haspopup="true" aria-expanded="false">Bible ▼</button>
       <div id="menuDrop" class="menu-drop" aria-label="Bible navigation menu"></div>
     </div>
-    <div class="reading-status" aria-live="polite">
-      <p class="reading-status-label">Reading</p>
-      <p id="readingStatusValue" class="reading-status-value">Loading...</p>
+    <div class="topbar-right">
+      <div class="reading-status" aria-live="polite">
+        <p class="reading-status-label">Reading</p>
+        <p id="readingStatusValue" class="reading-status-value">Loading...</p>
+      </div>
+      <button id="settingsButton" class="settings-btn" type="button" aria-label="Open settings" aria-haspopup="dialog" aria-expanded="false">
+        <span class="settings-icon">⚙</span>
+      </button>
     </div>
   </div>
 
@@ -195,16 +230,52 @@
     </div>
   </div>
 
+  <div id="settingsModal" class="location-modal settings-modal" aria-hidden="true">
+    <div class="settings-modal-card" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
+      <div class="settings-modal-header">
+        <div>
+          <h2 id="settingsModalTitle" class="settings-modal-title">Settings</h2>
+          <p class="settings-modal-subtitle">Choose your Bible version.</p>
+        </div>
+        <button id="settingsModalClose" class="location-close" type="button" aria-label="Close settings">×</button>
+      </div>
+      <div class="settings-modal-body">
+        <p class="settings-section-label">Bible Version</p>
+        <div class="translation-switch" role="tablist" aria-label="Bible translation">
+          <button id="translationNivBtn" class="translation-btn active" type="button" data-translation="niv" role="tab" aria-selected="true">NIV</button>
+          <button id="translationKjvBtn" class="translation-btn" type="button" data-translation="kjv" role="tab" aria-selected="false">KJV</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const DATA_DIR = 'Bible-niv-main';
-    const LOCAL_BUNDLE = 'data/verses.js';
     const LOCATION_DATA_PATH = 'data/locations.json';
     const LOCAL_LOCATION_BUNDLE = 'data/locations.js';
     const WORD_MEANING_DATA_PATH = 'data/word-meanings.json';
     const LOCAL_WORD_MEANING_BUNDLE = 'data/word-meanings.js';
+    const TRANSLATIONS = {
+      niv: {
+        id: 'niv',
+        label: 'NIV',
+        dataDir: 'Bible-niv-main',
+        localBundle: 'data/verses.js',
+        bundleKey: 'niv'
+      },
+      kjv: {
+        id: 'kjv',
+        label: 'KJV',
+        dataDir: 'Bible-kjv-main',
+        localBundle: 'data/verses-kjv.js',
+        bundleKey: 'kjv'
+      }
+    };
+    const DEFAULT_TRANSLATION_ID = 'niv';
 
     const menuButton = document.getElementById('menuButton');
     const menuDrop = document.getElementById('menuDrop');
+    const settingsButton = document.getElementById('settingsButton');
+    const translationButtons = Array.from(document.querySelectorAll('.translation-btn'));
     const verseContainer = document.getElementById('verseContainer');
     const nextChapterBtn = document.getElementById('nextChapterBtn');
     const prevChapterBtn = document.getElementById('prevChapterBtn');
@@ -228,8 +299,12 @@
     const wordModalSubtitleEl = document.getElementById('wordModalSubtitle');
     const wordMeaningTextEl = document.getElementById('wordMeaningText');
     const wordModalCloseBtn = document.getElementById('wordModalClose');
+    const settingsModal = document.getElementById('settingsModal');
+    const settingsModalCloseBtn = document.getElementById('settingsModalClose');
 
     const state = {
+      translationId: DEFAULT_TRANSLATION_ID,
+      translationCache: new Map(),
       bookOrder: [],
       bookCache: new Map(),
       currentBook: null,
@@ -400,6 +475,20 @@
       readingStatusValueEl.textContent = 'Unavailable';
     }
 
+    function getTranslationConfig(translationId = state.translationId) {
+      return TRANSLATIONS[translationId] || TRANSLATIONS[DEFAULT_TRANSLATION_ID];
+    }
+
+    function updateMenuButtonLabel() {
+      const translation = getTranslationConfig();
+      menuButton.textContent = `${translation.label} Bible ▼`;
+      translationButtons.forEach((button) => {
+        const isActive = button.dataset.translation === translation.id;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+
     function loadScript(src) {
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
@@ -411,8 +500,15 @@
       });
     }
 
-    async function loadBundledBibleData() {
-      if (window.BIBLE_DATA) {
+    async function loadBundledBibleData(translationId = state.translationId) {
+      const translation = getTranslationConfig(translationId);
+      const bundles = window.BIBLE_DATA_BUNDLES || {};
+
+      if (bundles[translation.bundleKey]) {
+        return bundles[translation.bundleKey];
+      }
+
+      if (translation.bundleKey === 'niv' && window.BIBLE_DATA) {
         return window.BIBLE_DATA;
       }
 
@@ -420,8 +516,9 @@
         return null;
       }
 
-      await loadScript(LOCAL_BUNDLE);
-      return window.BIBLE_DATA || null;
+      await loadScript(translation.localBundle);
+      const loadedBundles = window.BIBLE_DATA_BUNDLES || {};
+      return loadedBundles[translation.bundleKey] || (translation.bundleKey === 'niv' ? window.BIBLE_DATA || null : null);
     }
 
     async function loadBundledLocationData() {
@@ -448,14 +545,6 @@
 
       await loadScript(LOCAL_WORD_MEANING_BUNDLE);
       return window.BIBLE_WORD_MEANINGS || null;
-    }
-
-    function seedBookCacheFromData(data) {
-      state.bookOrder = Object.keys(data);
-      state.bookCache.clear();
-      Object.entries(data).forEach(([bookName, chapters]) => {
-        state.bookCache.set(bookName, chapters);
-      });
     }
 
     async function fetchJson(path) {
@@ -528,12 +617,13 @@
       throw new Error('Unexpected book JSON format.');
     }
 
-    async function loadBookList() {
-      const books = await fetchJson(`${DATA_DIR}/Books.json`);
+    async function loadBookList(translationId = state.translationId) {
+      const translation = getTranslationConfig(translationId);
+      const books = await fetchJson(`${translation.dataDir}/Books.json`);
       if (!Array.isArray(books) || !books.length) {
         throw new Error('Books.json is empty or invalid.');
       }
-      state.bookOrder = books;
+      return books;
     }
 
     async function ensureBookLoaded(bookName) {
@@ -541,11 +631,41 @@
         return state.bookCache.get(bookName);
       }
 
+      const translation = getTranslationConfig();
       const encodedFileName = encodeURIComponent(bookName) + '.json';
-      const raw = await fetchJson(`${DATA_DIR}/${encodedFileName}`);
+      const raw = await fetchJson(`${translation.dataDir}/${encodedFileName}`);
       const normalized = normalizeBookPayload(raw);
       state.bookCache.set(bookName, normalized);
       return normalized;
+    }
+
+    async function ensureTranslationReady(translationId = state.translationId) {
+      let cached = state.translationCache.get(translationId);
+      if (!cached) {
+        const bundledBible = await loadBundledBibleData(translationId);
+        cached = {
+          isBundled: Boolean(bundledBible),
+          bookOrder: [],
+          bookCache: new Map()
+        };
+
+        if (bundledBible) {
+          cached.bookOrder = Object.keys(bundledBible);
+          Object.entries(bundledBible).forEach(([bookName, chapters]) => {
+            cached.bookCache.set(bookName, chapters);
+          });
+        } else {
+          cached.bookOrder = await loadBookList(translationId);
+        }
+
+        state.translationCache.set(translationId, cached);
+      }
+
+      state.translationId = translationId;
+      state.bookOrder = cached.bookOrder;
+      state.bookCache = cached.bookCache;
+      updateMenuButtonLabel();
+      return cached;
     }
 
     function getChapterNumbers(bookName) {
@@ -608,11 +728,12 @@
     }
 
     function updatePageTitle() {
+      const translation = getTranslationConfig();
       const title = state.currentBook && state.currentChapter
         ? `${state.currentBook} ${state.currentChapter}`
         : 'Bible Viewer';
       chapterTitleEl.textContent = title;
-      document.title = title;
+      document.title = `${title} (${translation.label})`;
     }
 
     function updateReadingStatus(verseNum = null) {
@@ -842,6 +963,20 @@
       document.body.style.overflow = '';
     }
 
+    function openSettingsModal() {
+      settingsModal.classList.add('open');
+      settingsModal.setAttribute('aria-hidden', 'false');
+      settingsButton.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSettingsModal() {
+      settingsModal.classList.remove('open');
+      settingsModal.setAttribute('aria-hidden', 'true');
+      settingsButton.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
     function findClosestVisibleVerse() {
       const verseCards = verseContainer.querySelectorAll('.verse-card');
       if (!verseCards.length) return null;
@@ -898,7 +1033,7 @@
       const target = document.getElementById('verse-' + verseNum);
       if (!target) return;
 
-      const topOffset = 80;
+      const topOffset = window.matchMedia('(max-width: 520px)').matches ? 132 : 80;
       const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - topOffset;
       const scrollDistance = Math.abs(window.pageYOffset - offsetPosition);
@@ -911,6 +1046,36 @@
         flashVerse(target);
         scheduleReadingStatusSync();
       }, highlightDelay);
+    }
+
+    function captureVerseViewportAnchor() {
+      const verseNum = findClosestVisibleVerse() ?? state.activeVerse ?? 1;
+      const target = document.getElementById('verse-' + verseNum);
+      return {
+        verseNum,
+        top: target ? target.getBoundingClientRect().top : null
+      };
+    }
+
+    function restoreVerseViewportAnchor(anchor) {
+      if (!anchor || anchor.top == null) {
+        return;
+      }
+
+      const target = document.getElementById('verse-' + anchor.verseNum);
+      if (!target) {
+        return;
+      }
+
+      const currentTop = target.getBoundingClientRect().top;
+      const delta = currentTop - anchor.top;
+      if (Math.abs(delta) > 1) {
+        window.scrollBy({ top: delta, left: 0, behavior: 'auto' });
+      }
+
+      state.activeVerse = anchor.verseNum;
+      updateReadingStatus(anchor.verseNum);
+      scheduleReadingStatusSync();
     }
 
     async function goToChapter(bookName, chapterNumber, options = {}) {
@@ -1149,6 +1314,55 @@
       }
     }
 
+    async function switchTranslation(nextTranslationId) {
+      if (!TRANSLATIONS[nextTranslationId] || nextTranslationId === state.translationId) {
+        updateMenuButtonLabel();
+        return;
+      }
+
+      const previousBook = state.currentBook;
+      const previousChapter = state.currentChapter;
+      const previousAnchor = captureVerseViewportAnchor();
+      translationButtons.forEach((button) => { button.disabled = true; });
+      closeMenu();
+
+      try {
+        const translationState = await ensureTranslationReady(nextTranslationId);
+        const fallbackBook = previousBook && translationState.bookOrder.includes(previousBook)
+          ? previousBook
+          : (translationState.bookOrder.includes('Genesis') ? 'Genesis' : translationState.bookOrder[0]);
+
+        if (!fallbackBook) {
+          throw new Error('No books found for the selected translation.');
+        }
+
+        await ensureBookLoaded(fallbackBook);
+        const chapterNumbers = getChapterNumbers(fallbackBook);
+        const nextChapter = previousChapter && chapterNumbers.includes(previousChapter)
+          ? previousChapter
+          : chapterNumbers[0];
+
+        await goToChapter(fallbackBook, nextChapter, {
+          scrollToTop: false
+        });
+
+        if (previousBook === fallbackBook && previousChapter === nextChapter) {
+          requestAnimationFrame(() => restoreVerseViewportAnchor(previousAnchor));
+        }
+
+        const translation = getTranslationConfig();
+        if (translationState.isBundled) {
+          setHint(`Loaded ${translation.label} from the local offline bundle. Use the menu to jump to any available verse.`);
+        } else {
+          setHint(`Showing the ${translation.label}. Scroll down to read, or use the menu to jump to any verse.`);
+        }
+
+        closeSettingsModal();
+      } finally {
+        translationButtons.forEach((button) => { button.disabled = false; });
+      }
+    }
+
     menuButton.addEventListener('click', async () => {
       if (menuDrop.classList.contains('open')) {
         closeMenu();
@@ -1156,11 +1370,31 @@
         await openMenu();
       }
     });
+    settingsButton.addEventListener('click', () => {
+      if (settingsModal.classList.contains('open')) {
+        closeSettingsModal();
+      } else {
+        closeMenu();
+        closeLocationModal();
+        closeWordModal();
+        openSettingsModal();
+      }
+    });
 
     document.addEventListener('click', (e) => {
       if (!menuDrop.contains(e.target) && e.target !== menuButton) {
         closeMenu();
       }
+    });
+    translationButtons.forEach((button) => {
+      button.addEventListener('click', async () => {
+        try {
+          await switchTranslation(button.dataset.translation);
+        } catch (error) {
+          updateMenuButtonLabel();
+          showError(error.message);
+        }
+      });
     });
 
     verseContainer.addEventListener('click', (e) => {
@@ -1211,6 +1445,12 @@
         closeWordModal();
       }
     });
+    settingsModalCloseBtn.addEventListener('click', closeSettingsModal);
+    settingsModal.addEventListener('click', (e) => {
+      if (e.target === settingsModal) {
+        closeSettingsModal();
+      }
+    });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && locationModal.classList.contains('open')) {
@@ -1218,6 +1458,9 @@
       }
       if (e.key === 'Escape' && wordModal.classList.contains('open')) {
         closeWordModal();
+      }
+      if (e.key === 'Escape' && settingsModal.classList.contains('open')) {
+        closeSettingsModal();
       }
     });
 
@@ -1250,25 +1493,19 @@
       try {
         await loadLocationData();
         await loadWordMeaningData();
-        const bundledBible = await loadBundledBibleData();
-
-        if (bundledBible) {
-          seedBookCacheFromData(bundledBible);
-        } else {
-          await loadBookList();
-        }
+        const translationState = await ensureTranslationReady(DEFAULT_TRANSLATION_ID);
 
         const defaultBook = state.bookOrder.includes('Genesis')
           ? 'Genesis'
           : state.bookOrder[0];
 
         await goToChapter(defaultBook, 1, { scrollToTop: false });
-        if (bundledBible) {
-          setHint('Loaded from the local offline bundle. Use the menu to jump to any available verse.');
+        if (translationState.isBundled) {
+          setHint('Loaded NIV from the local offline bundle. Use the menu to jump to any available verse.');
         }
       } catch (error) {
         const localFileHint = window.location.protocol === 'file:'
-          ? ' Browsers usually block multi-file JSON loading from file://. The page now falls back to the local bundle when available, but the full Bible-niv-main data still requires a local server.'
+          ? ' Browsers usually block multi-file JSON loading from file://. The page now falls back to local translation bundles when available, but the full source folders still require a local server.'
           : '';
 
         showError(error.message + localFileHint);
