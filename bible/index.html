@@ -87,6 +87,12 @@
     .settings-btn:hover { color: var(--text-strong); border-color: #94a3b8; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12); }
     .settings-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
     .settings-icon { font-size: 1.2rem; line-height: 1; }
+    .compare-toggle-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-width: 2.9rem; height: 2.9rem; padding: 0 0.85rem; border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-soft); cursor: pointer; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06); transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, color 0.18s ease, background 0.18s ease; flex-shrink: 0; }
+    .compare-toggle-btn:hover { color: var(--text-strong); border-color: #94a3b8; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12); }
+    .compare-toggle-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .compare-toggle-btn[aria-pressed="true"] { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; border-color: #0f172a; }
+    .compare-toggle-icon { font-size: 1rem; line-height: 1; }
+    .compare-toggle-text { font-size: 0.84rem; font-weight: 700; line-height: 1; }
     .settings-modal-card { width: min(92vw, 420px); background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
     .settings-modal .settings-modal-card { transform: translateY(2.4rem) scale(0.97); opacity: 0; transition: transform 0.3s cubic-bezier(.22,1,.36,1), opacity 0.24s ease; }
     .settings-modal.open .settings-modal-card { transform: translateY(0) scale(1); opacity: 1; }
@@ -151,6 +157,19 @@
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
     .chapter-title { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; color: var(--text-strong); text-align: center; }
     .hint { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
+    .compare-layout { display: block; }
+    .compare-layout.compare-enabled { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+    .compare-pane { min-width: 0; }
+    .compare-pane-toolbar { display: none; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border-soft); }
+    .compare-pane-copy { min-width: 0; }
+    .compare-pane-label { margin: 0; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
+    .compare-pane-name { margin: 0.18rem 0 0; font-size: 0.95rem; font-weight: 700; color: var(--text-strong); }
+    .compare-select { min-width: 108px; max-width: 52%; border: 1px solid var(--border-soft); border-radius: 0.85rem; background: var(--surface); color: var(--text-strong); padding: 0.6rem 0.8rem; font: inherit; font-size: 0.86rem; font-weight: 700; }
+    .compare-select:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .compare-layout.compare-enabled .compare-pane-toolbar { display: flex; }
+    .compare-pane-secondary { display: none; }
+    .compare-layout.compare-enabled .compare-pane-secondary { display: block; padding-left: 1.5rem; border-left: 1px solid var(--border-soft); }
+    .compare-layout.compare-enabled .verse-container { max-width: none; }
     .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; scroll-margin-top: var(--verse-scroll-margin); }
     .verse-card.verse-flash { animation: verse-flash 1s ease; }
     .verse-line { margin: 0; line-height: 1.75; font-size: 1.05rem; color: var(--text); }
@@ -161,7 +180,7 @@
     .verse-container.reading-mode .verse-number { position: static; display: inline; padding-left: 0; width: auto; margin-right: 0.28rem; font-size: 0.78em; vertical-align: super; }
     .verse-container.reading-mode .verse-number.single-digit,
     .verse-container.reading-mode .verse-number.double-digit { font-size: 0.78em; }
-    .verse-container.reading-mode .verse-card.verse-flash { border-radius: 0.45rem; box-shadow: none; }
+    .verse-container.reading-mode .verse-card.verse-flash { border-radius: 0.45rem; box-shadow: none; animation: verse-flash-reading 1s ease; }
     .location-link { border: none; background: none; padding: 0; color: inherit; font: inherit; font-weight: 700; text-decoration: underline; text-decoration-color: var(--verse-accent, #0066cc); text-decoration-thickness: 2px; text-underline-offset: 0.16em; cursor: pointer; transition: color 0.18s ease, text-decoration-color 0.18s ease; }
     .location-link:hover { color: var(--verse-accent, #0066cc); }
     .location-link:focus { outline: 2px solid var(--verse-accent, #0066cc); outline-offset: 2px; border-radius: 0.2rem; }
@@ -232,6 +251,11 @@
       35% { background: var(--verse-flash-bg-mid, rgba(0, 102, 204, 0.14)); border-left-color: var(--verse-accent-strong, #1d4ed8); }
       100% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); border-left-color: var(--verse-accent, #0066cc); }
     }
+    @keyframes verse-flash-reading {
+      0% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); box-shadow: inset 0 -0.02em 0 0 var(--verse-flash-reading-mid, rgba(0, 102, 204, 0)); }
+      35% { background: var(--verse-flash-reading-mid, rgba(0, 102, 204, 0.26)); box-shadow: inset 0 -0.5em 0 0 var(--verse-flash-reading-mid, rgba(0, 102, 204, 0.26)); }
+      100% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); box-shadow: inset 0 -0.02em 0 0 var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); }
+    }
     /* Tablet and smaller */
     @media (max-width: 720px) {
       :root { --verse-scroll-margin: 84px; --verse-scroll-margin-reading: 78px; }
@@ -247,6 +271,8 @@
       .topbar-left { gap: 0.5rem; min-width: 0; }
       .menu-btn { padding: 0.62rem 0.82rem; min-height: 2.55rem; font-size: 0.89rem; flex-shrink: 0; }
       .topbar-right { gap: 0.45rem; }
+      .compare-toggle-btn { width: 2.55rem; height: 2.55rem; padding: 0; }
+      .compare-toggle-text { display: none; }
       .settings-btn { width: 2.55rem; height: 2.55rem; }
       .settings-select-btn { padding: 0.72rem 0.82rem; font-size: 0.88rem; }
       .settings-select-caption { font-size: 0.74rem; }
@@ -286,6 +312,10 @@
       .settings-modal .settings-modal-card { transform: translateY(100%); opacity: 1; transition: transform 0.34s cubic-bezier(.22,1,.36,1); }
       .settings-modal.open .settings-modal-card { transform: translateY(0); }
       .content { margin-top: 5.3rem; margin-bottom: 7rem; padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom)); }
+      .compare-layout.compare-enabled { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+      .compare-layout.compare-enabled .compare-pane-secondary { padding-left: 0; padding-top: 1.25rem; border-left: none; border-top: 1px solid var(--border-soft); }
+      .compare-pane-toolbar { align-items: flex-start; flex-direction: column; }
+      .compare-select { width: 100%; max-width: none; }
       .verse-container.reading-mode .verse-line { font-size: 1.04rem; line-height: 2; }
       .nav-btn { top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); transform: none; width: calc(50vw - 1.35rem); height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: 35; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); }
       .prev-btn { left: 0.85rem; right: auto; }
@@ -307,6 +337,10 @@
         <p class="reading-status-label">Reading</p>
         <p id="readingStatusValue" class="reading-status-value">Loading...</p>
       </div>
+      <button id="compareModeButton" class="compare-toggle-btn" type="button" aria-pressed="false" aria-label="Toggle compare mode">
+        <span class="compare-toggle-icon">⇄</span>
+        <span class="compare-toggle-text">Compare</span>
+      </button>
       <button id="settingsButton" class="settings-btn" type="button" aria-label="Open settings" aria-haspopup="dialog" aria-expanded="false">
         <span class="settings-icon">⚙</span>
       </button>
@@ -325,7 +359,28 @@
   <main class="content">
     <h1 class="chapter-title">Loading...</h1>
     <p class="hint">Loading Bible data...</p>
-    <div id="verseContainer" class="verse-container"></div>
+    <div id="compareLayout" class="compare-layout">
+      <section class="compare-pane compare-pane-primary">
+        <div class="compare-pane-toolbar">
+          <div class="compare-pane-copy">
+            <p class="compare-pane-label">Primary</p>
+            <p class="compare-pane-name">Left Bible</p>
+          </div>
+          <select id="comparePrimarySelect" class="compare-select" aria-label="Choose the primary Bible version"></select>
+        </div>
+        <div id="verseContainer" class="verse-container"></div>
+      </section>
+      <section id="compareSecondaryPane" class="compare-pane compare-pane-secondary" aria-hidden="true">
+        <div class="compare-pane-toolbar">
+          <div class="compare-pane-copy">
+            <p class="compare-pane-label">Secondary</p>
+            <p class="compare-pane-name">Right Bible</p>
+          </div>
+          <select id="compareSecondarySelect" class="compare-select" aria-label="Choose the secondary Bible version"></select>
+        </div>
+        <div id="secondaryVerseContainer" class="verse-container"></div>
+      </section>
+    </div>
   </main>
 
   <div id="locationModal" class="location-modal" aria-hidden="true">
@@ -446,9 +501,11 @@
       }
     };
     const DEFAULT_TRANSLATION_ID = 'niv';
+    const DEFAULT_COMPARE_SECONDARY_ID = Object.keys(TRANSLATIONS).find((translationId) => translationId !== DEFAULT_TRANSLATION_ID) || DEFAULT_TRANSLATION_ID;
 
     const menuButton = document.getElementById('menuButton');
     const menuDrop = document.getElementById('menuDrop');
+    const compareModeButton = document.getElementById('compareModeButton');
     const settingsButton = document.getElementById('settingsButton');
     const translationPicker = document.getElementById('translationPicker');
     const translationPickerButton = document.getElementById('translationPickerButton');
@@ -457,7 +514,12 @@
     const readingModeButtons = Array.from(document.querySelectorAll('.mode-btn'));
     const chapterTapButtons = Array.from(document.querySelectorAll('[data-chapter-tap]'));
     const themeModeButtons = Array.from(document.querySelectorAll('[data-theme-mode]'));
+    const compareLayout = document.getElementById('compareLayout');
+    const comparePrimarySelect = document.getElementById('comparePrimarySelect');
+    const compareSecondarySelect = document.getElementById('compareSecondarySelect');
+    const compareSecondaryPane = document.getElementById('compareSecondaryPane');
     const verseContainer = document.getElementById('verseContainer');
+    const secondaryVerseContainer = document.getElementById('secondaryVerseContainer');
     const nextChapterBtn = document.getElementById('nextChapterBtn');
     const prevChapterBtn = document.getElementById('prevChapterBtn');
     const chapterTitleEl = document.querySelector('.chapter-title');
@@ -499,6 +561,12 @@
       flashTimeoutId: null,
       flashClearTimeoutId: null,
       readingMode: false,
+      compareMode: false,
+      compareSecondaryVerses: [],
+      compareTranslations: {
+        primary: DEFAULT_TRANSLATION_ID,
+        secondary: DEFAULT_COMPARE_SECONDARY_ID
+      },
       chapterTapMode: 'verse-menu',
       themeMode: 'light',
       readingStatusRaf: null,
@@ -517,7 +585,18 @@
       navHoverBg: 'rgba(0, 102, 204, 0.08)',
       navShadow: 'rgba(0, 102, 204, 0.12)',
       flashStart: 'rgba(0, 102, 204, 0)',
-      flashMid: 'rgba(0, 102, 204, 0.14)'
+      flashMid: 'rgba(0, 102, 204, 0.14)',
+      readingFlashMid: 'rgba(0, 102, 204, 0.24)'
+    };
+
+    const OLD_TESTAMENT_ACCENT_DARK = {
+      accent: '#4ea8ff',
+      accentStrong: '#7cc4ff',
+      navHoverBg: 'rgba(78, 168, 255, 0.18)',
+      navShadow: 'rgba(78, 168, 255, 0.24)',
+      flashStart: 'rgba(78, 168, 255, 0)',
+      flashMid: 'rgba(78, 168, 255, 0.2)',
+      readingFlashMid: 'rgba(78, 168, 255, 0.34)'
     };
 
     const NEW_TESTAMENT_ACCENT = {
@@ -526,7 +605,18 @@
       navHoverBg: 'rgba(220, 38, 38, 0.1)',
       navShadow: 'rgba(220, 38, 38, 0.16)',
       flashStart: 'rgba(220, 38, 38, 0)',
-      flashMid: 'rgba(220, 38, 38, 0.14)'
+      flashMid: 'rgba(220, 38, 38, 0.14)',
+      readingFlashMid: 'rgba(220, 38, 38, 0.24)'
+    };
+
+    const NEW_TESTAMENT_ACCENT_DARK = {
+      accent: '#ff7a7a',
+      accentStrong: '#ff9b9b',
+      navHoverBg: 'rgba(255, 122, 122, 0.18)',
+      navShadow: 'rgba(255, 122, 122, 0.24)',
+      flashStart: 'rgba(255, 122, 122, 0)',
+      flashMid: 'rgba(255, 122, 122, 0.2)',
+      readingFlashMid: 'rgba(255, 122, 122, 0.34)'
     };
 
     const NEW_TESTAMENT_BOOKS = new Set([
@@ -633,13 +723,14 @@
 
     function updateVerseAccentTheme(bookName) {
       const accentTheme = NEW_TESTAMENT_BOOKS.has(bookName)
-        ? NEW_TESTAMENT_ACCENT
-        : OLD_TESTAMENT_ACCENT;
+        ? (document.body.classList.contains('dark-mode') ? NEW_TESTAMENT_ACCENT_DARK : NEW_TESTAMENT_ACCENT)
+        : (document.body.classList.contains('dark-mode') ? OLD_TESTAMENT_ACCENT_DARK : OLD_TESTAMENT_ACCENT);
 
       document.documentElement.style.setProperty('--verse-accent', accentTheme.accent);
       document.documentElement.style.setProperty('--verse-accent-strong', accentTheme.accentStrong);
       document.documentElement.style.setProperty('--verse-flash-bg-start', accentTheme.flashStart);
       document.documentElement.style.setProperty('--verse-flash-bg-mid', accentTheme.flashMid);
+      document.documentElement.style.setProperty('--verse-flash-reading-mid', accentTheme.readingFlashMid);
       document.documentElement.style.setProperty('--nav-accent', accentTheme.accent);
       document.documentElement.style.setProperty('--nav-accent-hover-bg', accentTheme.navHoverBg);
       document.documentElement.style.setProperty('--nav-accent-shadow', accentTheme.navShadow);
@@ -665,6 +756,7 @@
     function showError(message) {
       chapterTitleEl.textContent = 'Bible Viewer';
       verseContainer.innerHTML = '<p class="hint">' + message + '</p>';
+      secondaryVerseContainer.innerHTML = '';
       readingStatusValueEl.textContent = 'Unavailable';
     }
 
@@ -702,11 +794,27 @@
       });
     }
 
+    function renderTranslationSelectOptions(selectEl) {
+      const entries = Object.values(TRANSLATIONS);
+      selectEl.innerHTML = entries.map((translation) => (
+        `<option value="${escapeHtml(translation.id)}">${escapeHtml(translation.label)}</option>`
+      )).join('');
+    }
+
+    function updateCompareControls() {
+      compareModeButton.setAttribute('aria-pressed', state.compareMode ? 'true' : 'false');
+      compareLayout.classList.toggle('compare-enabled', state.compareMode);
+      compareSecondaryPane.setAttribute('aria-hidden', state.compareMode ? 'false' : 'true');
+      comparePrimarySelect.value = state.translationId;
+      compareSecondarySelect.value = state.compareTranslations.secondary;
+    }
+
     function updateMenuButtonLabel() {
       const translation = getTranslationConfig();
       const translationButtons = getTranslationButtons();
       menuButton.textContent = `${translation.label} Bible ▼`;
       translationPickerValue.textContent = translation.label;
+      menuButton.textContent = state.compareMode ? `Bible ${'\u25BE'}` : `${translation.label} Bible ${'\u25BE'}`;
       menuButton.textContent = `${translation.label} Bible ▼`;
       menuButton.textContent = `${translation.label} Bible ${'\u25BE'}`;
       translationButtons.forEach((button) => {
@@ -714,6 +822,8 @@
         button.classList.toggle('active', isActive);
         button.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
+      menuButton.textContent = state.compareMode ? `Bible ${'\u25BE'}` : `${translation.label} Bible ${'\u25BE'}`;
+      updateCompareControls();
     }
 
     function updateReadingModeControls() {
@@ -730,6 +840,7 @@
         readingModeContainer.style.setProperty('--active-index', state.readingMode ? '1' : '0');
       }
       verseContainer.classList.toggle('reading-mode', state.readingMode);
+      secondaryVerseContainer.classList.toggle('reading-mode', state.readingMode);
     }
 
     function updateChapterTapControls() {
@@ -907,7 +1018,7 @@
       return normalized;
     }
 
-    async function ensureTranslationReady(translationId = state.translationId) {
+    async function getCachedTranslationState(translationId = state.translationId) {
       let cached = state.translationCache.get(translationId);
       if (!cached) {
         const bundledBible = await loadBundledBibleData(translationId);
@@ -929,9 +1040,37 @@
         state.translationCache.set(translationId, cached);
       }
 
+      return cached;
+    }
+
+    async function ensureBookLoadedForTranslation(translationId, bookName) {
+      const translationState = await getCachedTranslationState(translationId);
+      if (translationState.bookCache.has(bookName)) {
+        return translationState.bookCache.get(bookName);
+      }
+
+      const translation = getTranslationConfig(translationId);
+      const encodedFileName = encodeURIComponent(bookName) + '.json';
+      const raw = await fetchJson(`${translation.dataDir}/${encodedFileName}`);
+      const normalized = normalizeBookPayload(raw);
+      translationState.bookCache.set(bookName, normalized);
+      return normalized;
+    }
+
+    function getChapterNumbersForTranslation(translationId, bookName) {
+      const translationState = state.translationCache.get(translationId);
+      const bookData = translationState?.bookCache.get(bookName) || {};
+      return Object.keys(bookData)
+        .map(Number)
+        .sort((a, b) => a - b);
+    }
+
+    async function ensureTranslationReady(translationId = state.translationId) {
+      const cached = await getCachedTranslationState(translationId);
       state.translationId = translationId;
       state.bookOrder = cached.bookOrder;
       state.bookCache = cached.bookCache;
+      state.compareTranslations.primary = translationId;
       updateMenuButtonLabel();
       return cached;
     }
@@ -999,11 +1138,14 @@
 
     function updatePageTitle() {
       const translation = getTranslationConfig();
+      const secondaryTranslation = getTranslationConfig(state.compareTranslations.secondary);
       const title = state.currentBook && state.currentChapter
         ? `${state.currentBook} ${state.currentChapter}`
         : 'Bible Viewer';
       chapterTitleEl.textContent = title;
-      document.title = `${title} (${translation.label})`;
+      document.title = state.compareMode
+        ? `${title} (${translation.label} vs ${secondaryTranslation.label})`
+        : `${title} (${translation.label})`;
     }
 
     function updateReadingStatus(verseNum = null) {
@@ -1073,31 +1215,64 @@
       return markup;
     }
 
-    function renderVerses() {
-      verseContainer.innerHTML = '';
-      updateReadingModeControls();
+    function getVerseCard(verseNum, pane = 'primary') {
+      const container = pane === 'secondary' ? secondaryVerseContainer : verseContainer;
+      return container.querySelector(`.verse-card[data-verse-num="${verseNum}"]`);
+    }
 
-      if (!state.verses.length) {
-        verseContainer.innerHTML = '<p class="hint">No verses available for this chapter.</p>';
+    function renderVerseList(container, verses, pane = 'primary') {
+      container.innerHTML = '';
+
+      if (!verses.length) {
+        container.innerHTML = '<p class="hint">No verses available for this chapter.</p>';
         return;
       }
 
-      state.verses.forEach((text, idx) => {
+      verses.forEach((text, idx) => {
         const number = idx + 1;
         const card = document.createElement('article');
-        card.id = 'verse-' + number;
+        card.id = pane === 'primary' ? `verse-${number}` : `${pane}-verse-${number}`;
         card.className = 'verse-card';
+        card.dataset.verseNum = String(number);
 
         const numSpan = `<span class="verse-number ${number < 10 ? 'single-digit' : 'double-digit'}">${number}</span>`;
         card.innerHTML = `<p class="verse-line">${numSpan} ${buildVerseMarkup(text)}</p>`;
-        verseContainer.appendChild(card);
+        container.appendChild(card);
       });
+    }
+
+    async function syncCompareVerses() {
+      if (!state.compareMode || !state.currentBook || !state.currentChapter) {
+        state.compareSecondaryVerses = [];
+        updateCompareControls();
+        return;
+      }
+
+      await ensureBookLoadedForTranslation(state.compareTranslations.secondary, state.currentBook);
+      const translationState = await getCachedTranslationState(state.compareTranslations.secondary);
+      const bookData = translationState.bookCache.get(state.currentBook) || {};
+      state.compareSecondaryVerses = Array.isArray(bookData[String(state.currentChapter)])
+        ? bookData[String(state.currentChapter)]
+        : [];
+      updateCompareControls();
+    }
+
+    function renderVerses() {
+      updateReadingModeControls();
+      renderVerseList(verseContainer, state.verses, 'primary');
+
+      if (state.compareMode) {
+        renderVerseList(secondaryVerseContainer, state.compareSecondaryVerses, 'secondary');
+      } else {
+        secondaryVerseContainer.innerHTML = '';
+      }
 
       state.activeVerse = state.verses.length ? 1 : null;
       updateReadingStatus(state.activeVerse);
+      updatePageTitle();
     }
 
-    function setReadingMode(enabled) {
+    async function setReadingMode(enabled) {
       if (state.readingMode === enabled) {
         updateReadingModeControls();
         return;
@@ -1105,6 +1280,7 @@
 
       const anchor = captureVerseViewportAnchor();
       state.readingMode = enabled;
+      await syncCompareVerses();
       renderVerses();
       requestAnimationFrame(() => restoreVerseViewportAnchor(anchor));
     }
@@ -1117,11 +1293,68 @@
     function setThemeMode(mode) {
       state.themeMode = mode === 'dark' ? 'dark' : 'light';
       updateThemeModeControls();
+      if (state.currentBook) {
+        updateVerseAccentTheme(state.currentBook);
+      }
+    }
+
+    async function setCompareMode(enabled) {
+      if (state.compareMode === enabled) {
+        updateCompareControls();
+        updateMenuButtonLabel();
+        return;
+      }
+
+      const anchor = captureVerseViewportAnchor();
+      state.compareMode = enabled;
+      if (!state.compareTranslations.secondary || !TRANSLATIONS[state.compareTranslations.secondary]) {
+        state.compareTranslations.secondary = DEFAULT_COMPARE_SECONDARY_ID;
+      }
+
+      await syncCompareVerses();
+      renderVerses();
+      updateMenuButtonLabel();
+
+      if (enabled) {
+        const primaryLabel = getTranslationConfig(state.translationId).label;
+        const secondaryLabel = getTranslationConfig(state.compareTranslations.secondary).label;
+        setHint(`Comparing ${primaryLabel} and ${secondaryLabel}. Use the selectors in each pane to switch versions.`);
+      } else {
+        setHint('Scroll down to read, or use the menu to jump to any verse.');
+      }
+
+      requestAnimationFrame(() => restoreVerseViewportAnchor(anchor));
+    }
+
+    async function setCompareTranslation(side, translationId) {
+      if (!TRANSLATIONS[translationId]) {
+        updateCompareControls();
+        return;
+      }
+
+      const anchor = captureVerseViewportAnchor();
+
+      if (side === 'primary') {
+        await switchTranslation(translationId, { closeSettingsAfter: false });
+      } else {
+        state.compareTranslations.secondary = translationId;
+        await syncCompareVerses();
+        renderVerses();
+      }
+
+      if (state.compareMode) {
+        const primaryLabel = getTranslationConfig(state.translationId).label;
+        const secondaryLabel = getTranslationConfig(state.compareTranslations.secondary).label;
+        setHint(`Comparing ${primaryLabel} and ${secondaryLabel}. Use the selectors in each pane to switch versions.`);
+      }
+
+      requestAnimationFrame(() => restoreVerseViewportAnchor(anchor));
     }
 
     updateReadingModeControls();
     updateChapterTapControls();
     updateThemeModeControls();
+    updateCompareControls();
 
     function getLocationReferenceBooks(entry) {
       const books = [];
@@ -1322,23 +1555,36 @@
       state.readingStatusRaf = window.requestAnimationFrame(syncReadingStatusToScroll);
     }
 
-    function flashVerse(target) {
+    function flashVerseTargets(targets) {
+      const validTargets = targets.filter(Boolean);
+      if (!validTargets.length) {
+        return;
+      }
+
       if (state.flashClearTimeoutId != null) {
         window.clearTimeout(state.flashClearTimeoutId);
         state.flashClearTimeoutId = null;
       }
-      target.classList.remove('verse-flash');
-      void target.offsetWidth;
-      target.classList.add('verse-flash');
-      state.flashClearTimeoutId = window.setTimeout(() => {
+
+      validTargets.forEach((target) => {
         target.classList.remove('verse-flash');
+      });
+      void validTargets[0].offsetWidth;
+      validTargets.forEach((target) => {
+        target.classList.add('verse-flash');
+      });
+      state.flashClearTimeoutId = window.setTimeout(() => {
+        validTargets.forEach((target) => {
+          target.classList.remove('verse-flash');
+        });
         state.flashClearTimeoutId = null;
       }, 1100);
     }
 
     function scrollToVerse(verseNum) {
-      const target = document.getElementById('verse-' + verseNum);
+      const target = getVerseCard(verseNum, 'primary');
       if (!target) return;
+      const secondaryTarget = state.compareMode ? getVerseCard(verseNum, 'secondary') : null;
 
       const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
       const scrollDistance = Math.abs(window.pageYOffset - targetTop);
@@ -1353,7 +1599,7 @@
       state.activeVerse = verseNum;
       updateReadingStatus(verseNum);
       state.flashTimeoutId = window.setTimeout(() => {
-        flashVerse(target);
+        flashVerseTargets([target, secondaryTarget]);
         state.flashTimeoutId = null;
         scheduleReadingStatusSync();
       }, highlightDelay);
@@ -1361,7 +1607,7 @@
 
     function captureVerseViewportAnchor() {
       const verseNum = findClosestVisibleVerse() ?? state.activeVerse ?? 1;
-      const target = document.getElementById('verse-' + verseNum);
+      const target = getVerseCard(verseNum, 'primary');
       return {
         verseNum,
         top: target ? target.getBoundingClientRect().top : null
@@ -1373,7 +1619,7 @@
         return;
       }
 
-      const target = document.getElementById('verse-' + anchor.verseNum);
+      const target = getVerseCard(anchor.verseNum, 'primary');
       if (!target) {
         return;
       }
@@ -1410,8 +1656,14 @@
       state.verses = bookData[String(safeChapter)] || [];
 
       updateVerseAccentTheme(bookName);
-      updatePageTitle();
-      setHint('Scroll down to read, or use the menu to jump to any verse.');
+      await syncCompareVerses();
+      if (state.compareMode) {
+        const primaryLabel = getTranslationConfig(state.translationId).label;
+        const secondaryLabel = getTranslationConfig(state.compareTranslations.secondary).label;
+        setHint(`Comparing ${primaryLabel} and ${secondaryLabel}. Use the selectors in each pane to switch versions.`);
+      } else {
+        setHint('Scroll down to read, or use the menu to jump to any verse.');
+      }
       renderVerses();
       updateNavBtns();
       updateReadingStatus(state.activeVerse);
@@ -1631,7 +1883,8 @@
       }
     }
 
-    async function switchTranslation(nextTranslationId) {
+    async function switchTranslation(nextTranslationId, options = {}) {
+      const { closeSettingsAfter = true } = options;
       if (!TRANSLATIONS[nextTranslationId] || nextTranslationId === state.translationId) {
         updateMenuButtonLabel();
         return;
@@ -1670,13 +1923,18 @@
         }
 
         const translation = getTranslationConfig();
-        if (translationState.isBundled) {
+        if (state.compareMode) {
+          const secondaryTranslation = getTranslationConfig(state.compareTranslations.secondary);
+          setHint(`Comparing ${translation.label} and ${secondaryTranslation.label}. Use the selectors in each pane to switch versions.`);
+        } else if (translationState.isBundled) {
           setHint(`Loaded ${translation.label} from the local offline bundle. Use the menu to jump to any available verse.`);
         } else {
           setHint(`Showing the ${translation.label}. Scroll down to read, or use the menu to jump to any verse.`);
         }
 
-        closeSettingsModal();
+        if (closeSettingsAfter) {
+          closeSettingsModal();
+        }
       } finally {
         translationPickerButton.disabled = false;
         getTranslationButtons().forEach((button) => { button.disabled = false; });
@@ -1698,6 +1956,16 @@
         closeLocationModal();
         closeWordModal();
         openSettingsModal();
+      }
+    });
+    compareModeButton.addEventListener('click', async () => {
+      compareModeButton.disabled = true;
+      try {
+        await setCompareMode(!state.compareMode);
+      } catch (error) {
+        showError(error.message);
+      } finally {
+        compareModeButton.disabled = false;
       }
     });
 
@@ -1743,8 +2011,24 @@
         setThemeMode(button.dataset.themeMode);
       });
     });
+    comparePrimarySelect.addEventListener('change', async () => {
+      try {
+        await setCompareTranslation('primary', comparePrimarySelect.value);
+      } catch (error) {
+        updateCompareControls();
+        showError(error.message);
+      }
+    });
+    compareSecondarySelect.addEventListener('change', async () => {
+      try {
+        await setCompareTranslation('secondary', compareSecondarySelect.value);
+      } catch (error) {
+        updateCompareControls();
+        showError(error.message);
+      }
+    });
 
-    verseContainer.addEventListener('click', (e) => {
+    function handleVerseContainerClick(e) {
       const locationButton = e.target.closest('.location-link');
       if (!locationButton) {
         const wordButton = e.target.closest('.word-link');
@@ -1757,7 +2041,10 @@
       }
 
       openLocationModal(locationButton.dataset.locationName);
-    });
+    }
+
+    verseContainer.addEventListener('click', handleVerseContainerClick);
+    secondaryVerseContainer.addEventListener('click', handleVerseContainerClick);
 
     locationMapGalleryEl.addEventListener('click', (e) => {
       const mapButton = e.target.closest('button[data-map-file]');
@@ -1842,6 +2129,8 @@
     async function loadBible() {
       try {
         renderTranslationOptions();
+        renderTranslationSelectOptions(comparePrimarySelect);
+        renderTranslationSelectOptions(compareSecondarySelect);
         updateMenuButtonLabel();
         await loadLocationData();
         await loadWordMeaningData();
