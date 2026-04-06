@@ -7,6 +7,20 @@
   <link rel="icon" type="image/png" href="img/junha.png" />
   <style>
     * { box-sizing: border-box; }
+    html, body, .menu-drop, .location-modal-card, .word-modal-card, .settings-modal-card {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar,
+    .menu-drop::-webkit-scrollbar,
+    .location-modal-card::-webkit-scrollbar,
+    .word-modal-card::-webkit-scrollbar,
+    .settings-modal-card::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none;
+    }
     :root {
       --verse-scroll-margin: 96px;
       --verse-scroll-margin-reading: 88px;
@@ -71,6 +85,8 @@
     .settings-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
     .settings-icon { font-size: 1.2rem; line-height: 1; }
     .settings-modal-card { width: min(92vw, 420px); background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
+    .settings-modal .settings-modal-card { transform: translateY(2.4rem) scale(0.97); opacity: 0; transition: transform 0.3s cubic-bezier(.22,1,.36,1), opacity 0.24s ease; }
+    .settings-modal.open .settings-modal-card { transform: translateY(0) scale(1); opacity: 1; }
     .settings-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1rem 1rem 0.5rem; }
     .settings-modal-title { margin: 0; font-size: 1.2rem; color: var(--text-strong); }
     .settings-modal-subtitle { margin: 0.25rem 0 0; color: var(--text-soft); font-size: 0.9rem; }
@@ -78,16 +94,20 @@
     .settings-section-label { margin: 0 0 0.7rem; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .settings-group { display: grid; gap: 1rem; }
     .settings-row { display: grid; gap: 0.7rem; }
-    .mode-toggle { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.28rem; border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 1px 2px rgba(15, 23, 42, 0.06); width: 100%; }
-    .mode-btn { flex: 1 1 0; border: none; background: transparent; color: var(--text-soft); padding: 0.55rem 0.8rem; border-radius: 999px; font: inherit; font-size: 0.86rem; font-weight: 700; cursor: pointer; min-height: 2.35rem; transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease; }
+    .mode-toggle { --toggle-count: 2; --toggle-gap: 0.25rem; --toggle-pad: 0.28rem; --active-index: 0; position: relative; display: inline-flex; align-items: center; gap: var(--toggle-gap); padding: var(--toggle-pad); border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 1px 2px rgba(15, 23, 42, 0.06); width: 100%; }
+    .mode-toggle::before { content: ''; position: absolute; top: var(--toggle-pad); bottom: var(--toggle-pad); left: var(--toggle-pad); width: calc((100% - (var(--toggle-pad) * 2) - (var(--toggle-gap) * (var(--toggle-count) - 1))) / var(--toggle-count)); border-radius: 999px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16); transform: translateX(calc(var(--active-index) * (100% + var(--toggle-gap)))); transition: transform 0.28s cubic-bezier(.22,1,.36,1), background 0.22s ease; pointer-events: none; }
+    .mode-btn { position: relative; z-index: 1; flex: 1 1 0; border: none; background: transparent; color: var(--text-soft); padding: 0.55rem 0.8rem; border-radius: 999px; font: inherit; font-size: 0.86rem; font-weight: 700; cursor: pointer; min-height: 2.35rem; transition: color 0.22s ease, transform 0.18s ease; }
     .mode-btn:hover { color: var(--text-strong); background: var(--control-hover); }
+    .mode-btn:active { transform: scale(0.97); }
     .mode-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
-    .mode-btn.active { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16); }
-    .translation-switch { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.28rem; border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 1px 2px rgba(15, 23, 42, 0.06); width: 100%; justify-content: stretch; }
-    .translation-btn { border: none; background: transparent; color: var(--text-soft); padding: 0.48rem 0.9rem; border-radius: 999px; font: inherit; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.03em; cursor: pointer; min-height: 2.35rem; min-width: 3.5rem; transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
+    .mode-btn.active { color: #ffffff; }
+    .translation-switch { --toggle-count: 2; --toggle-gap: 0.25rem; --toggle-pad: 0.28rem; --active-index: 0; position: relative; display: inline-flex; align-items: center; gap: var(--toggle-gap); padding: var(--toggle-pad); border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 1px 2px rgba(15, 23, 42, 0.06); width: 100%; justify-content: stretch; }
+    .translation-switch::before { content: ''; position: absolute; top: var(--toggle-pad); bottom: var(--toggle-pad); left: var(--toggle-pad); width: calc((100% - (var(--toggle-pad) * 2) - (var(--toggle-gap) * (var(--toggle-count) - 1))) / var(--toggle-count)); border-radius: 999px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16); transform: translateX(calc(var(--active-index) * (100% + var(--toggle-gap)))); transition: transform 0.28s cubic-bezier(.22,1,.36,1), background 0.22s ease; pointer-events: none; }
+    .translation-btn { position: relative; z-index: 1; border: none; background: transparent; color: var(--text-soft); padding: 0.48rem 0.9rem; border-radius: 999px; font: inherit; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.03em; cursor: pointer; min-height: 2.35rem; min-width: 3.5rem; transition: color 0.22s ease, transform 0.18s ease; }
     .translation-btn:hover { color: var(--text-strong); background: var(--control-hover); }
+    .translation-btn:active { transform: scale(0.97); }
     .translation-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
-    .translation-btn.active { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16); }
+    .translation-btn.active { color: #ffffff; }
     .translation-switch .translation-btn { flex: 1 1 0; }
     .menu-drop { display: grid; position: absolute; top: 3.8rem; left: 1.2rem; width: min(92vw, 640px); max-height: 500px; overflow-x: hidden; overflow-y: auto; background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 0.8rem; box-shadow: var(--shadow-md); z-index: 26; gap: 0.8rem; padding: 1rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.75rem) scaleY(0.92); transform-origin: top left; transition: opacity 0.2s ease, transform 0.22s ease, visibility 0.22s ease; }
     .menu-drop.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scaleY(1); }
@@ -204,9 +224,9 @@
       .menu-btn { padding: 0.62rem 0.82rem; min-height: 2.55rem; font-size: 0.89rem; flex-shrink: 0; }
       .topbar-right { gap: 0.45rem; }
       .settings-btn { width: 2.55rem; height: 2.55rem; }
-      .translation-switch { padding: 0.24rem; }
+      .translation-switch { --toggle-pad: 0.24rem; padding: 0.24rem; }
       .translation-btn { padding: 0.5rem 0.75rem; font-size: 0.82rem; min-height: 2.5rem; min-width: 3.25rem; }
-      .mode-toggle { padding: 0.24rem; }
+      .mode-toggle { --toggle-pad: 0.24rem; padding: 0.24rem; }
       .mode-btn { padding: 0.5rem 0.7rem; font-size: 0.82rem; min-height: 2.5rem; }
       .reading-status { flex: 1 1 auto; align-items: flex-start; padding: 0.34rem 0.52rem; min-width: 0; border-radius: 0.72rem; }
       .reading-status-label { font-size: 0.56rem; letter-spacing: 0.06em; }
@@ -217,6 +237,8 @@
       .menu-drop.number-grid-view button { width: 48px; height: 48px; font-size: 0.9rem; }
       .settings-modal { align-items: flex-end; padding: 0; }
       .settings-modal-card { width: 100%; border-radius: 1.2rem 1.2rem 0 0; }
+      .settings-modal .settings-modal-card { transform: translateY(100%); opacity: 1; transition: transform 0.34s cubic-bezier(.22,1,.36,1); }
+      .settings-modal.open .settings-modal-card { transform: translateY(0); }
       .content { margin-top: 5.3rem; margin-bottom: 7rem; padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom)); }
       .verse-container.reading-mode .verse-line { font-size: 1.04rem; line-height: 2; }
       .nav-btn { top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); transform: none; width: calc(50vw - 1.35rem); height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: 35; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); }
@@ -590,15 +612,20 @@
 
     function updateMenuButtonLabel() {
       const translation = getTranslationConfig();
+      const translationContainer = translationButtons[0]?.closest('.translation-switch');
       menuButton.textContent = `${translation.label} Bible ▼`;
       translationButtons.forEach((button) => {
         const isActive = button.dataset.translation === translation.id;
         button.classList.toggle('active', isActive);
         button.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
+      if (translationContainer) {
+        translationContainer.style.setProperty('--active-index', translation.id === 'kjv' ? '1' : '0');
+      }
     }
 
     function updateReadingModeControls() {
+      const readingModeContainer = readingModeButtons.find((button) => button.dataset.readingMode)?.closest('.mode-toggle');
       readingModeButtons.forEach((button) => {
         if (!button.dataset.readingMode) {
           return;
@@ -607,23 +634,34 @@
         button.classList.toggle('active', isActive);
         button.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
+      if (readingModeContainer) {
+        readingModeContainer.style.setProperty('--active-index', state.readingMode ? '1' : '0');
+      }
       verseContainer.classList.toggle('reading-mode', state.readingMode);
     }
 
     function updateChapterTapControls() {
+      const chapterTapContainer = chapterTapButtons[0]?.closest('.mode-toggle');
       chapterTapButtons.forEach((button) => {
         const isActive = button.dataset.chapterTap === state.chapterTapMode;
         button.classList.toggle('active', isActive);
         button.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
+      if (chapterTapContainer) {
+        chapterTapContainer.style.setProperty('--active-index', state.chapterTapMode === 'direct' ? '1' : '0');
+      }
     }
 
     function updateThemeModeControls() {
+      const themeModeContainer = themeModeButtons[0]?.closest('.mode-toggle');
       themeModeButtons.forEach((button) => {
         const isActive = button.dataset.themeMode === state.themeMode;
         button.classList.toggle('active', isActive);
         button.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
+      if (themeModeContainer) {
+        themeModeContainer.style.setProperty('--active-index', state.themeMode === 'dark' ? '1' : '0');
+      }
       document.body.classList.toggle('dark-mode', state.themeMode === 'dark');
     }
 
