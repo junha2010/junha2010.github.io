@@ -25,6 +25,7 @@
     :root {
       --verse-scroll-margin: 96px;
       --verse-scroll-margin-reading: 88px;
+      --text-scale: 1;
       --bg: #ffffff;
       --bg-muted: #f8fafc;
       --bg-soft: #f8f8f8;
@@ -104,6 +105,7 @@
     .settings-section-label { margin: 0 0 0.7rem; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .settings-group { display: grid; gap: 1rem; }
     .settings-row { display: grid; gap: 0.7rem; }
+    .settings-helper { margin: -0.2rem 0 0; font-size: 0.82rem; color: var(--text-soft); }
     .mode-toggle { --toggle-count: 2; --toggle-gap: 0.25rem; --toggle-pad: 0.28rem; --active-index: 0; position: relative; display: inline-flex; align-items: center; gap: var(--toggle-gap); padding: var(--toggle-pad); border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 1px 2px rgba(15, 23, 42, 0.06); width: 100%; }
     .mode-toggle::before { content: ''; position: absolute; top: var(--toggle-pad); bottom: var(--toggle-pad); left: var(--toggle-pad); width: calc((100% - (var(--toggle-pad) * 2) - (var(--toggle-gap) * (var(--toggle-count) - 1))) / var(--toggle-count)); border-radius: 999px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16); transform: translateX(calc(var(--active-index) * (100% + var(--toggle-gap)))); transition: transform 0.28s cubic-bezier(.22,1,.36,1), background 0.22s ease; pointer-events: none; }
     .mode-btn { position: relative; z-index: 1; flex: 1 1 0; border: none; background: transparent; color: var(--text-soft); padding: 0.55rem 0.8rem; border-radius: 999px; font: inherit; font-size: 0.86rem; font-weight: 700; cursor: pointer; min-height: 2.35rem; transition: color 0.22s ease, transform 0.18s ease; }
@@ -133,6 +135,122 @@
     .translation-option-description { font-size: 0.76rem; font-weight: 600; color: inherit; opacity: 0.78; }
     .translation-option-check { font-size: 0.86rem; font-weight: 800; opacity: 0; transition: opacity 0.18s ease; }
     .translation-option.active .translation-option-check { opacity: 1; }
+    .scale-slider-wrap { display: grid; gap: 0.65rem; }
+    .scale-slider {
+      --scale-fill: 20%;
+      width: calc(100% - 1.2rem);
+      margin: 0 0.6rem;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      touch-action: pan-x;
+      background:
+        linear-gradient(90deg, #0f172a 0%, #334155 var(--scale-fill), rgba(148, 163, 184, 0.18) var(--scale-fill), rgba(148, 163, 184, 0.18) 100%)
+        center / calc(100% - 2px) calc(0.72rem - 2px) no-repeat;
+      border-radius: 9999px;
+      overflow: hidden;
+      clip-path: inset(0 round 9999px);
+      height: 2rem;
+      padding: 0;
+      transition: background 0.08s linear;
+      will-change: background;
+    }
+    .scale-slider:focus { outline: none; }
+    .scale-slider::-webkit-slider-runnable-track {
+      height: 0.72rem;
+      border-radius: 9999px;
+      background: transparent;
+      border: 1px solid var(--border-soft);
+      box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+    .scale-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-top: -0.28rem;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.22);
+      transition: box-shadow 0.18s ease;
+    }
+    .scale-slider:hover::-webkit-slider-thumb {
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.26);
+    }
+    .scale-slider::-moz-range-track {
+      height: 0.72rem;
+      border-radius: 9999px;
+      background: transparent;
+      border: 1px solid var(--border-soft);
+      box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+    .scale-slider::-moz-range-thumb {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.22);
+      transition: box-shadow 0.18s ease;
+    }
+    .scale-slider:hover::-moz-range-thumb {
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.26);
+    }
+    .scale-slider:focus-visible::-webkit-slider-thumb {
+      box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.18), 0 6px 14px rgba(15, 23, 42, 0.22);
+    }
+    .scale-slider:focus-visible::-moz-range-thumb {
+      box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.18), 0 6px 14px rgba(15, 23, 42, 0.22);
+    }
+    .scale-value { justify-self: end; font-size: 0.82rem; font-weight: 700; color: var(--text-soft); }
+    .scale-presets {
+      --preset-pill-left: 0px;
+      --preset-pill-width: 0px;
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+      padding: 0.22rem;
+      border-radius: 1.05rem;
+      background: linear-gradient(180deg, var(--control-hover) 0%, rgba(148, 163, 184, 0.14) 100%);
+      border: 1px solid var(--border-soft);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    }
+    .scale-presets::before {
+      content: '';
+      position: absolute;
+      top: 0.22rem;
+      left: var(--preset-pill-left);
+      width: var(--preset-pill-width);
+      height: calc(100% - 0.44rem);
+      border-radius: 0.9rem;
+      background: linear-gradient(180deg, rgba(42, 55, 77, 0.92) 0%, rgba(15, 23, 42, 0.98) 100%);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transform: translateX(0);
+      transition: left 0.28s cubic-bezier(0.22, 1, 0.36, 1), width 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.18s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .scale-preset-btn {
+      position: relative;
+      z-index: 1;
+      border: 1px solid transparent;
+      border-radius: 0.85rem;
+      background: transparent;
+      color: var(--text-soft);
+      padding: 0.58rem 0.45rem;
+      font: inherit;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: color 0.22s ease, transform 0.18s ease;
+    }
+    .scale-preset-btn:hover { color: var(--text-strong); }
+    .scale-preset-btn:active { transform: scale(0.98); }
+    .scale-preset-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .scale-preset-btn.active { color: #ffffff; }
     .menu-drop { display: grid; position: absolute; top: 3.8rem; left: 1.2rem; width: min(92vw, 640px); max-height: 500px; overflow-x: hidden; overflow-y: auto; background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 0.8rem; box-shadow: var(--shadow-md); z-index: 26; gap: 0.8rem; padding: 1rem; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.75rem) scaleY(0.92); transform-origin: top left; transition: opacity 0.2s ease, transform 0.22s ease, visibility 0.22s ease; }
     .menu-drop.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scaleY(1); }
     .menu-drop.slide-in-next { animation: menu-slide-next 0.22s ease; }
@@ -156,7 +274,7 @@
     .reading-status-label { margin: 0; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .reading-status-value { margin: 0.15rem 0 0; font-size: 0.94rem; font-weight: 700; color: var(--text-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 38vw; }
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
-    .chapter-title { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; color: var(--text-strong); text-align: center; }
+    .chapter-title { font-size: calc(2.5rem * var(--text-scale)); font-weight: 700; margin: 0 0 1rem; color: var(--text-strong); text-align: center; }
     .hint { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
     body.compare-mode .chapter-title,
     body.compare-mode .hint { display: none; }
@@ -187,11 +305,11 @@
     body.compare-mode .verse-container { min-height: 0; height: 100%; max-width: none; margin: 0; overflow-y: auto; overflow-x: hidden; padding: 0.95rem 1rem 1.1rem; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; overflow-anchor: none; }
     .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; scroll-margin-top: var(--verse-scroll-margin); }
     .verse-card.verse-flash { animation: verse-flash 1s ease; }
-    .verse-line { margin: 0; line-height: 1.75; font-size: 1.05rem; color: var(--text); }
+    .verse-line { margin: 0; line-height: 1.75; font-size: calc(1.05rem * var(--text-scale)); color: var(--text); }
     .verse-container.reading-mode { max-width: 760px; margin: 0 auto; padding: 0.25rem 0; color: var(--text-strong); }
     .verse-container.reading-mode .verse-card { display: inline; border-left: none; padding: 0; margin: 0; position: static; scroll-margin-top: var(--verse-scroll-margin-reading); }
     .verse-container.reading-mode .verse-card + .verse-card::before { content: ' '; white-space: pre; }
-    .verse-container.reading-mode .verse-line { display: inline; margin: 0; line-height: 2.05; font-size: 1.12rem; }
+    .verse-container.reading-mode .verse-line { display: inline; margin: 0; line-height: 2.05; font-size: calc(1.12rem * var(--text-scale)); }
     .verse-container.reading-mode .verse-number { position: static; display: inline; padding-left: 0; width: auto; margin-right: 0.28rem; font-size: 0.78em; vertical-align: super; }
     .verse-container.reading-mode .verse-number.single-digit,
     .verse-container.reading-mode .verse-number.double-digit { font-size: 0.78em; }
@@ -395,7 +513,7 @@
       .compare-select { width: 100%; max-width: none; }
       .compare-sync-btn { min-width: 2.55rem; width: 2.55rem; padding: 0; }
       .compare-sync-text { display: none; }
-      .verse-container.reading-mode .verse-line { font-size: 1.04rem; line-height: 2; }
+      .verse-container.reading-mode .verse-line { font-size: calc(1.04rem * var(--text-scale)); line-height: 2; }
       .nav-btn { top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); transform: none; width: calc(50vw - 1.35rem); height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: 35; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); }
       .prev-btn { left: 0.85rem; right: auto; }
       .next-btn { right: 0.85rem; left: auto; }
@@ -559,6 +677,20 @@
               <button id="themeDarkBtn" class="mode-btn" type="button" data-theme-mode="dark" role="tab" aria-selected="false">Dark</button>
             </div>
           </div>
+          <div class="settings-row">
+            <p class="settings-section-label">Text Scale</p>
+            <p class="settings-helper">Make the Bible text larger or smaller.</p>
+            <div class="scale-slider-wrap">
+              <input id="textScaleSlider" class="scale-slider" type="range" min="85" max="160" step="1" value="100" aria-label="Text scale" />
+              <div id="textScaleValue" class="scale-value">100%</div>
+            </div>
+            <div class="scale-presets" role="group" aria-label="Text scale presets">
+              <button class="scale-preset-btn active" type="button" data-text-scale="100">100%</button>
+              <button class="scale-preset-btn" type="button" data-text-scale="115">115%</button>
+              <button class="scale-preset-btn" type="button" data-text-scale="130">130%</button>
+              <button class="scale-preset-btn" type="button" data-text-scale="145">145%</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -599,6 +731,10 @@
     const readingModeButtons = Array.from(document.querySelectorAll('.mode-btn'));
     const chapterTapButtons = Array.from(document.querySelectorAll('[data-chapter-tap]'));
     const themeModeButtons = Array.from(document.querySelectorAll('[data-theme-mode]'));
+    const textScaleSlider = document.getElementById('textScaleSlider');
+    const textScaleValue = document.getElementById('textScaleValue');
+    const textScalePresets = document.querySelector('.scale-presets');
+    const textScalePresetButtons = Array.from(document.querySelectorAll('[data-text-scale]'));
     const compareLayout = document.getElementById('compareLayout');
     const comparePrimarySelect = document.getElementById('comparePrimarySelect');
     const compareSecondarySelect = document.getElementById('compareSecondarySelect');
@@ -661,6 +797,7 @@
       },
       chapterTapMode: 'verse-menu',
       themeMode: 'light',
+      textScale: 1,
       readingStatusRaf: null,
       locationEntries: [],
       locationLookup: new Map(),
@@ -961,6 +1098,39 @@
         themeModeContainer.style.setProperty('--active-index', state.themeMode === 'dark' ? '1' : '0');
       }
       document.body.classList.toggle('dark-mode', state.themeMode === 'dark');
+    }
+
+    function updateTextScalePresetSlider() {
+      if (!textScalePresets) {
+        return;
+      }
+      const activeButton = textScalePresetButtons.find((button) => button.classList.contains('active'));
+      if (!activeButton) {
+        return;
+      }
+      const containerRect = textScalePresets.getBoundingClientRect();
+      const activeRect = activeButton.getBoundingClientRect();
+      textScalePresets.style.setProperty('--preset-pill-left', `${activeRect.left - containerRect.left}px`);
+      textScalePresets.style.setProperty('--preset-pill-width', `${activeRect.width}px`);
+    }
+
+    function setTextScaleSliderFill(percentage) {
+      const fillPercentage = ((percentage - 85) / (160 - 85)) * 100;
+      const clampedFill = Math.max(0, Math.min(100, fillPercentage));
+      textScaleSlider.style.setProperty('--scale-fill', `${clampedFill}%`);
+    }
+
+    function updateTextScaleControls() {
+      const percentage = Math.round(state.textScale * 100);
+      document.documentElement.style.setProperty('--text-scale', String(state.textScale));
+      textScaleSlider.value = String(percentage);
+      setTextScaleSliderFill(percentage);
+      textScaleValue.textContent = `${percentage}%`;
+      textScalePresetButtons.forEach((button) => {
+        const isActive = Number(button.dataset.textScale) === percentage;
+        button.classList.toggle('active', isActive);
+      });
+      updateTextScalePresetSlider();
     }
 
     function loadScript(src) {
@@ -1393,6 +1563,12 @@
       }
     }
 
+    function setTextScale(nextValue) {
+      const normalized = Math.max(0.85, Math.min(1.6, Number(nextValue) || 1));
+      state.textScale = Number(normalized.toFixed(2));
+      updateTextScaleControls();
+    }
+
     async function setCompareMode(enabled) {
       if (state.compareMode === enabled) {
         updateCompareControls();
@@ -1464,6 +1640,7 @@
     updateReadingModeControls();
     updateChapterTapControls();
     updateThemeModeControls();
+    updateTextScaleControls();
     updateCompareControls();
 
     function getLocationReferenceBooks(entry) {
@@ -2258,6 +2435,17 @@
       button.addEventListener('click', () => {
         setThemeMode(button.dataset.themeMode);
       });
+    });
+    textScaleSlider.addEventListener('input', () => {
+      setTextScale(Number(textScaleSlider.value) / 100);
+    });
+    textScalePresetButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        setTextScale(Number(button.dataset.textScale) / 100);
+      });
+    });
+    window.addEventListener('resize', () => {
+      updateTextScalePresetSlider();
     });
     comparePrimarySelect.addEventListener('change', async () => {
       try {
