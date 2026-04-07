@@ -297,8 +297,18 @@
     .compare-pane-label { margin: 0; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .compare-pane-name { margin: 0.18rem 0 0; font-size: 0.95rem; font-weight: 700; color: var(--text-strong); }
     .compare-pane-controls { display: flex; align-items: center; gap: 0.65rem; min-width: 0; }
-    .compare-select { min-width: 108px; max-width: 52%; border: 1px solid var(--border-soft); border-radius: 0.85rem; background: var(--surface); color: var(--text-strong); padding: 0.6rem 0.8rem; font: inherit; font-size: 0.86rem; font-weight: 700; }
-    .compare-select:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .compare-picker { position: relative; min-width: 220px; max-width: 64%; }
+    .compare-picker-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; border: 1px solid var(--border-soft); border-radius: 0.95rem; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-strong); padding: 0.74rem 0.92rem; font: inherit; font-size: 0.88rem; font-weight: 800; cursor: pointer; transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
+    .compare-picker-btn:hover { border-color: #94a3b8; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); }
+    .compare-picker-btn:active { transform: scale(0.99); }
+    .compare-picker-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .compare-picker-value { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 0.12rem; text-align: left; }
+    .compare-picker-title { color: var(--text-strong); }
+    .compare-picker-caption { font-size: 0.76rem; font-weight: 600; color: var(--text-soft); }
+    .compare-picker-caret { flex-shrink: 0; color: var(--text-soft); transition: transform 0.22s ease; }
+    .compare-picker.open .compare-picker-caret { transform: rotate(180deg); }
+    .compare-picker-options { position: absolute; top: calc(100% + 0.55rem); left: 0; right: 0; display: grid; gap: 0.45rem; padding: 0.55rem; border: 1px solid var(--border-soft); border-radius: 1rem; background: var(--surface-elevated); box-shadow: var(--shadow-md); max-height: 250px; overflow-y: auto; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.3rem) scale(0.98); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index: 7; }
+    .compare-picker.open .compare-picker-options { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
     .compare-sync-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; min-width: 2.7rem; height: 2.7rem; padding: 0 0.8rem; border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-soft); cursor: pointer; font: inherit; font-size: 0.8rem; font-weight: 800; transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease; flex-shrink: 0; }
     .compare-sync-btn:hover { color: var(--text-strong); border-color: #94a3b8; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08); }
     .compare-sync-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
@@ -531,7 +541,7 @@
       .compare-layout.compare-enabled .compare-pane-secondary { padding-left: 0; padding-top: 1.25rem; border-left: none; border-top: 1px solid var(--border-soft); }
       .compare-pane-toolbar { top: 4.8rem; align-items: flex-start; flex-direction: column; }
       .compare-pane-controls { width: 100%; }
-      .compare-select { width: 100%; max-width: none; }
+      .compare-picker { width: 100%; max-width: none; }
       .compare-sync-btn { min-width: 2.55rem; width: 2.55rem; padding: 0; }
       .compare-sync-text { display: none; }
       .verse-container.reading-mode .verse-line { font-size: calc(1.04rem * var(--text-scale)); line-height: 2; }
@@ -598,7 +608,16 @@
             <p class="compare-pane-name">Left Bible</p>
           </div>
           <div class="compare-pane-controls">
-            <select id="comparePrimarySelect" class="compare-select" aria-label="Choose the primary Bible version"></select>
+            <div id="comparePrimaryPicker" class="compare-picker">
+              <button id="comparePrimaryPickerButton" class="compare-picker-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="comparePrimaryOptions">
+                <span class="compare-picker-value">
+                  <span id="comparePrimaryPickerValue" class="compare-picker-title">NIV</span>
+                  <span id="comparePrimaryPickerCaption" class="compare-picker-caption">New International Version</span>
+                </span>
+                <span class="compare-picker-caret">▼</span>
+              </button>
+              <div id="comparePrimaryOptions" class="compare-picker-options" role="listbox" aria-label="Choose the primary Bible version"></div>
+            </div>
             <button id="compareSyncButton" class="compare-sync-btn" type="button" aria-pressed="false" aria-label="Toggle compare scroll sync">
               <span class="compare-sync-icon">⇅</span>
               <span class="compare-sync-text">Sync</span>
@@ -613,7 +632,16 @@
             <p class="compare-pane-label">Secondary</p>
             <p class="compare-pane-name">Right Bible</p>
           </div>
-          <select id="compareSecondarySelect" class="compare-select" aria-label="Choose the secondary Bible version"></select>
+          <div id="compareSecondaryPicker" class="compare-picker">
+            <button id="compareSecondaryPickerButton" class="compare-picker-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="compareSecondaryOptions">
+              <span class="compare-picker-value">
+                <span id="compareSecondaryPickerValue" class="compare-picker-title">KJV</span>
+                <span id="compareSecondaryPickerCaption" class="compare-picker-caption">King James Version</span>
+              </span>
+              <span class="compare-picker-caret">▼</span>
+            </button>
+            <div id="compareSecondaryOptions" class="compare-picker-options" role="listbox" aria-label="Choose the secondary Bible version"></div>
+          </div>
         </div>
         <div id="secondaryVerseContainer" class="verse-container"></div>
       </section>
@@ -737,6 +765,7 @@
       niv: {
         id: 'niv',
         label: 'NIV',
+        fullLabel: 'New International Version',
         dataDir: 'Bible-niv-main',
         localBundle: 'data/verses.js',
         bundleKey: 'niv'
@@ -744,6 +773,7 @@
       kjv: {
         id: 'kjv',
         label: 'KJV',
+        fullLabel: 'King James Version',
         dataDir: 'Bible-kjv-main',
         localBundle: 'data/verses-kjv.js',
         bundleKey: 'kjv'
@@ -768,8 +798,16 @@
     const textScalePresets = document.querySelector('.scale-presets');
     const textScalePresetButtons = Array.from(document.querySelectorAll('[data-text-scale]'));
     const compareLayout = document.getElementById('compareLayout');
-    const comparePrimarySelect = document.getElementById('comparePrimarySelect');
-    const compareSecondarySelect = document.getElementById('compareSecondarySelect');
+    const comparePrimaryPicker = document.getElementById('comparePrimaryPicker');
+    const comparePrimaryPickerButton = document.getElementById('comparePrimaryPickerButton');
+    const comparePrimaryPickerValue = document.getElementById('comparePrimaryPickerValue');
+    const comparePrimaryPickerCaption = document.getElementById('comparePrimaryPickerCaption');
+    const comparePrimaryOptions = document.getElementById('comparePrimaryOptions');
+    const compareSecondaryPicker = document.getElementById('compareSecondaryPicker');
+    const compareSecondaryPickerButton = document.getElementById('compareSecondaryPickerButton');
+    const compareSecondaryPickerValue = document.getElementById('compareSecondaryPickerValue');
+    const compareSecondaryPickerCaption = document.getElementById('compareSecondaryPickerCaption');
+    const compareSecondaryOptions = document.getElementById('compareSecondaryOptions');
     const compareSyncButton = document.getElementById('compareSyncButton');
     const compareSecondaryPane = document.getElementById('compareSecondaryPane');
     const verseContainer = document.getElementById('verseContainer');
@@ -1062,6 +1100,62 @@
       )).join('');
     }
 
+    function setComparePickerOpen(side, isOpen) {
+      const picker = side === 'secondary' ? compareSecondaryPicker : comparePrimaryPicker;
+      const button = side === 'secondary' ? compareSecondaryPickerButton : comparePrimaryPickerButton;
+      if (side === 'primary' && isOpen) {
+        setComparePickerOpen('secondary', false);
+      }
+      if (side === 'secondary' && isOpen) {
+        setComparePickerOpen('primary', false);
+      }
+      picker.classList.toggle('open', isOpen);
+      button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function renderComparePickerOptions(side) {
+      const optionsEl = side === 'secondary' ? compareSecondaryOptions : comparePrimaryOptions;
+      const entries = Object.values(TRANSLATIONS);
+      optionsEl.innerHTML = '';
+
+      entries.forEach((translation) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'translation-option';
+        button.dataset.translation = translation.id;
+        button.dataset.compareSide = side;
+        button.setAttribute('role', 'option');
+        button.innerHTML = `
+          <span class="translation-option-meta">
+            <span class="translation-option-label">${escapeHtml(translation.label)}</span>
+          </span>
+          <span class="translation-option-check" aria-hidden="true">✓</span>
+        `;
+        optionsEl.appendChild(button);
+      });
+    }
+
+    function updateComparePickerControls() {
+      const primaryTranslation = getTranslationConfig(state.translationId);
+      const secondaryTranslation = getTranslationConfig(state.compareTranslations.secondary);
+      comparePrimaryPickerValue.textContent = primaryTranslation.label;
+      comparePrimaryPickerCaption.textContent = primaryTranslation.fullLabel || primaryTranslation.label;
+      compareSecondaryPickerValue.textContent = secondaryTranslation.label;
+      compareSecondaryPickerCaption.textContent = secondaryTranslation.fullLabel || secondaryTranslation.label;
+
+      Array.from(comparePrimaryOptions.querySelectorAll('[data-translation]')).forEach((button) => {
+        const isActive = button.dataset.translation === state.translationId;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      Array.from(compareSecondaryOptions.querySelectorAll('[data-translation]')).forEach((button) => {
+        const isActive = button.dataset.translation === state.compareTranslations.secondary;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+
     function updateCompareControls() {
       compareModeButton.setAttribute('aria-pressed', state.compareMode ? 'true' : 'false');
       compareSyncButton.setAttribute('aria-pressed', state.compareScrollSync ? 'true' : 'false');
@@ -1069,8 +1163,7 @@
       document.body.classList.toggle('compare-mode', state.compareMode);
       compareLayout.classList.toggle('compare-enabled', state.compareMode);
       compareSecondaryPane.setAttribute('aria-hidden', state.compareMode ? 'false' : 'true');
-      comparePrimarySelect.value = state.translationId;
-      compareSecondarySelect.value = state.compareTranslations.secondary;
+      updateComparePickerControls();
     }
 
     function updateMenuButtonLabel() {
@@ -2446,10 +2539,18 @@
       if (!translationPicker.contains(e.target)) {
         setTranslationPickerOpen(false);
       }
+      if (!comparePrimaryPicker.contains(e.target)) {
+        setComparePickerOpen('primary', false);
+      }
+      if (!compareSecondaryPicker.contains(e.target)) {
+        setComparePickerOpen('secondary', false);
+      }
     });
     translationPickerButton.addEventListener('click', (e) => {
       e.stopPropagation();
       closeMenu();
+      setComparePickerOpen('primary', false);
+      setComparePickerOpen('secondary', false);
       setTranslationPickerOpen(!translationPicker.classList.contains('open'));
     });
     translationOptions.addEventListener('click', async (e) => {
@@ -2493,17 +2594,39 @@
     window.addEventListener('resize', () => {
       updateTextScalePresetSlider();
     });
-    comparePrimarySelect.addEventListener('change', async () => {
+    comparePrimaryPickerButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setTranslationPickerOpen(false);
+      setComparePickerOpen('secondary', false);
+      setComparePickerOpen('primary', !comparePrimaryPicker.classList.contains('open'));
+    });
+    compareSecondaryPickerButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setTranslationPickerOpen(false);
+      setComparePickerOpen('primary', false);
+      setComparePickerOpen('secondary', !compareSecondaryPicker.classList.contains('open'));
+    });
+    comparePrimaryOptions.addEventListener('click', async (e) => {
+      const button = e.target.closest('[data-translation]');
+      if (!button) {
+        return;
+      }
       try {
-        await setCompareTranslation('primary', comparePrimarySelect.value);
+        await setCompareTranslation('primary', button.dataset.translation);
+        setComparePickerOpen('primary', false);
       } catch (error) {
         updateCompareControls();
         showError(error.message);
       }
     });
-    compareSecondarySelect.addEventListener('change', async () => {
+    compareSecondaryOptions.addEventListener('click', async (e) => {
+      const button = e.target.closest('[data-translation]');
+      if (!button) {
+        return;
+      }
       try {
-        await setCompareTranslation('secondary', compareSecondarySelect.value);
+        await setCompareTranslation('secondary', button.dataset.translation);
+        setComparePickerOpen('secondary', false);
       } catch (error) {
         updateCompareControls();
         showError(error.message);
@@ -2634,8 +2757,8 @@
     async function loadBible() {
       try {
         renderTranslationOptions();
-        renderTranslationSelectOptions(comparePrimarySelect);
-        renderTranslationSelectOptions(compareSecondarySelect);
+        renderComparePickerOptions('primary');
+        renderComparePickerOptions('secondary');
         updateMenuButtonLabel();
         await loadLocationData();
         await loadWordMeaningData();
