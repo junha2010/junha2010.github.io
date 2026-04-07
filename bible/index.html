@@ -424,17 +424,55 @@
     .word-meaning-card { padding: 1rem; border-radius: 0.95rem; background: var(--surface-subtle); border: 1px solid var(--border-soft); }
     .word-meaning-korean { margin: 0; font-size: 1.06rem; line-height: 1.8; color: var(--text-strong); }
     .verse-action-modal { align-items: flex-end; padding: 1rem; }
-    .verse-action-card { width: min(92vw, 420px); background: var(--surface-elevated); border-radius: 1.15rem; box-shadow: var(--shadow-lg); overflow: hidden; transform: translateY(1.6rem) scale(0.98); opacity: 0; transition: transform 0.24s cubic-bezier(.22,1,.36,1), opacity 0.2s ease; }
+    .verse-action-card { width: min(92vw, 430px); background: linear-gradient(180deg, var(--surface-elevated) 0%, var(--surface) 100%); border: 1px solid var(--border-soft); border-radius: 1.25rem; box-shadow: var(--shadow-lg); overflow: hidden; transform: translateY(1.6rem) scale(0.98); opacity: 0; transition: transform 0.24s cubic-bezier(.22,1,.36,1), opacity 0.2s ease; }
     .verse-action-modal.open .verse-action-card { transform: translateY(0) scale(1); opacity: 1; }
-    .verse-action-header { padding: 1rem 1rem 0.55rem; border-bottom: 1px solid var(--border); }
-    .verse-action-title { margin: 0; font-size: 1rem; color: var(--text-strong); }
-    .verse-action-subtitle { margin: 0.28rem 0 0; font-size: 0.88rem; color: var(--text-soft); line-height: 1.5; }
-    .verse-action-body { padding: 0.85rem 1rem 1rem; display: grid; gap: 0.7rem; }
+    .verse-action-header { padding: 1.05rem 1.05rem 0.7rem; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, rgba(148, 163, 184, 0.06) 0%, rgba(148, 163, 184, 0) 100%); }
+    .verse-action-title { margin: 0; font-size: 1.04rem; color: var(--text-strong); }
+    .verse-action-subtitle { margin: 0.28rem 0 0; font-size: 0.9rem; color: var(--text-soft); line-height: 1.5; }
+    .verse-action-body { padding: 0.95rem 1.05rem 1rem; display: grid; gap: 0.8rem; }
+    .verse-action-section-label { margin: 0; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
+    .verse-action-picker { position: relative; }
+    .verse-action-picker.open .verse-action-picker-options { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
+    .verse-action-picker.open .verse-action-picker-caret { transform: rotate(180deg); }
+    .verse-action-picker-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; border: 1px solid var(--border-soft); border-radius: 1rem; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-strong); padding: 0.9rem 1rem; font: inherit; font-size: 0.95rem; font-weight: 800; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 8px 18px rgba(15, 23, 42, 0.06); transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
+    .verse-action-picker-btn:hover { border-color: #94a3b8; box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 10px 22px rgba(15, 23, 42, 0.08); }
+    .verse-action-picker-btn:active { transform: scale(0.99); }
+    .verse-action-picker-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .verse-action-picker-value { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 0.14rem; }
+    .verse-action-picker-title { color: var(--text-strong); }
+    .verse-action-picker-caption { font-size: 0.78rem; font-weight: 600; color: var(--text-soft); }
+    .verse-action-picker-caret { flex-shrink: 0; color: var(--text-soft); transition: transform 0.22s ease; }
+    .verse-action-picker-options { position: absolute; top: calc(100% + 0.55rem); left: 0; right: 0; display: grid; gap: 0.45rem; padding: 0.55rem; border: 1px solid var(--border-soft); border-radius: 1rem; background: var(--surface-elevated); box-shadow: var(--shadow-md); max-height: min(40vh, 260px); overflow-y: auto; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.3rem) scale(0.98); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index: 4; }
+    .verse-action-preview { padding: 1rem 1rem 1.05rem; border-radius: 1rem; background: linear-gradient(180deg, var(--surface-subtle) 0%, rgba(148, 163, 184, 0.04) 100%); border: 1px solid var(--border-soft); display: grid; gap: 0.45rem; min-height: 7.25rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.12); }
+    .verse-action-preview-label { margin: 0; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
+    .verse-action-preview-ref { margin: 0; font-size: 0.88rem; font-weight: 700; color: var(--text-strong); }
+    .verse-action-preview-text { margin: 0; font-size: 0.98rem; line-height: 1.72; color: var(--text); }
+    .verse-action-footer { padding: 0 1.05rem 1.05rem; display: flex; gap: 0.75rem; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+    .verse-action-footer::-webkit-scrollbar { display: none; }
     .verse-action-btn { width: 100%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-soft); border-radius: 0.95rem; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-strong); padding: 0.95rem 1rem; font: inherit; font-size: 0.96rem; font-weight: 800; cursor: pointer; transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
+    .verse-action-footer .verse-action-btn { width: auto; flex: 0 0 auto; padding-inline: 1.15rem; }
     .verse-action-btn:hover { border-color: #94a3b8; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); }
     .verse-action-btn:active { transform: scale(0.99); }
     .verse-action-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
     .verse-action-btn.primary { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; border-color: #0f172a; }
+    .verse-copy-btn { width: 3.1rem; height: 3.1rem; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 1px solid rgba(255,255,255,0.78); border-radius: 999px; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); color: #0f172a; box-shadow: 0 0 0 1px rgba(255,255,255,0.55), 0 10px 26px rgba(255,255,255,0.18), 0 10px 22px rgba(15, 23, 42, 0.1); cursor: pointer; transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease; }
+    .verse-copy-btn:hover { border-color: #0f172a; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; box-shadow: 0 12px 26px rgba(15, 23, 42, 0.22); }
+    .verse-copy-btn:active { transform: scale(0.97); }
+    .verse-copy-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .verse-copy-icon { width: 1.56rem; height: 1.56rem; display: block; flex: 0 0 auto; margin: 0; }
+    .verse-copy-icon circle,
+    .verse-copy-icon rect,
+    .verse-copy-icon path {
+      vector-effect: non-scaling-stroke;
+    }
+    .verse-email-btn { width: 3.1rem; height: 3.1rem; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; padding: 0; border: 1px solid rgba(255,255,255,0.78); border-radius: 999px; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); color: #0f172a; box-shadow: 0 0 0 1px rgba(255,255,255,0.55), 0 10px 26px rgba(255,255,255,0.18), 0 10px 22px rgba(15, 23, 42, 0.1); cursor: pointer; transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease; }
+    .verse-email-btn:hover { border-color: #0f172a; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; box-shadow: 0 12px 26px rgba(15, 23, 42, 0.22); }
+    .verse-email-btn:active { transform: scale(0.97); }
+    .verse-email-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .verse-email-icon { width: 1.5rem; height: 1.5rem; display: block; flex: 0 0 auto; margin: 0; }
+    .verse-email-icon path {
+      vector-effect: non-scaling-stroke;
+    }
     @keyframes menu-slide-next {
       from { opacity: 0; transform: translateX(1.4rem); }
       to { opacity: 1; transform: translateX(0); }
@@ -646,6 +684,17 @@
       .nav-btn-label { display: inline; }
       .location-modal-header { padding: 0.9rem 0.9rem 0.3rem; }
       .location-modal-body { padding: 0 0.9rem 0.9rem; }
+      .verse-action-modal { padding: 0; align-items: flex-end; }
+      .verse-action-card { width: 100%; border-radius: 1.25rem 1.25rem 0 0; max-height: min(82vh, 720px); }
+      .verse-action-header { padding: 0.95rem 0.95rem 0.68rem; }
+      .verse-action-body { padding: 0.85rem 0.95rem 0.95rem; gap: 0.72rem; }
+      .verse-action-picker-btn { font-size: 0.92rem; padding: 0.88rem 0.95rem; }
+      .verse-action-picker-options { border-radius: 1.1rem; max-height: min(34vh, 240px); }
+      .verse-action-preview { min-height: 6.6rem; padding: 0.9rem 0.95rem 0.95rem; }
+      .verse-action-preview-text { font-size: 0.95rem; line-height: 1.68; }
+      .verse-action-footer { padding: 0 0.95rem calc(0.95rem + env(safe-area-inset-bottom)); }
+      .verse-action-footer .verse-action-btn { min-height: 3.1rem; }
+      .verse-copy-btn { width: 3.15rem; height: 3.15rem; }
     }
   </style>
 </head>
@@ -855,12 +904,42 @@
   <div id="verseActionModal" class="location-modal verse-action-modal" aria-hidden="true">
     <div class="verse-action-card" role="dialog" aria-modal="true" aria-labelledby="verseActionTitle">
       <div class="verse-action-header">
-        <h2 id="verseActionTitle" class="verse-action-title">Verse menu</h2>
-        <p id="verseActionSubtitle" class="verse-action-subtitle"></p>
+        <div>
+          <h2 id="verseActionTitle" class="verse-action-title">Verse menu</h2>
+          <p id="verseActionSubtitle" class="verse-action-subtitle"></p>
+        </div>
       </div>
       <div class="verse-action-body">
-        <button id="copyVerseButton" class="verse-action-btn primary" type="button">Copy verse</button>
-        <button id="closeVerseActionButton" class="verse-action-btn" type="button">Cancel</button>
+        <p class="verse-action-section-label">Open this verse in</p>
+        <div id="verseActionPicker" class="verse-action-picker">
+          <button id="verseActionPickerButton" class="verse-action-picker-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="verseActionTranslationOptions">
+            <span class="verse-action-picker-value">
+              <span id="verseActionPickerValue" class="verse-action-picker-title">NIV</span>
+              <span id="verseActionPickerCaption" class="verse-action-picker-caption">New International Version</span>
+            </span>
+            <span class="verse-action-picker-caret">▼</span>
+          </button>
+          <div id="verseActionTranslationOptions" class="verse-action-picker-options" role="listbox" aria-label="Choose a Bible version"></div>
+        </div>
+        <div class="verse-action-preview">
+          <p id="verseActionPreviewLabel" class="verse-action-preview-label">Preview</p>
+          <p id="verseActionPreviewReference" class="verse-action-preview-ref"></p>
+          <p id="verseActionPreviewText" class="verse-action-preview-text"></p>
+        </div>
+      </div>
+      <div class="verse-action-footer">
+        <button id="copyVerseButton" class="verse-copy-btn" type="button" aria-label="Copy verse" title="Copy verse">
+          <svg class="verse-copy-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="8.5" y="6.5" width="10.5" height="10.5" rx="3.2" fill="none" stroke="currentColor" stroke-width="2.2"></rect>
+            <rect x="5" y="10" width="10.5" height="10.5" rx="3.2" fill="none" stroke="currentColor" stroke-width="2.2" opacity="0.96"></rect>
+          </svg>
+        </button>
+        <button id="emailVerseButton" class="verse-email-btn" type="button" aria-label="Email verse" title="Email verse">
+          <svg class="verse-email-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4.5 7.5h15a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 15V9a1.5 1.5 0 0 1 1.5-1.5Z" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"></path>
+            <path d="m5 8.5 7 5 7-5" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -955,8 +1034,16 @@
     const settingsModalCloseBtn = document.getElementById('settingsModalClose');
     const verseActionModal = document.getElementById('verseActionModal');
     const verseActionSubtitleEl = document.getElementById('verseActionSubtitle');
+    const verseActionPicker = document.getElementById('verseActionPicker');
+    const verseActionPickerButton = document.getElementById('verseActionPickerButton');
+    const verseActionPickerValue = document.getElementById('verseActionPickerValue');
+    const verseActionPickerCaption = document.getElementById('verseActionPickerCaption');
+    const verseActionTranslationOptions = document.getElementById('verseActionTranslationOptions');
+    const verseActionPreviewLabel = document.getElementById('verseActionPreviewLabel');
+    const verseActionPreviewReference = document.getElementById('verseActionPreviewReference');
+    const verseActionPreviewText = document.getElementById('verseActionPreviewText');
     const copyVerseButton = document.getElementById('copyVerseButton');
-    const closeVerseActionButton = document.getElementById('closeVerseActionButton');
+    const emailVerseButton = document.getElementById('emailVerseButton');
     const MOBILE_LONG_PRESS_MS = 450;
     const MOBILE_LONG_PRESS_MOVE_TOLERANCE = 12;
 
@@ -1009,7 +1096,8 @@
       mobileLongPressStartY: 0,
       mobileLongPressSuppressClickUntil: 0,
       verseActionSelection: null,
-      verseActionIgnoreClickUntil: 0
+      verseActionIgnoreClickUntil: 0,
+      verseActionPreview: null
     };
 
     const OLD_TESTAMENT_ACCENT = {
@@ -1320,6 +1408,39 @@
         `;
         optionsEl.appendChild(button);
       });
+    }
+
+    function renderVerseActionTranslationOptions(activeTranslationId) {
+      const entries = Object.values(TRANSLATIONS);
+      verseActionTranslationOptions.innerHTML = '';
+
+      entries.forEach((translation) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'translation-option';
+        button.dataset.translation = translation.id;
+        button.setAttribute('role', 'option');
+        button.innerHTML = `
+          <span class="translation-option-meta">
+            <span class="translation-option-label">${escapeHtml(translation.label)}</span>
+            <span class="translation-option-description">${escapeHtml(translation.fullLabel || translation.label)}</span>
+          </span>
+          <span class="translation-option-check" aria-hidden="true">✓</span>
+        `;
+        const isActive = translation.id === activeTranslationId;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        verseActionTranslationOptions.appendChild(button);
+      });
+
+      const activeTranslation = getTranslationConfig(activeTranslationId);
+      verseActionPickerValue.textContent = activeTranslation.label;
+      verseActionPickerCaption.textContent = activeTranslation.fullLabel || activeTranslation.label;
+    }
+
+    function setVerseActionPickerOpen(isOpen) {
+      verseActionPicker.classList.toggle('open', isOpen);
+      verseActionPickerButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
 
     function updateComparePickerControls() {
@@ -1904,10 +2025,10 @@
       return markup;
     }
 
-    function cleanDisplayedVerseText(text, verseNumber, nextVerseNumber = null, pane = 'primary') {
+    function cleanDisplayedVerseText(text, verseNumber, nextVerseNumber = null, pane = 'primary', translationIdOverride = null) {
       const plainText = text ?? '';
       let cleaned = plainText.replace(new RegExp(`^\\s*${escapeRegExp(String(verseNumber))}\\s+`), '').trim();
-      const activeTranslationId = pane === 'secondary' ? state.compareTranslations.secondary : state.translationId;
+      const activeTranslationId = translationIdOverride || (pane === 'secondary' ? state.compareTranslations.secondary : state.translationId);
 
       if (nextVerseNumber != null) {
         cleaned = cleaned.replace(new RegExp(`\\s+${escapeRegExp(String(nextVerseNumber))}\\s*$`), '').trim();
@@ -2058,24 +2179,41 @@
 
       state.verseActionSelection = selection;
       state.verseActionIgnoreClickUntil = Date.now() + 500;
+      state.verseActionPreview = {
+        translationId: selection.translationId,
+        reference: selection.reference,
+        text: selection.text
+      };
       verseActionSubtitleEl.textContent = selection.reference;
+      renderVerseActionTranslationOptions(selection.translationId);
+      setVerseActionPickerOpen(false);
+      verseActionPreviewLabel.textContent = getTranslationConfig(selection.translationId).label;
+      verseActionPreviewReference.textContent = selection.reference;
+      verseActionPreviewText.textContent = selection.text;
       verseActionModal.classList.add('open');
       verseActionModal.setAttribute('aria-hidden', 'false');
     }
 
     function closeVerseActionMenu() {
       state.verseActionSelection = null;
+      state.verseActionPreview = null;
+      setVerseActionPickerOpen(false);
+      verseActionPickerValue.textContent = '';
+      verseActionPickerCaption.textContent = '';
+      verseActionPreviewLabel.textContent = 'Preview';
+      verseActionPreviewReference.textContent = '';
+      verseActionPreviewText.textContent = '';
       verseActionModal.classList.remove('open');
       verseActionModal.setAttribute('aria-hidden', 'true');
     }
 
     async function copySelectedVerse() {
-      const selection = state.verseActionSelection;
-      if (!selection) {
+      const preview = state.verseActionPreview;
+      if (!preview) {
         return;
       }
 
-      const copyText = `${selection.reference} — ${selection.text}`;
+      const copyText = `${preview.reference} - ${preview.text}`;
 
       try {
         if (navigator.clipboard?.writeText) {
@@ -2093,10 +2231,101 @@
           document.body.removeChild(helper);
         }
 
-        setHint(`Copied ${selection.reference}.`);
+        setHint(`Copied ${preview.reference}.`);
         closeVerseActionMenu();
       } catch (error) {
         showError('Could not copy this verse on this device.');
+      }
+    }
+
+    function emailSelectedVerse() {
+      const preview = state.verseActionPreview;
+      if (!preview) {
+        return;
+      }
+
+      const subject = encodeURIComponent(preview.reference);
+      const body = encodeURIComponent(`${preview.reference}\n\n${preview.text}`);
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    }
+
+    async function openSelectedVerseInTranslation(nextTranslationId) {
+      const selection = state.verseActionSelection;
+      if (!selection || !TRANSLATIONS[nextTranslationId]) {
+        return;
+      }
+
+      const canonicalBookName = getCanonicalBookName(selection.translationId, selection.bookName);
+      const targetBookName = getTranslationBookName(nextTranslationId, canonicalBookName);
+      const targetChapter = selection.chapterNumber;
+      const targetVerse = selection.verseNum;
+      const targetLabel = getTranslationConfig(nextTranslationId).label;
+
+      try {
+        const translationState = await getCachedTranslationState(nextTranslationId);
+        if (!translationState.bookOrder.includes(targetBookName)) {
+          const missingLabel = NEW_TESTAMENT_BOOKS.has(canonicalBookName) && nextTranslationId === 'lxx'
+            ? 'LXX Bible only has the Old Testament, so this New Testament book is not available there.'
+            : `${targetLabel} Bible does not have ${canonicalBookName}.`;
+          renderVerseActionTranslationOptions(nextTranslationId);
+          state.verseActionPreview = {
+            translationId: nextTranslationId,
+            reference: `${targetBookName} ${targetChapter}:${targetVerse}`,
+            text: missingLabel
+          };
+          verseActionPreviewLabel.textContent = targetLabel;
+          verseActionPreviewReference.textContent = `${targetBookName} ${targetChapter}:${targetVerse}`;
+          verseActionPreviewText.textContent = missingLabel;
+          return;
+        }
+
+        await ensureBookLoadedForTranslation(nextTranslationId, targetBookName);
+        const bookData = translationState.bookCache.get(targetBookName) || {};
+        const verses = Array.isArray(bookData[String(targetChapter)]) ? bookData[String(targetChapter)] : [];
+        const rawText = verses[targetVerse - 1];
+
+        if (!rawText) {
+          renderVerseActionTranslationOptions(nextTranslationId);
+          state.verseActionPreview = {
+            translationId: nextTranslationId,
+            reference: `${targetBookName} ${targetChapter}:${targetVerse}`,
+            text: 'No verse available for this reference in that Bible version.'
+          };
+          verseActionPreviewLabel.textContent = getTranslationConfig(nextTranslationId).label;
+          verseActionPreviewReference.textContent = `${targetBookName} ${targetChapter}:${targetVerse}`;
+          verseActionPreviewText.textContent = 'No verse available for this reference in that Bible version.';
+          return;
+        }
+
+        const displayText = cleanDisplayedVerseText(
+          rawText,
+          targetVerse,
+          targetVerse < verses.length ? targetVerse + 1 : null,
+          nextTranslationId === state.compareTranslations.secondary ? 'secondary' : 'primary',
+          nextTranslationId
+        );
+        const displayReference = `${targetBookName} ${targetChapter}:${targetVerse}`;
+        renderVerseActionTranslationOptions(nextTranslationId);
+        state.verseActionPreview = {
+          translationId: nextTranslationId,
+          reference: displayReference,
+          text: displayText
+        };
+        verseActionPreviewLabel.textContent = targetLabel;
+        verseActionPreviewReference.textContent = displayReference;
+        verseActionPreviewText.textContent = displayText;
+        setVerseActionPickerOpen(false);
+      } catch (error) {
+        renderVerseActionTranslationOptions(nextTranslationId);
+        state.verseActionPreview = {
+          translationId: nextTranslationId,
+          reference: `${targetBookName} ${targetChapter}:${targetVerse}`,
+          text: error.message
+        };
+        verseActionPreviewLabel.textContent = targetLabel;
+        verseActionPreviewReference.textContent = `${targetBookName} ${targetChapter}:${targetVerse}`;
+        verseActionPreviewText.textContent = error.message;
+        setVerseActionPickerOpen(false);
       }
     }
 
@@ -3344,7 +3573,21 @@
     copyVerseButton.addEventListener('click', async () => {
       await copySelectedVerse();
     });
-    closeVerseActionButton.addEventListener('click', closeVerseActionMenu);
+    emailVerseButton.addEventListener('click', () => {
+      emailSelectedVerse();
+    });
+    verseActionPickerButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setVerseActionPickerOpen(!verseActionPicker.classList.contains('open'));
+    });
+    verseActionTranslationOptions.addEventListener('click', async (e) => {
+      const button = e.target.closest('[data-translation]');
+      if (!button) {
+        return;
+      }
+
+      await openSelectedVerseInTranslation(button.dataset.translation);
+    });
     verseActionModal.addEventListener('click', (e) => {
       if (Date.now() <= state.verseActionIgnoreClickUntil) {
         e.preventDefault();
@@ -3360,6 +3603,11 @@
       if (Date.now() <= state.mobileLongPressSuppressClickUntil) {
         e.preventDefault();
         e.stopPropagation();
+        return;
+      }
+
+      if (!verseActionPicker.contains(e.target)) {
+        setVerseActionPickerOpen(false);
       }
     }, true);
 
@@ -3378,6 +3626,9 @@
       }
       if (e.key === 'Escape' && verseActionModal.classList.contains('open')) {
         closeVerseActionMenu();
+      }
+      if (e.key === 'Escape' && verseActionPicker.classList.contains('open')) {
+        setVerseActionPickerOpen(false);
       }
     });
 
