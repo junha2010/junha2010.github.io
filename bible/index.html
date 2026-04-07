@@ -2040,6 +2040,17 @@
       };
     }
 
+    function handleVerseContextMenu(event) {
+      const selection = getVerseSelectionFromTarget(event.target);
+      event.preventDefault();
+
+      if (!selection) {
+        return;
+      }
+
+      openVerseActionMenu(selection);
+    }
+
     function openVerseActionMenu(selection) {
       if (!selection) {
         return;
@@ -3257,6 +3268,8 @@
 
     verseContainer.addEventListener('click', handleVerseContainerClick);
     secondaryVerseContainer.addEventListener('click', handleVerseContainerClick);
+    verseContainer.addEventListener('contextmenu', handleVerseContextMenu);
+    secondaryVerseContainer.addEventListener('contextmenu', handleVerseContextMenu);
     verseContainer.addEventListener('touchstart', handleMobileLongPressStart, { passive: true });
     secondaryVerseContainer.addEventListener('touchstart', handleMobileLongPressStart, { passive: true });
     verseContainer.addEventListener('touchmove', handleMobileLongPressMove, { passive: true });
