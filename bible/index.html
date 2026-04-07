@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="img/junha.png" />
   <style>
     * { box-sizing: border-box; }
-    html, body, .menu-drop, .location-modal-card, .word-modal-card, .settings-modal-card {
+    html, body, .menu-drop, .location-modal-card, .word-modal-card, .settings-modal-card, .verse-container {
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
@@ -16,7 +16,8 @@
     .menu-drop::-webkit-scrollbar,
     .location-modal-card::-webkit-scrollbar,
     .word-modal-card::-webkit-scrollbar,
-    .settings-modal-card::-webkit-scrollbar {
+    .settings-modal-card::-webkit-scrollbar,
+    .verse-container::-webkit-scrollbar {
       width: 0;
       height: 0;
       display: none;
@@ -157,19 +158,33 @@
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
     .chapter-title { font-size: 2.5rem; font-weight: 700; margin: 0 0 1rem; color: var(--text-strong); text-align: center; }
     .hint { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
+    body.compare-mode .chapter-title,
+    body.compare-mode .hint { display: none; }
+    body.compare-mode .content { position: fixed; top: 5.6rem; left: 4.9rem; right: 4.9rem; bottom: 2.4rem; margin: 0; max-width: none; padding: 0 1rem 1rem; overflow: hidden; }
     .compare-layout { display: block; }
-    .compare-layout.compare-enabled { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+    .compare-layout.compare-enabled { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; align-items: stretch; height: 100%; min-height: 0; }
     .compare-pane { min-width: 0; }
-    .compare-pane-toolbar { display: none; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 1rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border-soft); }
+    body.compare-mode .compare-pane { min-height: 0; height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr); border: 1px solid var(--border-soft); border-radius: 1rem; background: var(--surface-elevated); overflow: hidden; }
+    .compare-pane-toolbar { display: none; position: sticky; top: 5rem; z-index: 6; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 1rem; padding: 0.8rem 0 0.9rem; border-bottom: 1px solid var(--border-soft); background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); }
+    body.compare-mode .compare-pane-toolbar { position: static; top: auto; margin: 0; padding: 0.8rem 0.95rem; background: var(--surface-elevated); backdrop-filter: none; }
     .compare-pane-copy { min-width: 0; }
     .compare-pane-label { margin: 0; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .compare-pane-name { margin: 0.18rem 0 0; font-size: 0.95rem; font-weight: 700; color: var(--text-strong); }
+    .compare-pane-controls { display: flex; align-items: center; gap: 0.65rem; min-width: 0; }
     .compare-select { min-width: 108px; max-width: 52%; border: 1px solid var(--border-soft); border-radius: 0.85rem; background: var(--surface); color: var(--text-strong); padding: 0.6rem 0.8rem; font: inherit; font-size: 0.86rem; font-weight: 700; }
     .compare-select:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .compare-sync-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; min-width: 2.7rem; height: 2.7rem; padding: 0 0.8rem; border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-soft); cursor: pointer; font: inherit; font-size: 0.8rem; font-weight: 800; transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease; flex-shrink: 0; }
+    .compare-sync-btn:hover { color: var(--text-strong); border-color: #94a3b8; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08); }
+    .compare-sync-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .compare-sync-btn[aria-pressed="true"] { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; border-color: #0f172a; }
+    .compare-sync-icon { font-size: 0.95rem; line-height: 1; }
+    .compare-sync-text { line-height: 1; }
     .compare-layout.compare-enabled .compare-pane-toolbar { display: flex; }
     .compare-pane-secondary { display: none; }
     .compare-layout.compare-enabled .compare-pane-secondary { display: block; padding-left: 1.5rem; border-left: 1px solid var(--border-soft); }
-    .compare-layout.compare-enabled .verse-container { max-width: none; }
+    body.compare-mode .compare-layout.compare-enabled .compare-pane-secondary { display: grid; padding-left: 0; border-left: none; }
+    .compare-layout.compare-enabled .verse-container { max-width: none; overflow-anchor: none; }
+    body.compare-mode .verse-container { min-height: 0; height: 100%; max-width: none; margin: 0; overflow-y: auto; overflow-x: hidden; padding: 0.95rem 1rem 1.1rem; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; overflow-anchor: none; }
     .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; scroll-margin-top: var(--verse-scroll-margin); }
     .verse-card.verse-flash { animation: verse-flash 1s ease; }
     .verse-line { margin: 0; line-height: 1.75; font-size: 1.05rem; color: var(--text); }
@@ -312,10 +327,74 @@
       .settings-modal .settings-modal-card { transform: translateY(100%); opacity: 1; transition: transform 0.34s cubic-bezier(.22,1,.36,1); }
       .settings-modal.open .settings-modal-card { transform: translateY(0); }
       .content { margin-top: 5.3rem; margin-bottom: 7rem; padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom)); }
+      body.compare-mode .chapter-title,
+      body.compare-mode .hint { display: none; }
+      body.compare-mode .content {
+        position: fixed;
+        top: 4.7rem;
+        left: 0;
+        right: 0;
+        bottom: calc(4.95rem + env(safe-area-inset-bottom));
+        margin: 0;
+        padding: 0 0.85rem 0.85rem;
+        max-width: none;
+        overflow: hidden;
+      }
+      body.compare-mode .compare-layout.compare-enabled {
+        height: 100%;
+        min-height: 0;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.55rem;
+      }
+      body.compare-mode .compare-pane {
+        min-height: 0;
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+        border: 1px solid var(--border-soft);
+        border-radius: 1rem;
+        background: var(--surface-elevated);
+        overflow: hidden;
+      }
+      body.compare-mode .compare-layout.compare-enabled .compare-pane-secondary {
+        display: grid;
+        padding: 0;
+        border-left: none;
+        border-top: 1px solid var(--border-soft);
+      }
+      body.compare-mode .compare-pane-toolbar {
+        position: static;
+        top: auto;
+        margin: 0;
+        padding: 0.65rem 0.8rem;
+        border-bottom: 1px solid var(--border-soft);
+        background: var(--surface-elevated);
+        backdrop-filter: none;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      body.compare-mode .verse-container {
+        min-height: 0;
+        height: 100%;
+        max-width: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: auto;
+        overscroll-behavior: contain;
+        touch-action: pan-y;
+        padding: 0.95rem 0.8rem 1.1rem;
+      }
+      body.compare-mode .compare-pane-secondary .verse-container {
+        border-top: none;
+      }
       .compare-layout.compare-enabled { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
       .compare-layout.compare-enabled .compare-pane-secondary { padding-left: 0; padding-top: 1.25rem; border-left: none; border-top: 1px solid var(--border-soft); }
-      .compare-pane-toolbar { align-items: flex-start; flex-direction: column; }
+      .compare-pane-toolbar { top: 4.8rem; align-items: flex-start; flex-direction: column; }
+      .compare-pane-controls { width: 100%; }
       .compare-select { width: 100%; max-width: none; }
+      .compare-sync-btn { min-width: 2.55rem; width: 2.55rem; padding: 0; }
+      .compare-sync-text { display: none; }
       .verse-container.reading-mode .verse-line { font-size: 1.04rem; line-height: 2; }
       .nav-btn { top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); transform: none; width: calc(50vw - 1.35rem); height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: 35; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); }
       .prev-btn { left: 0.85rem; right: auto; }
@@ -366,7 +445,13 @@
             <p class="compare-pane-label">Primary</p>
             <p class="compare-pane-name">Left Bible</p>
           </div>
-          <select id="comparePrimarySelect" class="compare-select" aria-label="Choose the primary Bible version"></select>
+          <div class="compare-pane-controls">
+            <select id="comparePrimarySelect" class="compare-select" aria-label="Choose the primary Bible version"></select>
+            <button id="compareSyncButton" class="compare-sync-btn" type="button" aria-pressed="false" aria-label="Toggle compare scroll sync">
+              <span class="compare-sync-icon">⇅</span>
+              <span class="compare-sync-text">Sync</span>
+            </button>
+          </div>
         </div>
         <div id="verseContainer" class="verse-container"></div>
       </section>
@@ -517,6 +602,7 @@
     const compareLayout = document.getElementById('compareLayout');
     const comparePrimarySelect = document.getElementById('comparePrimarySelect');
     const compareSecondarySelect = document.getElementById('compareSecondarySelect');
+    const compareSyncButton = document.getElementById('compareSyncButton');
     const compareSecondaryPane = document.getElementById('compareSecondaryPane');
     const verseContainer = document.getElementById('verseContainer');
     const secondaryVerseContainer = document.getElementById('secondaryVerseContainer');
@@ -562,6 +648,12 @@
       flashClearTimeoutId: null,
       readingMode: false,
       compareMode: false,
+      compareScrollSync: false,
+      compareSyncFrame: null,
+      compareSyncSettleTimeoutId: null,
+      compareSyncSourcePane: 'primary',
+      compareSyncIgnorePane: null,
+      compareSyncIgnoreUntil: 0,
       compareSecondaryVerses: [],
       compareTranslations: {
         primary: DEFAULT_TRANSLATION_ID,
@@ -803,6 +895,9 @@
 
     function updateCompareControls() {
       compareModeButton.setAttribute('aria-pressed', state.compareMode ? 'true' : 'false');
+      compareSyncButton.setAttribute('aria-pressed', state.compareScrollSync ? 'true' : 'false');
+      compareSyncButton.disabled = !state.compareMode;
+      document.body.classList.toggle('compare-mode', state.compareMode);
       compareLayout.classList.toggle('compare-enabled', state.compareMode);
       compareSecondaryPane.setAttribute('aria-hidden', state.compareMode ? 'false' : 'true');
       comparePrimarySelect.value = state.translationId;
@@ -1314,6 +1409,9 @@
       await syncCompareVerses();
       renderVerses();
       updateMenuButtonLabel();
+      if (state.compareMode && state.compareScrollSync) {
+        syncComparePanes('primary');
+      }
 
       if (enabled) {
         const primaryLabel = getTranslationConfig(state.translationId).label;
@@ -1324,6 +1422,15 @@
       }
 
       requestAnimationFrame(() => restoreVerseViewportAnchor(anchor));
+    }
+
+    function setCompareScrollSync(enabled) {
+      state.compareScrollSync = Boolean(enabled);
+      updateCompareControls();
+
+      if (state.compareScrollSync && state.compareMode) {
+        syncComparePanes(state.compareSyncSourcePane || 'primary');
+      }
     }
 
     async function setCompareTranslation(side, translationId) {
@@ -1340,6 +1447,9 @@
         state.compareTranslations.secondary = translationId;
         await syncCompareVerses();
         renderVerses();
+        if (state.compareMode && state.compareScrollSync) {
+          syncComparePanes('primary');
+        }
       }
 
       if (state.compareMode) {
@@ -1510,11 +1620,18 @@
       setTranslationPickerOpen(false);
     }
 
-    function findClosestVisibleVerse() {
-      const verseCards = verseContainer.querySelectorAll('.verse-card');
+    function isMobileComparePaneLayout() {
+      return state.compareMode && window.matchMedia('(max-width: 520px)').matches;
+    }
+
+    function findClosestVisibleVerseInContainer(container) {
+      const verseCards = container.querySelectorAll('.verse-card');
       if (!verseCards.length) return null;
 
-      const targetLine = 140;
+      const containerRect = container.getBoundingClientRect();
+      const targetLine = state.compareMode
+        ? containerRect.top + Math.min(72, containerRect.height * 0.24)
+        : 140;
       let closestVerse = 1;
       let closestDistance = Number.POSITIVE_INFINITY;
 
@@ -1528,6 +1645,113 @@
       });
 
       return closestVerse;
+    }
+
+    function findClosestVisibleVerse() {
+      return findClosestVisibleVerseInContainer(verseContainer);
+    }
+
+    function getComparePaneTopLine(container) {
+      const containerRect = container.getBoundingClientRect();
+      return state.compareMode ? containerRect.top + 6 : Math.max(containerRect.top, 96);
+    }
+
+    function findTopVisibleVerseInContainer(container) {
+      const verseCards = Array.from(container.querySelectorAll('.verse-card'));
+      if (!verseCards.length) return null;
+
+      if (state.compareMode) {
+        const topLine = getComparePaneTopLine(container);
+
+        for (let index = 0; index < verseCards.length; index += 1) {
+          const card = verseCards[index];
+          const rect = card.getBoundingClientRect();
+
+          if (rect.bottom > topLine) {
+            return index + 1;
+          }
+        }
+
+        return verseCards.length;
+      }
+
+      const topLine = getComparePaneTopLine(container);
+
+      let bestVerse = 1;
+      let bestDelta = Number.POSITIVE_INFINITY;
+
+      verseCards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const delta = rect.top - topLine;
+
+        if (delta >= -2 && delta < bestDelta) {
+          bestDelta = delta;
+          bestVerse = index + 1;
+        }
+      });
+
+      if (bestDelta !== Number.POSITIVE_INFINITY) {
+        return bestVerse;
+      }
+
+      let fallbackVerse = 1;
+      let fallbackDistance = Number.POSITIVE_INFINITY;
+      verseCards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs(rect.top - topLine);
+        if (distance < fallbackDistance) {
+          fallbackDistance = distance;
+          fallbackVerse = index + 1;
+        }
+      });
+
+      return fallbackVerse;
+    }
+
+    function syncComparePanes(sourcePane = 'primary') {
+      if (!state.compareMode || !state.compareScrollSync) {
+        return;
+      }
+
+      const sourceContainer = sourcePane === 'secondary' ? secondaryVerseContainer : verseContainer;
+      const targetContainer = sourcePane === 'secondary' ? verseContainer : secondaryVerseContainer;
+      const targetPane = sourcePane === 'secondary' ? 'primary' : 'secondary';
+      const targetTopLine = getComparePaneTopLine(targetContainer);
+
+      const verseNum = findTopVisibleVerseInContainer(sourceContainer);
+      if (verseNum == null) {
+        return;
+      }
+
+      const targetVerse = getVerseCard(verseNum, targetPane);
+      if (!targetVerse) {
+        return;
+      }
+
+      const nextScrollTop = targetContainer.scrollTop + (targetVerse.getBoundingClientRect().top - targetTopLine);
+      const maxScrollTop = Math.max(0, targetContainer.scrollHeight - targetContainer.clientHeight);
+      state.compareSyncIgnorePane = targetPane;
+      const clampedScrollTop = Math.max(0, Math.min(maxScrollTop, nextScrollTop));
+      state.compareSyncIgnoreUntil = Date.now() + (isMobileComparePaneLayout() ? 220 : 260);
+      targetContainer.scrollTo({ top: clampedScrollTop, behavior: 'smooth' });
+
+      state.activeVerse = verseNum;
+      updateReadingStatus(verseNum);
+    }
+
+    function scheduleCompareSync(sourcePane = 'primary') {
+      if (!state.compareMode || !state.compareScrollSync) {
+        return;
+      }
+
+      state.compareSyncSourcePane = sourcePane;
+      if (state.compareSyncSettleTimeoutId != null) {
+        window.clearTimeout(state.compareSyncSettleTimeoutId);
+      }
+      state.compareSyncSettleTimeoutId = window.setTimeout(() => {
+        state.compareSyncSettleTimeoutId = null;
+        syncComparePanes(state.compareSyncSourcePane);
+      }, 140);
     }
 
     function syncReadingStatusToScroll() {
@@ -1598,6 +1822,9 @@
       target.scrollIntoView({ block: 'start', behavior: 'smooth' });
       state.activeVerse = verseNum;
       updateReadingStatus(verseNum);
+      if (state.compareMode && state.compareScrollSync) {
+        syncComparePanes('primary');
+      }
       state.flashTimeoutId = window.setTimeout(() => {
         flashVerseTargets([target, secondaryTarget]);
         state.flashTimeoutId = null;
@@ -1608,6 +1835,13 @@
     function captureVerseViewportAnchor() {
       const verseNum = findClosestVisibleVerse() ?? state.activeVerse ?? 1;
       const target = getVerseCard(verseNum, 'primary');
+      if (state.compareMode) {
+        return {
+          verseNum,
+          top: target ? target.offsetTop - verseContainer.scrollTop : null,
+          useContainer: true
+        };
+      }
       return {
         verseNum,
         top: target ? target.getBoundingClientRect().top : null
@@ -1621,6 +1855,17 @@
 
       const target = getVerseCard(anchor.verseNum, 'primary');
       if (!target) {
+        return;
+      }
+
+      if (anchor.useContainer) {
+        const nextScrollTop = target.offsetTop - anchor.top;
+        verseContainer.scrollTop = nextScrollTop;
+        if (state.compareMode && state.compareScrollSync) {
+          syncComparePanes('primary');
+        }
+        state.activeVerse = anchor.verseNum;
+        updateReadingStatus(anchor.verseNum);
         return;
       }
 
@@ -1968,6 +2213,9 @@
         compareModeButton.disabled = false;
       }
     });
+    compareSyncButton.addEventListener('click', () => {
+      setCompareScrollSync(!state.compareScrollSync);
+    });
 
     document.addEventListener('click', (e) => {
       if (!menuDrop.contains(e.target) && e.target !== menuButton) {
@@ -2045,6 +2293,29 @@
 
     verseContainer.addEventListener('click', handleVerseContainerClick);
     secondaryVerseContainer.addEventListener('click', handleVerseContainerClick);
+    verseContainer.addEventListener('scroll', () => {
+      if (state.compareSyncIgnorePane === 'primary' && Date.now() <= state.compareSyncIgnoreUntil) {
+        return;
+      }
+      if (state.compareSyncIgnorePane === 'primary') {
+        state.compareSyncIgnorePane = null;
+        state.compareSyncIgnoreUntil = 0;
+        return;
+      }
+      scheduleReadingStatusSync();
+      scheduleCompareSync('primary');
+    }, { passive: true });
+    secondaryVerseContainer.addEventListener('scroll', () => {
+      if (state.compareSyncIgnorePane === 'secondary' && Date.now() <= state.compareSyncIgnoreUntil) {
+        return;
+      }
+      if (state.compareSyncIgnorePane === 'secondary') {
+        state.compareSyncIgnorePane = null;
+        state.compareSyncIgnoreUntil = 0;
+        return;
+      }
+      scheduleCompareSync('secondary');
+    }, { passive: true });
 
     locationMapGalleryEl.addEventListener('click', (e) => {
       const mapButton = e.target.closest('button[data-map-file]');
