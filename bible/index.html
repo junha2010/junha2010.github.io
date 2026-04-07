@@ -114,6 +114,9 @@
     .mode-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
     .mode-btn.active { color: #ffffff; }
     .translation-picker { position: relative; }
+    .topbar-translation-picker { min-width: 0; }
+    .topbar-translation-picker .settings-select-btn { width: auto; min-width: 9.6rem; padding: 0.68rem 0.9rem; border-radius: 0.8rem; }
+    .topbar-translation-picker .settings-select-caption { white-space: nowrap; }
     .translation-picker.open .translation-options { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
     .settings-select-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; border: 1px solid var(--border-soft); border-radius: 0.95rem; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-strong); padding: 0.82rem 0.95rem; font: inherit; font-size: 0.92rem; font-weight: 700; cursor: pointer; transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
     .settings-select-btn:hover { border-color: #94a3b8; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); }
@@ -270,9 +273,14 @@
     .menu-drop .book-btn.new-testament:hover { background: #dc2626; color: #ffffff; border-color: #dc2626; }
     .menu-subhead { grid-column: 1 / -1; margin: 0; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .menu-status { grid-column: 1 / -1; padding: 0.6rem; color: var(--text-muted); text-align: center; font-size: 0.95rem; }
+    .reading-status-picker { position: relative; min-width: 0; }
+    .reading-status-picker .menu-drop { left: auto; right: 0; transform-origin: top right; }
     .reading-status { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; min-width: 0; padding: 0.45rem 0.8rem; border: 1px solid var(--border-soft); border-radius: 0.85rem; background: color-mix(in srgb, var(--bg-muted) 96%, transparent); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05); }
-    .reading-status-label { margin: 0; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
-    .reading-status-value { margin: 0.15rem 0 0; font-size: 0.94rem; font-weight: 700; color: var(--text-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 38vw; }
+    .reading-status-btn { font: inherit; text-align: right; cursor: pointer; transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; }
+    .reading-status-btn:hover { background: var(--bg-soft); border-color: #94a3b8; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08); }
+    .reading-status-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .reading-status-label { display: block; margin: 0; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
+    .reading-status-value { display: block; margin: 0.15rem 0 0; font-size: 0.94rem; font-weight: 700; color: var(--text-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 38vw; }
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
     .chapter-title { font-size: calc(2.5rem * var(--text-scale)); font-weight: 700; margin: 0 0 1rem; color: var(--text-strong); text-align: center; }
     .hint { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
@@ -414,6 +422,8 @@
       .topbar-left { gap: 0.5rem; min-width: 0; }
       .menu-btn { padding: 0.62rem 0.82rem; min-height: 2.55rem; font-size: 0.89rem; flex-shrink: 0; }
       .topbar-right { gap: 0.45rem; }
+      .topbar-translation-picker .settings-select-btn { min-width: 0; padding: 0.62rem 0.78rem; }
+      .topbar-translation-picker .settings-select-caption { display: none; }
       .compare-toggle-btn { width: 2.55rem; height: 2.55rem; padding: 0; }
       .compare-toggle-text { display: none; }
       .settings-btn { width: 2.55rem; height: 2.55rem; }
@@ -422,7 +432,8 @@
       .translation-option { padding: 0.68rem 0.75rem; }
       .mode-toggle { --toggle-pad: 0.24rem; padding: 0.24rem; }
       .mode-btn { padding: 0.5rem 0.7rem; font-size: 0.82rem; min-height: 2.5rem; }
-      .reading-status { flex: 1 1 auto; align-items: flex-start; padding: 0.34rem 0.52rem; min-width: 0; border-radius: 0.72rem; }
+      .reading-status-picker { flex: 1 1 auto; min-width: 0; }
+      .reading-status { width: 100%; flex: 1 1 auto; align-items: flex-start; padding: 0.34rem 0.52rem; min-width: 0; border-radius: 0.72rem; }
       .reading-status-label { font-size: 0.56rem; letter-spacing: 0.06em; }
       .reading-status-value { font-size: 0.76rem; max-width: 100%; margin-top: 0.08rem; }
       .menu-drop {
@@ -538,13 +549,24 @@
 <body>
   <div class="topbar">
     <div class="topbar-left">
-      <button id="menuButton" class="menu-btn" aria-haspopup="true" aria-expanded="false">Bible ▼</button>
-      <div id="menuDrop" class="menu-drop" aria-label="Bible navigation menu"></div>
+      <div id="translationPicker" class="translation-picker topbar-translation-picker">
+        <button id="translationPickerButton" class="settings-select-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="translationOptions">
+          <span class="settings-select-value">
+            <span id="translationPickerValue" class="settings-select-title">NIV</span>
+            <span class="settings-select-caption">Bible version</span>
+          </span>
+          <span class="settings-select-caret">▼</span>
+        </button>
+        <div id="translationOptions" class="translation-options" role="listbox" aria-label="Bible versions"></div>
+      </div>
     </div>
     <div class="topbar-right">
-      <div class="reading-status" aria-live="polite">
-        <p class="reading-status-label">Reading</p>
-        <p id="readingStatusValue" class="reading-status-value">Loading...</p>
+      <div class="reading-status-picker">
+        <button id="menuButton" class="reading-status reading-status-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-live="polite">
+          <span class="reading-status-label">Reading</span>
+          <span id="readingStatusValue" class="reading-status-value">Loading...</span>
+        </button>
+        <div id="menuDrop" class="menu-drop" aria-label="Bible reading navigation menu"></div>
       </div>
       <button id="compareModeButton" class="compare-toggle-btn" type="button" aria-pressed="false" aria-label="Toggle compare mode">
         <span class="compare-toggle-icon">⇄</span>
@@ -666,19 +688,6 @@
       </div>
       <div class="settings-modal-body">
         <div class="settings-group">
-          <div class="settings-row">
-            <p class="settings-section-label">Bible Version</p>
-            <div id="translationPicker" class="translation-picker">
-              <button id="translationPickerButton" class="settings-select-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="translationOptions">
-                <span class="settings-select-value">
-                  <span id="translationPickerValue" class="settings-select-title">NIV</span>
-                  <span class="settings-select-caption">Choose the version you want to read</span>
-                </span>
-                <span class="settings-select-caret">▼</span>
-              </button>
-              <div id="translationOptions" class="translation-options" role="listbox" aria-label="Bible versions"></div>
-            </div>
-          </div>
           <div class="settings-row">
             <p class="settings-section-label">Reading Mode</p>
             <div class="mode-toggle" role="tablist" aria-label="Reading mode">
@@ -1080,6 +1089,18 @@
       menuButton.textContent = state.compareMode ? `Bible ${'\u25BE'}` : `${translation.label} Bible ${'\u25BE'}`;
       updateCompareControls();
     }
+
+    updateMenuButtonLabel = function() {
+      const translation = getTranslationConfig();
+      const translationButtons = getTranslationButtons();
+      translationPickerValue.textContent = translation.label;
+      translationButtons.forEach((button) => {
+        const isActive = button.dataset.translation === translation.id;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      updateCompareControls();
+    };
 
     function updateReadingModeControls() {
       const readingModeContainer = readingModeButtons.find((button) => button.dataset.readingMode)?.closest('.mode-toggle');
@@ -2390,6 +2411,7 @@
       if (menuDrop.classList.contains('open')) {
         closeMenu();
       } else {
+        setTranslationPickerOpen(false);
         await openMenu();
       }
     });
@@ -2418,7 +2440,7 @@
     });
 
     document.addEventListener('click', (e) => {
-      if (!menuDrop.contains(e.target) && e.target !== menuButton) {
+      if (!menuDrop.contains(e.target) && !menuButton.contains(e.target)) {
         closeMenu();
       }
       if (!translationPicker.contains(e.target)) {
@@ -2427,6 +2449,7 @@
     });
     translationPickerButton.addEventListener('click', (e) => {
       e.stopPropagation();
+      closeMenu();
       setTranslationPickerOpen(!translationPicker.classList.contains('open'));
     });
     translationOptions.addEventListener('click', async (e) => {
