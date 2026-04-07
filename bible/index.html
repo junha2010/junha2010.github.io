@@ -273,6 +273,7 @@
     .menu-drop.number-grid-view button { width: 56px; height: 56px; font-size: 0.95rem; }
     .menu-drop .back-btn { background: var(--bg-soft); color: var(--text); margin-bottom: 0.5rem; }
     .menu-drop .current-chapter { background: #0066cc; color: #ffffff; border-color: #0066cc; }
+    .menu-drop.new-testament-menu .current-chapter { background: #dc2626; color: #ffffff; border-color: #dc2626; }
     .menu-drop .book-btn { font-weight: bold; aspect-ratio: auto; min-height: 3rem; padding: 0.5rem; }
     .menu-drop .book-btn.old-testament { background: var(--ot-button-bg); color: #3b82f6; border-color: #2563eb; }
     .menu-drop .book-btn.new-testament { background: var(--nt-button-bg); color: #f87171; border-color: #dc2626; }
@@ -291,6 +292,20 @@
     .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
     .chapter-title { font-size: calc(2.5rem * var(--text-scale)); font-weight: 700; margin: 0 0 1rem; color: var(--text-strong); text-align: center; }
     .hint { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
+    .compare-empty-state {
+      display: grid;
+      place-items: center;
+      min-height: 100%;
+      padding: 2rem 1rem;
+    }
+    .compare-empty-state-text {
+      margin: 0;
+      max-width: 26rem;
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      text-align: center;
+    }
     body.compare-mode .chapter-title,
     body.compare-mode .hint { display: none; }
     body.compare-mode .content { position: fixed; top: 5.6rem; left: 4.9rem; right: 4.9rem; bottom: 2.4rem; margin: 0; max-width: none; padding: 0 1rem 1rem; overflow: hidden; }
@@ -934,6 +949,7 @@
       compareSyncIgnorePane: null,
       compareSyncIgnoreUntil: 0,
       compareSecondaryVerses: [],
+      compareSecondaryMessage: '',
       compareTranslations: {
         primary: DEFAULT_TRANSLATION_ID,
         secondary: DEFAULT_COMPARE_SECONDARY_ID
@@ -1774,6 +1790,15 @@
     function renderVerseList(container, verses, pane = 'primary') {
       container.innerHTML = '';
 
+      if (pane === 'secondary' && state.compareSecondaryMessage) {
+        container.innerHTML = `
+          <div class="compare-empty-state">
+            <p class="compare-empty-state-text">${state.compareSecondaryMessage}</p>
+          </div>
+        `;
+        return;
+      }
+
       if (!verses.length) {
         container.innerHTML = '<p class="hint">No verses available for this chapter.</p>';
         return;
@@ -1796,16 +1821,31 @@
     async function syncCompareVerses() {
       if (!state.compareMode || !state.currentBook || !state.currentChapter) {
         state.compareSecondaryVerses = [];
+        state.compareSecondaryMessage = '';
+        updateCompareControls();
+        return;
+      }
+
+      const translationState = await getCachedTranslationState(state.compareTranslations.secondary);
+      const secondaryLabel = getTranslationConfig(state.compareTranslations.secondary).label;
+
+      if (!translationState.bookOrder.includes(state.currentBook)) {
+        state.compareSecondaryVerses = [];
+        state.compareSecondaryMessage = state.compareTranslations.secondary === 'lxx' && NEW_TESTAMENT_BOOKS.has(state.currentBook)
+          ? 'LXX Bible only has the Old Testament, so this New Testament book is not available there.'
+          : `${secondaryLabel} Bible does not have ${state.currentBook}.`;
         updateCompareControls();
         return;
       }
 
       await ensureBookLoadedForTranslation(state.compareTranslations.secondary, state.currentBook);
-      const translationState = await getCachedTranslationState(state.compareTranslations.secondary);
       const bookData = translationState.bookCache.get(state.currentBook) || {};
       state.compareSecondaryVerses = Array.isArray(bookData[String(state.currentChapter)])
         ? bookData[String(state.currentChapter)]
         : [];
+      state.compareSecondaryMessage = state.compareSecondaryVerses.length
+        ? ''
+        : `No ${secondaryLabel} verses available for this chapter.`;
       updateCompareControls();
     }
 
@@ -1869,6 +1909,7 @@
 
       if (!sharedLocation) {
         state.compareSecondaryVerses = [];
+        state.compareSecondaryMessage = '';
         updateCompareControls();
         return false;
       }
