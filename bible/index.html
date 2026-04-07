@@ -17,10 +17,17 @@
     .location-modal-card::-webkit-scrollbar,
     .word-modal-card::-webkit-scrollbar,
     .settings-modal-card::-webkit-scrollbar,
-    .verse-container::-webkit-scrollbar {
+    .verse-container::-webkit-scrollbar,
+    .translation-options::-webkit-scrollbar,
+    .compare-picker-options::-webkit-scrollbar {
       width: 0;
       height: 0;
       display: none;
+    }
+    .translation-options,
+    .compare-picker-options {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
     :root {
       --verse-scroll-margin: 96px;
