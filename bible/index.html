@@ -358,6 +358,16 @@
     .location-description { margin: 1rem 0 0; color: var(--text); line-height: 1.6; }
     .location-references { margin: 1rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.55rem; }
     .location-references li { padding: 0.7rem 0.8rem; border: 1px solid var(--border); border-radius: 0.8rem; background: var(--surface-subtle); }
+    .site-footer { max-width: 960px; margin: 2.5rem auto 2rem; padding: 0 1.25rem 2rem; }
+    body.compare-mode .site-footer { display: none; }
+    .footer-card { border: 1px solid var(--border); border-radius: 1rem; background: var(--surface-subtle); box-shadow: var(--shadow-sm); padding: 1rem 1.1rem; }
+    .footer-title { margin: 0 0 0.35rem; font-size: 1rem; color: var(--text-strong); }
+    .footer-copy { margin: 0 0 0.9rem; font-size: 0.92rem; color: var(--text-soft); line-height: 1.55; }
+    .footer-sources { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.55rem; }
+    .footer-sources li { color: var(--text); font-size: 0.92rem; line-height: 1.55; }
+    .footer-sources strong { color: var(--text-strong); }
+    .footer-sources a { color: var(--verse-accent, #0066cc); text-decoration: none; }
+    .footer-sources a:hover { text-decoration: underline; }
     .location-reference-label { font-weight: 700; color: var(--text-strong); }
     .location-reference-text { margin: 0.24rem 0 0; color: var(--text-soft); font-size: 0.92rem; }
     .word-modal-card { width: min(92vw, 460px); max-height: min(78vh, 560px); overflow: auto; background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
@@ -514,6 +524,8 @@
       .compare-sync-btn { min-width: 2.55rem; width: 2.55rem; padding: 0; }
       .compare-sync-text { display: none; }
       .verse-container.reading-mode .verse-line { font-size: calc(1.04rem * var(--text-scale)); line-height: 2; }
+      .site-footer { margin-top: 1.9rem; padding: 0 0.9rem calc(1.5rem + env(safe-area-inset-bottom)); }
+      .footer-card { padding: 0.95rem; }
       .nav-btn { top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); transform: none; width: calc(50vw - 1.35rem); height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: 35; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); }
       .prev-btn { left: 0.85rem; right: auto; }
       .next-btn { right: 0.85rem; left: auto; }
@@ -585,6 +597,17 @@
       </section>
     </div>
   </main>
+  <footer class="site-footer" aria-label="Sources and credits">
+    <div class="footer-card">
+      <h2 class="footer-title">Sources</h2>
+      <p class="footer-copy">Bible text and map content used in this reader comes from the project’s bundled data and the sources below.</p>
+      <ul class="footer-sources">
+        <li><strong>NIV text:</strong> downloaded from <a href="https://github.com/aruljohn/Bible-niv/" target="_blank" rel="noopener noreferrer">aruljohn/Bible-niv</a> and bundled locally in <a href="./Bible-niv-main/">Bible-niv-main</a>.</li>
+        <li><strong>KJV text:</strong> downloaded from <a href="https://github.com/aruljohn/Bible-kjv" target="_blank" rel="noopener noreferrer">aruljohn/Bible-kjv</a> and bundled locally in <a href="./Bible-kjv-main/">Bible-kjv-main</a>.</li>
+        <li><strong>Location references and maps:</strong> the place-name/source index in this repo was built from <a href="https://bibleask.org/resources/bible-names/names-of-places-in-the-bible/" target="_blank" rel="noopener noreferrer">BibleAsk</a>, and the displayed map images come from the bundled local map set in <a href="./img/location/">img/location</a>.</li>
+      </ul>
+    </div>
+  </footer>
 
   <div id="locationModal" class="location-modal" aria-hidden="true">
     <div class="location-modal-card" role="dialog" aria-modal="true" aria-labelledby="locationModalTitle">
