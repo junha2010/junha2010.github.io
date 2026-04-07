@@ -340,7 +340,7 @@
     .compare-layout.compare-enabled .compare-pane-toolbar { display: flex; }
     .compare-pane-secondary { display: none; }
     .compare-layout.compare-enabled .compare-pane-secondary { display: block; padding-left: 1.5rem; border-left: 1px solid var(--border-soft); }
-    body.compare-mode .compare-layout.compare-enabled .compare-pane-secondary { display: grid; padding-left: 0; border-left: none; }
+    body.compare-mode .compare-layout.compare-enabled .compare-pane-secondary { display: grid; padding-left: 0; }
     .compare-layout.compare-enabled .verse-container { max-width: none; overflow-anchor: none; }
     body.compare-mode .verse-container { min-height: 0; height: 100%; max-width: none; margin: 0; overflow-y: auto; overflow-x: hidden; padding: 0.95rem 1rem 1.1rem; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; overflow-anchor: none; }
     .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; scroll-margin-top: var(--verse-scroll-margin); }
@@ -576,7 +576,6 @@
       body.compare-mode .compare-layout.compare-enabled .compare-pane-secondary {
         display: grid;
         padding: 0;
-        border-left: none;
         border-top: 1px solid var(--border-soft);
       }
       body.compare-mode .compare-pane-toolbar {
@@ -608,7 +607,7 @@
         border-top: none;
       }
       .compare-layout.compare-enabled { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
-      .compare-layout.compare-enabled .compare-pane-secondary { padding-left: 0; padding-top: 1.25rem; border-left: none; border-top: 1px solid var(--border-soft); }
+      .compare-layout.compare-enabled .compare-pane-secondary { padding-left: 0; padding-top: 1.25rem; border-top: 1px solid var(--border-soft); }
       body.compare-mode .compare-pane-toolbar { top: 4.8rem; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 0.5rem; row-gap: 0; }
       body.compare-mode .compare-pane-copy { min-width: 0; }
       body.compare-mode .compare-pane-controls { width: auto; flex: 0 0 auto; display: flex; align-items: center; gap: 0.45rem; margin-left: auto; }
