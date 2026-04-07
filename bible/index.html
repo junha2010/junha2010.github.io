@@ -423,6 +423,18 @@
     .word-modal-body { padding: 0 1rem 1rem; }
     .word-meaning-card { padding: 1rem; border-radius: 0.95rem; background: var(--surface-subtle); border: 1px solid var(--border-soft); }
     .word-meaning-korean { margin: 0; font-size: 1.06rem; line-height: 1.8; color: var(--text-strong); }
+    .verse-action-modal { align-items: flex-end; padding: 1rem; }
+    .verse-action-card { width: min(92vw, 420px); background: var(--surface-elevated); border-radius: 1.15rem; box-shadow: var(--shadow-lg); overflow: hidden; transform: translateY(1.6rem) scale(0.98); opacity: 0; transition: transform 0.24s cubic-bezier(.22,1,.36,1), opacity 0.2s ease; }
+    .verse-action-modal.open .verse-action-card { transform: translateY(0) scale(1); opacity: 1; }
+    .verse-action-header { padding: 1rem 1rem 0.55rem; border-bottom: 1px solid var(--border); }
+    .verse-action-title { margin: 0; font-size: 1rem; color: var(--text-strong); }
+    .verse-action-subtitle { margin: 0.28rem 0 0; font-size: 0.88rem; color: var(--text-soft); line-height: 1.5; }
+    .verse-action-body { padding: 0.85rem 1rem 1rem; display: grid; gap: 0.7rem; }
+    .verse-action-btn { width: 100%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-soft); border-radius: 0.95rem; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-strong); padding: 0.95rem 1rem; font: inherit; font-size: 0.96rem; font-weight: 800; cursor: pointer; transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
+    .verse-action-btn:hover { border-color: #94a3b8; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); }
+    .verse-action-btn:active { transform: scale(0.99); }
+    .verse-action-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .verse-action-btn.primary { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; border-color: #0f172a; }
     @keyframes menu-slide-next {
       from { opacity: 0; transform: translateX(1.4rem); }
       to { opacity: 1; transform: translateX(0); }
@@ -840,6 +852,19 @@
     </div>
   </div>
 
+  <div id="verseActionModal" class="location-modal verse-action-modal" aria-hidden="true">
+    <div class="verse-action-card" role="dialog" aria-modal="true" aria-labelledby="verseActionTitle">
+      <div class="verse-action-header">
+        <h2 id="verseActionTitle" class="verse-action-title">Verse menu</h2>
+        <p id="verseActionSubtitle" class="verse-action-subtitle"></p>
+      </div>
+      <div class="verse-action-body">
+        <button id="copyVerseButton" class="verse-action-btn primary" type="button">Copy verse</button>
+        <button id="closeVerseActionButton" class="verse-action-btn" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const LOCATION_DATA_PATH = 'data/locations.json';
     const LOCAL_LOCATION_BUNDLE = 'data/locations.js';
@@ -928,6 +953,11 @@
     const wordModalCloseBtn = document.getElementById('wordModalClose');
     const settingsModal = document.getElementById('settingsModal');
     const settingsModalCloseBtn = document.getElementById('settingsModalClose');
+    const verseActionModal = document.getElementById('verseActionModal');
+    const verseActionSubtitleEl = document.getElementById('verseActionSubtitle');
+    const copyVerseButton = document.getElementById('copyVerseButton');
+    const closeVerseActionButton = document.getElementById('closeVerseActionButton');
+    const MOBILE_LONG_PRESS_MS = 450;
 
     const state = {
       translationId: DEFAULT_TRANSLATION_ID,
@@ -969,7 +999,13 @@
       locationMapFiles: [],
       activeLocationMap: null,
       locationMapZoom: 1,
-      wordMeaningLookup: new Map()
+      wordMeaningLookup: new Map(),
+      mobileLongPressTimerId: null,
+      mobileLongPressTriggered: false,
+      mobileLongPressStartAt: 0,
+      mobileLongPressTarget: null,
+      mobileLongPressSuppressClickUntil: 0,
+      verseActionSelection: null
     };
 
     const OLD_TESTAMENT_ACCENT = {
@@ -1882,6 +1918,153 @@
       }
 
       return cleaned;
+    }
+
+    function clearMobileLongPressState() {
+      if (state.mobileLongPressTimerId) {
+        window.clearTimeout(state.mobileLongPressTimerId);
+      }
+
+      state.mobileLongPressTimerId = null;
+      state.mobileLongPressTriggered = false;
+      state.mobileLongPressStartAt = 0;
+      state.mobileLongPressTarget = null;
+    }
+
+    function handleMobileLongPressStart(event) {
+      const target = event.target instanceof HTMLElement ? event.target.closest('.verse-line, .verse-card') : null;
+      if (!target || event.touches.length !== 1) {
+        clearMobileLongPressState();
+        return;
+      }
+
+      clearMobileLongPressState();
+      state.mobileLongPressStartAt = Date.now();
+      state.mobileLongPressTarget = target;
+      state.mobileLongPressTimerId = window.setTimeout(() => {
+        state.mobileLongPressTriggered = true;
+        state.mobileLongPressTimerId = null;
+      }, MOBILE_LONG_PRESS_MS);
+    }
+
+    function handleMobileLongPressMove(event) {
+      if (!state.mobileLongPressTarget) {
+        return;
+      }
+
+      const currentTarget = event.target instanceof HTMLElement ? event.target.closest('.verse-line, .verse-card') : null;
+      if (!currentTarget || currentTarget !== state.mobileLongPressTarget) {
+        clearMobileLongPressState();
+      }
+    }
+
+    function finishMobileLongPress(event) {
+      if (!state.mobileLongPressTarget) {
+        return;
+      }
+
+      if (state.mobileLongPressTriggered) {
+        event.preventDefault();
+        const selection = getVerseSelectionFromTarget(state.mobileLongPressTarget);
+        state.mobileLongPressSuppressClickUntil = Date.now() + 700;
+        if (selection) {
+          openVerseActionMenu(selection);
+        }
+      }
+
+      clearMobileLongPressState();
+    }
+
+    function getMobileLongPressDuration() {
+      if (!state.mobileLongPressStartAt) {
+        return 0;
+      }
+
+      return Date.now() - state.mobileLongPressStartAt;
+    }
+
+    function getVerseSelectionFromTarget(target) {
+      const verseCard = target instanceof HTMLElement ? target.closest('.verse-card') : null;
+      if (!verseCard) {
+        return null;
+      }
+
+      const verseNum = Number(verseCard.dataset.verseNum);
+      if (!Number.isFinite(verseNum) || verseNum <= 0) {
+        return null;
+      }
+
+      const pane = verseCard.closest('#secondaryVerseContainer') ? 'secondary' : 'primary';
+      const verses = pane === 'secondary' ? state.compareSecondaryVerses : state.verses;
+      const rawText = verses[verseNum - 1];
+      if (!rawText) {
+        return null;
+      }
+
+      const displayText = cleanDisplayedVerseText(rawText, verseNum, verseNum < verses.length ? verseNum + 1 : null, pane);
+      const bookName = pane === 'secondary'
+        ? getTranslationBookName(state.compareTranslations.secondary, getCanonicalBookName(state.translationId, state.currentBook))
+        : state.currentBook;
+      const chapterNumber = state.currentChapter;
+      const translationId = pane === 'secondary' ? state.compareTranslations.secondary : state.translationId;
+
+      return {
+        pane,
+        verseNum,
+        bookName,
+        chapterNumber,
+        translationId,
+        reference: `${bookName} ${chapterNumber}:${verseNum}`,
+        text: displayText
+      };
+    }
+
+    function openVerseActionMenu(selection) {
+      if (!selection) {
+        return;
+      }
+
+      state.verseActionSelection = selection;
+      verseActionSubtitleEl.textContent = selection.reference;
+      verseActionModal.classList.add('open');
+      verseActionModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeVerseActionMenu() {
+      state.verseActionSelection = null;
+      verseActionModal.classList.remove('open');
+      verseActionModal.setAttribute('aria-hidden', 'true');
+    }
+
+    async function copySelectedVerse() {
+      const selection = state.verseActionSelection;
+      if (!selection) {
+        return;
+      }
+
+      const copyText = `${selection.reference} — ${selection.text}`;
+
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(copyText);
+        } else {
+          const helper = document.createElement('textarea');
+          helper.value = copyText;
+          helper.setAttribute('readonly', 'readonly');
+          helper.style.position = 'fixed';
+          helper.style.opacity = '0';
+          helper.style.pointerEvents = 'none';
+          document.body.appendChild(helper);
+          helper.select();
+          document.execCommand('copy');
+          document.body.removeChild(helper);
+        }
+
+        setHint(`Copied ${selection.reference}.`);
+        closeVerseActionMenu();
+      } catch (error) {
+        showError('Could not copy this verse on this device.');
+      }
     }
 
     function getVerseCard(verseNum, pane = 'primary') {
@@ -3030,6 +3213,11 @@
     });
 
     function handleVerseContainerClick(e) {
+      if (Date.now() <= state.mobileLongPressSuppressClickUntil) {
+        e.preventDefault();
+        return;
+      }
+
       const locationButton = e.target.closest('.location-link');
       if (!locationButton) {
         const wordButton = e.target.closest('.word-link');
@@ -3046,6 +3234,14 @@
 
     verseContainer.addEventListener('click', handleVerseContainerClick);
     secondaryVerseContainer.addEventListener('click', handleVerseContainerClick);
+    verseContainer.addEventListener('touchstart', handleMobileLongPressStart, { passive: true });
+    secondaryVerseContainer.addEventListener('touchstart', handleMobileLongPressStart, { passive: true });
+    verseContainer.addEventListener('touchmove', handleMobileLongPressMove, { passive: true });
+    secondaryVerseContainer.addEventListener('touchmove', handleMobileLongPressMove, { passive: true });
+    verseContainer.addEventListener('touchend', finishMobileLongPress, { passive: false });
+    secondaryVerseContainer.addEventListener('touchend', finishMobileLongPress, { passive: false });
+    verseContainer.addEventListener('touchcancel', clearMobileLongPressState, { passive: true });
+    secondaryVerseContainer.addEventListener('touchcancel', clearMobileLongPressState, { passive: true });
     verseContainer.addEventListener('scroll', () => {
       if (state.compareSyncIgnorePane === 'primary' && Date.now() <= state.compareSyncIgnoreUntil) {
         return;
@@ -3109,6 +3305,15 @@
         closeSettingsModal();
       }
     });
+    copyVerseButton.addEventListener('click', async () => {
+      await copySelectedVerse();
+    });
+    closeVerseActionButton.addEventListener('click', closeVerseActionMenu);
+    verseActionModal.addEventListener('click', (e) => {
+      if (e.target === verseActionModal) {
+        closeVerseActionMenu();
+      }
+    });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && translationPicker.classList.contains('open')) {
@@ -3122,6 +3327,9 @@
       }
       if (e.key === 'Escape' && settingsModal.classList.contains('open')) {
         closeSettingsModal();
+      }
+      if (e.key === 'Escape' && verseActionModal.classList.contains('open')) {
+        closeVerseActionMenu();
       }
     });
 
