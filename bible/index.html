@@ -788,6 +788,14 @@
         dataDir: 'Bible-kjv-main',
         localBundle: 'data/verses-kjv.js',
         bundleKey: 'kjv'
+      },
+      lxx: {
+        id: 'lxx',
+        label: 'LXX',
+        fullLabel: 'Septuagint (Old Testament)',
+        dataDir: 'Bible-lxx-pdf-main',
+        localBundle: 'data/verses-lxx.js',
+        bundleKey: 'lxx'
       }
     };
     const DEFAULT_TRANSLATION_ID = 'niv';
@@ -1096,7 +1104,7 @@
         button.innerHTML = `
           <span class="translation-option-meta">
             <span class="translation-option-label">${escapeHtml(translation.label)}</span>
-            <span class="translation-option-description">Open ${escapeHtml(translation.label)} in the reader</span>
+            <span class="translation-option-description">${escapeHtml(translation.fullLabel || translation.label)}</span>
           </span>
           <span class="translation-option-check" aria-hidden="true">✓</span>
         `;
@@ -1409,6 +1417,38 @@
       throw new Error('Unexpected book JSON format.');
     }
 
+    function sanitizeChapterVerses(verses, translationId = state.translationId) {
+      const values = Array.isArray(verses)
+        ? verses.map((verseText) => typeof verseText === 'string' ? verseText.trim() : '')
+        : [];
+
+      if (translationId !== 'lxx') {
+        return values;
+      }
+
+      const nonEmpty = values.filter(Boolean);
+      if (!nonEmpty.length) {
+        return null;
+      }
+
+      if (values.length > 200 || nonEmpty.length / values.length < 0.6) {
+        return nonEmpty;
+      }
+
+      return values;
+    }
+
+    function sanitizeBookData(bookData, translationId = state.translationId) {
+      const sanitized = {};
+      Object.entries(bookData || {}).forEach(([chapterKey, verses]) => {
+        const safeVerses = sanitizeChapterVerses(verses, translationId);
+        if (safeVerses && safeVerses.length) {
+          sanitized[chapterKey] = safeVerses;
+        }
+      });
+      return sanitized;
+    }
+
     async function loadBookList(translationId = state.translationId) {
       const translation = getTranslationConfig(translationId);
       const books = await fetchJson(`${translation.dataDir}/Books.json`);
@@ -1426,7 +1466,7 @@
       const translation = getTranslationConfig();
       const encodedFileName = encodeURIComponent(bookName) + '.json';
       const raw = await fetchJson(`${translation.dataDir}/${encodedFileName}`);
-      const normalized = normalizeBookPayload(raw);
+      const normalized = sanitizeBookData(normalizeBookPayload(raw), state.translationId);
       state.bookCache.set(bookName, normalized);
       return normalized;
     }
@@ -1442,10 +1482,13 @@
         };
 
         if (bundledBible) {
-          cached.bookOrder = Object.keys(bundledBible);
           Object.entries(bundledBible).forEach(([bookName, chapters]) => {
-            cached.bookCache.set(bookName, chapters);
+            const sanitizedBook = sanitizeBookData(chapters, translationId);
+            if (Object.keys(sanitizedBook).length) {
+              cached.bookCache.set(bookName, sanitizedBook);
+            }
           });
+          cached.bookOrder = Array.from(cached.bookCache.keys());
         } else {
           cached.bookOrder = await loadBookList(translationId);
         }
@@ -1465,7 +1508,7 @@
       const translation = getTranslationConfig(translationId);
       const encodedFileName = encodeURIComponent(bookName) + '.json';
       const raw = await fetchJson(`${translation.dataDir}/${encodedFileName}`);
-      const normalized = normalizeBookPayload(raw);
+      const normalized = sanitizeBookData(normalizeBookPayload(raw), translationId);
       translationState.bookCache.set(bookName, normalized);
       return normalized;
     }
@@ -1628,6 +1671,26 @@
       return markup;
     }
 
+    function cleanDisplayedVerseText(text, verseNumber, nextVerseNumber = null, pane = 'primary') {
+      const plainText = text ?? '';
+      let cleaned = plainText.replace(new RegExp(`^\\s*${escapeRegExp(String(verseNumber))}\\s+`), '').trim();
+      const activeTranslationId = pane === 'secondary' ? state.compareTranslations.secondary : state.translationId;
+
+      if (nextVerseNumber != null) {
+        cleaned = cleaned.replace(new RegExp(`\\s+${escapeRegExp(String(nextVerseNumber))}\\s*$`), '').trim();
+      }
+
+      if (activeTranslationId === 'lxx') {
+        cleaned = cleaned
+          .replace(/\s+\d{1,4}(?=[,.;:?!)]?(?:\s|$))/g, ' ')
+          .replace(/\(\s*\d{1,4}\s*\)/g, ' ')
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+      }
+
+      return cleaned;
+    }
+
     function getVerseCard(verseNum, pane = 'primary') {
       const container = pane === 'secondary' ? secondaryVerseContainer : verseContainer;
       return container.querySelector(`.verse-card[data-verse-num="${verseNum}"]`);
@@ -1643,13 +1706,14 @@
 
       verses.forEach((text, idx) => {
         const number = idx + 1;
+        const nextNumber = idx + 2 <= verses.length ? idx + 2 : null;
         const card = document.createElement('article');
         card.id = pane === 'primary' ? `verse-${number}` : `${pane}-verse-${number}`;
         card.className = 'verse-card';
         card.dataset.verseNum = String(number);
 
         const numSpan = `<span class="verse-number ${number < 10 ? 'single-digit' : 'double-digit'}">${number}</span>`;
-        card.innerHTML = `<p class="verse-line">${numSpan} ${buildVerseMarkup(text)}</p>`;
+        card.innerHTML = `<p class="verse-line">${numSpan} ${buildVerseMarkup(cleanDisplayedVerseText(text, number, nextNumber, pane))}</p>`;
         container.appendChild(card);
       });
     }
@@ -1668,6 +1732,77 @@
         ? bookData[String(state.currentChapter)]
         : [];
       updateCompareControls();
+    }
+
+    async function resolveSharedCompareLocation(primaryTranslationId, secondaryTranslationId, preferredBook, preferredChapter) {
+      const primaryState = await getCachedTranslationState(primaryTranslationId);
+      const secondaryState = await getCachedTranslationState(secondaryTranslationId);
+      const commonBooks = primaryState.bookOrder.filter((bookName) => secondaryState.bookOrder.includes(bookName));
+
+      if (!commonBooks.length) {
+        return null;
+      }
+
+      const candidateBooks = [];
+      if (preferredBook && commonBooks.includes(preferredBook)) {
+        candidateBooks.push(preferredBook);
+      }
+      if (commonBooks.includes('Genesis') && !candidateBooks.includes('Genesis')) {
+        candidateBooks.push('Genesis');
+      }
+      commonBooks.forEach((bookName) => {
+        if (!candidateBooks.includes(bookName)) {
+          candidateBooks.push(bookName);
+        }
+      });
+
+      for (const bookName of candidateBooks) {
+        const primaryBookData = await ensureBookLoadedForTranslation(primaryTranslationId, bookName);
+        const secondaryBookData = await ensureBookLoadedForTranslation(secondaryTranslationId, bookName);
+        const primaryChapters = Object.keys(primaryBookData).map(Number).sort((a, b) => a - b);
+        const secondaryChapters = Object.keys(secondaryBookData).map(Number).sort((a, b) => a - b);
+        const commonChapters = primaryChapters.filter((chapterNumber) => secondaryChapters.includes(chapterNumber));
+
+        if (!commonChapters.length) {
+          continue;
+        }
+
+        if (bookName === preferredBook && preferredChapter && commonChapters.includes(preferredChapter)) {
+          return { book: bookName, chapter: preferredChapter };
+        }
+
+        return {
+          book: bookName,
+          chapter: commonChapters[0]
+        };
+      }
+
+      return null;
+    }
+
+    async function ensureCompareLocationCompatibility(secondaryTranslationId = state.compareTranslations.secondary) {
+      if (!state.compareMode || !state.currentBook || !state.currentChapter) {
+        return true;
+      }
+
+      const sharedLocation = await resolveSharedCompareLocation(
+        state.translationId,
+        secondaryTranslationId,
+        state.currentBook,
+        state.currentChapter
+      );
+
+      if (!sharedLocation) {
+        state.compareSecondaryVerses = [];
+        updateCompareControls();
+        return false;
+      }
+
+      if (sharedLocation.book !== state.currentBook || sharedLocation.chapter !== state.currentChapter) {
+        await goToChapter(sharedLocation.book, sharedLocation.chapter, { scrollToTop: false });
+      }
+
+      return true;
     }
 
     function renderVerses() {
@@ -1730,6 +1865,9 @@
         state.compareTranslations.secondary = DEFAULT_COMPARE_SECONDARY_ID;
       }
 
+      if (enabled) {
+        await ensureCompareLocationCompatibility(state.compareTranslations.secondary);
+      }
       await syncCompareVerses();
       renderVerses();
       updateMenuButtonLabel();
@@ -1769,6 +1907,7 @@
         await switchTranslation(translationId, { closeSettingsAfter: false });
       } else {
         state.compareTranslations.secondary = translationId;
+        await ensureCompareLocationCompatibility(translationId);
         await syncCompareVerses();
         renderVerses();
         if (state.compareMode && state.compareScrollSync) {
@@ -2318,45 +2457,44 @@
         if (state.menuState === 'books') {
           menuDrop.innerHTML = '';
           updateMenuTheme();
-          appendMenuSubhead('Old Testament');
-          state.bookOrder.forEach((book) => {
-            if (NEW_TESTAMENT_BOOKS.has(book)) {
-              return;
-            }
+          const oldTestamentBooks = state.bookOrder.filter((book) => !NEW_TESTAMENT_BOOKS.has(book));
+          const newTestamentBooks = state.bookOrder.filter((book) => NEW_TESTAMENT_BOOKS.has(book));
 
-            const bookBtn = document.createElement('button');
-            bookBtn.textContent = book;
-            bookBtn.className = 'book-btn old-testament';
-            bookBtn.addEventListener('click', async (e) => {
-              e.stopPropagation();
-              state.selectedBook = book;
-              await ensureBookLoaded(book);
-              state.menuTransition = 'slide-in-next';
-              state.menuState = 'chapters';
-              await renderMenu();
+          if (oldTestamentBooks.length) {
+            appendMenuSubhead('Old Testament');
+            oldTestamentBooks.forEach((book) => {
+              const bookBtn = document.createElement('button');
+              bookBtn.textContent = book;
+              bookBtn.className = 'book-btn old-testament';
+              bookBtn.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                state.selectedBook = book;
+                await ensureBookLoaded(book);
+                state.menuTransition = 'slide-in-next';
+                state.menuState = 'chapters';
+                await renderMenu();
+              });
+              menuDrop.appendChild(bookBtn);
             });
-            menuDrop.appendChild(bookBtn);
-          });
+          }
 
-          appendMenuSubhead('New Testament');
-          state.bookOrder.forEach((book) => {
-            if (!NEW_TESTAMENT_BOOKS.has(book)) {
-              return;
-            }
-
-            const bookBtn = document.createElement('button');
-            bookBtn.textContent = book;
-            bookBtn.className = 'book-btn new-testament';
-            bookBtn.addEventListener('click', async (e) => {
-              e.stopPropagation();
-              state.selectedBook = book;
-              await ensureBookLoaded(book);
-              state.menuTransition = 'slide-in-next';
-              state.menuState = 'chapters';
-              await renderMenu();
+          if (newTestamentBooks.length) {
+            appendMenuSubhead('New Testament');
+            newTestamentBooks.forEach((book) => {
+              const bookBtn = document.createElement('button');
+              bookBtn.textContent = book;
+              bookBtn.className = 'book-btn new-testament';
+              bookBtn.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                state.selectedBook = book;
+                await ensureBookLoaded(book);
+                state.menuTransition = 'slide-in-next';
+                state.menuState = 'chapters';
+                await renderMenu();
+              });
+              menuDrop.appendChild(bookBtn);
             });
-            menuDrop.appendChild(bookBtn);
-          });
+          }
           return;
         }
 
@@ -2504,6 +2642,12 @@
 
         if (closeSettingsAfter) {
           closeSettingsModal();
+        }
+
+        if (state.compareMode) {
+          await ensureCompareLocationCompatibility(state.compareTranslations.secondary);
+          await syncCompareVerses();
+          renderVerses();
         }
       } finally {
         translationPickerButton.disabled = false;
