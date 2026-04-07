@@ -958,6 +958,7 @@
     const copyVerseButton = document.getElementById('copyVerseButton');
     const closeVerseActionButton = document.getElementById('closeVerseActionButton');
     const MOBILE_LONG_PRESS_MS = 450;
+    const MOBILE_LONG_PRESS_MOVE_TOLERANCE = 12;
 
     const state = {
       translationId: DEFAULT_TRANSLATION_ID,
@@ -1004,6 +1005,8 @@
       mobileLongPressTriggered: false,
       mobileLongPressStartAt: 0,
       mobileLongPressTarget: null,
+      mobileLongPressStartX: 0,
+      mobileLongPressStartY: 0,
       mobileLongPressSuppressClickUntil: 0,
       verseActionSelection: null,
       verseActionIgnoreClickUntil: 0
@@ -1930,6 +1933,8 @@
       state.mobileLongPressTriggered = false;
       state.mobileLongPressStartAt = 0;
       state.mobileLongPressTarget = null;
+      state.mobileLongPressStartX = 0;
+      state.mobileLongPressStartY = 0;
     }
 
     function handleMobileLongPressStart(event) {
@@ -1942,6 +1947,8 @@
       clearMobileLongPressState();
       state.mobileLongPressStartAt = Date.now();
       state.mobileLongPressTarget = target;
+      state.mobileLongPressStartX = event.touches[0].clientX;
+      state.mobileLongPressStartY = event.touches[0].clientY;
       state.mobileLongPressTimerId = window.setTimeout(() => {
         state.mobileLongPressTriggered = true;
         state.mobileLongPressTimerId = null;
@@ -1953,8 +1960,21 @@
         return;
       }
 
+      if (event.touches.length !== 1) {
+        clearMobileLongPressState();
+        return;
+      }
+
       const currentTarget = event.target instanceof HTMLElement ? event.target.closest('.verse-line, .verse-card') : null;
       if (!currentTarget || currentTarget !== state.mobileLongPressTarget) {
+        clearMobileLongPressState();
+        return;
+      }
+
+      const touch = event.touches[0];
+      const movedX = Math.abs(touch.clientX - state.mobileLongPressStartX);
+      const movedY = Math.abs(touch.clientY - state.mobileLongPressStartY);
+      if (movedX > MOBILE_LONG_PRESS_MOVE_TOLERANCE || movedY > MOBILE_LONG_PRESS_MOVE_TOLERANCE) {
         clearMobileLongPressState();
       }
     }
