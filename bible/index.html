@@ -731,7 +731,7 @@
       <ul class="footer-sources">
         <li><strong>NIV text:</strong> downloaded from <a href="https://github.com/aruljohn/Bible-niv/" target="_blank" rel="noopener noreferrer">aruljohn/Bible-niv</a> and bundled locally in <a href="./Bible-niv-main/">Bible-niv-main</a>.</li>
         <li><strong>KJV text:</strong> downloaded from <a href="https://github.com/aruljohn/Bible-kjv" target="_blank" rel="noopener noreferrer">aruljohn/Bible-kjv</a> and bundled locally in <a href="./Bible-kjv-main/">Bible-kjv-main</a>.</li>
-        <li><strong>LXX text:</strong> built from the bundled <a href="./Seputagint/">NETS Septuagint PDF set</a> and converted into the local reader format in <a href="./Bible-lxx-pdf-main/">Bible-lxx-pdf-main</a>. Source files in this repo identify the translation as <em>A New English Translation of the Septuagint (NETS)</em>, published in 2007 by the International Organization for Septuagint and Cognate Studies and used with Oxford University Press copyright notices.</li>
+        <li><strong>LXX text:</strong> built from the bundled public-domain <a href="./brenton-source/eng-Brenton_usfm/">Brenton English Septuagint USFM source</a> and converted into the local reader format in <a href="./Bible-lxx-pdf-main/">Bible-lxx-pdf-main</a>.</li>
         <li><strong>Location references and maps:</strong> the place-name/source index in this repo was built from <a href="https://bibleask.org/resources/bible-names/names-of-places-in-the-bible/" target="_blank" rel="noopener noreferrer">BibleAsk</a>, and the displayed map images come from the bundled local map set in <a href="./img/location/">img/location</a>.</li>
       </ul>
     </div>
@@ -1013,6 +1013,43 @@
       '1 John', '2 John', '3 John', 'Jude', 'Revelation'
     ]);
 
+    const LXX_CANONICAL_BOOK_MAP = {
+      'Kings I': '1 Samuel',
+      'Kings II': '2 Samuel',
+      'Kings III': '1 Kings',
+      'Kings IV': '2 Kings',
+      'Chronicles I': '1 Chronicles',
+      'Chronicles II': '2 Chronicles',
+      'Esdras I': '1 Esdras',
+      'Ezra and Nehemiah': '2 Esdras',
+      'Esther (Greek)': 'Esther',
+      'Maccabees I': '1 Maccabees',
+      'Maccabees II': '2 Maccabees',
+      'Maccabees III': '3 Maccabees',
+      'Maccabees IV': '4 Maccabees',
+      'Wisdom Of Jesus The Son Of Sirach (Ecclesiasticus)': 'Sirach',
+      'The Prayer of Manasses': 'Prayer of Manasses',
+      Osee: 'Hosea',
+      Obdias: 'Obadiah',
+      Jonas: 'Jonah',
+      'Michæas': 'Micah',
+      Naum: 'Nahum',
+      Ambacum: 'Habakkuk',
+      Sophonias: 'Zephaniah',
+      'Aggæus': 'Haggai',
+      Zacharias: 'Zechariah',
+      Malachias: 'Malachi',
+      Esaias: 'Isaiah',
+      Jeremias: 'Jeremiah',
+      'Epistle of Jeremy': 'Letter of Jeremiah',
+      Jezekiel: 'Ezekiel',
+      'Daniel (Greek)': 'Daniel'
+    };
+
+    const LXX_SOURCE_BOOK_MAP = Object.fromEntries(
+      Object.entries(LXX_CANONICAL_BOOK_MAP).map(([sourceName, canonicalName]) => [canonicalName, sourceName])
+    );
+
     const BOOK_TO_MAP = {
       Genesis: '03 The Near East During the Time of the Patriarchs.png',
       Exodus: '08 Israels Exodus and Wanderings.png',
@@ -1108,8 +1145,24 @@
       Patmos: ['43 The Churches of Revelation.png', '38 The Mediterranean World During the Time of Acts.png']
     };
 
-    function updateVerseAccentTheme(bookName) {
-      const accentTheme = NEW_TESTAMENT_BOOKS.has(bookName)
+    function getCanonicalBookName(translationId, bookName) {
+      if (translationId === 'lxx') {
+        return LXX_CANONICAL_BOOK_MAP[bookName] || bookName;
+      }
+
+      return bookName;
+    }
+
+    function getTranslationBookName(translationId, canonicalBookName) {
+      if (translationId === 'lxx') {
+        return LXX_SOURCE_BOOK_MAP[canonicalBookName] || canonicalBookName;
+      }
+
+      return canonicalBookName;
+    }
+
+    function updateVerseAccentTheme(bookName, translationId = state.translationId) {
+      const accentTheme = NEW_TESTAMENT_BOOKS.has(getCanonicalBookName(translationId, bookName))
         ? (document.body.classList.contains('dark-mode') ? NEW_TESTAMENT_ACCENT_DARK : NEW_TESTAMENT_ACCENT)
         : (document.body.classList.contains('dark-mode') ? OLD_TESTAMENT_ACCENT_DARK : OLD_TESTAMENT_ACCENT);
 
@@ -1486,9 +1539,52 @@
       throw new Error('Unexpected book JSON format.');
     }
 
+    const LXX_EDITORIAL_START_PATTERN = /(?:\blexica and grammars\b|\bBIBLIOGRAPHICAL NOTE\b|\bTO THE READE\b|\bAlbert Pietersma\b|\bOakTree Software\b|\bScholars Press\b|\bThe Cambridge Bible Commentary\b|\btranslation process\b|\bNETS\b|\bNRSV\b|\bSeptuagintal\b|\bMelbourne Symposium\b|\bGreek Text of\b|\binterlinear text\b|\btranslation committee\b|\bYale University Press\b|\bOxford University Press\b)/i;
+    const LXX_EDITORIAL_RESUME_PATTERN = /(?:\bbeing in the firmament\b|\bThere was a man\b|\bAnd it came about\b|\bAnd it happened\b|\bfor Iob said\b|\bProverbs of Salomon\b|\bJudges B\b|\bEsdrelom\b|\buntil one comes\b|\bAnd the woman went on her way\b|\bthe sons of Israel were inquiring\b|\bwho reigned in Israel\b)/i;
+
+    function stripLxxEditorialNoise(text) {
+      let cleaned = typeof text === 'string' ? text.trim() : '';
+      if (!cleaned) {
+        return '';
+      }
+
+      let guard = 0;
+      while (guard < 6) {
+        guard += 1;
+        const startMatch = cleaned.match(LXX_EDITORIAL_START_PATTERN);
+        if (!startMatch || startMatch.index == null) {
+          break;
+        }
+
+        const startIndex = startMatch.index;
+        const resumeSearchStart = Math.min(cleaned.length, startIndex + startMatch[0].length + 80);
+        const tail = cleaned.slice(resumeSearchStart);
+        const resumeMatch = tail.match(LXX_EDITORIAL_RESUME_PATTERN);
+
+        if (resumeMatch && resumeMatch.index != null) {
+          cleaned = `${cleaned.slice(0, startIndex).trim()} ${tail.slice(resumeMatch.index).trim()}`.trim();
+          continue;
+        }
+
+        cleaned = cleaned.slice(0, startIndex).trim();
+        break;
+      }
+
+      cleaned = cleaned
+        .replace(/\b(?:BIBLIOGRAPHICAL NOTE|TO THE READE)\b/gi, ' ')
+        .replace(/\b(?:NETS|NRSV)\b/g, ' ')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+
+      return cleaned;
+    }
+
     function sanitizeChapterVerses(verses, translationId = state.translationId) {
       const values = Array.isArray(verses)
-        ? verses.map((verseText) => typeof verseText === 'string' ? verseText.trim() : '')
+        ? verses.map((verseText) => {
+          const text = typeof verseText === 'string' ? verseText.trim() : '';
+          return translationId === 'lxx' ? stripLxxEditorialNoise(text) : text;
+        })
         : [];
 
       if (translationId !== 'lxx') {
@@ -1651,7 +1747,8 @@
     }
 
     function updateMenuTheme() {
-      const shouldUseNewTestamentTheme = state.menuState !== 'books' && NEW_TESTAMENT_BOOKS.has(state.selectedBook);
+      const shouldUseNewTestamentTheme = state.menuState !== 'books'
+        && NEW_TESTAMENT_BOOKS.has(getCanonicalBookName(state.translationId, state.selectedBook));
       menuDrop.classList.toggle('new-testament-menu', shouldUseNewTestamentTheme);
     }
 
@@ -1827,18 +1924,20 @@
 
       const translationState = await getCachedTranslationState(state.compareTranslations.secondary);
       const secondaryLabel = getTranslationConfig(state.compareTranslations.secondary).label;
+      const currentCanonicalBook = getCanonicalBookName(state.translationId, state.currentBook);
+      const secondaryBookName = getTranslationBookName(state.compareTranslations.secondary, currentCanonicalBook);
 
-      if (!translationState.bookOrder.includes(state.currentBook)) {
+      if (!translationState.bookOrder.includes(secondaryBookName)) {
         state.compareSecondaryVerses = [];
-        state.compareSecondaryMessage = state.compareTranslations.secondary === 'lxx' && NEW_TESTAMENT_BOOKS.has(state.currentBook)
+        state.compareSecondaryMessage = state.compareTranslations.secondary === 'lxx' && NEW_TESTAMENT_BOOKS.has(currentCanonicalBook)
           ? 'LXX Bible only has the Old Testament, so this New Testament book is not available there.'
-          : `${secondaryLabel} Bible does not have ${state.currentBook}.`;
+          : `${secondaryLabel} Bible does not have ${currentCanonicalBook}.`;
         updateCompareControls();
         return;
       }
 
-      await ensureBookLoadedForTranslation(state.compareTranslations.secondary, state.currentBook);
-      const bookData = translationState.bookCache.get(state.currentBook) || {};
+      await ensureBookLoadedForTranslation(state.compareTranslations.secondary, secondaryBookName);
+      const bookData = translationState.bookCache.get(secondaryBookName) || {};
       state.compareSecondaryVerses = Array.isArray(bookData[String(state.currentChapter)])
         ? bookData[String(state.currentChapter)]
         : [];
@@ -1851,15 +1950,24 @@
     async function resolveSharedCompareLocation(primaryTranslationId, secondaryTranslationId, preferredBook, preferredChapter) {
       const primaryState = await getCachedTranslationState(primaryTranslationId);
       const secondaryState = await getCachedTranslationState(secondaryTranslationId);
-      const commonBooks = primaryState.bookOrder.filter((bookName) => secondaryState.bookOrder.includes(bookName));
+      const primaryCanonicalBooks = primaryState.bookOrder.map((bookName) => getCanonicalBookName(primaryTranslationId, bookName));
+      const secondaryCanonicalBooks = new Set(
+        secondaryState.bookOrder.map((bookName) => getCanonicalBookName(secondaryTranslationId, bookName))
+      );
+      const commonBooks = primaryCanonicalBooks.filter((bookName, index) => (
+        secondaryCanonicalBooks.has(bookName) && primaryCanonicalBooks.indexOf(bookName) === index
+      ));
+      const preferredCanonicalBook = preferredBook
+        ? getCanonicalBookName(primaryTranslationId, preferredBook)
+        : null;
 
       if (!commonBooks.length) {
         return null;
       }
 
       const candidateBooks = [];
-      if (preferredBook && commonBooks.includes(preferredBook)) {
-        candidateBooks.push(preferredBook);
+      if (preferredCanonicalBook && commonBooks.includes(preferredCanonicalBook)) {
+        candidateBooks.push(preferredCanonicalBook);
       }
       if (commonBooks.includes('Genesis') && !candidateBooks.includes('Genesis')) {
         candidateBooks.push('Genesis');
@@ -1870,9 +1978,11 @@
         }
       });
 
-      for (const bookName of candidateBooks) {
-        const primaryBookData = await ensureBookLoadedForTranslation(primaryTranslationId, bookName);
-        const secondaryBookData = await ensureBookLoadedForTranslation(secondaryTranslationId, bookName);
+      for (const canonicalBookName of candidateBooks) {
+        const primaryBookName = getTranslationBookName(primaryTranslationId, canonicalBookName);
+        const secondaryBookName = getTranslationBookName(secondaryTranslationId, canonicalBookName);
+        const primaryBookData = await ensureBookLoadedForTranslation(primaryTranslationId, primaryBookName);
+        const secondaryBookData = await ensureBookLoadedForTranslation(secondaryTranslationId, secondaryBookName);
         const primaryChapters = Object.keys(primaryBookData).map(Number).sort((a, b) => a - b);
         const secondaryChapters = Object.keys(secondaryBookData).map(Number).sort((a, b) => a - b);
         const commonChapters = primaryChapters.filter((chapterNumber) => secondaryChapters.includes(chapterNumber));
@@ -1881,12 +1991,12 @@
           continue;
         }
 
-        if (bookName === preferredBook && preferredChapter && commonChapters.includes(preferredChapter)) {
-          return { book: bookName, chapter: preferredChapter };
+        if (canonicalBookName === preferredCanonicalBook && preferredChapter && commonChapters.includes(preferredChapter)) {
+          return { book: primaryBookName, chapter: preferredChapter };
         }
 
         return {
-          book: bookName,
+          book: primaryBookName,
           chapter: commonChapters[0]
         };
       }
@@ -2078,13 +2188,13 @@
       }
 
       (LOCATION_TO_MAPS[entry.name] || []).forEach(addMap);
-      addMap(BOOK_TO_MAP[state.currentBook]);
+      addMap(BOOK_TO_MAP[getCanonicalBookName(state.translationId, state.currentBook)] || BOOK_TO_MAP[state.currentBook]);
 
       getLocationReferenceBooks(entry)
         .slice(0, 4)
-        .forEach((bookName) => addMap(BOOK_TO_MAP[bookName]));
+        .forEach((bookName) => addMap(BOOK_TO_MAP[getCanonicalBookName(state.translationId, bookName)] || BOOK_TO_MAP[bookName]));
 
-      if (NEW_TESTAMENT_BOOKS.has(state.currentBook)) {
+      if (NEW_TESTAMENT_BOOKS.has(getCanonicalBookName(state.translationId, state.currentBook))) {
         addMap('37 Israel During the Time of Acts.png');
         addMap('38 The Mediterranean World During the Time of Acts.png');
       } else {
@@ -2573,8 +2683,8 @@
         if (state.menuState === 'books') {
           menuDrop.innerHTML = '';
           updateMenuTheme();
-          const oldTestamentBooks = state.bookOrder.filter((book) => !NEW_TESTAMENT_BOOKS.has(book));
-          const newTestamentBooks = state.bookOrder.filter((book) => NEW_TESTAMENT_BOOKS.has(book));
+          const oldTestamentBooks = state.bookOrder.filter((book) => !NEW_TESTAMENT_BOOKS.has(getCanonicalBookName(state.translationId, book)));
+          const newTestamentBooks = state.bookOrder.filter((book) => NEW_TESTAMENT_BOOKS.has(getCanonicalBookName(state.translationId, book)));
 
           if (oldTestamentBooks.length) {
             appendMenuSubhead('Old Testament');
