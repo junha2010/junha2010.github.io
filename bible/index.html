@@ -520,8 +520,11 @@
         border-bottom: 1px solid var(--border-soft);
         background: var(--surface-elevated);
         backdrop-filter: none;
-        align-items: flex-start;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        column-gap: 0.5rem;
+        row-gap: 0;
       }
       body.compare-mode .verse-container {
         min-height: 0;
@@ -539,9 +542,15 @@
       }
       .compare-layout.compare-enabled { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
       .compare-layout.compare-enabled .compare-pane-secondary { padding-left: 0; padding-top: 1.25rem; border-left: none; border-top: 1px solid var(--border-soft); }
-      .compare-pane-toolbar { top: 4.8rem; align-items: flex-start; flex-direction: column; }
-      .compare-pane-controls { width: 100%; }
-      .compare-picker { width: 100%; max-width: none; }
+      body.compare-mode .compare-pane-toolbar { top: 4.8rem; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 0.5rem; row-gap: 0; }
+      body.compare-mode .compare-pane-copy { min-width: 0; }
+      body.compare-mode .compare-pane-controls { width: auto; flex: 0 0 auto; display: flex; align-items: center; gap: 0.45rem; margin-left: auto; }
+      body.compare-mode .compare-pane-toolbar > .compare-picker,
+      body.compare-mode .compare-pane-controls > .compare-picker { flex: 0 0 auto; justify-self: end; }
+      body.compare-mode .compare-picker { width: auto; min-width: 132px; max-width: min(46vw, 180px); }
+      body.compare-mode .compare-picker-btn { padding: 0.62rem 0.8rem; }
+      body.compare-mode .compare-picker-title { font-size: 0.84rem; }
+      body.compare-mode .compare-picker-caption { font-size: 0.66rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
       .compare-sync-btn { min-width: 2.55rem; width: 2.55rem; padding: 0; }
       .compare-sync-text { display: none; }
       .verse-container.reading-mode .verse-line { font-size: calc(1.04rem * var(--text-scale)); line-height: 2; }
@@ -632,7 +641,8 @@
             <p class="compare-pane-label">Secondary</p>
             <p class="compare-pane-name">Right Bible</p>
           </div>
-          <div id="compareSecondaryPicker" class="compare-picker">
+          <div class="compare-pane-controls">
+            <div id="compareSecondaryPicker" class="compare-picker">
             <button id="compareSecondaryPickerButton" class="compare-picker-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="compareSecondaryOptions">
               <span class="compare-picker-value">
                 <span id="compareSecondaryPickerValue" class="compare-picker-title">KJV</span>
@@ -641,6 +651,7 @@
               <span class="compare-picker-caret">▼</span>
             </button>
             <div id="compareSecondaryOptions" class="compare-picker-options" role="listbox" aria-label="Choose the secondary Bible version"></div>
+            </div>
           </div>
         </div>
         <div id="secondaryVerseContainer" class="verse-container"></div>
