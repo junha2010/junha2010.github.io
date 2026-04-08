@@ -1479,6 +1479,7 @@
       mobileLongPressStartX: 0,
       mobileLongPressStartY: 0,
       mobileLongPressSuppressClickUntil: 0,
+      lastMobileHapticAt: 0,
       verseActionSelection: null,
       verseActionIgnoreClickUntil: 0,
       verseActionPreview: null,
@@ -2730,6 +2731,34 @@
       return window.matchMedia('(max-width: 520px)').matches;
     }
 
+    function canUseMobileHaptics() {
+      return isMobileViewport() && typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function';
+    }
+
+    function triggerMobileHaptic(kind = 'light') {
+      if (!canUseMobileHaptics()) {
+        return;
+      }
+
+      const pattern = kind === 'menu'
+        ? [12, 24, 12]
+        : kind === 'strong'
+          ? 20
+          : 10;
+
+      navigator.vibrate(pattern);
+    }
+
+    function triggerButtonPressHaptic() {
+      const now = Date.now();
+      if (now - state.lastMobileHapticAt < 60) {
+        return;
+      }
+
+      state.lastMobileHapticAt = now;
+      triggerMobileHaptic('light');
+    }
+
     function buildVerseMarkup(text) {
       const plainText = text ?? '';
       const locationRanges = [];
@@ -2945,6 +2974,7 @@
         return;
       }
 
+      triggerMobileHaptic('menu');
       clearVerseActionSelectionHighlight();
       if (state.devTools.verseInspector) {
         inspectVerseSelection(selection, 'verse-menu');
@@ -4581,6 +4611,19 @@
         setVerseActionPickerOpen(false);
       }
     }, true);
+
+    document.addEventListener('pointerdown', (e) => {
+      if (!canUseMobileHaptics() || e.pointerType === 'mouse') {
+        return;
+      }
+
+      const button = e.target.closest('button');
+      if (!button || button.disabled || button.getAttribute('aria-disabled') === 'true') {
+        return;
+      }
+
+      triggerButtonPressHaptic();
+    }, { passive: true, capture: true });
 
     document.addEventListener('keydown', (e) => {
       const target = e.target;
