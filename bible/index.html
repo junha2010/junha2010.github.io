@@ -174,6 +174,14 @@
     .dev-jump { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.6rem; }
     .dev-input { width: 100%; border: 1px solid var(--border-soft); border-radius: 0.9rem; background: var(--surface); color: var(--text-strong); padding: 0.78rem 0.9rem; font: inherit; }
     .dev-input:focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
+    .dev-theme-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.65rem; }
+    .dev-theme-field { display: grid; gap: 0.35rem; }
+    .dev-theme-field span { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
+    .dev-color-input { width: 100%; height: 3rem; border: 1px solid var(--border-soft); border-radius: 0.85rem; background: var(--surface); padding: 0.3rem; cursor: pointer; }
+    .dev-preset-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.55rem; margin-top: 0.7rem; }
+    .dev-preset-btn { border: 1px solid var(--border-soft); border-radius: 0.9rem; background: var(--surface); color: var(--text-strong); padding: 0.78rem 0.65rem; font: inherit; font-size: 0.78rem; font-weight: 800; cursor: pointer; text-align: left; }
+    .dev-preset-btn.active { border-color: rgba(56, 189, 248, 0.6); box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.35); }
+    .dev-search-status { margin-top: 0.65rem; font-size: 0.8rem; color: var(--text-soft); }
     .dev-log, .dev-inspector { font-size: 0.86rem; line-height: 1.55; color: var(--text); white-space: pre-wrap; word-break: break-word; max-height: 12rem; overflow: auto; }
     .dev-inspector code, .dev-log code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.82rem; }
     body.developer-mode.dev-location-debug .location-link { box-shadow: inset 0 -0.22em 0 rgba(56, 189, 248, 0.2); border-radius: 0.2rem; }
@@ -711,6 +719,16 @@
     .verse-container.reading-mode .verse-number.single-digit,
     .verse-container.reading-mode .verse-number.double-digit { font-size: 0.78em; }
     .verse-container.reading-mode .verse-card.verse-flash { border-radius: 0.45rem; box-shadow: none; animation: verse-flash-reading 1s ease; }
+    .verse-card.verse-search-hit {
+      background: color-mix(in srgb, var(--verse-accent, #0066cc) 18%, transparent);
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--verse-accent, #0066cc) 38%, transparent), 0 12px 28px color-mix(in srgb, var(--verse-accent, #0066cc) 16%, transparent);
+      border-left-color: var(--verse-accent-strong, #1d4ed8);
+      animation: verse-search-hit 2.2s ease;
+    }
+    .verse-container.reading-mode .verse-card.verse-search-hit {
+      border-radius: 0.45rem;
+      box-shadow: inset 0 -0.58em 0 color-mix(in srgb, var(--verse-accent, #0066cc) 18%, transparent);
+    }
     .location-link { border: none; background: none; padding: 0; color: inherit; font: inherit; font-weight: 700; text-decoration: underline; text-decoration-color: var(--verse-accent, #0066cc); text-decoration-thickness: 2px; text-underline-offset: 0.16em; cursor: pointer; transition: color 0.18s ease, text-decoration-color 0.18s ease; }
     .location-link:hover { color: var(--verse-accent, #0066cc); }
     .location-link:focus { outline: 2px solid var(--verse-accent, #0066cc); outline-offset: 2px; border-radius: 0.2rem; }
@@ -898,6 +916,11 @@
       0% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); box-shadow: inset 0 -0.02em 0 0 var(--verse-flash-reading-mid, rgba(0, 102, 204, 0)); }
       35% { background: var(--verse-flash-reading-mid, rgba(0, 102, 204, 0.26)); box-shadow: inset 0 -0.5em 0 0 var(--verse-flash-reading-mid, rgba(0, 102, 204, 0.26)); }
       100% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); box-shadow: inset 0 -0.02em 0 0 var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); }
+    }
+    @keyframes verse-search-hit {
+      0% { background: color-mix(in srgb, var(--verse-accent, #0066cc) 26%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--verse-accent, #0066cc) 48%, transparent), 0 0 0 0 color-mix(in srgb, var(--verse-accent, #0066cc) 0%, transparent); }
+      40% { background: color-mix(in srgb, var(--verse-accent, #0066cc) 16%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--verse-accent, #0066cc) 40%, transparent), 0 12px 28px color-mix(in srgb, var(--verse-accent, #0066cc) 18%, transparent); }
+      100% { background: transparent; box-shadow: 0 0 0 1px color-mix(in srgb, var(--verse-accent, #0066cc) 0%, transparent), 0 0 0 0 color-mix(in srgb, var(--verse-accent, #0066cc) 0%, transparent); }
     }
     @keyframes never-wet-screen-wiggle {
       0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
@@ -1114,6 +1137,8 @@
       .dev-hud { right: 0.8rem; left: 0.8rem; bottom: calc(0.8rem + env(safe-area-inset-bottom)); width: auto; }
       .dev-hud-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .dev-hud-meta { flex-direction: column; align-items: flex-start; }
+      .dev-theme-grid,
+      .dev-preset-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
   </style>
 </head>
@@ -1359,6 +1384,45 @@
           </div>
         </section>
         <section class="dev-card">
+          <h3>Verse Search</h3>
+          <div class="dev-jump">
+            <input id="devSearchInput" class="dev-input" type="text" placeholder="Search current Bible text and jump to first match" />
+            <button id="devSearchButton" class="dev-action-btn" type="button">Search</button>
+          </div>
+          <p id="devSearchStatus" class="dev-search-status">Searches the active Bible version and jumps to the first matching verse.</p>
+        </section>
+        <section class="dev-card">
+          <h3>Theme Lab</h3>
+          <div class="dev-theme-grid">
+            <label class="dev-theme-field">
+              <span>Background</span>
+              <input id="devThemeBg" class="dev-color-input" type="color" value="#ffffff" />
+            </label>
+            <label class="dev-theme-field">
+              <span>Surface</span>
+              <input id="devThemeSurface" class="dev-color-input" type="color" value="#ffffff" />
+            </label>
+            <label class="dev-theme-field">
+              <span>Text</span>
+              <input id="devThemeText" class="dev-color-input" type="color" value="#1a1a1a" />
+            </label>
+            <label class="dev-theme-field">
+              <span>Accent</span>
+              <input id="devThemeAccent" class="dev-color-input" type="color" value="#0066cc" />
+            </label>
+          </div>
+          <div class="dev-preset-grid">
+            <button class="dev-preset-btn" type="button" data-dev-theme-preset="reader">Reader</button>
+            <button class="dev-preset-btn" type="button" data-dev-theme-preset="aurora">Aurora</button>
+            <button class="dev-preset-btn" type="button" data-dev-theme-preset="ember">Ember</button>
+            <button class="dev-preset-btn" type="button" data-dev-theme-preset="midnight">Midnight</button>
+          </div>
+          <div class="dev-actions" style="margin-top:0.7rem;">
+            <button id="devThemeApplyButton" class="dev-action-btn" type="button">Apply theme</button>
+            <button id="devThemeResetButton" class="dev-action-btn" type="button">Reset theme</button>
+          </div>
+        </section>
+        <section class="dev-card">
           <h3>Tools</h3>
           <div class="dev-actions">
             <button id="devReloadCachesButton" class="dev-action-btn" type="button">Reload caches</button>
@@ -1573,6 +1637,16 @@
     const devInteractionLog = document.getElementById('devInteractionLog');
     const devQuickJumpInput = document.getElementById('devQuickJumpInput');
     const devQuickJumpButton = document.getElementById('devQuickJumpButton');
+    const devSearchInput = document.getElementById('devSearchInput');
+    const devSearchButton = document.getElementById('devSearchButton');
+    const devSearchStatus = document.getElementById('devSearchStatus');
+    const devThemeBg = document.getElementById('devThemeBg');
+    const devThemeSurface = document.getElementById('devThemeSurface');
+    const devThemeText = document.getElementById('devThemeText');
+    const devThemeAccent = document.getElementById('devThemeAccent');
+    const devThemeApplyButton = document.getElementById('devThemeApplyButton');
+    const devThemeResetButton = document.getElementById('devThemeResetButton');
+    const devThemePresetButtons = Array.from(document.querySelectorAll('[data-dev-theme-preset]'));
     const devReloadCachesButton = document.getElementById('devReloadCachesButton');
     const devInspectCurrentVerseButton = document.getElementById('devInspectCurrentVerseButton');
     const devRandomVerseButton = document.getElementById('devRandomVerseButton');
@@ -1682,10 +1756,19 @@
         xray: false
       },
       devLastVerseInspection: null,
-      devInteractionLog: []
+      devInteractionLog: [],
+      devSearchLastResult: '',
+      devThemePreset: 'reader',
+      devThemeOverrides: null
     };
 
     const NEVER_WET_SEQUENCE = 'never-wet';
+    const DEV_THEME_PRESETS = {
+      reader: { bg: '#ffffff', surface: '#ffffff', text: '#1a1a1a', accent: '#0066cc' },
+      aurora: { bg: '#f4fbff', surface: '#ffffff', text: '#0f172a', accent: '#0ea5e9' },
+      ember: { bg: '#fff7f0', surface: '#fffaf5', text: '#2b160f', accent: '#ea580c' },
+      midnight: { bg: '#0b1220', surface: '#121b2e', text: '#edf6ff', accent: '#38bdf8' }
+    };
 
     const OLD_TESTAMENT_ACCENT = {
       accent: '#0066cc',
@@ -2054,7 +2137,8 @@
         ['Accent strong', getComputedStyle(document.documentElement).getPropertyValue('--verse-accent-strong').trim() || 'n/a'],
         ['Nav accent', getComputedStyle(document.documentElement).getPropertyValue('--nav-accent').trim() || 'n/a'],
         ['Background', getComputedStyle(document.body).getPropertyValue('--bg').trim() || 'n/a'],
-        ['Surface', getComputedStyle(document.body).getPropertyValue('--surface').trim() || 'n/a']
+        ['Surface', getComputedStyle(document.body).getPropertyValue('--surface').trim() || 'n/a'],
+        ['Theme lab', state.devThemeOverrides ? `${state.devThemePreset}` : 'off']
       ]);
       [
         [devToggleVerseInspector, state.devTools.verseInspector],
@@ -2080,10 +2164,10 @@
         devHudTranslation.textContent = getTranslationConfig(state.translationId).label;
       }
       if (devHudMeta) {
-        devHudMeta.textContent = `${state.compareMode ? 'Compare on' : 'Solo'} • ${Math.round(state.textScale * 100)}% • ${state.themeMode}`;
+        devHudMeta.textContent = `${state.compareMode ? 'Compare on' : 'Solo'} • ${Math.round(state.textScale * 100)}% • ${state.devThemeOverrides ? `theme:${state.devThemePreset}` : state.themeMode}`;
       }
       if (devHudMode) {
-        devHudMode.textContent = state.devTools.xray ? 'X-Ray' : (state.compareMode ? 'Omniscient' : 'Observer');
+        devHudMode.textContent = state.devTools.xray ? 'X-Ray' : (state.devThemeOverrides ? 'Theme Lab' : (state.compareMode ? 'Omniscient' : 'Observer'));
       }
       if (devHudXrayButton) {
         devHudXrayButton.classList.toggle('active', state.devTools.xray);
@@ -2093,6 +2177,9 @@
       }
       updateDevVerseInspector();
       updateDevInteractionLog();
+      if (devSearchStatus) {
+        devSearchStatus.textContent = state.devSearchLastResult || 'Searches the active Bible version and jumps to the first matching verse.';
+      }
     }
 
     function openDevModal() {
@@ -2221,6 +2308,82 @@
       state.devInteractionLog = [];
       updateDevInteractionLog();
       setHint('Developer log cleared.');
+    }
+
+    function applyThemeLabFromInputs() {
+      const theme = {
+        bg: devThemeBg?.value || DEV_THEME_PRESETS.reader.bg,
+        surface: devThemeSurface?.value || DEV_THEME_PRESETS.reader.surface,
+        text: devThemeText?.value || DEV_THEME_PRESETS.reader.text,
+        accent: devThemeAccent?.value || DEV_THEME_PRESETS.reader.accent
+      };
+      state.devThemeOverrides = theme;
+      applyDevThemeOverrides();
+      updateVerseAccentTheme(state.currentBook || '');
+      updateDevPanel();
+      setHint(`Theme lab applied: ${state.devThemePreset}.`);
+    }
+
+    function applyThemePreset(presetName) {
+      const preset = DEV_THEME_PRESETS[presetName] || DEV_THEME_PRESETS.reader;
+      state.devThemePreset = Object.prototype.hasOwnProperty.call(DEV_THEME_PRESETS, presetName) ? presetName : 'reader';
+      state.devThemeOverrides = { ...preset };
+      applyDevThemeOverrides();
+      updateVerseAccentTheme(state.currentBook || '');
+      updateDevPanel();
+      setHint(`Theme preset loaded: ${state.devThemePreset}.`);
+    }
+
+    function resetThemeLab() {
+      state.devThemePreset = 'reader';
+      state.devThemeOverrides = null;
+      applyDevThemeOverrides();
+      updateVerseAccentTheme(state.currentBook || '');
+      updateDevPanel();
+      setHint('Theme lab reset.');
+    }
+
+    async function searchAndJumpToVerseText(query) {
+      const search = String(query || '').trim().toLowerCase();
+      if (!search) {
+        state.devSearchLastResult = 'Type something to search.';
+        updateDevPanel();
+        return;
+      }
+
+      state.devSearchLastResult = `Searching ${getTranslationConfig(state.translationId).label} for "${query}"...`;
+      updateDevPanel();
+
+      for (const bookName of state.bookOrder) {
+        const bookData = await ensureBookLoaded(bookName);
+        const chapterNumbers = Object.keys(bookData).map(Number).filter(Number.isFinite).sort((a, b) => a - b);
+        for (const chapterNumber of chapterNumbers) {
+          const verses = Array.isArray(bookData[String(chapterNumber)]) ? bookData[String(chapterNumber)] : [];
+          for (let index = 0; index < verses.length; index += 1) {
+            const verseNum = index + 1;
+            const cleaned = cleanDisplayedVerseText(verses[index], verseNum, verses[index + 1] ? verseNum + 1 : null, 'primary', state.translationId);
+            if (cleaned.toLowerCase().includes(search)) {
+              await goToChapter(bookName, chapterNumber, { scrollVerse: verseNum });
+              window.setTimeout(() => {
+                highlightSearchVerseTargets([
+                  getVerseCard(verseNum, 'primary'),
+                  state.compareMode ? getVerseCard(verseNum, 'secondary') : null
+                ]);
+              }, 120);
+              inspectVerseSelection(getCurrentVerseSelection(), 'search');
+              state.devSearchLastResult = `Found in ${bookName} ${chapterNumber}:${verseNum}`;
+              logDevInteraction('Search jump', `${query} -> ${bookName} ${chapterNumber}:${verseNum}`);
+              setHint(`Found "${query}" in ${bookName} ${chapterNumber}:${verseNum}.`);
+              updateDevPanel();
+              return;
+            }
+          }
+        }
+      }
+
+      state.devSearchLastResult = `No match found for "${query}".`;
+      setHint(`No match found for "${query}".`);
+      updateDevPanel();
     }
 
     function resolveQuickJumpReference(input) {
@@ -2997,6 +3160,90 @@
       readingStatusValueEl.textContent = verseText;
     }
 
+    function hexToRgb(hex) {
+      const normalized = String(hex || '').trim().replace(/^#/, '');
+      if (!/^[0-9a-f]{6}$/i.test(normalized)) {
+        return null;
+      }
+      return {
+        r: parseInt(normalized.slice(0, 2), 16),
+        g: parseInt(normalized.slice(2, 4), 16),
+        b: parseInt(normalized.slice(4, 6), 16)
+      };
+    }
+
+    function rgbToHex({ r, g, b }) {
+      return `#${[r, g, b].map((value) => Math.max(0, Math.min(255, Math.round(value))).toString(16).padStart(2, '0')).join('')}`;
+    }
+
+    function mixHex(baseHex, mixHexColor, weight = 0.5) {
+      const base = hexToRgb(baseHex);
+      const mix = hexToRgb(mixHexColor);
+      if (!base || !mix) {
+        return baseHex;
+      }
+      const t = Math.max(0, Math.min(1, Number(weight) || 0));
+      return rgbToHex({
+        r: base.r + (mix.r - base.r) * t,
+        g: base.g + (mix.g - base.g) * t,
+        b: base.b + (mix.b - base.b) * t
+      });
+    }
+
+    function applyThemeLabInputs(colors) {
+      if (devThemeBg) devThemeBg.value = colors.bg;
+      if (devThemeSurface) devThemeSurface.value = colors.surface;
+      if (devThemeText) devThemeText.value = colors.text;
+      if (devThemeAccent) devThemeAccent.value = colors.accent;
+      devThemePresetButtons.forEach((button) => {
+        button.classList.toggle('active', button.dataset.devThemePreset === state.devThemePreset);
+      });
+    }
+
+    function applyDevThemeOverrides() {
+      const rootStyle = document.documentElement.style;
+      const theme = state.devThemeOverrides;
+      const vars = [
+        '--bg', '--bg-muted', '--bg-soft',
+        '--surface', '--surface-elevated', '--surface-subtle',
+        '--border', '--border-strong', '--border-soft',
+        '--text', '--text-strong', '--text-muted', '--text-soft',
+        '--control-grad-start', '--control-grad-end',
+        '--nav-accent', '--verse-accent', '--verse-accent-strong'
+      ];
+
+      if (!theme) {
+        vars.forEach((name) => rootStyle.removeProperty(name));
+        applyThemeLabInputs(DEV_THEME_PRESETS.reader);
+        return;
+      }
+
+      const bg = theme.bg;
+      const surface = theme.surface;
+      const text = theme.text;
+      const accent = theme.accent;
+
+      rootStyle.setProperty('--bg', bg);
+      rootStyle.setProperty('--bg-muted', mixHex(bg, '#ffffff', 0.18));
+      rootStyle.setProperty('--bg-soft', mixHex(bg, surface, 0.45));
+      rootStyle.setProperty('--surface', surface);
+      rootStyle.setProperty('--surface-elevated', mixHex(surface, '#ffffff', 0.08));
+      rootStyle.setProperty('--surface-subtle', mixHex(surface, bg, 0.35));
+      rootStyle.setProperty('--border', mixHex(surface, text, 0.18));
+      rootStyle.setProperty('--border-strong', mixHex(surface, text, 0.28));
+      rootStyle.setProperty('--border-soft', mixHex(surface, accent, 0.18));
+      rootStyle.setProperty('--text', text);
+      rootStyle.setProperty('--text-strong', mixHex(text, '#ffffff', 0.06));
+      rootStyle.setProperty('--text-muted', mixHex(text, bg, 0.28));
+      rootStyle.setProperty('--text-soft', mixHex(text, bg, 0.42));
+      rootStyle.setProperty('--control-grad-start', mixHex(surface, '#ffffff', 0.08));
+      rootStyle.setProperty('--control-grad-end', mixHex(surface, bg, 0.24));
+      rootStyle.setProperty('--nav-accent', accent);
+      rootStyle.setProperty('--verse-accent', accent);
+      rootStyle.setProperty('--verse-accent-strong', mixHex(accent, '#ffffff', 0.14));
+      applyThemeLabInputs(theme);
+    }
+
     function getMaxAutoScrollTopBeforeFooter() {
       const footer = document.querySelector('.site-footer');
       if (!footer || state.compareMode) {
@@ -3645,6 +3892,7 @@
     function setThemeMode(mode) {
       state.themeMode = mode === 'dark' ? 'dark' : 'light';
       updateThemeModeControls();
+      applyDevThemeOverrides();
       if (state.currentBook) {
         updateVerseAccentTheme(state.currentBook);
       }
@@ -3755,6 +4003,7 @@
     updateThemeModeControls();
     updateTextScaleControls();
     updateCompareControls();
+    applyDevThemeOverrides();
 
     function getLocationReferenceBooks(entry) {
       const books = [];
@@ -4144,6 +4393,26 @@
         });
         state.flashClearTimeoutId = null;
       }, 1100);
+    }
+
+    function highlightSearchVerseTargets(targets) {
+      const validTargets = targets.filter(Boolean);
+      if (!validTargets.length) {
+        return;
+      }
+
+      validTargets.forEach((target) => {
+        target.classList.remove('verse-search-hit');
+      });
+      void validTargets[0].offsetWidth;
+      validTargets.forEach((target) => {
+        target.classList.add('verse-search-hit');
+      });
+      window.setTimeout(() => {
+        validTargets.forEach((target) => {
+          target.classList.remove('verse-search-hit');
+        });
+      }, 2200);
     }
 
     function scrollToVerse(verseNum) {
@@ -4656,6 +4925,26 @@
         await handleDevQuickJump();
       }
     });
+    devSearchButton?.addEventListener('click', async () => {
+      await searchAndJumpToVerseText(devSearchInput?.value);
+    });
+    devSearchInput?.addEventListener('keydown', async (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        await searchAndJumpToVerseText(devSearchInput?.value);
+      }
+    });
+    devThemeApplyButton?.addEventListener('click', () => {
+      applyThemeLabFromInputs();
+    });
+    devThemeResetButton?.addEventListener('click', () => {
+      resetThemeLab();
+    });
+    devThemePresetButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        applyThemePreset(button.dataset.devThemePreset);
+      });
+    });
     devReloadCachesButton?.addEventListener('click', async () => {
       await reloadDeveloperCaches();
     });
@@ -4976,6 +5265,11 @@
         if (key === 'r') {
           e.preventDefault();
           jumpToRandomVerse();
+        } else if (key === 'f') {
+          e.preventDefault();
+          openDevModal();
+          devSearchInput?.focus();
+          devSearchInput?.select();
         } else if (key === 'o') {
           e.preventDefault();
           activateOmniscienceMode();
