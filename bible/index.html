@@ -1221,6 +1221,10 @@
           <div class="dev-actions">
             <button id="devReloadCachesButton" class="dev-action-btn" type="button">Reload caches</button>
             <button id="devInspectCurrentVerseButton" class="dev-action-btn" type="button">Inspect current verse</button>
+            <button id="devRandomVerseButton" class="dev-action-btn" type="button">Random verse</button>
+            <button id="devCopyVerseJsonButton" class="dev-action-btn" type="button">Copy verse JSON</button>
+            <button id="devOmniscienceButton" class="dev-action-btn" type="button">Omniscience</button>
+            <button id="devClearLogButton" class="dev-action-btn" type="button">Clear log</button>
           </div>
         </section>
         <section class="dev-card">
@@ -1405,6 +1409,10 @@
     const devQuickJumpButton = document.getElementById('devQuickJumpButton');
     const devReloadCachesButton = document.getElementById('devReloadCachesButton');
     const devInspectCurrentVerseButton = document.getElementById('devInspectCurrentVerseButton');
+    const devRandomVerseButton = document.getElementById('devRandomVerseButton');
+    const devCopyVerseJsonButton = document.getElementById('devCopyVerseJsonButton');
+    const devOmniscienceButton = document.getElementById('devOmniscienceButton');
+    const devClearLogButton = document.getElementById('devClearLogButton');
     const devToggleVerseInspector = document.getElementById('devToggleVerseInspector');
     const devToggleLocationDebug = document.getElementById('devToggleLocationDebug');
     const devToggleWordDebug = document.getElementById('devToggleWordDebug');
@@ -1940,6 +1948,73 @@
       updateDevPanel();
       logDevInteraction('Caches reloaded', `${state.translationId} + location + word bundles`);
       setHint('Developer caches reloaded.');
+    }
+
+    async function jumpToRandomVerse() {
+      if (!state.bookOrder.length) {
+        return;
+      }
+
+      const randomBook = state.bookOrder[Math.floor(Math.random() * state.bookOrder.length)];
+      const bookData = await ensureBookLoaded(randomBook);
+      const chapterNumbers = Object.keys(bookData).map(Number).filter(Number.isFinite).sort((a, b) => a - b);
+      if (!chapterNumbers.length) {
+        return;
+      }
+
+      const chapterNumber = chapterNumbers[Math.floor(Math.random() * chapterNumbers.length)];
+      const verses = Array.isArray(bookData[String(chapterNumber)]) ? bookData[String(chapterNumber)] : [];
+      const verseNum = verses.length ? (Math.floor(Math.random() * verses.length) + 1) : 1;
+      await goToChapter(randomBook, chapterNumber, { scrollVerse: verseNum });
+      logDevInteraction('Random verse', `${randomBook} ${chapterNumber}:${verseNum}`);
+      setHint(`Developer jump: ${randomBook} ${chapterNumber}:${verseNum}`);
+    }
+
+    async function copyCurrentVerseJson() {
+      const selection = getCurrentVerseSelection() || getCurrentVerseSelection('secondary');
+      if (!selection) {
+        setHint('No verse available to copy.');
+        return;
+      }
+
+      const payload = {
+        translationId: selection.translationId,
+        translationLabel: getTranslationConfig(selection.translationId).label,
+        pane: selection.pane,
+        bookName: selection.bookName,
+        canonicalBookName: getCanonicalBookName(selection.translationId, selection.bookName),
+        chapterNumber: selection.chapterNumber,
+        verseNum: selection.verseNum,
+        reference: selection.reference,
+        text: selection.text
+      };
+
+      await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
+      inspectVerseSelection(selection, 'copy-verse-json');
+      logDevInteraction('Verse JSON copied', selection.reference);
+      setHint(`Copied raw verse JSON for ${selection.reference}.`);
+    }
+
+    async function activateOmniscienceMode() {
+      setDevTool('verseInspector', true);
+      setDevTool('locationDebug', true);
+      setDevTool('wordDebug', true);
+      setDevTool('mediaDebug', true);
+      setDevTool('interactionDebug', true);
+
+      if (!state.compareMode) {
+        await setCompareMode(true);
+      }
+      setCompareScrollSync(true);
+      updateDevPanel();
+      logDevInteraction('Omniscience', 'All dev powers enabled');
+      setHint('Omniscience enabled.');
+    }
+
+    function clearDeveloperLog() {
+      state.devInteractionLog = [];
+      updateDevInteractionLog();
+      setHint('Developer log cleared.');
     }
 
     function resolveQuickJumpReference(input) {
@@ -2757,6 +2832,19 @@
 
       state.lastMobileHapticAt = now;
       triggerMobileHaptic('light');
+    }
+
+    function handleMobileButtonHapticFromTarget(target) {
+      if (!canUseMobileHaptics()) {
+        return;
+      }
+
+      const button = target instanceof Element ? target.closest('button') : null;
+      if (!button || button.disabled || button.getAttribute('aria-disabled') === 'true') {
+        return;
+      }
+
+      triggerButtonPressHaptic();
     }
 
     function buildVerseMarkup(text) {
@@ -4361,6 +4449,19 @@
       inspectVerseSelection(getCurrentVerseSelection(), 'manual');
       updateDevPanel();
     });
+    devRandomVerseButton?.addEventListener('click', async () => {
+      await jumpToRandomVerse();
+    });
+    devCopyVerseJsonButton?.addEventListener('click', async () => {
+      await copyCurrentVerseJson();
+      updateDevPanel();
+    });
+    devOmniscienceButton?.addEventListener('click', async () => {
+      await activateOmniscienceMode();
+    });
+    devClearLogButton?.addEventListener('click', () => {
+      clearDeveloperLog();
+    });
     devToggleVerseInspector?.addEventListener('click', () => {
       setDevTool('verseInspector', !state.devTools.verseInspector);
     });
@@ -4613,16 +4714,18 @@
     }, true);
 
     document.addEventListener('pointerdown', (e) => {
-      if (!canUseMobileHaptics() || e.pointerType === 'mouse') {
+      if (e.pointerType === 'mouse') {
         return;
       }
+      handleMobileButtonHapticFromTarget(e.target);
+    }, { passive: true, capture: true });
 
-      const button = e.target.closest('button');
-      if (!button || button.disabled || button.getAttribute('aria-disabled') === 'true') {
-        return;
-      }
+    document.addEventListener('touchstart', (e) => {
+      handleMobileButtonHapticFromTarget(e.target);
+    }, { passive: true, capture: true });
 
-      triggerButtonPressHaptic();
+    document.addEventListener('click', (e) => {
+      handleMobileButtonHapticFromTarget(e.target);
     }, { passive: true, capture: true });
 
     document.addEventListener('keydown', (e) => {
@@ -4635,6 +4738,20 @@
 
       if (!isEditableTarget && !e.ctrlKey && !e.metaKey && !e.altKey) {
         handleNeverWetSequence(e.key);
+      }
+
+      if (state.developerMode && !isEditableTarget && e.shiftKey && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const key = e.key.toLowerCase();
+        if (key === 'r') {
+          e.preventDefault();
+          jumpToRandomVerse();
+        } else if (key === 'o') {
+          e.preventDefault();
+          activateOmniscienceMode();
+        } else if (key === 'y') {
+          e.preventDefault();
+          copyCurrentVerseJson();
+        }
       }
 
       if (e.key === 'Escape' && translationPicker.classList.contains('open')) {
