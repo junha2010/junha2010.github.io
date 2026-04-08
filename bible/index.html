@@ -3080,10 +3080,10 @@
 
       if (state.compareMode) {
         const containerBottomPadding = 28;
-        const compareTopOffset = isMobileComparePaneLayout() ? 86 : 40;
+        const compareTopLine = getComparePaneTopLine(verseContainer);
         const desiredScrollTop = shouldBottomAlign
           ? Math.max(0, target.offsetTop + target.offsetHeight - verseContainer.clientHeight + containerBottomPadding)
-          : Math.max(0, target.offsetTop - compareTopOffset);
+          : Math.max(0, verseContainer.scrollTop + (target.getBoundingClientRect().top - compareTopLine));
         const maxScrollTop = Math.max(0, verseContainer.scrollHeight - verseContainer.clientHeight);
         verseContainer.scrollTo({
           top: Math.min(maxScrollTop, desiredScrollTop),
