@@ -370,15 +370,15 @@
     .verse-number { position: absolute; left: 0; top: 0; color: var(--verse-accent, #0066cc); font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
     .verse-number.single-digit { font-size: 1.08rem; }
     .verse-number.double-digit { font-size: 1rem; }
-    .chapter-nav-bar { position: sticky; top: calc(50vh - 1.5rem); z-index: 35; height: 0; pointer-events: none; }
-    .nav-btn { position: absolute; top: 0; width: 3rem; height: 3rem; border: 1px solid color-mix(in srgb, var(--nav-accent) 50%, var(--border-strong)); background: color-mix(in srgb, var(--surface) 62%, transparent); color: var(--nav-accent); font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease; box-shadow: var(--shadow-sm); display: inline-flex; align-items: center; justify-content: center; gap: 0; padding: 0; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); pointer-events: auto; }
+    .chapter-nav-bar { display: contents; }
+    .nav-btn { position: fixed; top: 50%; width: 3rem; height: 3rem; border: 1px solid color-mix(in srgb, var(--nav-accent) 50%, var(--border-strong)); background: color-mix(in srgb, var(--surface) 62%, transparent); color: var(--nav-accent); font-size: 1.5rem; cursor: pointer; border-radius: 50%; transform: translateY(-50%); transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease; box-shadow: var(--shadow-sm); display: inline-flex; align-items: center; justify-content: center; gap: 0; padding: 0; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
     .nav-btn:hover { background: var(--nav-accent-hover-bg); border-color: var(--nav-accent); color: var(--nav-accent); box-shadow: 0 4px 12px var(--nav-accent-shadow); }
     .nav-btn:disabled { opacity: 0; visibility: hidden; }
     body.menu-open .nav-btn:not(:disabled) { opacity: 0.32; filter: saturate(0.7); pointer-events: none; }
     body.menu-open .content,
     body.settings-open .content { pointer-events: none; }
-    .prev-btn { left: -3.9rem; right: auto; }
-    .next-btn { right: -3.9rem; left: auto; }
+    .prev-btn { left: 1.5rem; right: auto; }
+    .next-btn { right: 1.5rem; left: auto; }
     .nav-btn-label { display: none; font-size: 0.96rem; font-weight: 700; letter-spacing: 0.01em; }
     .nav-btn-icon { line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
     .location-modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem; background: var(--overlay); z-index: 80; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s ease, visibility 0.2s ease; }
