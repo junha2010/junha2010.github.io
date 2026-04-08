@@ -146,6 +146,38 @@
     body.developer-mode .developer-mode-badge {
       display: inline-flex;
     }
+    .developer-mode-badge { cursor: pointer; }
+    .developer-mode-badge:focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
+    .dev-modal-card { width: min(92vw, 720px); max-height: min(88vh, 860px); overflow: auto; background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
+    .dev-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1rem 1rem 0.5rem; }
+    .dev-modal-title { margin: 0; font-size: 1.2rem; color: var(--text-strong); }
+    .dev-modal-subtitle { margin: 0.25rem 0 0; color: var(--text-soft); font-size: 0.9rem; }
+    .dev-modal-body { padding: 0 1rem 1rem; display: grid; gap: 1rem; }
+    .dev-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+    .dev-card { border: 1px solid var(--border-soft); border-radius: 1rem; background: var(--surface-subtle); padding: 0.9rem; }
+    .dev-card h3 { margin: 0 0 0.55rem; font-size: 0.84rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
+    .dev-kv { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 0.6rem; font-size: 0.88rem; }
+    .dev-kv dt { color: var(--text-soft); font-weight: 700; }
+    .dev-kv dd { margin: 0; color: var(--text-strong); min-width: 0; word-break: break-word; }
+    .dev-toggle-list { display: grid; gap: 0.55rem; }
+    .dev-toggle { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; border: 1px solid var(--border-soft); border-radius: 0.9rem; background: var(--surface); padding: 0.7rem 0.85rem; }
+    .dev-toggle-copy { min-width: 0; }
+    .dev-toggle-copy strong { display: block; color: var(--text-strong); font-size: 0.92rem; }
+    .dev-toggle-copy span { display: block; color: var(--text-soft); font-size: 0.76rem; margin-top: 0.1rem; }
+    .dev-switch { position: relative; width: 3rem; height: 1.8rem; border: none; border-radius: 999px; background: color-mix(in srgb, var(--surface) 74%, var(--border-soft)); cursor: pointer; flex: 0 0 auto; transition: background 0.2s ease; }
+    .dev-switch::before { content: ''; position: absolute; top: 0.18rem; left: 0.18rem; width: 1.44rem; height: 1.44rem; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.16); transition: transform 0.22s ease; }
+    .dev-switch[aria-pressed="true"] { background: linear-gradient(180deg, #0ea5e9 0%, #2563eb 100%); }
+    .dev-switch[aria-pressed="true"]::before { transform: translateX(1.18rem); }
+    .dev-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .dev-action-btn { border: 1px solid var(--border-soft); border-radius: 0.9rem; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-strong); padding: 0.75rem 0.9rem; font: inherit; font-weight: 800; cursor: pointer; }
+    .dev-action-btn:hover { border-color: #94a3b8; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08); }
+    .dev-jump { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.6rem; }
+    .dev-input { width: 100%; border: 1px solid var(--border-soft); border-radius: 0.9rem; background: var(--surface); color: var(--text-strong); padding: 0.78rem 0.9rem; font: inherit; }
+    .dev-input:focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
+    .dev-log, .dev-inspector { font-size: 0.86rem; line-height: 1.55; color: var(--text); white-space: pre-wrap; word-break: break-word; max-height: 12rem; overflow: auto; }
+    .dev-inspector code, .dev-log code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.82rem; }
+    body.developer-mode.dev-location-debug .location-link { box-shadow: inset 0 -0.22em 0 rgba(56, 189, 248, 0.2); border-radius: 0.2rem; }
+    body.developer-mode.dev-word-debug .word-link { box-shadow: inset 0 -0.22em 0 rgba(59, 130, 246, 0.18); border-radius: 0.2rem; }
     .never-wet-eyes {
       position: fixed;
       inset: 0;
@@ -1157,6 +1189,79 @@
     </div>
   </div>
 
+  <div id="devModal" class="location-modal settings-modal" aria-hidden="true">
+    <div class="dev-modal-card" role="dialog" aria-modal="true" aria-labelledby="devModalTitle">
+      <div class="dev-modal-header">
+        <div>
+          <h2 id="devModalTitle" class="dev-modal-title">Developer Tools</h2>
+          <p class="dev-modal-subtitle">Hidden tools for checking parsing, media, navigation, and state.</p>
+        </div>
+        <button id="devModalClose" class="location-close" type="button" aria-label="Close developer tools">×</button>
+      </div>
+      <div class="dev-modal-body">
+        <div class="dev-grid">
+          <section class="dev-card">
+            <h3>Reader State</h3>
+            <dl id="devStateSummary" class="dev-kv"></dl>
+          </section>
+          <section class="dev-card">
+            <h3>Theme Tokens</h3>
+            <dl id="devThemeSummary" class="dev-kv"></dl>
+          </section>
+        </div>
+        <section class="dev-card">
+          <h3>Quick Jump</h3>
+          <div class="dev-jump">
+            <input id="devQuickJumpInput" class="dev-input" type="text" placeholder="Genesis 1:1 or current chapter verse like 1:1" />
+            <button id="devQuickJumpButton" class="dev-action-btn" type="button">Jump</button>
+          </div>
+        </section>
+        <section class="dev-card">
+          <h3>Tools</h3>
+          <div class="dev-actions">
+            <button id="devReloadCachesButton" class="dev-action-btn" type="button">Reload caches</button>
+            <button id="devInspectCurrentVerseButton" class="dev-action-btn" type="button">Inspect current verse</button>
+          </div>
+        </section>
+        <section class="dev-card">
+          <h3>Toggles</h3>
+          <div class="dev-toggle-list">
+            <div class="dev-toggle">
+              <div class="dev-toggle-copy"><strong>Verse inspector</strong><span>Keep the toolbox filled with the latest verse details.</span></div>
+              <button id="devToggleVerseInspector" class="dev-switch" type="button" aria-pressed="false" aria-label="Toggle verse inspector"></button>
+            </div>
+            <div class="dev-toggle">
+              <div class="dev-toggle-copy"><strong>Location debug</strong><span>Highlight map-linked place names in the reader.</span></div>
+              <button id="devToggleLocationDebug" class="dev-switch" type="button" aria-pressed="false" aria-label="Toggle location debug"></button>
+            </div>
+            <div class="dev-toggle">
+              <div class="dev-toggle-copy"><strong>Word debug</strong><span>Highlight dictionary-linked words in the reader.</span></div>
+              <button id="devToggleWordDebug" class="dev-switch" type="button" aria-pressed="false" aria-label="Toggle word debug"></button>
+            </div>
+            <div class="dev-toggle">
+              <div class="dev-toggle-copy"><strong>Media debug</strong><span>Show whether location popups use dedicated media or fallback atlas maps.</span></div>
+              <button id="devToggleMediaDebug" class="dev-switch" type="button" aria-pressed="false" aria-label="Toggle media debug"></button>
+            </div>
+            <div class="dev-toggle">
+              <div class="dev-toggle-copy"><strong>Interaction debug</strong><span>Log taps, long press, right-click, dictionary, and location opens.</span></div>
+              <button id="devToggleInteractionDebug" class="dev-switch" type="button" aria-pressed="false" aria-label="Toggle interaction debug"></button>
+            </div>
+          </div>
+        </section>
+        <div class="dev-grid">
+          <section class="dev-card">
+            <h3>Verse Inspector</h3>
+            <div id="devVerseInspector" class="dev-inspector">No verse inspected yet.</div>
+          </section>
+          <section class="dev-card">
+            <h3>Interaction Log</h3>
+            <div id="devInteractionLog" class="dev-log">No interactions logged yet.</div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="verseActionModal" class="location-modal verse-action-modal" aria-hidden="true">
     <div class="verse-action-card" role="dialog" aria-modal="true" aria-labelledby="verseActionTitle">
       <div class="verse-action-header">
@@ -1290,6 +1395,21 @@
     const wordModalCloseBtn = document.getElementById('wordModalClose');
     const settingsModal = document.getElementById('settingsModal');
     const settingsModalCloseBtn = document.getElementById('settingsModalClose');
+    const devModal = document.getElementById('devModal');
+    const devModalCloseBtn = document.getElementById('devModalClose');
+    const devStateSummary = document.getElementById('devStateSummary');
+    const devThemeSummary = document.getElementById('devThemeSummary');
+    const devVerseInspector = document.getElementById('devVerseInspector');
+    const devInteractionLog = document.getElementById('devInteractionLog');
+    const devQuickJumpInput = document.getElementById('devQuickJumpInput');
+    const devQuickJumpButton = document.getElementById('devQuickJumpButton');
+    const devReloadCachesButton = document.getElementById('devReloadCachesButton');
+    const devInspectCurrentVerseButton = document.getElementById('devInspectCurrentVerseButton');
+    const devToggleVerseInspector = document.getElementById('devToggleVerseInspector');
+    const devToggleLocationDebug = document.getElementById('devToggleLocationDebug');
+    const devToggleWordDebug = document.getElementById('devToggleWordDebug');
+    const devToggleMediaDebug = document.getElementById('devToggleMediaDebug');
+    const devToggleInteractionDebug = document.getElementById('devToggleInteractionDebug');
     const verseActionModal = document.getElementById('verseActionModal');
     const verseActionSubtitleEl = document.getElementById('verseActionSubtitle');
     const verseActionPicker = document.getElementById('verseActionPicker');
@@ -1331,6 +1451,9 @@
       compareSyncSourcePane: 'primary',
       compareSyncIgnorePane: null,
       compareSyncIgnoreUntil: 0,
+      readingStatusLockUntil: 0,
+      readingStatusPinnedVerse: null,
+      readingStatusPinnedScrollTop: null,
       compareSecondaryVerses: [],
       compareSecondaryMessage: '',
       compareTranslations: {
@@ -1363,7 +1486,17 @@
       pendingTextScale: null,
       secretKeyBuffer: '',
       secretWiggleTimeoutId: null,
-      developerMode: false
+      developerMode: false,
+      devPanelOpen: false,
+      devTools: {
+        verseInspector: true,
+        locationDebug: false,
+        wordDebug: false,
+        mediaDebug: true,
+        interactionDebug: true
+      },
+      devLastVerseInspection: null,
+      devInteractionLog: []
     };
 
     const NEVER_WET_SEQUENCE = 'never-wet';
@@ -1628,6 +1761,233 @@
       document.body.classList.toggle('developer-mode', state.developerMode);
       if (developerModeBadge) {
         developerModeBadge.setAttribute('aria-hidden', state.developerMode ? 'false' : 'true');
+      }
+      applyDevModeClasses();
+      if (!state.developerMode) {
+        closeDevModal();
+      } else {
+        updateDevPanel();
+      }
+    }
+
+    function applyDevModeClasses() {
+      document.body.classList.toggle('dev-location-debug', state.developerMode && state.devTools.locationDebug);
+      document.body.classList.toggle('dev-word-debug', state.developerMode && state.devTools.wordDebug);
+    }
+
+    function logDevInteraction(label, details = '') {
+      if (!state.developerMode || !state.devTools.interactionDebug) {
+        return;
+      }
+      const stamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      const line = `[${stamp}] ${label}${details ? `: ${details}` : ''}`;
+      state.devInteractionLog.unshift(line);
+      state.devInteractionLog = state.devInteractionLog.slice(0, 14);
+      updateDevInteractionLog();
+    }
+
+    function updateDevInteractionLog() {
+      if (!devInteractionLog) {
+        return;
+      }
+      devInteractionLog.textContent = state.devInteractionLog.length ? state.devInteractionLog.join('\n') : 'No interactions logged yet.';
+    }
+
+    function inspectVerseSelection(selection, reason = '') {
+      if (!selection) {
+        return;
+      }
+      const canonicalBookName = getCanonicalBookName(selection.translationId, selection.bookName);
+      state.devLastVerseInspection = {
+        reason,
+        pane: selection.pane,
+        translationId: selection.translationId,
+        translationLabel: getTranslationConfig(selection.translationId).label,
+        bookName: selection.bookName,
+        canonicalBookName,
+        chapterNumber: selection.chapterNumber,
+        verseNum: selection.verseNum,
+        reference: selection.reference,
+        text: selection.text
+      };
+      updateDevVerseInspector();
+    }
+
+    function updateDevVerseInspector() {
+      if (!devVerseInspector) {
+        return;
+      }
+      const info = state.devLastVerseInspection;
+      if (!info) {
+        devVerseInspector.textContent = 'No verse inspected yet.';
+        return;
+      }
+      devVerseInspector.innerHTML = [
+        `<code>reason</code>: ${escapeHtml(info.reason || 'manual')}`,
+        `<code>pane</code>: ${escapeHtml(info.pane)}`,
+        `<code>translation</code>: ${escapeHtml(info.translationLabel)} (${escapeHtml(info.translationId)})`,
+        `<code>book</code>: ${escapeHtml(info.bookName)}`,
+        `<code>canonical</code>: ${escapeHtml(info.canonicalBookName)}`,
+        `<code>chapter</code>: ${escapeHtml(String(info.chapterNumber))}`,
+        `<code>verse</code>: ${escapeHtml(String(info.verseNum))}`,
+        `<code>reference</code>: ${escapeHtml(info.reference)}`,
+        `<code>text</code>: ${escapeHtml(info.text)}`
+      ].join('\n');
+    }
+
+    function renderDevSummaryList(target, entries) {
+      if (!target) {
+        return;
+      }
+      target.innerHTML = entries.map(([label, value]) => (
+        `<dt>${escapeHtml(label)}</dt><dd>${escapeHtml(String(value))}</dd>`
+      )).join('');
+    }
+
+    function updateDevPanel() {
+      if (!state.developerMode) {
+        return;
+      }
+      const canonicalBook = state.currentBook ? getCanonicalBookName(state.translationId, state.currentBook) : 'Unavailable';
+      renderDevSummaryList(devStateSummary, [
+        ['Translation', `${getTranslationConfig(state.translationId).label} (${state.translationId})`],
+        ['Book', state.currentBook || 'Unavailable'],
+        ['Canonical', canonicalBook],
+        ['Chapter', state.currentChapter || 'Unavailable'],
+        ['Active verse', state.activeVerse || 'Unavailable'],
+        ['Compare', state.compareMode ? `${getTranslationConfig(state.compareTranslations.secondary).label}` : 'Off'],
+        ['Theme', state.themeMode],
+        ['Text scale', `${Math.round(state.textScale * 100)}%`]
+      ]);
+      renderDevSummaryList(devThemeSummary, [
+        ['Accent', getComputedStyle(document.documentElement).getPropertyValue('--verse-accent').trim() || 'n/a'],
+        ['Accent strong', getComputedStyle(document.documentElement).getPropertyValue('--verse-accent-strong').trim() || 'n/a'],
+        ['Nav accent', getComputedStyle(document.documentElement).getPropertyValue('--nav-accent').trim() || 'n/a'],
+        ['Background', getComputedStyle(document.body).getPropertyValue('--bg').trim() || 'n/a'],
+        ['Surface', getComputedStyle(document.body).getPropertyValue('--surface').trim() || 'n/a']
+      ]);
+      [
+        [devToggleVerseInspector, state.devTools.verseInspector],
+        [devToggleLocationDebug, state.devTools.locationDebug],
+        [devToggleWordDebug, state.devTools.wordDebug],
+        [devToggleMediaDebug, state.devTools.mediaDebug],
+        [devToggleInteractionDebug, state.devTools.interactionDebug]
+      ].forEach(([button, on]) => {
+        if (button) {
+          button.setAttribute('aria-pressed', on ? 'true' : 'false');
+        }
+      });
+      updateDevVerseInspector();
+      updateDevInteractionLog();
+    }
+
+    function openDevModal() {
+      if (!state.developerMode) {
+        return;
+      }
+      updateDevPanel();
+      devModal.classList.add('open');
+      devModal.setAttribute('aria-hidden', 'false');
+      state.devPanelOpen = true;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDevModal() {
+      devModal.classList.remove('open');
+      devModal.setAttribute('aria-hidden', 'true');
+      state.devPanelOpen = false;
+      document.body.style.overflow = '';
+    }
+
+    function setDevTool(key, enabled) {
+      if (!Object.prototype.hasOwnProperty.call(state.devTools, key)) {
+        return;
+      }
+      state.devTools[key] = Boolean(enabled);
+      applyDevModeClasses();
+      updateDevPanel();
+      if (key === 'interactionDebug' && !enabled) {
+        state.devInteractionLog = [];
+        updateDevInteractionLog();
+      }
+    }
+
+    function getCurrentVerseSelection(pane = 'primary') {
+      const verseNum = state.activeVerse ?? 1;
+      const target = getVerseCard(verseNum, pane);
+      return getVerseSelectionFromTarget(target);
+    }
+
+    async function reloadDeveloperCaches() {
+      state.translationCache = new Map();
+      state.bookCache = new Map();
+      state.locationLookup = new Map();
+      state.locationMediaLookup = new Map();
+      state.locationEntries = [];
+      state.locationPattern = null;
+      state.wordMeaningLookup = new Map();
+      await ensureTranslationReady(state.translationId);
+      if (state.currentBook) {
+        await ensureBookLoaded(state.currentBook);
+      }
+      await loadLocationData();
+      await loadWordMeaningData();
+      if (state.compareMode) {
+        await syncCompareVerses();
+      }
+      renderVerses();
+      updateDevPanel();
+      logDevInteraction('Caches reloaded', `${state.translationId} + location + word bundles`);
+      setHint('Developer caches reloaded.');
+    }
+
+    function resolveQuickJumpReference(input) {
+      const value = String(input || '').trim();
+      if (!value) {
+        return null;
+      }
+      const shortMatch = value.match(/^(\d+):(\d+)$/);
+      if (shortMatch && state.currentBook) {
+        return {
+          bookName: state.currentBook,
+          chapterNumber: Number(shortMatch[1]),
+          verseNum: Number(shortMatch[2])
+        };
+      }
+      const allBookNames = Array.from(new Set([
+        ...state.bookOrder,
+        ...state.bookOrder.map((name) => getCanonicalBookName(state.translationId, name))
+      ])).sort((a, b) => b.length - a.length);
+      const normalized = value.toLowerCase();
+      const matchedBook = allBookNames.find((name) => normalized.startsWith(name.toLowerCase()));
+      if (!matchedBook) {
+        return null;
+      }
+      const rest = value.slice(matchedBook.length).trim();
+      const refMatch = rest.match(/^(\d+)(?::(\d+))?$/);
+      if (!refMatch) {
+        return null;
+      }
+      const canonicalBook = getCanonicalBookName(state.translationId, matchedBook);
+      return {
+        bookName: getTranslationBookName(state.translationId, canonicalBook),
+        chapterNumber: Number(refMatch[1]),
+        verseNum: Number(refMatch[2] || 1)
+      };
+    }
+
+    async function handleDevQuickJump() {
+      const parsed = resolveQuickJumpReference(devQuickJumpInput?.value);
+      if (!parsed) {
+        setHint('Developer jump could not parse that reference.');
+        return;
+      }
+      await goToChapter(parsed.bookName, parsed.chapterNumber, { scrollToTop: false });
+      scrollToVerse(parsed.verseNum);
+      logDevInteraction('Quick jump', `${parsed.bookName} ${parsed.chapterNumber}:${parsed.verseNum}`);
+      if (state.devTools.verseInspector) {
+        const selection = getCurrentVerseSelection();
+        inspectVerseSelection(selection, 'quick-jump');
       }
     }
 
@@ -2024,8 +2384,17 @@
         });
         const locationLookup = new Map();
         entries.forEach((entry) => {
-          getLocationMatchNames(entry).forEach((name) => {
-            locationLookup.set(name, entry);
+          if (entry?.name) {
+            locationLookup.set(String(entry.name).trim(), entry);
+          }
+        });
+        entries.forEach((entry) => {
+          const aliases = Array.isArray(entry?.aliases) ? entry.aliases : [];
+          aliases.forEach((alias) => {
+            const aliasName = String(alias).trim();
+            if (aliasName && !locationLookup.has(aliasName)) {
+              locationLookup.set(aliasName, entry);
+            }
           });
         });
 
@@ -2346,6 +2715,21 @@
       readingStatusValueEl.textContent = verseText;
     }
 
+    function getMaxAutoScrollTopBeforeFooter() {
+      const footer = document.querySelector('.site-footer');
+      if (!footer || state.compareMode) {
+        return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      }
+
+      const footerTop = footer.getBoundingClientRect().top + window.pageYOffset;
+      const autoScrollBottomGap = 18;
+      return Math.max(0, footerTop - window.innerHeight + autoScrollBottomGap);
+    }
+
+    function isMobileViewport() {
+      return window.matchMedia('(max-width: 520px)').matches;
+    }
+
     function buildVerseMarkup(text) {
       const plainText = text ?? '';
       const locationRanges = [];
@@ -2485,6 +2869,7 @@
         const selection = getVerseSelectionFromTarget(state.mobileLongPressTarget);
         state.mobileLongPressSuppressClickUntil = Date.now() + 900;
         if (selection) {
+          logDevInteraction('Long press', selection.reference);
           window.setTimeout(() => openVerseActionMenu(selection), 30);
         }
       }
@@ -2551,6 +2936,7 @@
         return;
       }
 
+      logDevInteraction('Right click', selection.reference);
       openVerseActionMenu(selection);
     }
 
@@ -2560,6 +2946,9 @@
       }
 
       clearVerseActionSelectionHighlight();
+      if (state.devTools.verseInspector) {
+        inspectVerseSelection(selection, 'verse-menu');
+      }
       state.verseActionSelection = selection;
       state.verseActionIgnoreClickUntil = Date.now() + 500;
       state.verseActionPreview = {
@@ -2576,6 +2965,7 @@
       verseActionPreviewText.textContent = selection.text;
       verseActionModal.classList.add('open');
       verseActionModal.setAttribute('aria-hidden', 'false');
+      updateDevPanel();
     }
 
     function closeVerseActionMenu() {
@@ -2896,6 +3286,10 @@
       state.activeVerse = state.verses.length ? 1 : null;
       updateReadingStatus(state.activeVerse);
       updatePageTitle();
+      if (state.developerMode && state.devTools.verseInspector) {
+        inspectVerseSelection(getCurrentVerseSelection(), 'render');
+      }
+      updateDevPanel();
     }
 
     async function setReadingMode(enabled) {
@@ -2922,6 +3316,7 @@
       if (state.currentBook) {
         updateVerseAccentTheme(state.currentBook);
       }
+      updateDevPanel();
     }
 
     function setTextScale(nextValue, options = {}) {
@@ -2935,6 +3330,7 @@
       }
       state.textScale = nextScale;
       updateTextScaleControls(options);
+      updateDevPanel();
     }
 
     function queueTextScaleUpdate(nextValue) {
@@ -3144,7 +3540,8 @@
 
       const mapFiles = getMapFilesForLocation(entry);
       locationModalTitleEl.textContent = entry.name;
-      locationModalSubtitleEl.textContent = `${entry.occurrence_count} verse reference${entry.occurrence_count === 1 ? '' : 's'} in the location index`;
+      const mediaMode = Array.isArray(entry.media_files) && entry.media_files.length ? 'dedicated media' : 'fallback atlas maps';
+      locationModalSubtitleEl.textContent = `${entry.occurrence_count} verse reference${entry.occurrence_count === 1 ? '' : 's'} in the location index${state.developerMode && state.devTools.mediaDebug ? ` • ${mediaMode}` : ''}`;
       renderLocationMapGallery(mapFiles);
       locationDescriptionEl.textContent = entry.description || 'No description available for this location.';
 
@@ -3159,6 +3556,8 @@
       locationModal.classList.add('open');
       locationModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      logDevInteraction('Location popup', `${entry.name}${state.developerMode && state.devTools.mediaDebug ? ` (${mediaMode})` : ''}`);
+      updateDevPanel();
     }
 
     function closeLocationModal() {
@@ -3179,6 +3578,8 @@
       wordModal.classList.add('open');
       wordModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      logDevInteraction('Dictionary popup', displayWord);
+      updateDevPanel();
     }
 
     function closeWordModal() {
@@ -3341,18 +3742,42 @@
     function syncReadingStatusToScroll() {
       state.readingStatusRaf = null;
 
+      if (Date.now() < state.readingStatusLockUntil) {
+        return;
+      }
+
+      if (state.readingStatusPinnedVerse != null && state.readingStatusPinnedScrollTop != null) {
+        const currentScrollTop = state.compareMode ? verseContainer.scrollTop : window.pageYOffset;
+        if (Math.abs(currentScrollTop - state.readingStatusPinnedScrollTop) <= 24) {
+          if (state.activeVerse !== state.readingStatusPinnedVerse) {
+            state.activeVerse = state.readingStatusPinnedVerse;
+            updateReadingStatus(state.readingStatusPinnedVerse);
+          }
+          return;
+        }
+
+        state.readingStatusPinnedVerse = null;
+        state.readingStatusPinnedScrollTop = null;
+      }
+
       if (!state.verses.length) {
         updateReadingStatus();
         return;
       }
 
-      const visibleVerse = findClosestVisibleVerse();
+      const visibleVerse = state.compareMode
+        ? findClosestVisibleVerse()
+        : findTopVisibleVerseInContainer(verseContainer);
       if (visibleVerse == null || visibleVerse === state.activeVerse) {
         return;
       }
 
       state.activeVerse = visibleVerse;
       updateReadingStatus(visibleVerse);
+      if (state.developerMode && state.devTools.verseInspector) {
+        inspectVerseSelection(getCurrentVerseSelection(), 'scroll');
+      }
+      updateDevPanel();
     }
 
     function scheduleReadingStatusSync() {
@@ -3394,7 +3819,7 @@
       if (!target) return;
       const secondaryTarget = state.compareMode ? getVerseCard(verseNum, 'secondary') : null;
       const totalVerses = state.verses.length;
-      const shouldBottomAlign = totalVerses > 0 && verseNum >= Math.max(1, totalVerses - 2);
+      const shouldBottomAlign = totalVerses > 0 && verseNum === totalVerses;
 
       const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
       const scrollDistance = Math.abs(window.pageYOffset - targetTop);
@@ -3405,31 +3830,45 @@
         state.flashTimeoutId = null;
       }
 
+      let pinnedScrollTop = null;
+
       if (state.compareMode) {
-        const containerBottomPadding = 28;
+        const containerBottomPadding = isMobileViewport() ? 92 : 28;
         const compareTopLine = getComparePaneTopLine(verseContainer);
         const desiredScrollTop = shouldBottomAlign
           ? Math.max(0, target.offsetTop + target.offsetHeight - verseContainer.clientHeight + containerBottomPadding)
-          : Math.max(0, verseContainer.scrollTop + (target.getBoundingClientRect().top - compareTopLine));
+          : Math.max(0, verseContainer.scrollTop + (target.getBoundingClientRect().top - compareTopLine) - 8);
         const maxScrollTop = Math.max(0, verseContainer.scrollHeight - verseContainer.clientHeight);
+        pinnedScrollTop = Math.min(maxScrollTop, desiredScrollTop);
         verseContainer.scrollTo({
-          top: Math.min(maxScrollTop, desiredScrollTop),
+          top: pinnedScrollTop,
           behavior: 'smooth'
         });
       } else if (shouldBottomAlign) {
-        const viewportBottomPadding = 28;
+        const viewportBottomPadding = isMobileViewport() ? 104 : 28;
         const desiredTop = window.pageYOffset + target.getBoundingClientRect().bottom - window.innerHeight + viewportBottomPadding;
-        const maxScrollTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        const maxScrollTop = getMaxAutoScrollTopBeforeFooter();
+        pinnedScrollTop = Math.min(maxScrollTop, Math.max(0, desiredTop));
         window.scrollTo({
-          top: Math.min(maxScrollTop, Math.max(0, desiredTop)),
+          top: pinnedScrollTop,
           behavior: 'smooth'
         });
       } else {
-        target.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        const viewportTopOffset = verseNum === 1
+          ? (isMobileViewport() ? 86 : 102)
+          : 108;
+        pinnedScrollTop = Math.min(getMaxAutoScrollTopBeforeFooter(), Math.max(0, targetTop - viewportTopOffset));
+        window.scrollTo({ top: pinnedScrollTop, behavior: 'smooth' });
       }
 
       state.activeVerse = verseNum;
+      state.readingStatusLockUntil = Date.now() + highlightDelay + 420;
+      state.readingStatusPinnedVerse = verseNum;
+      state.readingStatusPinnedScrollTop = pinnedScrollTop;
       updateReadingStatus(verseNum);
+      if (state.developerMode && state.devTools.verseInspector) {
+        inspectVerseSelection(getCurrentVerseSelection(), 'scroll-to-verse');
+      }
       if (state.compareMode && state.compareScrollSync) {
         syncComparePanes('primary');
       }
@@ -3822,9 +4261,24 @@
         closeSettingsModal();
       } else {
         closeMenu();
+        closeDevModal();
         closeLocationModal();
         closeWordModal();
         openSettingsModal();
+      }
+    });
+    developerModeBadge?.addEventListener('click', () => {
+      if (!state.developerMode) {
+        return;
+      }
+      if (devModal.classList.contains('open')) {
+        closeDevModal();
+      } else {
+        closeMenu();
+        closeSettingsModal();
+        closeLocationModal();
+        closeWordModal();
+        openDevModal();
       }
     });
     compareModeButton.addEventListener('click', async () => {
@@ -3854,6 +4308,43 @@
       if (!compareSecondaryPicker.contains(e.target)) {
         setComparePickerOpen('secondary', false);
       }
+    });
+    devModalCloseBtn?.addEventListener('click', closeDevModal);
+    devModal?.addEventListener('click', (e) => {
+      if (e.target === devModal) {
+        closeDevModal();
+      }
+    });
+    devQuickJumpButton?.addEventListener('click', async () => {
+      await handleDevQuickJump();
+    });
+    devQuickJumpInput?.addEventListener('keydown', async (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        await handleDevQuickJump();
+      }
+    });
+    devReloadCachesButton?.addEventListener('click', async () => {
+      await reloadDeveloperCaches();
+    });
+    devInspectCurrentVerseButton?.addEventListener('click', () => {
+      inspectVerseSelection(getCurrentVerseSelection(), 'manual');
+      updateDevPanel();
+    });
+    devToggleVerseInspector?.addEventListener('click', () => {
+      setDevTool('verseInspector', !state.devTools.verseInspector);
+    });
+    devToggleLocationDebug?.addEventListener('click', () => {
+      setDevTool('locationDebug', !state.devTools.locationDebug);
+    });
+    devToggleWordDebug?.addEventListener('click', () => {
+      setDevTool('wordDebug', !state.devTools.wordDebug);
+    });
+    devToggleMediaDebug?.addEventListener('click', () => {
+      setDevTool('mediaDebug', !state.devTools.mediaDebug);
+    });
+    devToggleInteractionDebug?.addEventListener('click', () => {
+      setDevTool('interactionDebug', !state.devTools.interactionDebug);
     });
     translationPickerButton.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -3966,10 +4457,12 @@
           return;
         }
 
+        logDevInteraction('Word tap', wordButton.textContent);
         openWordModal(wordButton.dataset.wordKey, wordButton.textContent);
         return;
       }
 
+      logDevInteraction('Location tap', locationButton.dataset.locationName);
       openLocationModal(locationButton.dataset.locationName);
     }
 
@@ -4112,6 +4605,9 @@
       }
       if (e.key === 'Escape' && settingsModal.classList.contains('open')) {
         closeSettingsModal();
+      }
+      if (e.key === 'Escape' && devModal.classList.contains('open')) {
+        closeDevModal();
       }
       if (e.key === 'Escape' && verseActionModal.classList.contains('open')) {
         closeVerseActionMenu();
