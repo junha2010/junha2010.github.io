@@ -1,0 +1,23 @@
+window.BIBLE_LOCATION_MEDIA = {
+    "generated_at":  "2026-04-07T23:56:36-04:00",
+    "source":  "Wikimedia Commons map search seeded from Wikipedia biblical place references",
+    "count":  2,
+    "entries":  [
+                    {
+                        "name":  "Abarim",
+                        "files":  [
+                                      "09 The Promised Land.png",
+                                      "11 Israel After their Defeat of Sihon and Og.png",
+                                      "01 The Near East.png"
+                                  ]
+                    },
+                    {
+                        "name":  "Abelbethmaachah",
+                        "files":  [
+                                      "09 The Promised Land.png",
+                                      "12 The Boundaries of Israel.png",
+                                      "05 The Land of Canaan.png"
+                                  ]
+                    }
+                ]
+};
