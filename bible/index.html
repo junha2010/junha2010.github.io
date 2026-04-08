@@ -286,7 +286,8 @@
     .menu-drop .book-btn.new-testament { background: var(--nt-button-bg); color: #f87171; border-color: #dc2626; }
     .menu-drop .book-btn.old-testament:hover { background: #0066cc; color: #ffffff; border-color: #0066cc; }
     .menu-drop .book-btn.new-testament:hover { background: #dc2626; color: #ffffff; border-color: #dc2626; }
-    .menu-subhead { grid-column: 1 / -1; margin: 0; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
+    .menu-subhead { grid-column: 1 / -1; margin: 0; display: flex; align-items: baseline; gap: 0.45rem; flex-wrap: wrap; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
+    .menu-subhead-count { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em; text-transform: none; color: var(--text-muted); }
     .menu-status { grid-column: 1 / -1; padding: 0.6rem; color: var(--text-muted); text-align: center; font-size: 0.95rem; }
     .reading-status-picker { position: relative; min-width: 0; }
     .reading-status-picker .menu-drop { left: auto; right: 0; transform-origin: top right; }
@@ -1949,10 +1950,16 @@
       state.menuTransition = null;
     }
 
-    function appendMenuSubhead(text) {
+    function appendMenuSubhead(text, countText = '') {
       const subhead = document.createElement('p');
       subhead.className = 'menu-subhead';
       subhead.textContent = text;
+      if (countText) {
+        const count = document.createElement('span');
+        count.className = 'menu-subhead-count';
+        count.textContent = countText;
+        subhead.appendChild(count);
+      }
       menuDrop.appendChild(subhead);
     }
 
@@ -3178,7 +3185,7 @@
           const newTestamentBooks = state.bookOrder.filter((book) => NEW_TESTAMENT_BOOKS.has(getCanonicalBookName(state.translationId, book)));
 
           if (oldTestamentBooks.length) {
-            appendMenuSubhead('Old Testament');
+            appendMenuSubhead('Old Testament', `${oldTestamentBooks.length} books`);
             oldTestamentBooks.forEach((book) => {
               const bookBtn = document.createElement('button');
               bookBtn.textContent = book;
@@ -3197,7 +3204,7 @@
           }
 
           if (newTestamentBooks.length) {
-            appendMenuSubhead('New Testament');
+            appendMenuSubhead('New Testament', `${newTestamentBooks.length} books`);
             newTestamentBooks.forEach((book) => {
               const bookBtn = document.createElement('button');
               bookBtn.textContent = book;
