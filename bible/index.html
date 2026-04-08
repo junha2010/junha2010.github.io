@@ -2651,6 +2651,10 @@
     }
 
     function getMapFilesForLocation(entry) {
+      if (Array.isArray(entry.map_files) && entry.map_files.length) {
+        return entry.map_files.slice(0, 6);
+      }
+
       const maps = [];
       const seen = new Set();
 
@@ -2691,7 +2695,7 @@
       updateLocationMapZoom();
       locationModalImageEl.src = `img/location/${encodeURIComponent(mapFile)}`;
       locationModalImageEl.alt = `${locationModalTitleEl.textContent} biblical map`;
-      locationMapCaptionEl.textContent = `Related Bible map: ${mapFile.replace(/\.png$/i, '')}`;
+      locationMapCaptionEl.textContent = `Related Bible map: ${mapFile.replace(/\.(png|jpe?g|webp|svg)$/i, '')}`;
 
       const buttons = locationMapGalleryEl.querySelectorAll('button');
       buttons.forEach((button) => {
@@ -2703,8 +2707,8 @@
       locationMapGalleryEl.innerHTML = mapFiles.map((mapFile) => `
         <li>
           <button type="button" data-map-file="${escapeHtml(mapFile)}">
-            <img src="img/location/${encodeURIComponent(mapFile)}" alt="${escapeHtml(mapFile.replace(/\.png$/i, ''))}" loading="lazy" />
-            <span>${escapeHtml(mapFile.replace(/\.png$/i, ''))}</span>
+            <img src="img/location/${encodeURIComponent(mapFile)}" alt="${escapeHtml(mapFile.replace(/\.(png|jpe?g|webp|svg)$/i, ''))}" loading="lazy" />
+            <span>${escapeHtml(mapFile.replace(/\.(png|jpe?g|webp|svg)$/i, ''))}</span>
           </button>
         </li>
       `).join('');
