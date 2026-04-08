@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -108,6 +108,9 @@
     .compare-toggle-btn[aria-pressed="true"] { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; border-color: #0f172a; }
     .compare-toggle-icon { font-size: 1rem; line-height: 1; }
     .compare-toggle-text { font-size: 0.84rem; font-weight: 700; line-height: 1; }
+    body.never-wet-wiggle {
+      animation: never-wet-screen-wiggle 720ms ease-in-out 2;
+    }
     .settings-modal-card { width: min(92vw, 420px); background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
     .settings-modal .settings-modal-card { transform: translateY(2.4rem) scale(0.97); opacity: 0; transition: transform 0.3s cubic-bezier(.22,1,.36,1), opacity 0.24s ease; }
     .settings-modal.open .settings-modal-card { transform: translateY(0) scale(1); opacity: 1; }
@@ -500,6 +503,14 @@
       35% { background: var(--verse-flash-reading-mid, rgba(0, 102, 204, 0.26)); box-shadow: inset 0 -0.5em 0 0 var(--verse-flash-reading-mid, rgba(0, 102, 204, 0.26)); }
       100% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); box-shadow: inset 0 -0.02em 0 0 var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); }
     }
+    @keyframes never-wet-screen-wiggle {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+      15% { transform: translate3d(-6px, 2px, 0) rotate(-0.45deg); }
+      30% { transform: translate3d(7px, -2px, 0) rotate(0.45deg); }
+      45% { transform: translate3d(-5px, 3px, 0) rotate(-0.35deg); }
+      60% { transform: translate3d(6px, -3px, 0) rotate(0.35deg); }
+      75% { transform: translate3d(-3px, 1px, 0) rotate(-0.2deg); }
+    }
     /* Tablet and smaller */
     @media (max-width: 720px) {
       :root { --verse-scroll-margin: 84px; --verse-scroll-margin-reading: 78px; }
@@ -685,7 +696,7 @@
       .site-footer { margin-top: 1.9rem; padding: 0 0.9rem calc(1.5rem + env(safe-area-inset-bottom)); }
       .footer-card { padding: 0.95rem; }
       .chapter-nav-bar { position: sticky; top: auto; bottom: calc(0.95rem + env(safe-area-inset-bottom)); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; height: auto; margin-top: 0.25rem; pointer-events: none; }
-      body.compare-mode .chapter-nav-bar { position: fixed; left: 0.85rem; right: 0.85rem; bottom: calc(10px + env(safe-area-inset-bottom)); margin-top: 0; z-index: 40; }
+      body.compare-mode .chapter-nav-bar { position: fixed; left: 0.85rem; right: 0.85rem; bottom: calc(16px + env(safe-area-inset-bottom)); margin-top: 0; z-index: 40; }
       .nav-btn { position: static; top: auto; width: 100%; height: 3.35rem; border-radius: 1rem; font-size: 1.04rem; z-index: auto; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); background: color-mix(in srgb, var(--surface) 68%, transparent); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); pointer-events: auto; touch-action: manipulation; transform: none; }
       body.dark-mode .nav-btn { background: color-mix(in srgb, var(--surface) 80%, transparent); }
       .prev-btn { left: auto; right: auto; }
@@ -738,7 +749,6 @@
       </button>
     </div>
   </div>
-
   <main class="content">
     <h1 class="chapter-title">Loading...</h1>
     <p class="hint">Loading Bible data...</p>
@@ -804,12 +814,13 @@
   <footer class="site-footer" aria-label="Sources and credits">
     <div class="footer-card">
       <h2 class="footer-title">Sources</h2>
-      <p class="footer-copy">Bible text and map content used in this reader comes from the project’s bundled data and the sources below.</p>
+      <p class="footer-copy">Bible text, location references, and map content used in this reader come from the project's bundled data and the sources below.</p>
       <ul class="footer-sources">
         <li><strong>NIV text:</strong> downloaded from <a href="https://github.com/aruljohn/Bible-niv/" target="_blank" rel="noopener noreferrer">aruljohn/Bible-niv</a> and bundled locally in <a href="./Bible-niv-main/">Bible-niv-main</a>.</li>
         <li><strong>KJV text:</strong> downloaded from <a href="https://github.com/aruljohn/Bible-kjv" target="_blank" rel="noopener noreferrer">aruljohn/Bible-kjv</a> and bundled locally in <a href="./Bible-kjv-main/">Bible-kjv-main</a>.</li>
         <li><strong>LXX text:</strong> built from the bundled public-domain <a href="./brenton-source/eng-Brenton_usfm/">Brenton English Septuagint USFM source</a> and converted into the local reader format in <a href="./Bible-lxx-pdf-main/">Bible-lxx-pdf-main</a>.</li>
-        <li><strong>Location references and maps:</strong> the place-name/source index in this repo was built from <a href="https://bibleask.org/resources/bible-names/names-of-places-in-the-bible/" target="_blank" rel="noopener noreferrer">BibleAsk</a>, and the displayed map images come from the bundled local map set in <a href="./img/location/">img/location</a>.</li>
+        <li><strong>Location references:</strong> the place-name index in this repo was rebuilt from <a href="https://en.wikipedia.org/wiki/List_of_biblical_places" target="_blank" rel="noopener noreferrer">Wikipedia: List of biblical places</a> and <a href="https://en.wikipedia.org/wiki/List_of_minor_biblical_places" target="_blank" rel="noopener noreferrer">Wikipedia: List of minor biblical places</a>, then bundled locally in <a href="./data/locations.json">locations.json</a>.</li>
+        <li><strong>Location maps and images:</strong> displayed location media is stored locally in <a href="./img/location/">img/location</a>; curated historical maps were gathered from <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, and related media manifests are bundled in <a href="./data/location-media.json">location-media.json</a>.</li>
       </ul>
     </div>
   </footer>
@@ -1110,8 +1121,12 @@
       mobileLongPressSuppressClickUntil: 0,
       verseActionSelection: null,
       verseActionIgnoreClickUntil: 0,
-      verseActionPreview: null
+      verseActionPreview: null,
+      secretKeyBuffer: '',
+      secretWiggleTimeoutId: null
     };
+
+    const NEVER_WET_SEQUENCE = 'never-wet';
 
     const OLD_TESTAMENT_ACCENT = {
       accent: '#0066cc',
@@ -1179,11 +1194,11 @@
       Osee: 'Hosea',
       Obdias: 'Obadiah',
       Jonas: 'Jonah',
-      'Michæas': 'Micah',
+      'MichÃ¦as': 'Micah',
       Naum: 'Nahum',
       Ambacum: 'Habakkuk',
       Sophonias: 'Zephaniah',
-      'Aggæus': 'Haggai',
+      'AggÃ¦us': 'Haggai',
       Zacharias: 'Zechariah',
       Malachias: 'Malachi',
       Esaias: 'Isaiah',
@@ -1345,6 +1360,44 @@
       verseContainer.innerHTML = '<p class="hint">' + message + '</p>';
       secondaryVerseContainer.innerHTML = '';
       readingStatusValueEl.textContent = 'Unavailable';
+    }
+
+    function isDesktopSecretKeyMode() {
+      return window.matchMedia('(min-width: 721px) and (pointer: fine)').matches;
+    }
+
+    function triggerNeverWetWiggle() {
+      document.body.classList.remove('never-wet-wiggle');
+      void document.body.offsetWidth;
+      document.body.classList.add('never-wet-wiggle');
+
+      if (state.secretWiggleTimeoutId != null) {
+        window.clearTimeout(state.secretWiggleTimeoutId);
+      }
+
+      state.secretWiggleTimeoutId = window.setTimeout(() => {
+        document.body.classList.remove('never-wet-wiggle');
+        state.secretWiggleTimeoutId = null;
+      }, 1550);
+    }
+
+    function handleNeverWetSequence(key) {
+      if (!isDesktopSecretKeyMode()) {
+        return;
+      }
+
+      const normalizedKey = key.length === 1 ? key.toLowerCase() : '';
+      if (!normalizedKey || !/[a-z-]/.test(normalizedKey)) {
+        return;
+      }
+
+      const nextBuffer = (state.secretKeyBuffer + normalizedKey).slice(-NEVER_WET_SEQUENCE.length);
+      state.secretKeyBuffer = nextBuffer;
+
+      if (nextBuffer === NEVER_WET_SEQUENCE) {
+        state.secretKeyBuffer = '';
+        triggerNeverWetWiggle();
+      }
     }
 
     function getTranslationConfig(translationId = state.translationId) {
@@ -3027,9 +3080,10 @@
 
       if (state.compareMode) {
         const containerBottomPadding = 28;
+        const compareTopOffset = isMobileComparePaneLayout() ? 86 : 40;
         const desiredScrollTop = shouldBottomAlign
           ? Math.max(0, target.offsetTop + target.offsetHeight - verseContainer.clientHeight + containerBottomPadding)
-          : Math.max(0, target.offsetTop - 40);
+          : Math.max(0, target.offsetTop - compareTopOffset);
         const maxScrollTop = Math.max(0, verseContainer.scrollHeight - verseContainer.clientHeight);
         verseContainer.scrollTo({
           top: Math.min(maxScrollTop, desiredScrollTop),
@@ -3699,6 +3753,17 @@
     }, true);
 
     document.addEventListener('keydown', (e) => {
+      const target = e.target;
+      const isEditableTarget = target instanceof HTMLElement && (
+        target.closest('input') ||
+        target.closest('textarea') ||
+        target.isContentEditable
+      );
+
+      if (!isEditableTarget && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        handleNeverWetSequence(e.key);
+      }
+
       if (e.key === 'Escape' && translationPicker.classList.contains('open')) {
         setTranslationPickerOpen(false);
       }
