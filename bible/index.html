@@ -1261,6 +1261,33 @@
     /* Phone layout */
     @media (max-width: 520px) {
       :root { --verse-scroll-margin: 84px; --verse-scroll-margin-reading: 76px; }
+      body.mobile-chrome-autohide .topbar,
+      body.mobile-chrome-autohide .chapter-nav-bar {
+        transition: transform 0.62s cubic-bezier(.16,.84,.18,1), opacity 0.5s ease;
+      }
+      body.mobile-chrome-hidden .topbar {
+        transform: translateY(calc(-100% - 0.85rem));
+        opacity: 0.98;
+      }
+      body.mobile-chrome-hidden .chapter-nav-bar {
+        transform: translateY(calc(100% + 1.15rem));
+        opacity: 0.01;
+        pointer-events: none;
+      }
+      body.menu-open .topbar,
+      body.settings-open .topbar,
+      body.mobile-chrome-hidden .menu-drop.open,
+      body.mobile-chrome-hidden .topbar:has(.translation-picker.open),
+      body.mobile-chrome-hidden .topbar:has(.reading-status-picker .menu-drop.open) {
+        transform: none;
+        opacity: 1;
+      }
+      body.menu-open .chapter-nav-bar,
+      body.settings-open .chapter-nav-bar {
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+      }
       .topbar { padding: 0.8rem 0.85rem; }
       .topbar-left { gap: 0.5rem; min-width: 0; }
       .menu-btn { padding: 0.62rem 0.82rem; min-height: 2.55rem; font-size: 0.89rem; flex-shrink: 0; }
@@ -2168,6 +2195,8 @@
       mobileLongPressSuppressClickUntil: 0,
       lastMobileHapticAt: 0,
       tapFeedbackAudioContext: null,
+      mobileChromeHidden: false,
+      mobileChromeRevealTimeoutId: null,
       verseActionSelection: null,
       verseActionIgnoreClickUntil: 0,
       verseActionPreview: null,
@@ -2636,6 +2665,7 @@
       if (!state.developerMode) {
         return;
       }
+      setMobileChromeHidden(false);
       updateDevPanel();
       devModal.classList.add('open');
       devModal.setAttribute('aria-hidden', 'false');
@@ -2648,6 +2678,54 @@
       devModal.setAttribute('aria-hidden', 'true');
       state.devPanelOpen = false;
       document.body.style.overflow = '';
+      setMobileChromeHidden(false);
+    }
+
+    function isMobileChromeAutoHideEnabled() {
+      return window.matchMedia('(max-width: 520px)').matches
+        && window.matchMedia('(pointer: coarse)').matches
+        && !state.compareMode;
+    }
+
+    function isMobileChromeOverlayActive() {
+      return menuDrop.classList.contains('open')
+        || settingsModal.classList.contains('open')
+        || devModal.classList.contains('open')
+        || locationModal.classList.contains('open')
+        || wordModal.classList.contains('open')
+        || verseActionModal.classList.contains('open')
+        || translationPicker.classList.contains('open')
+        || comparePrimaryPicker.classList.contains('open')
+        || compareSecondaryPicker.classList.contains('open')
+        || verseActionPicker.classList.contains('open')
+        || devThemePresetPicker?.classList.contains('open')
+        || devFontFamilyPicker?.classList.contains('open');
+    }
+
+    function setMobileChromeHidden(hidden) {
+      const shouldHide = Boolean(hidden) && isMobileChromeAutoHideEnabled() && !isMobileChromeOverlayActive();
+      state.mobileChromeHidden = shouldHide;
+      document.body.classList.toggle('mobile-chrome-autohide', isMobileChromeAutoHideEnabled());
+      document.body.classList.toggle('mobile-chrome-hidden', shouldHide);
+    }
+
+    function scheduleMobileChromeReveal(delay = 320) {
+      if (state.mobileChromeRevealTimeoutId) {
+        window.clearTimeout(state.mobileChromeRevealTimeoutId);
+      }
+      state.mobileChromeRevealTimeoutId = window.setTimeout(() => {
+        setMobileChromeHidden(false);
+        state.mobileChromeRevealTimeoutId = null;
+      }, delay);
+    }
+
+    function handleMobileChromeScrollActivity() {
+      if (!isMobileChromeAutoHideEnabled() || isMobileChromeOverlayActive()) {
+        setMobileChromeHidden(false);
+        return;
+      }
+      setMobileChromeHidden(true);
+      scheduleMobileChromeReveal(340);
     }
 
     function setDevTool(key, enabled) {
@@ -3528,6 +3606,7 @@
       menuButton.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('menu-open');
       state.menuState = 'books';
+      setMobileChromeHidden(false);
     }
 
     function getMenuScrollKey() {
@@ -3595,6 +3674,11 @@
     }
 
     async function openMenu() {
+      const needsMobileChromeReset = document.body.classList.contains('mobile-chrome-hidden');
+      setMobileChromeHidden(false);
+      if (needsMobileChromeReset) {
+        await new Promise((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
+      }
       menuDrop.classList.add('open');
       menuButton.setAttribute('aria-expanded', 'true');
       document.body.classList.add('menu-open');
@@ -4150,6 +4234,7 @@
         return;
       }
 
+      setMobileChromeHidden(false);
       triggerMobileHaptic('menu');
       clearVerseActionSelectionHighlight();
       if (state.devTools.verseInspector) {
@@ -4186,6 +4271,7 @@
       verseActionPreviewText.textContent = '';
       verseActionModal.classList.remove('open');
       verseActionModal.setAttribute('aria-hidden', 'true');
+      setMobileChromeHidden(false);
     }
 
     function clearVerseActionSelectionHighlight() {
@@ -4747,6 +4833,7 @@
         return;
       }
 
+      setMobileChromeHidden(false);
       const mapFiles = getMapFilesForLocation(entry);
       locationModalTitleEl.textContent = entry.name;
       const mediaMode = Array.isArray(entry.media_files) && entry.media_files.length ? 'dedicated media' : 'fallback atlas maps';
@@ -4773,6 +4860,7 @@
       locationModal.classList.remove('open');
       locationModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      setMobileChromeHidden(false);
     }
 
     function openWordModal(wordKey, displayWord) {
@@ -4781,6 +4869,7 @@
         return;
       }
 
+      setMobileChromeHidden(false);
       wordModalTitleEl.textContent = displayWord;
       wordModalSubtitleEl.textContent = 'Korean meaning';
       wordMeaningTextEl.textContent = meaning;
@@ -4795,9 +4884,11 @@
       wordModal.classList.remove('open');
       wordModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      setMobileChromeHidden(false);
     }
 
     function openSettingsModal() {
+      setMobileChromeHidden(false);
       settingsModal.classList.add('open');
       settingsModal.setAttribute('aria-hidden', 'false');
       settingsButton.setAttribute('aria-expanded', 'true');
@@ -4812,6 +4903,7 @@
       document.body.classList.remove('settings-open');
       document.body.style.overflow = '';
       setTranslationPickerOpen(false);
+      setMobileChromeHidden(false);
     }
 
     function isMobileComparePaneLayout() {
@@ -5999,8 +6091,16 @@
       }
     });
 
-    window.addEventListener('scroll', scheduleReadingStatusSync, { passive: true });
-    window.addEventListener('resize', scheduleReadingStatusSync);
+    window.addEventListener('scroll', () => {
+      scheduleReadingStatusSync();
+      handleMobileChromeScrollActivity();
+    }, { passive: true });
+    verseContainer.addEventListener('scroll', handleMobileChromeScrollActivity, { passive: true });
+    secondaryVerseContainer.addEventListener('scroll', handleMobileChromeScrollActivity, { passive: true });
+    window.addEventListener('resize', () => {
+      scheduleReadingStatusSync();
+      setMobileChromeHidden(false);
+    });
 
     nextChapterBtn.addEventListener('click', async () => {
       try {
@@ -6063,6 +6163,7 @@
       }
     }
 
+    setMobileChromeHidden(false);
     loadBible();
   </script>
 </body>
