@@ -175,6 +175,9 @@
       transition: background 0.08s linear;
       will-change: background;
     }
+    .scale-slider.is-dragging {
+      transition: none;
+    }
     .scale-slider:focus { outline: none; }
     .scale-slider::-webkit-slider-runnable-track {
       height: 0.72rem;
@@ -1122,6 +1125,8 @@
       verseActionSelection: null,
       verseActionIgnoreClickUntil: 0,
       verseActionPreview: null,
+      textScaleRaf: null,
+      pendingTextScale: null,
       secretKeyBuffer: '',
       secretWiggleTimeoutId: null
     };
@@ -1641,7 +1646,7 @@
       textScaleSlider.style.setProperty('--scale-fill', `${clampedFill}%`);
     }
 
-    function updateTextScaleControls() {
+    function updateTextScaleControls({ updatePresetSlider = true } = {}) {
       const percentage = Math.round(state.textScale * 100);
       document.documentElement.style.setProperty('--text-scale', String(state.textScale));
       textScaleSlider.value = String(percentage);
@@ -1651,7 +1656,9 @@
         const isActive = Number(button.dataset.textScale) === percentage;
         button.classList.toggle('active', isActive);
       });
-      updateTextScalePresetSlider();
+      if (updatePresetSlider) {
+        updateTextScalePresetSlider();
+      }
     }
 
     function loadScript(src) {
@@ -2644,10 +2651,30 @@
       }
     }
 
-    function setTextScale(nextValue) {
+    function setTextScale(nextValue, options = {}) {
       const normalized = Math.max(0.85, Math.min(1.6, Number(nextValue) || 1));
-      state.textScale = Number(normalized.toFixed(2));
-      updateTextScaleControls();
+      const nextScale = Number(normalized.toFixed(2));
+      if (state.textScale === nextScale) {
+        if (options.updatePresetSlider) {
+          updateTextScaleControls(options);
+        }
+        return;
+      }
+      state.textScale = nextScale;
+      updateTextScaleControls(options);
+    }
+
+    function queueTextScaleUpdate(nextValue) {
+      state.pendingTextScale = nextValue;
+      if (state.textScaleRaf) {
+        return;
+      }
+      state.textScaleRaf = window.requestAnimationFrame(() => {
+        state.textScaleRaf = null;
+        const pendingScale = state.pendingTextScale;
+        state.pendingTextScale = null;
+        setTextScale(pendingScale, { updatePresetSlider: false });
+      });
     }
 
     async function setCompareMode(enabled) {
@@ -3566,11 +3593,21 @@
       });
     });
     textScaleSlider.addEventListener('input', () => {
-      setTextScale(Number(textScaleSlider.value) / 100);
+      queueTextScaleUpdate(Number(textScaleSlider.value) / 100);
+    });
+    ['pointerdown', 'touchstart', 'mousedown'].forEach((eventName) => {
+      textScaleSlider.addEventListener(eventName, () => {
+        textScaleSlider.classList.add('is-dragging');
+      }, { passive: true });
+    });
+    ['pointerup', 'touchend', 'touchcancel', 'mouseup', 'blur', 'change'].forEach((eventName) => {
+      textScaleSlider.addEventListener(eventName, () => {
+        textScaleSlider.classList.remove('is-dragging');
+      }, { passive: true });
     });
     textScalePresetButtons.forEach((button) => {
       button.addEventListener('click', () => {
-        setTextScale(Number(button.dataset.textScale) / 100);
+        setTextScale(Number(button.dataset.textScale) / 100, { updatePresetSlider: true });
       });
     });
     window.addEventListener('resize', () => {
