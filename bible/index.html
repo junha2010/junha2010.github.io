@@ -150,7 +150,8 @@
     }
     .developer-mode-badge { cursor: pointer; }
     .developer-mode-badge:focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
-    .dev-modal-card { width: min(92vw, 720px); max-height: min(88vh, 860px); overflow: auto; background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
+    .dev-modal-card { width: min(92vw, 720px); max-height: min(88vh, 860px); overflow: auto; scrollbar-width: none; -ms-overflow-style: none; background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
+    .dev-modal-card::-webkit-scrollbar { width: 0; height: 0; display: none; }
     .dev-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1rem 1rem 0.5rem; }
     .dev-modal-title { margin: 0; font-size: 1.2rem; color: var(--text-strong); }
     .dev-modal-subtitle { margin: 0.25rem 0 0; color: var(--text-soft); font-size: 0.9rem; }
