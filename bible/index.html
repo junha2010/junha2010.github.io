@@ -128,7 +128,7 @@
     .mode-btn.active { color: #ffffff; }
     .translation-picker { position: relative; }
     .topbar-translation-picker { min-width: 0; }
-    .topbar-translation-picker .settings-select-btn { width: auto; min-width: 9.6rem; padding: 0.68rem 0.9rem; border-radius: 0.8rem; }
+    .topbar-translation-picker .settings-select-btn { width: auto; min-width: 12rem; padding: 0.68rem 0.9rem; border-radius: 0.8rem; }
     .topbar-translation-picker .settings-select-caption { white-space: nowrap; }
     .translation-picker.open .translation-options { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
     .settings-select-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; border: 1px solid var(--border-soft); border-radius: 0.95rem; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-strong); padding: 0.82rem 0.95rem; font: inherit; font-size: 0.92rem; font-weight: 700; cursor: pointer; transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
@@ -137,7 +137,7 @@
     .settings-select-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
     .settings-select-value { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 0.14rem; text-align: left; }
     .settings-select-title { color: var(--text-strong); }
-    .settings-select-caption { font-size: 0.78rem; font-weight: 600; color: var(--text-soft); }
+    .settings-select-caption { font-size: 0.78rem; font-weight: 600; color: var(--text-soft); line-height: 1.25; }
     .settings-select-caret { flex-shrink: 0; color: var(--text-soft); transition: transform 0.22s ease; }
     .translation-picker.open .settings-select-caret { transform: rotate(180deg); }
     .translation-options { position: absolute; top: calc(100% + 0.55rem); left: 0; right: 0; display: grid; gap: 0.45rem; padding: 0.55rem; border: 1px solid var(--border-soft); border-radius: 1rem; background: var(--surface-elevated); box-shadow: var(--shadow-md); max-height: 250px; overflow-y: auto; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.3rem) scale(0.98); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index: 3; }
@@ -148,7 +148,8 @@
     .translation-option.active { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; }
     .translation-option-meta { display: flex; flex-direction: column; gap: 0.12rem; min-width: 0; }
     .translation-option-label { font-size: 0.9rem; font-weight: 700; }
-    .translation-option-description { font-size: 0.76rem; font-weight: 600; color: inherit; opacity: 0.78; }
+    .translation-option-description { font-size: 0.76rem; font-weight: 600; color: inherit; opacity: 0.78; line-height: 1.25; }
+    .translation-subline { display: block; }
     .translation-option-check { font-size: 0.86rem; font-weight: 800; opacity: 0; transition: opacity 0.18s ease; }
     .translation-option.active .translation-option-check { opacity: 1; }
     .scale-slider-wrap { display: grid; gap: 0.65rem; }
@@ -295,7 +296,7 @@
     .reading-status-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
     .reading-status-label { display: block; margin: 0; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .reading-status-value { display: block; margin: 0.15rem 0 0; font-size: 0.94rem; font-weight: 700; color: var(--text-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 38vw; }
-    .content { max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
+    .content { position: relative; max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
     .chapter-title { font-size: calc(2.5rem * var(--text-scale)); font-weight: 700; margin: 0 0 1rem; color: var(--text-strong); text-align: center; }
     .hint { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
     .compare-empty-state {
@@ -332,7 +333,7 @@
     .compare-picker-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
     .compare-picker-value { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 0.12rem; text-align: left; }
     .compare-picker-title { color: var(--text-strong); }
-    .compare-picker-caption { font-size: 0.76rem; font-weight: 600; color: var(--text-soft); }
+    .compare-picker-caption { font-size: 0.76rem; font-weight: 600; color: var(--text-soft); line-height: 1.2; }
     .compare-picker-caret { flex-shrink: 0; color: var(--text-soft); transition: transform 0.22s ease; }
     .compare-picker.open .compare-picker-caret { transform: rotate(180deg); }
     .compare-picker-options { position: absolute; top: calc(100% + 0.55rem); left: 0; right: 0; display: grid; gap: 0.45rem; padding: 0.55rem; border: 1px solid var(--border-soft); border-radius: 1rem; background: var(--surface-elevated); box-shadow: var(--shadow-md); max-height: 250px; overflow-y: auto; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.3rem) scale(0.98); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index: 7; }
@@ -369,13 +370,15 @@
     .verse-number { position: absolute; left: 0; top: 0; color: var(--verse-accent, #0066cc); font-weight: bold; padding-left: 0.5rem; width: 1.6rem; text-align: center; }
     .verse-number.single-digit { font-size: 1.08rem; }
     .verse-number.double-digit { font-size: 1rem; }
-    .nav-btn { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); width: 3rem; height: 3rem; border: 1px solid color-mix(in srgb, var(--nav-accent) 50%, var(--border-strong)); background: var(--surface); color: var(--nav-accent); font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: all 0.2s ease; box-shadow: var(--shadow-sm); display: inline-flex; align-items: center; justify-content: center; gap: 0; padding: 0; }
-    .nav-btn:hover { background: var(--nav-accent-hover-bg); border-color: var(--nav-accent); box-shadow: 0 4px 12px var(--nav-accent-shadow); }
+    .chapter-nav-bar { position: sticky; top: calc(50vh - 1.5rem); z-index: 35; height: 0; pointer-events: none; }
+    .nav-btn { position: absolute; top: 0; width: 3rem; height: 3rem; border: 1px solid color-mix(in srgb, var(--nav-accent) 50%, var(--border-strong)); background: color-mix(in srgb, var(--surface) 62%, transparent); color: var(--nav-accent); font-size: 1.5rem; cursor: pointer; border-radius: 50%; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease; box-shadow: var(--shadow-sm); display: inline-flex; align-items: center; justify-content: center; gap: 0; padding: 0; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); pointer-events: auto; }
+    .nav-btn:hover { background: var(--nav-accent-hover-bg); border-color: var(--nav-accent); color: var(--nav-accent); box-shadow: 0 4px 12px var(--nav-accent-shadow); }
     .nav-btn:disabled { opacity: 0; visibility: hidden; }
     body.menu-open .nav-btn:not(:disabled) { opacity: 0.32; filter: saturate(0.7); pointer-events: none; }
     body.menu-open .content,
     body.settings-open .content { pointer-events: none; }
-    .prev-btn { right: auto; left: 1.5rem; }
+    .prev-btn { left: -3.9rem; right: auto; }
+    .next-btn { right: -3.9rem; left: auto; }
     .nav-btn-label { display: none; font-size: 0.96rem; font-weight: 700; letter-spacing: 0.01em; }
     .nav-btn-icon { line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
     .location-modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem; background: var(--overlay); z-index: 80; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.2s ease, visibility 0.2s ease; }
@@ -606,9 +609,9 @@
         top: 4.7rem;
         left: 0;
         right: 0;
-        bottom: calc(4.95rem + env(safe-area-inset-bottom));
+        bottom: 0;
         margin: 0;
-        padding: 0 0.85rem 0.85rem;
+        padding: 0 0.85rem calc(4.95rem + env(safe-area-inset-bottom));
         max-width: none;
         overflow: hidden;
       }
@@ -678,9 +681,12 @@
       .verse-container.reading-mode .verse-line { font-size: calc(1.04rem * var(--text-scale)); line-height: 2; }
       .site-footer { margin-top: 1.9rem; padding: 0 0.9rem calc(1.5rem + env(safe-area-inset-bottom)); }
       .footer-card { padding: 0.95rem; }
-      .nav-btn { top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); transform: none; width: calc(50vw - 1.35rem); height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: 35; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); }
-      .prev-btn { left: 0.85rem; right: auto; }
-      .next-btn { right: 0.85rem; left: auto; }
+      .chapter-nav-bar { position: sticky; top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; height: auto; margin-top: 0.25rem; pointer-events: none; }
+      body.compare-mode .chapter-nav-bar { position: fixed; left: 0.85rem; right: 0.85rem; bottom: calc(0.7rem + env(safe-area-inset-bottom)); margin-top: 0; z-index: 40; }
+      .nav-btn { position: static; top: auto; width: 100%; height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: auto; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); background: color-mix(in srgb, var(--surface) 68%, transparent); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); }
+      body.dark-mode .nav-btn { background: color-mix(in srgb, var(--surface) 80%, transparent); }
+      .prev-btn { left: auto; right: auto; }
+      .next-btn { right: auto; left: auto; }
       .nav-btn-label { display: inline; }
       .location-modal-header { padding: 0.9rem 0.9rem 0.3rem; }
       .location-modal-body { padding: 0 0.9rem 0.9rem; }
@@ -729,15 +735,6 @@
       </button>
     </div>
   </div>
-
-  <button id="prevChapterBtn" class="nav-btn prev-btn" aria-label="Previous chapter">
-    <span class="nav-btn-icon">←</span>
-    <span class="nav-btn-label">Prev</span>
-  </button>
-  <button id="nextChapterBtn" class="nav-btn next-btn" aria-label="Next chapter">
-    <span class="nav-btn-label">Next</span>
-    <span class="nav-btn-icon">→</span>
-  </button>
 
   <main class="content">
     <h1 class="chapter-title">Loading...</h1>
@@ -789,6 +786,16 @@
         </div>
         <div id="secondaryVerseContainer" class="verse-container"></div>
       </section>
+    </div>
+    <div class="chapter-nav-bar" aria-label="Chapter navigation">
+      <button id="prevChapterBtn" class="nav-btn prev-btn" aria-label="Previous chapter">
+        <span class="nav-btn-icon">←</span>
+        <span class="nav-btn-label">Prev</span>
+      </button>
+      <button id="nextChapterBtn" class="nav-btn next-btn" aria-label="Next chapter">
+        <span class="nav-btn-label">Next</span>
+        <span class="nav-btn-icon">→</span>
+      </button>
     </div>
   </main>
   <footer class="site-footer" aria-label="Sources and credits">
@@ -1338,6 +1345,16 @@
       return TRANSLATIONS[translationId] || TRANSLATIONS[DEFAULT_TRANSLATION_ID];
     }
 
+    function formatTranslationSubLabel(text) {
+      const value = text || '';
+      const match = value.match(/^(.*?)(\s*\([^)]+\))$/);
+      if (!match) {
+        return escapeHtml(value);
+      }
+
+      return `${escapeHtml(match[1].trim())}<span class="translation-subline">${escapeHtml(match[2].trim())}</span>`;
+    }
+
     function getTranslationButtons() {
       return Array.from(translationOptions.querySelectorAll('[data-translation]'));
     }
@@ -1360,7 +1377,7 @@
         button.innerHTML = `
           <span class="translation-option-meta">
             <span class="translation-option-label">${escapeHtml(translation.label)}</span>
-            <span class="translation-option-description">${escapeHtml(translation.fullLabel || translation.label)}</span>
+            <span class="translation-option-description">${formatTranslationSubLabel(translation.fullLabel || translation.label)}</span>
           </span>
           <span class="translation-option-check" aria-hidden="true">✓</span>
         `;
@@ -1447,9 +1464,9 @@
       const primaryTranslation = getTranslationConfig(state.translationId);
       const secondaryTranslation = getTranslationConfig(state.compareTranslations.secondary);
       comparePrimaryPickerValue.textContent = primaryTranslation.label;
-      comparePrimaryPickerCaption.textContent = primaryTranslation.fullLabel || primaryTranslation.label;
+      comparePrimaryPickerCaption.innerHTML = formatTranslationSubLabel(primaryTranslation.fullLabel || primaryTranslation.label);
       compareSecondaryPickerValue.textContent = secondaryTranslation.label;
-      compareSecondaryPickerCaption.textContent = secondaryTranslation.fullLabel || secondaryTranslation.label;
+      compareSecondaryPickerCaption.innerHTML = formatTranslationSubLabel(secondaryTranslation.fullLabel || secondaryTranslation.label);
 
       Array.from(comparePrimaryOptions.querySelectorAll('[data-translation]')).forEach((button) => {
         const isActive = button.dataset.translation === state.translationId;
@@ -2949,6 +2966,8 @@
       const target = getVerseCard(verseNum, 'primary');
       if (!target) return;
       const secondaryTarget = state.compareMode ? getVerseCard(verseNum, 'secondary') : null;
+      const totalVerses = state.verses.length;
+      const shouldBottomAlign = totalVerses > 0 && verseNum >= Math.max(1, totalVerses - 2);
 
       const targetTop = target.getBoundingClientRect().top + window.pageYOffset;
       const scrollDistance = Math.abs(window.pageYOffset - targetTop);
@@ -2959,7 +2978,28 @@
         state.flashTimeoutId = null;
       }
 
-      target.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      if (state.compareMode) {
+        const containerBottomPadding = 28;
+        const desiredScrollTop = shouldBottomAlign
+          ? Math.max(0, target.offsetTop + target.offsetHeight - verseContainer.clientHeight + containerBottomPadding)
+          : Math.max(0, target.offsetTop - 16);
+        const maxScrollTop = Math.max(0, verseContainer.scrollHeight - verseContainer.clientHeight);
+        verseContainer.scrollTo({
+          top: Math.min(maxScrollTop, desiredScrollTop),
+          behavior: 'smooth'
+        });
+      } else if (shouldBottomAlign) {
+        const viewportBottomPadding = 28;
+        const desiredTop = window.pageYOffset + target.getBoundingClientRect().bottom - window.innerHeight + viewportBottomPadding;
+        const maxScrollTop = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        window.scrollTo({
+          top: Math.min(maxScrollTop, Math.max(0, desiredTop)),
+          behavior: 'smooth'
+        });
+      } else {
+        target.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      }
+
       state.activeVerse = verseNum;
       updateReadingStatus(verseNum);
       if (state.compareMode && state.compareScrollSync) {
