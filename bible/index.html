@@ -108,8 +108,163 @@
     .compare-toggle-btn[aria-pressed="true"] { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; border-color: #0f172a; }
     .compare-toggle-icon { font-size: 1rem; line-height: 1; }
     .compare-toggle-text { font-size: 0.84rem; font-weight: 700; line-height: 1; }
-    body.never-wet-wiggle {
-      animation: never-wet-screen-wiggle 720ms ease-in-out 2;
+    body.developer-mode .topbar {
+      box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.34), var(--shadow-sm);
+    }
+    .developer-mode-badge {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.55rem;
+      height: 2.55rem;
+      padding: 0 0.78rem;
+      border: 1px solid rgba(56, 189, 248, 0.26);
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 24%, rgba(224, 242, 254, 0.18) 0%, transparent 38%),
+        linear-gradient(180deg, rgba(8, 47, 73, 0.96) 0%, rgba(15, 23, 42, 0.98) 100%);
+      color: #dbeafe;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow:
+        0 8px 18px rgba(15, 23, 42, 0.14),
+        inset 0 0 14px rgba(56, 189, 248, 0.08);
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .developer-mode-badge::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.18) 0%, transparent 46%, rgba(59, 130, 246, 0.08) 100%);
+      pointer-events: none;
+    }
+    body.developer-mode .developer-mode-badge {
+      display: inline-flex;
+    }
+    .never-wet-eyes {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, rgba(56, 189, 248, 0.18) 0%, rgba(56, 189, 248, 0.08) 18%, transparent 34%),
+        radial-gradient(circle at center, rgba(15, 23, 42, 0.18) 0%, rgba(15, 23, 42, 0.84) 54%, rgba(2, 6, 23, 0.99) 100%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 140;
+      overflow: hidden;
+    }
+    .never-wet-eyes.active {
+      animation: never-wet-intro-fade 1850ms cubic-bezier(.22,.78,.2,1) forwards;
+    }
+    .never-wet-intro-rings {
+      position: absolute;
+      inset: 50%;
+      width: 10rem;
+      height: 10rem;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+    .never-wet-intro-rings::before,
+    .never-wet-intro-rings::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(125, 211, 252, 0.34);
+      box-shadow: 0 0 28px rgba(56, 189, 248, 0.12);
+    }
+    .never-wet-intro-rings::after {
+      border-color: rgba(56, 189, 248, 0.22);
+    }
+    .never-wet-eyes.active .never-wet-intro-rings {
+      animation: never-wet-rings-bloom 1850ms cubic-bezier(.14,.84,.2,1) forwards;
+    }
+    .never-wet-eyes.active .never-wet-intro-rings::before {
+      animation: never-wet-ring-one 1850ms cubic-bezier(.14,.84,.2,1) forwards;
+    }
+    .never-wet-eyes.active .never-wet-intro-rings::after {
+      animation: never-wet-ring-two 1850ms cubic-bezier(.14,.84,.2,1) forwards;
+    }
+    .never-wet-intro-card {
+      position: relative;
+      width: min(82vw, 34rem);
+      padding: 1.5rem 1.7rem 1.4rem;
+      border: 1px solid rgba(125, 211, 252, 0.24);
+      border-radius: 1.4rem;
+      background:
+        linear-gradient(180deg, rgba(8, 47, 73, 0.82) 0%, rgba(15, 23, 42, 0.92) 100%);
+      box-shadow:
+        0 24px 80px rgba(2, 6, 23, 0.46),
+        inset 0 0 40px rgba(56, 189, 248, 0.08);
+      backdrop-filter: blur(10px);
+      transform: translateY(1rem) scale(0.94);
+      opacity: 0;
+    }
+    .never-wet-eyes.active .never-wet-intro-card {
+      animation: never-wet-card-rise 1850ms cubic-bezier(.18,.82,.22,1) forwards;
+    }
+    .never-wet-intro-kicker {
+      margin: 0;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(186, 230, 253, 0.78);
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+    .never-wet-intro-title {
+      margin: 0.55rem 0 0;
+      font-size: clamp(2rem, 6vw, 4.2rem);
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      line-height: 0.92;
+      color: #e0f2fe;
+      text-shadow:
+        0 0 18px rgba(56, 189, 248, 0.24),
+        0 0 42px rgba(14, 165, 233, 0.18);
+      opacity: 0;
+      transform: translateY(0.7rem) scale(0.98);
+    }
+    .never-wet-intro-subtitle {
+      margin: 0.8rem 0 0;
+      font-size: 0.94rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(186, 230, 253, 0.76);
+      opacity: 0;
+      transform: translateY(0.7rem);
+    }
+    .never-wet-intro-flare {
+      position: absolute;
+      inset: -18% auto auto 50%;
+      width: min(24rem, 60vw);
+      height: min(24rem, 60vw);
+      transform: translateX(-50%) scale(0.4);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(224, 242, 254, 0.46) 0%, rgba(56, 189, 248, 0.14) 26%, rgba(2, 6, 23, 0) 62%);
+      opacity: 0;
+      filter: blur(10px);
+    }
+    .never-wet-eyes.active .never-wet-intro-kicker {
+      animation: never-wet-copy-in 1850ms cubic-bezier(.18,.82,.22,1) forwards;
+    }
+    .never-wet-eyes.active .never-wet-intro-title {
+      animation: never-wet-title-in 1850ms cubic-bezier(.18,.82,.22,1) forwards;
+    }
+    .never-wet-eyes.active .never-wet-intro-subtitle {
+      animation: never-wet-subtitle-in 1850ms cubic-bezier(.18,.82,.22,1) forwards;
+    }
+    .never-wet-eyes.active .never-wet-intro-flare {
+      animation: never-wet-flare-in 1850ms cubic-bezier(.18,.82,.22,1) forwards;
     }
     .settings-modal-card { width: min(92vw, 420px); background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
     .settings-modal .settings-modal-card { transform: translateY(2.4rem) scale(0.97); opacity: 0; transition: transform 0.3s cubic-bezier(.22,1,.36,1), opacity 0.24s ease; }
@@ -513,6 +668,56 @@
       from { opacity: 0; transform: translate(-50%, -50%) scale(0.985); }
       to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
     }
+    @keyframes never-wet-intro-fade {
+      0% { opacity: 0; }
+      8% { opacity: 1; }
+      82% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes never-wet-rings-bloom {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.08); }
+      14% { opacity: 0.4; }
+      48% { opacity: 0.92; transform: translate(-50%, -50%) scale(1.1); }
+      100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.55); }
+    }
+    @keyframes never-wet-ring-one {
+      0% { transform: scale(0.5); opacity: 0; }
+      28% { opacity: 0.8; }
+      100% { transform: scale(2.8); opacity: 0; }
+    }
+    @keyframes never-wet-ring-two {
+      0% { transform: scale(0.75); opacity: 0; }
+      36% { opacity: 0.56; }
+      100% { transform: scale(3.6); opacity: 0; }
+    }
+    @keyframes never-wet-card-rise {
+      0% { transform: translateY(1rem) scale(0.94); opacity: 0; filter: blur(8px); }
+      18% { opacity: 0.56; }
+      44% { transform: translateY(0.3rem) scale(0.98); opacity: 0.92; filter: blur(2px); }
+      72% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+      100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+    }
+    @keyframes never-wet-copy-in {
+      0%, 22% { opacity: 0; transform: translateY(0.5rem); }
+      48% { opacity: 0.9; transform: translateY(0.08rem); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes never-wet-title-in {
+      0%, 28% { opacity: 0; transform: translateY(0.7rem) scale(0.985); letter-spacing: 0.08em; }
+      54% { opacity: 0.94; transform: translateY(0.12rem) scale(1); letter-spacing: 0.04em; }
+      100% { opacity: 1; transform: translateY(0) scale(1); letter-spacing: 0.02em; }
+    }
+    @keyframes never-wet-subtitle-in {
+      0%, 34% { opacity: 0; transform: translateY(0.7rem); }
+      58% { opacity: 0.78; transform: translateY(0.16rem); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes never-wet-flare-in {
+      0% { opacity: 0; transform: translateX(-50%) scale(0.4); }
+      30% { opacity: 0; }
+      58% { opacity: 0.72; transform: translateX(-50%) scale(0.86); }
+      100% { opacity: 0.48; transform: translateX(-50%) scale(1.08); }
+    }
     @keyframes verse-flash {
       0% { background: var(--verse-flash-bg-start, rgba(0, 102, 204, 0)); border-left-color: var(--verse-accent, #0066cc); }
       35% { background: var(--verse-flash-bg-mid, rgba(0, 102, 204, 0.14)); border-left-color: var(--verse-accent-strong, #1d4ed8); }
@@ -753,6 +958,7 @@
       </div>
     </div>
     <div class="topbar-right">
+      <div id="developerModeBadge" class="developer-mode-badge" aria-hidden="true">Dev</div>
       <div class="reading-status-picker">
         <button id="menuButton" class="reading-status reading-status-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-live="polite">
           <span class="reading-status-label">Reading</span>
@@ -767,6 +973,15 @@
       <button id="settingsButton" class="settings-btn" type="button" aria-label="Open settings" aria-haspopup="dialog" aria-expanded="false">
         <span class="settings-icon">⚙</span>
       </button>
+    </div>
+  </div>
+  <div id="neverWetEyes" class="never-wet-eyes" aria-hidden="true">
+    <div class="never-wet-intro-rings" aria-hidden="true"></div>
+    <div class="never-wet-intro-card" aria-hidden="true">
+      <div class="never-wet-intro-flare" aria-hidden="true"></div>
+      <p class="never-wet-intro-kicker">Developer Mode</p>
+      <h2 class="never-wet-intro-title">NEVER WET</h2>
+      <p class="never-wet-intro-subtitle">Reader unlocked</p>
     </div>
   </div>
   <main class="content">
@@ -1087,6 +1302,8 @@
     const verseActionPreviewText = document.getElementById('verseActionPreviewText');
     const copyVerseButton = document.getElementById('copyVerseButton');
     const emailVerseButton = document.getElementById('emailVerseButton');
+    const developerModeBadge = document.getElementById('developerModeBadge');
+    const neverWetEyes = document.getElementById('neverWetEyes');
     const MOBILE_LONG_PRESS_MS = 450;
     const MOBILE_LONG_PRESS_MOVE_TOLERANCE = 12;
 
@@ -1145,7 +1362,8 @@
       textScaleRaf: null,
       pendingTextScale: null,
       secretKeyBuffer: '',
-      secretWiggleTimeoutId: null
+      secretWiggleTimeoutId: null,
+      developerMode: false
     };
 
     const NEVER_WET_SEQUENCE = 'never-wet';
@@ -1388,19 +1606,29 @@
       return window.matchMedia('(min-width: 721px) and (pointer: fine)').matches;
     }
 
-    function triggerNeverWetWiggle() {
-      document.body.classList.remove('never-wet-wiggle');
-      void document.body.offsetWidth;
-      document.body.classList.add('never-wet-wiggle');
-
+    function triggerNeverWetEyes() {
+      if (!neverWetEyes) {
+        return;
+      }
+      neverWetEyes.classList.remove('active');
+      void neverWetEyes.offsetWidth;
+      neverWetEyes.classList.add('active');
       if (state.secretWiggleTimeoutId != null) {
         window.clearTimeout(state.secretWiggleTimeoutId);
       }
 
       state.secretWiggleTimeoutId = window.setTimeout(() => {
-        document.body.classList.remove('never-wet-wiggle');
+        neverWetEyes.classList.remove('active');
         state.secretWiggleTimeoutId = null;
-      }, 1550);
+      }, 1600);
+    }
+
+    function setDeveloperMode(enabled) {
+      state.developerMode = Boolean(enabled);
+      document.body.classList.toggle('developer-mode', state.developerMode);
+      if (developerModeBadge) {
+        developerModeBadge.setAttribute('aria-hidden', state.developerMode ? 'false' : 'true');
+      }
     }
 
     function handleNeverWetSequence(key) {
@@ -1418,7 +1646,8 @@
 
       if (nextBuffer === NEVER_WET_SEQUENCE) {
         state.secretKeyBuffer = '';
-        triggerNeverWetWiggle();
+        triggerNeverWetEyes();
+        setDeveloperMode(!state.developerMode);
       }
     }
 
