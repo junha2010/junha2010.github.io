@@ -359,6 +359,23 @@
     body.compare-mode .verse-container { min-height: 0; height: 100%; max-width: none; margin: 0; overflow-y: auto; overflow-x: hidden; padding: 0.95rem 1rem 1.1rem; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; overflow-anchor: none; }
     .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; scroll-margin-top: var(--verse-scroll-margin); }
     .verse-card.verse-flash { animation: verse-flash 1s ease; }
+    .verse-card.verse-context-selected .verse-line {
+      text-decoration-line: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: var(--verse-accent, #0066cc);
+      text-decoration-thickness: 0.14em;
+      text-underline-offset: 0.24em;
+      text-decoration-skip-ink: none;
+    }
+    .verse-card.verse-context-selected .word-link,
+    .verse-card.verse-context-selected .location-link {
+      text-decoration-line: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: var(--verse-accent, #0066cc);
+      text-decoration-thickness: 0.14em;
+      text-underline-offset: 0.24em;
+      text-decoration-skip-ink: none;
+    }
     .verse-line { margin: 0; line-height: 1.75; font-size: calc(1.05rem * var(--text-scale)); color: var(--text); }
     .verse-container.reading-mode { max-width: 760px; margin: 0 auto; padding: 0.25rem 0; color: var(--text-strong); }
     .verse-container.reading-mode .verse-card { display: inline; border-left: none; padding: 0; margin: 0; position: static; scroll-margin-top: var(--verse-scroll-margin-reading); }
@@ -2290,6 +2307,13 @@
       };
     }
 
+    function getVerseCardByNumber(container, verseNum) {
+      if (!(container instanceof HTMLElement) || !Number.isFinite(Number(verseNum))) {
+        return null;
+      }
+      return container.querySelector(`.verse-card[data-verse-num="${Number(verseNum)}"]`);
+    }
+
     function handleVerseContextMenu(event) {
       const selection = getVerseSelectionFromTarget(event.target);
       event.preventDefault();
@@ -2306,6 +2330,7 @@
         return;
       }
 
+      clearVerseActionSelectionHighlight();
       state.verseActionSelection = selection;
       state.verseActionIgnoreClickUntil = Date.now() + 500;
       state.verseActionPreview = {
@@ -2313,6 +2338,7 @@
         reference: selection.reference,
         text: selection.text
       };
+      applyVerseActionSelectionHighlight(selection);
       verseActionSubtitleEl.textContent = selection.reference;
       renderVerseActionTranslationOptions(selection.translationId);
       setVerseActionPickerOpen(false);
@@ -2324,6 +2350,7 @@
     }
 
     function closeVerseActionMenu() {
+      clearVerseActionSelectionHighlight();
       state.verseActionSelection = null;
       state.verseActionPreview = null;
       setVerseActionPickerOpen(false);
@@ -2334,6 +2361,23 @@
       verseActionPreviewText.textContent = '';
       verseActionModal.classList.remove('open');
       verseActionModal.setAttribute('aria-hidden', 'true');
+    }
+
+    function clearVerseActionSelectionHighlight() {
+      document.querySelectorAll('.verse-card.verse-context-selected').forEach((card) => {
+        card.classList.remove('verse-context-selected');
+      });
+    }
+
+    function applyVerseActionSelectionHighlight(selection) {
+      if (!selection) {
+        return;
+      }
+      const targetContainer = selection.pane === 'secondary' ? secondaryVerseContainer : verseContainer;
+      const targetCard = getVerseCardByNumber(targetContainer, selection.verseNum);
+      if (targetCard) {
+        targetCard.classList.add('verse-context-selected');
+      }
     }
 
     async function copySelectedVerse() {
