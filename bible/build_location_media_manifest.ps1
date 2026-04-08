@@ -18,7 +18,11 @@ $imageDir = Join-Path $root 'img\location'
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
 $mapKeywords = @('map', 'plan', 'atlas', 'survey', 'biblica', 'biblical', 'ancient')
-$rejectKeywords = @('flag', 'coat of arms', 'locator', 'location map', 'logo', 'seal', 'portrait', 'painting', 'fresco', 'relief', 'coin', 'statue')
+$rejectKeywords = @(
+  'flag', 'coat of arms', 'locator', 'location map', 'logo', 'seal', 'portrait', 'painting', 'fresco', 'relief', 'coin', 'statue',
+  'university', 'campus', 'building', 'inside the finished build', 'pc build', 'rgb', 'school', 'college',
+  'lexicon', 'dictionary', 'commentary', 'grammar', 'manuscript', 'book cover'
+)
 
 $searchOverrides = @{
   'Eden' = @('Garden of Eden')
@@ -200,6 +204,10 @@ function Get-CandidateScore {
     }
   }
 
+  if ($Candidate.mime -match 'pdf|djvu') {
+    return -1000
+  }
+
   foreach ($keyword in $mapKeywords) {
     if ($title -like "*$keyword*") {
       $score += 12
@@ -220,6 +228,20 @@ function Get-CandidateScore {
     if ((Normalize-Name $title).Contains($normalizedNeedle)) {
       $score += 22
     }
+  }
+
+  $normalizedTitle = Normalize-Name $title
+  $matchedNeedleCount = @(
+    $needles |
+    Where-Object { -not [string]::IsNullOrWhiteSpace($_) } |
+    Where-Object {
+      $normalizedNeedle = Normalize-Name $_
+      $normalizedNeedle -and $normalizedTitle.Contains($normalizedNeedle)
+    }
+  ).Count
+
+  if ($matchedNeedleCount -eq 0) {
+    return -1000
   }
 
   if ($Candidate.mime -match 'svg|png|jpeg') {
@@ -271,6 +293,10 @@ function Get-BestCommonsCandidates {
 
 function Get-FileExtensionFromCandidate {
   param([object]$Candidate)
+
+  if ($Candidate.mime -match 'pdf|djvu') {
+    return $null
+  }
 
   $ext = [IO.Path]::GetExtension(([uri]$Candidate.url).AbsolutePath)
   if ($ext) {
@@ -340,6 +366,9 @@ foreach ($location in $locations) {
     foreach ($candidate in $candidates) {
       $index += 1
       $ext = Get-FileExtensionFromCandidate -Candidate $candidate
+      if (-not $ext -or $ext -notin @('.png', '.svg', '.jpg', '.jpeg', '.webp')) {
+        continue
+      }
       $fileName = if ($index -eq 1) {
         "{0}{1}" -f (Convert-ToSlug ([string]$location.name)), $ext
       } else {

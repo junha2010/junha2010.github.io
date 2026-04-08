@@ -2819,11 +2819,38 @@
       return books;
     }
 
+    function pushUniqueLocationMap(target, fileName) {
+      if (!fileName || target.includes(fileName)) {
+        return;
+      }
+      target.push(fileName);
+    }
+
     function getMapFilesForLocation(entry) {
       if (Array.isArray(entry.media_files) && entry.media_files.length) {
         return entry.media_files.slice(0, 6);
       }
-      return [];
+
+      const fallbackMaps = [];
+      const referenceBooks = getLocationReferenceBooks(entry);
+      const hasNewTestamentReference = referenceBooks.some((bookName) => NEW_TESTAMENT_BOOKS.has(bookName));
+
+      referenceBooks.forEach((bookName) => {
+        pushUniqueLocationMap(fallbackMaps, BOOK_TO_MAP[bookName]);
+      });
+
+      if (hasNewTestamentReference) {
+        pushUniqueLocationMap(fallbackMaps, '36 Israel During the Time of Jesus.png');
+        pushUniqueLocationMap(fallbackMaps, '37 Israel During the Time of Acts.png');
+        pushUniqueLocationMap(fallbackMaps, '38 The Mediterranean World During the Time of Acts.png');
+      } else {
+        pushUniqueLocationMap(fallbackMaps, '09 The Promised Land.png');
+        pushUniqueLocationMap(fallbackMaps, '05 The Land of Canaan.png');
+      }
+
+      pushUniqueLocationMap(fallbackMaps, '01 The Near East.png');
+
+      return fallbackMaps.slice(0, 6);
     }
 
     function updateLocationMapZoom() {
