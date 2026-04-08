@@ -5248,6 +5248,26 @@
       scheduleReadingStatusSync();
     }
 
+    function resetCompareChapterScrollPosition(behavior = 'auto') {
+      if (state.compareSyncSettleTimeoutId != null) {
+        window.clearTimeout(state.compareSyncSettleTimeoutId);
+        state.compareSyncSettleTimeoutId = null;
+      }
+
+      state.compareSyncIgnorePane = null;
+      state.compareSyncIgnoreUntil = 0;
+      verseContainer.scrollTo({ top: 0, behavior });
+      secondaryVerseContainer.scrollTo({ top: 0, behavior });
+
+      requestAnimationFrame(() => {
+        if (behavior === 'smooth') {
+          state.compareSyncIgnoreUntil = Date.now() + 450;
+        }
+        verseContainer.scrollTo({ top: 0, behavior });
+        secondaryVerseContainer.scrollTo({ top: 0, behavior });
+      });
+    }
+
     async function goToChapter(bookName, chapterNumber, options = {}) {
       const { scrollToTop = true, scrollVerse = null } = options;
 
@@ -5282,8 +5302,14 @@
       updateReadingStatus(state.activeVerse);
 
       if (scrollToTop) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (state.compareMode) {
+          resetCompareChapterScrollPosition('smooth');
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
         state.activeVerse = 1;
+        state.readingStatusPinnedVerse = 1;
+        state.readingStatusPinnedScrollTop = 0;
         updateReadingStatus(1);
       }
 
