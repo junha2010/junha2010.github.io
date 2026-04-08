@@ -1,5 +1,5 @@
 window.BIBLE_LOCATION_MEDIA = {
-    "generated_at":  "2026-04-08T16:50:00-04:00",
+    "generated_at":  "2026-04-08T17:05:00-04:00",
     "source":  "Wikimedia Commons map search seeded from Wikipedia biblical place references",
     "count":  38,
     "entries":  [
@@ -22,8 +22,8 @@ window.BIBLE_LOCATION_MEDIA = {
                     {
                         "name":  "Accad",
                         "files":  [
-                                      "accad.jpg",
-                                      "accad-2.svg"
+                                      "accad-2.svg",
+                                      "01 The Near East.png"
                                   ]
                     },
                     {
@@ -126,7 +126,9 @@ window.BIBLE_LOCATION_MEDIA = {
                     {
                         "name":  "Eden",
                         "files":  [
-                                      "eden-jan-brueghel.jpg"
+                                      "02 The Table of Nations.png",
+                                      "03 The Near East During the Time of the Patriarchs.png",
+                                      "01 The Near East.png"
                                   ]
                     },
                     {
@@ -251,8 +253,8 @@ window.BIBLE_LOCATION_MEDIA = {
                         "name":  "Salem",
                         "files":  [
                                       "jerusalem-map-1903.jpg",
-                                      "jerusalem-old-city-view.jpg",
-                                      "18 The Kingdom of David.png"
+                                      "18 The Kingdom of David.png",
+                                      "36 Israel During the Time of Jesus.png"
                                   ]
                     },
                     {
@@ -274,9 +276,9 @@ window.BIBLE_LOCATION_MEDIA = {
                     {
                         "name":  "Shamir",
                         "files":  [
-                                      "shamir-dolmens.jpg",
                                       "15 Israel During the Time of the Judges.png",
-                                      "14 The Tribal Allotments of Israel.png"
+                                      "14 The Tribal Allotments of Israel.png",
+                                      "09 The Promised Land.png"
                                   ]
                     },
                     {
@@ -290,9 +292,9 @@ window.BIBLE_LOCATION_MEDIA = {
                     {
                         "name":  "Zidon",
                         "files":  [
-                                      "sidon-old-city.jpg",
                                       "05 The Land of Canaan.png",
-                                      "06 The Roadways of Canaan.png"
+                                      "06 The Roadways of Canaan.png",
+                                      "03 The Near East During the Time of the Patriarchs.png"
                                   ]
                     }
                 ]
