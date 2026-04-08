@@ -150,7 +150,8 @@
     }
     .developer-mode-badge { cursor: pointer; }
     .developer-mode-badge:focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
-    .dev-modal-card { width: min(92vw, 720px); max-height: min(88vh, 860px); overflow: auto; background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
+    .dev-modal-card { width: min(92vw, 720px); max-height: min(88vh, 860px); overflow: auto; scrollbar-width: none; -ms-overflow-style: none; background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); }
+    .dev-modal-card::-webkit-scrollbar { width: 0; height: 0; display: none; }
     .dev-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1rem 1rem 0.5rem; }
     .dev-modal-title { margin: 0; font-size: 1.2rem; color: var(--text-strong); }
     .dev-modal-subtitle { margin: 0.25rem 0 0; color: var(--text-soft); font-size: 0.9rem; }
@@ -181,9 +182,8 @@
     .dev-theme-field { display: grid; gap: 0.35rem; }
     .dev-theme-field span { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .dev-color-input { width: 100%; height: 3rem; border: 1px solid var(--border-soft); border-radius: 0.85rem; background: var(--surface); padding: 0.3rem; cursor: pointer; }
-    .dev-preset-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.55rem; margin-top: 0.7rem; }
-    .dev-preset-btn { border: 1px solid var(--border-soft); border-radius: 0.9rem; background: var(--surface); color: var(--text-strong); padding: 0.78rem 0.65rem; font: inherit; font-size: 0.78rem; font-weight: 800; cursor: pointer; text-align: left; }
-    .dev-preset-btn.active { border-color: rgba(56, 189, 248, 0.6); box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.35); }
+    .dev-theme-preset-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 0.6rem; margin-top: 0.7rem; align-items: end; }
+    .dev-theme-select { width: 100%; border: 1px solid var(--border-soft); border-radius: 0.9rem; background: var(--surface); color: var(--text-strong); padding: 0.82rem 0.95rem; font: inherit; font-weight: 700; }
     .dev-search-status { margin-top: 0.65rem; font-size: 0.8rem; color: var(--text-soft); }
     .dev-log, .dev-inspector { font-size: 0.86rem; line-height: 1.55; color: var(--text); white-space: pre-wrap; word-break: break-word; max-height: 12rem; overflow: auto; }
     .dev-inspector code, .dev-log code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.82rem; }
@@ -819,7 +819,8 @@
     .verse-action-picker-title { color: var(--text-strong); }
     .verse-action-picker-caption { font-size: 0.78rem; font-weight: 600; color: var(--text-soft); }
     .verse-action-picker-caret { flex-shrink: 0; color: var(--text-soft); transition: transform 0.22s ease; }
-    .verse-action-picker-options { position: absolute; top: calc(100% + 0.55rem); left: 0; right: 0; display: grid; gap: 0.45rem; padding: 0.55rem; border: 1px solid var(--border-soft); border-radius: 1rem; background: var(--surface-elevated); box-shadow: var(--shadow-md); max-height: min(40vh, 260px); overflow-y: auto; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.3rem) scale(0.98); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index: 4; }
+    .verse-action-picker-options { position: absolute; top: calc(100% + 0.55rem); left: 0; right: 0; display: grid; gap: 0.45rem; padding: 0.55rem; border: 1px solid var(--border-soft); border-radius: 1rem; background: var(--surface-elevated); box-shadow: var(--shadow-md); max-height: min(40vh, 260px); overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.3rem) scale(0.98); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index: 4; }
+    .verse-action-picker-options::-webkit-scrollbar { width: 0; height: 0; display: none; }
     .verse-action-preview { padding: 1rem 1rem 1.05rem; border-radius: 1rem; background: linear-gradient(180deg, var(--surface-subtle) 0%, rgba(148, 163, 184, 0.04) 100%); border: 1px solid var(--border-soft); display: grid; gap: 0.45rem; min-height: 7.25rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.12); }
     .verse-action-preview-label { margin: 0; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .verse-action-preview-ref { margin: 0; font-size: 0.88rem; font-weight: 700; color: var(--text-strong); }
@@ -1143,8 +1144,8 @@
       .dev-hud { right: 0.8rem; left: 0.8rem; bottom: calc(0.8rem + env(safe-area-inset-bottom)); width: auto; }
       .dev-hud-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .dev-hud-meta { flex-direction: column; align-items: flex-start; }
-      .dev-theme-grid,
-      .dev-preset-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .dev-theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .dev-theme-preset-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1417,13 +1418,17 @@
               <input id="devThemeAccent" class="dev-color-input" type="color" value="#0066cc" />
             </label>
           </div>
-          <div class="dev-preset-grid">
-            <button class="dev-preset-btn" type="button" data-dev-theme-preset="reader">Reader</button>
-            <button class="dev-preset-btn" type="button" data-dev-theme-preset="aurora">Aurora</button>
-            <button class="dev-preset-btn" type="button" data-dev-theme-preset="ember">Ember</button>
-            <button class="dev-preset-btn" type="button" data-dev-theme-preset="midnight">Midnight</button>
-          </div>
-          <div class="dev-actions" style="margin-top:0.7rem;">
+          <div class="dev-theme-preset-row">
+            <div id="devThemePresetPicker" class="verse-action-picker">
+              <button id="devThemePresetButton" class="verse-action-picker-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="devThemePresetOptions">
+                <span class="verse-action-picker-value">
+                  <span id="devThemePresetValue" class="verse-action-picker-title">Reader</span>
+                  <span class="verse-action-picker-caption">Theme preset</span>
+                </span>
+                <span class="verse-action-picker-caret">▼</span>
+              </button>
+              <div id="devThemePresetOptions" class="verse-action-picker-options" role="listbox" aria-label="Choose a theme preset"></div>
+            </div>
             <button id="devThemeApplyButton" class="dev-action-btn" type="button">Apply theme</button>
             <button id="devThemeResetButton" class="dev-action-btn" type="button">Reset theme</button>
           </div>
@@ -1650,9 +1655,12 @@
     const devThemeSurface = document.getElementById('devThemeSurface');
     const devThemeText = document.getElementById('devThemeText');
     const devThemeAccent = document.getElementById('devThemeAccent');
+    const devThemePresetPicker = document.getElementById('devThemePresetPicker');
+    const devThemePresetButton = document.getElementById('devThemePresetButton');
+    const devThemePresetValue = document.getElementById('devThemePresetValue');
+    const devThemePresetOptions = document.getElementById('devThemePresetOptions');
     const devThemeApplyButton = document.getElementById('devThemeApplyButton');
     const devThemeResetButton = document.getElementById('devThemeResetButton');
-    const devThemePresetButtons = Array.from(document.querySelectorAll('[data-dev-theme-preset]'));
     const devReloadCachesButton = document.getElementById('devReloadCachesButton');
     const devInspectCurrentVerseButton = document.getElementById('devInspectCurrentVerseButton');
     const devRandomVerseButton = document.getElementById('devRandomVerseButton');
@@ -1774,7 +1782,13 @@
       reader: { bg: '#ffffff', surface: '#ffffff', text: '#1a1a1a', accent: '#0066cc' },
       aurora: { bg: '#f4fbff', surface: '#ffffff', text: '#0f172a', accent: '#0ea5e9' },
       ember: { bg: '#fff7f0', surface: '#fffaf5', text: '#2b160f', accent: '#ea580c' },
-      midnight: { bg: '#0b1220', surface: '#121b2e', text: '#edf6ff', accent: '#38bdf8' }
+      midnight: { bg: '#0b1220', surface: '#121b2e', text: '#edf6ff', accent: '#38bdf8' },
+      forest: { bg: '#f4fbf4', surface: '#fbfffb', text: '#14281d', accent: '#2f855a' },
+      royal: { bg: '#f7f5ff', surface: '#ffffff', text: '#1f1b3a', accent: '#5b5bd6' },
+      rose: { bg: '#fff5f8', surface: '#fffafd', text: '#3b1523', accent: '#e11d48' },
+      gold: { bg: '#fffaf0', surface: '#fffdf7', text: '#33220a', accent: '#d4a017' },
+      ocean: { bg: '#f2fbff', surface: '#fbfeff', text: '#082f49', accent: '#0891b2' },
+      paper: { bg: '#f7f1e6', surface: '#fffaf0', text: '#2d2418', accent: '#8b5e3c' }
     };
 
     const OLD_TESTAMENT_ACCENT = {
@@ -2582,6 +2596,14 @@
       verseActionPickerButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
 
+    function setDevThemePresetPickerOpen(isOpen) {
+      if (!devThemePresetPicker || !devThemePresetButton) {
+        return;
+      }
+      devThemePresetPicker.classList.toggle('open', isOpen);
+      devThemePresetButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
     function updateComparePickerControls() {
       const primaryTranslation = getTranslationConfig(state.translationId);
       const secondaryTranslation = getTranslationConfig(state.compareTranslations.secondary);
@@ -3202,9 +3224,26 @@
       if (devThemeSurface) devThemeSurface.value = colors.surface;
       if (devThemeText) devThemeText.value = colors.text;
       if (devThemeAccent) devThemeAccent.value = colors.accent;
-      devThemePresetButtons.forEach((button) => {
-        button.classList.toggle('active', button.dataset.devThemePreset === state.devThemePreset);
-      });
+      if (devThemePresetValue) {
+        const label = state.devThemePreset
+          ? state.devThemePreset.charAt(0).toUpperCase() + state.devThemePreset.slice(1)
+          : 'Reader';
+        devThemePresetValue.textContent = label;
+      }
+      if (devThemePresetOptions) {
+        devThemePresetOptions.innerHTML = Object.keys(DEV_THEME_PRESETS).map((presetName) => {
+          const label = presetName.charAt(0).toUpperCase() + presetName.slice(1);
+          return `
+            <button type="button" class="translation-option${presetName === state.devThemePreset ? ' active' : ''}" data-dev-theme-preset="${escapeHtml(presetName)}" role="option" aria-selected="${presetName === state.devThemePreset ? 'true' : 'false'}">
+              <span class="translation-option-meta">
+                <span class="translation-option-label">${escapeHtml(label)}</span>
+                <span class="translation-option-description">Theme preset</span>
+              </span>
+              <span class="translation-option-check" aria-hidden="true">✓</span>
+            </button>
+          `;
+        }).join('');
+      }
     }
 
     function applyDevThemeOverrides() {
@@ -4994,11 +5033,6 @@
     devThemeResetButton?.addEventListener('click', () => {
       resetThemeLab();
     });
-    devThemePresetButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        applyThemePreset(button.dataset.devThemePreset);
-      });
-    });
     devReloadCachesButton?.addEventListener('click', async () => {
       await reloadDeveloperCaches();
     });
@@ -5256,6 +5290,10 @@
       e.stopPropagation();
       setVerseActionPickerOpen(!verseActionPicker.classList.contains('open'));
     });
+    devThemePresetButton?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setDevThemePresetPickerOpen(!devThemePresetPicker.classList.contains('open'));
+    });
     verseActionTranslationOptions.addEventListener('click', async (e) => {
       const button = e.target.closest('[data-translation]');
       if (!button) {
@@ -5263,6 +5301,14 @@
       }
 
       await openSelectedVerseInTranslation(button.dataset.translation);
+    });
+    devThemePresetOptions?.addEventListener('click', (e) => {
+      const button = e.target.closest('[data-dev-theme-preset]');
+      if (!button) {
+        return;
+      }
+      applyThemePreset(button.dataset.devThemePreset);
+      setDevThemePresetPickerOpen(false);
     });
     verseActionModal.addEventListener('click', (e) => {
       if (Date.now() <= state.verseActionIgnoreClickUntil) {
@@ -5284,6 +5330,9 @@
 
       if (!verseActionPicker.contains(e.target)) {
         setVerseActionPickerOpen(false);
+      }
+      if (!devThemePresetPicker?.contains(e.target)) {
+        setDevThemePresetPickerOpen(false);
       }
     }, true);
 
@@ -5356,6 +5405,9 @@
       }
       if (e.key === 'Escape' && verseActionPicker.classList.contains('open')) {
         setVerseActionPickerOpen(false);
+      }
+      if (e.key === 'Escape' && devThemePresetPicker?.classList.contains('open')) {
+        setDevThemePresetPickerOpen(false);
       }
     });
 
