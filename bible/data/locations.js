@@ -1,7 +1,8 @@
 window.BIBLE_LOCATIONS = {
-    "source":  "https://bibleask.org/resources/bible-names/names-of-places-in-the-bible/",
-    "location_count":  1044,
-    "total_references":  7867,
+    "source":  "https://en.wikipedia.org/wiki/List_of_biblical_places ; https://en.wikipedia.org/wiki/List_of_minor_biblical_places",
+    "source_note":  "Filtered and reconciled against the Wikipedia main and minor biblical places lists, with alias support for common Bible spellings.",
+    "location_count":  839,
+    "total_references":  6989,
     "locations":  [
                       {
                           "name":  "Abarim",
@@ -145,7 +146,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Abel-Shittim"
+                                      ]
                       },
                       {
                           "name":  "Abilene",
@@ -183,7 +187,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Akkad"
+                                      ]
                       },
                       {
                           "name":  "Accho",
@@ -202,7 +209,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Akko"
+                                      ]
                       },
                       {
                           "name":  "Aceldama",
@@ -290,7 +300,10 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Achaea"
+                                      ]
                       },
                       {
                           "name":  "Achmetha",
@@ -1877,7 +1890,10 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Arabia – (in biblical times and until the 7th century AD Arabia was confined to the Arabian Peninsula)"
+                                      ]
                       },
                       {
                           "name":  "Ararat",
@@ -1955,40 +1971,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "Argob was a region in Bashan, known for its fortified cities, ruled by King Og, mentioned in Deuteronomy.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Ariel",
-                          "occurrence_count":  4,
-                          "references":  [
-                                             "Ezra 8:16",
-                                             "Isaiah 29:1",
-                                             "Isaiah 29:2",
-                                             "Isaiah 29:7"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Ezra 8:16",
-                                             "text":  "So I summoned Eliezer, Ariel, Shemaiah, Elnathan, Jarib, Elnathan, Nathan, Zechariah and Meshullam, who were leaders, and Joiarib and Elnathan, who were men of learning,"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 29:1",
-                                             "text":  "Woe to you, Ariel, Ariel, the city where David settled! Add year to year and let your cycle of festivals go on."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 29:2",
-                                             "text":  "Yet I will besiege Ariel; she will mourn and lament, she will be to me like an altar hearth."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 29:7",
-                                             "text":  "Then the hordes of all the nations that fight against Ariel, that attack her and her fortress and besiege her, will be as it is with a dream, with a vision in the night�"
-                                         }
-                                     ],
-                          "description":  "Ariel is a symbolic name for Jerusalem, meaning �lion of God,� used in the prophecies of Isaiah.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -2883,627 +2865,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Assur",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Ezra 4:2",
-                                             "Psalms 83:8"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Ezra 4:2",
-                                             "text":  "they came to Zerubbabel and to the heads of the families and said, �Let us help you build because, like you, we seek your God and have been sacrificing to him since the time of Esarhaddon king of Assyria, who brought us here.�"
-                                         },
-                                         {
-                                             "reference":  "Psalms 83:8",
-                                             "text":  "Even Assyria has joined them to reinforce Lot`s descendants."
-                                         }
-                                     ],
-                          "description":  "Assur was the capital of the Assyrian Empire, known for its powerful kings and its role in the conquest of Israel, mentioned in various prophetic books.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Assyria",
-                          "occurrence_count":  108,
-                          "references":  [
-                                             "Genesis 2:14",
-                                             "Genesis 25:18",
-                                             "2 Kings 15:19",
-                                             "2 Kings 15:20",
-                                             "2 Kings 15:29",
-                                             "2 Kings 16:7",
-                                             "2 Kings 16:8",
-                                             "2 Kings 16:9",
-                                             "2 Kings 16:10",
-                                             "2 Kings 16:18",
-                                             "2 Kings 17:3",
-                                             "2 Kings 17:4",
-                                             "2 Kings 17:5",
-                                             "2 Kings 17:6",
-                                             "2 Kings 17:23",
-                                             "2 Kings 17:24",
-                                             "2 Kings 17:26",
-                                             "2 Kings 17:27",
-                                             "2 Kings 18:7",
-                                             "2 Kings 18:9",
-                                             "2 Kings 18:11",
-                                             "2 Kings 18:13",
-                                             "2 Kings 18:14",
-                                             "2 Kings 18:16",
-                                             "2 Kings 18:17",
-                                             "2 Kings 18:19",
-                                             "2 Kings 18:23",
-                                             "2 Kings 18:28",
-                                             "2 Kings 18:30",
-                                             "2 Kings 18:31",
-                                             "2 Kings 18:33",
-                                             "2 Kings 19:4",
-                                             "2 Kings 19:6",
-                                             "2 Kings 19:8",
-                                             "2 Kings 19:10",
-                                             "2 Kings 19:11",
-                                             "2 Kings 19:17",
-                                             "2 Kings 19:20",
-                                             "2 Kings 19:32",
-                                             "2 Kings 19:36",
-                                             "2 Kings 20:6",
-                                             "2 Kings 23:29",
-                                             "1 Chronicles 5:6",
-                                             "1 Chronicles 5:26",
-                                             "2 Chronicles 28:16",
-                                             "2 Chronicles 28:20",
-                                             "2 Chronicles 28:21",
-                                             "2 Chronicles 30:6",
-                                             "2 Chronicles 32:1",
-                                             "2 Chronicles 32:4",
-                                             "2 Chronicles 32:7",
-                                             "2 Chronicles 32:9",
-                                             "2 Chronicles 32:10",
-                                             "2 Chronicles 32:11",
-                                             "2 Chronicles 32:21",
-                                             "2 Chronicles 32:22",
-                                             "2 Chronicles 33:11",
-                                             "Ezra 6:22",
-                                             "Nehemiah 9:32",
-                                             "Isaiah 7:17",
-                                             "Isaiah 7:18",
-                                             "Isaiah 7:20",
-                                             "Isaiah 8:4",
-                                             "Isaiah 8:7",
-                                             "Isaiah 10:12",
-                                             "Isaiah 11:11",
-                                             "Isaiah 11:16",
-                                             "Isaiah 19:23",
-                                             "Isaiah 19:24",
-                                             "Isaiah 19:25",
-                                             "Isaiah 20:1",
-                                             "Isaiah 20:4",
-                                             "Isaiah 20:6",
-                                             "Isaiah 27:13",
-                                             "Isaiah 36:1",
-                                             "Isaiah 36:2",
-                                             "Isaiah 36:4",
-                                             "Isaiah 36:8",
-                                             "Isaiah 36:13",
-                                             "Isaiah 36:15",
-                                             "Isaiah 36:16",
-                                             "Isaiah 36:18",
-                                             "Isaiah 37:4",
-                                             "Isaiah 37:6",
-                                             "Isaiah 37:8",
-                                             "Isaiah 37:10",
-                                             "Isaiah 37:11",
-                                             "Isaiah 37:18",
-                                             "Isaiah 37:21",
-                                             "Isaiah 37:33",
-                                             "Isaiah 37:37",
-                                             "Isaiah 38:6",
-                                             "Jeremiah 2:18",
-                                             "Jeremiah 2:36",
-                                             "Jeremiah 50:17",
-                                             "Jeremiah 50:18",
-                                             "Ezekiel 23:7",
-                                             "Hosea 7:11",
-                                             "Hosea 8:9",
-                                             "Hosea 9:3",
-                                             "Hosea 10:6",
-                                             "Hosea 11:11",
-                                             "Micah 5:6",
-                                             "Micah 7:12",
-                                             "Nahum 3:18",
-                                             "Zephaniah 2:13",
-                                             "Zechariah 10:10",
-                                             "Zechariah 10:11"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 2:14",
-                                             "text":  "The name of the third river is the Tigris; it runs along the east side of Ashur. And the fourth river is the Euphrates."
-                                         },
-                                         {
-                                             "reference":  "Genesis 25:18",
-                                             "text":  "His descendants settled in the area from Havilah to Shur, near the eastern border of Egypt, as you go toward Ashur. And they lived in hostility toward all the tribes related to them."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 15:19",
-                                             "text":  "Then Pul king of Assyria invaded the land, and Menahem gave him a thousand talents of silver to gain his support and strengthen his own hold on the kingdom."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 15:20",
-                                             "text":  "Menahem exacted this money from Israel. Every wealthy person had to contribute fifty shekels of silver to be given to the king of Assyria. So the king of Assyria withdrew and stayed in the land no longer."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 15:29",
-                                             "text":  "In the time of Pekah king of Israel, Tiglath-Pileser king of Assyria came and took Ijon, Abel Beth Maakah, Janoah, Kedesh and Hazor. He took Gilead and Galilee, including all the land of Naphtali, and deported the people to Assyria."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 16:7",
-                                             "text":  "Ahaz sent messengers to say to Tiglath-Pileser king of Assyria, �I am your servant and vassal. Come up and save me out of the hand of the king of Aram and of the king of Israel, who are attacking me.�"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 16:8",
-                                             "text":  "And Ahaz took the silver and gold found in the temple of the Lord and in the treasuries of the royal palace and sent it as a gift to the king of Assyria."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 16:9",
-                                             "text":  "The king of Assyria complied by attacking Damascus and capturing it. He deported its inhabitants to Kir and put Rezin to death."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 16:10",
-                                             "text":  "Then King Ahaz went to Damascus to meet Tiglath-Pileser king of Assyria. He saw an altar in Damascus and sent to Uriah the priest a sketch of the altar, with detailed plans for its construction."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 16:18",
-                                             "text":  "He took away the Sabbath canopy that had been built at the temple and removed the royal entryway outside the temple of the Lord, in deference to the king of Assyria."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 17:3",
-                                             "text":  "Shalmaneser king of Assyria came up to attack Hoshea, who had been Shalmaneser`s vassal and had paid him tribute."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 17:4",
-                                             "text":  "But the king of Assyria discovered that Hoshea was a traitor, for he had sent envoys to So king of Egypt, and he no longer paid tribute to the king of Assyria, as he had done year by year. Therefore Shalmaneser seized him and put him in prison."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 17:5",
-                                             "text":  "The king of Assyria invaded the entire land, marched against Samaria and laid siege to it for three years."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 17:6",
-                                             "text":  "In the ninth year of Hoshea, the king of Assyria captured Samaria and deported the Israelites to Assyria. He settled them in Halah, in Gozan on the Habor River and in the towns of the Medes."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 17:23",
-                                             "text":  "until the Lord removed them from his presence, as he had warned through all his servants the prophets. So the people of Israel were taken from their homeland into exile in Assyria, and they are still there."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 17:24",
-                                             "text":  "The king of Assyria brought people from Babylon, Kuthah, Avva, Hamath and Sepharvaim and settled them in the towns of Samaria to replace the Israelites. They took over Samaria and lived in its towns."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 17:26",
-                                             "text":  "It was reported to the king of Assyria: �The people you deported and resettled in the towns of Samaria do not know what the god of that country requires. He has sent lions among them, which are killing them off, because the people do not know what he requires.�"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 17:27",
-                                             "text":  "Then the king of Assyria gave this order: �Have one of the priests you took captive from Samaria go back to live there and teach the people what the god of the land requires.�"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:7",
-                                             "text":  "And the Lord was with him; he was successful in whatever he undertook. He rebelled against the king of Assyria and did not serve him."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:9",
-                                             "text":  "In King Hezekiah`s fourth year, which was the seventh year of Hoshea son of Elah king of Israel, Shalmaneser king of Assyria marched against Samaria and laid siege to it."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:11",
-                                             "text":  "The king of Assyria deported Israel to Assyria and settled them in Halah, in Gozan on the Habor River and in towns of the Medes."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:13",
-                                             "text":  "In the fourteenth year of King Hezekiah`s reign, Sennacherib king of Assyria attacked all the fortified cities of Judah and captured them."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:14",
-                                             "text":  "So Hezekiah king of Judah sent this message to the king of Assyria at Lachish: �I have done wrong. Withdraw from me, and I will pay whatever you demand of me.� The king of Assyria exacted from Hezekiah king of Judah three hundred talents of silver and thirty talents of gold."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:16",
-                                             "text":  "At this time Hezekiah king of Judah stripped off the gold with which he had covered the doors and doorposts of the temple of the Lord, and gave it to the king of Assyria."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:17",
-                                             "text":  "The king of Assyria sent his supreme commander, his chief officer and his field commander with a large army, from Lachish to King Hezekiah at Jerusalem. They came up to Jerusalem and stopped at the aqueduct of the Upper Pool, on the road to the Washerman`s Field."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:19",
-                                             "text":  "The field commander said to them, �Tell Hezekiah: ��This is what the great king, the king of Assyria, says: On what are you basing this confidence of yours?"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:23",
-                                             "text":  "��Come now, make a bargain with my master, the king of Assyria: I will give you two thousand horses�if you can put riders on them!"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:28",
-                                             "text":  "Then the commander stood and called out in Hebrew, �Hear the word of the great king, the king of Assyria!"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:30",
-                                             "text":  "Do not let Hezekiah persuade you to trust in the Lord when he says, �The Lord will surely deliver us; this city will not be given into the hand of the king of Assyria.`"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:31",
-                                             "text":  "�Do not listen to Hezekiah. This is what the king of Assyria says: Make peace with me and come out to me. Then each of you will eat fruit from your own vine and fig tree and drink water from your own cistern,"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:33",
-                                             "text":  "Has the god of any nation ever delivered his land from the hand of the king of Assyria?"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:4",
-                                             "text":  "It may be that the Lord your God will hear all the words of the field commander, whom his master, the king of Assyria, has sent to ridicule the living God, and that he will rebuke him for the words the Lord your God has heard. Therefore pray for the remnant that still survives.�"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:6",
-                                             "text":  "Isaiah said to them, �Tell your master, �This is what the Lord says: Do not be afraid of what you have heard�those words with which the underlings of the king of Assyria have blasphemed me."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:8",
-                                             "text":  "When the field commander heard that the king of Assyria had left Lachish, he withdrew and found the king fighting against Libnah."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:10",
-                                             "text":  "�Say to Hezekiah king of Judah: Do not let the god you depend on deceive you when he says, �Jerusalem will not be given into the hands of the king of Assyria.`"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:11",
-                                             "text":  "Surely you have heard what the kings of Assyria have done to all the countries, destroying them completely. And will you be delivered?"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:17",
-                                             "text":  "�It is true, Lord, that the Assyrian kings have laid waste these nations and their lands."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:20",
-                                             "text":  "Then Isaiah son of Amoz sent a message to Hezekiah: �This is what the Lord, the God of Israel, says: I have heard your prayer concerning Sennacherib king of Assyria."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:32",
-                                             "text":  "�Therefore this is what the Lord says concerning the king of Assyria: ��He will not enter this city or shoot an arrow here. He will not come before it with shield or build a siege ramp against it."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:36",
-                                             "text":  "So Sennacherib king of Assyria broke camp and withdrew. He returned to Nineveh and stayed there."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 20:6",
-                                             "text":  "I will add fifteen years to your life. And I will deliver you and this city from the hand of the king of Assyria. I will defend this city for my sake and for the sake of my servant David.`�"
-                                         },
-                                         {
-                                             "reference":  "2 Kings 23:29",
-                                             "text":  "While Josiah was king, Pharaoh Necho king of Egypt went up to the Euphrates River to help the king of Assyria. King Josiah marched out to meet him in battle, but Necho faced him and killed him at Megiddo."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 5:6",
-                                             "text":  "and Beerah his son, whom Tiglath-Pileser king of Assyria took into exile. Beerah was a leader of the Reubenites."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 5:26",
-                                             "text":  "So the God of Israel stirred up the spirit of Pul king of Assyria (that is, Tiglath-Pileser king of Assyria), who took the Reubenites, the Gadites and the half-tribe of Manasseh into exile. He took them to Halah, Habor, Hara and the river of Gozan, where they are to this day."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 28:16",
-                                             "text":  "At that time King Ahaz sent to the kings of Assyria for help."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 28:20",
-                                             "text":  "Tiglath-Pileser king of Assyria came to him, but he gave him trouble instead of help."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 28:21",
-                                             "text":  "Ahaz took some of the things from the temple of the Lord and from the royal palace and from the officials and presented them to the king of Assyria, but that did not help him."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 30:6",
-                                             "text":  "At the king`s command, couriers went throughout Israel and Judah with letters from the king and from his officials, which read: �People of Israel, return to the Lord, the God of Abraham, Isaac and Israel, that he may return to you who are left, who have escaped from the hand of the kings of Assyria."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 32:1",
-                                             "text":  "After all that Hezekiah had so faithfully done, Sennacherib king of Assyria came and invaded Judah. He laid siege to the fortified cities, thinking to conquer them for himself."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 32:4",
-                                             "text":  "They gathered a large group of people who blocked all the springs and the stream that flowed through the land. �Why should the kings of Assyria come and find plenty of water?� they said."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 32:7",
-                                             "text":  "�Be strong and courageous. Do not be afraid or discouraged because of the king of Assyria and the vast army with him, for there is a greater power with us than with him."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 32:9",
-                                             "text":  "Later, when Sennacherib king of Assyria and all his forces were laying siege to Lachish, he sent his officers to Jerusalem with this message for Hezekiah king of Judah and for all the people of Judah who were there:"
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 32:10",
-                                             "text":  "�This is what Sennacherib king of Assyria says: On what are you basing your confidence, that you remain in Jerusalem under siege?"
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 32:11",
-                                             "text":  "When Hezekiah says, �The Lord our God will save us from the hand of the king of Assyria,` he is misleading you, to let you die of hunger and thirst."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 32:21",
-                                             "text":  "And the Lord sent an angel, who annihilated all the fighting men and the commanders and officers in the camp of the Assyrian king. So he withdrew to his own land in disgrace. And when he went into the temple of his god, some of his sons, his own flesh and blood, cut him down with the sword."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 32:22",
-                                             "text":  "So the Lord saved Hezekiah and the people of Jerusalem from the hand of Sennacherib king of Assyria and from the hand of all others. He took care of them on every side."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 33:11",
-                                             "text":  "So the Lord brought against them the army commanders of the king of Assyria, who took Manasseh prisoner, put a hook in his nose, bound him with bronze shackles and took him to Babylon."
-                                         },
-                                         {
-                                             "reference":  "Ezra 6:22",
-                                             "text":  "For seven days they celebrated with joy the Festival of Unleavened Bread, because the Lord had filled them with joy by changing the attitude of the king of Assyria so that he assisted them in the work on the house of God, the God of Israel."
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 9:32",
-                                             "text":  "�Now therefore, our God, the great God, mighty and awesome, who keeps his covenant of love, do not let all this hardship seem trifling in your eyes�the hardship that has come on us, on our kings and leaders, on our priests and prophets, on our ancestors and all your people, from the days of the kings of Assyria until today."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 7:17",
-                                             "text":  "The Lord will bring on you and on your people and on the house of your father a time unlike any since Ephraim broke away from Judah�he will bring the king of Assyria.�"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 7:18",
-                                             "text":  "In that day the Lord will whistle for flies from the Nile delta in Egypt and for bees from the land of Assyria."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 7:20",
-                                             "text":  "In that day the Lord will use a razor hired from beyond the Euphrates River�the king of Assyria�to shave your head and private parts, and to cut off your beard also."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 8:4",
-                                             "text":  "For before the boy knows how to say �My father` or �My mother,` the wealth of Damascus and the plunder of Samaria will be carried off by the king of Assyria.�"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 8:7",
-                                             "text":  "therefore the Lord is about to bring against them the mighty floodwaters of the Euphrates� the king of Assyria with all his pomp. It will overflow all its channels, run over all its banks"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 10:12",
-                                             "text":  "When the Lord has finished all his work against Mount Zion and Jerusalem, he will say, �I will punish the king of Assyria for the willful pride of his heart and the haughty look in his eyes."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 11:11",
-                                             "text":  "In that day the Lord will reach out his hand a second time to reclaim the surviving remnant of his people from Assyria, from Lower Egypt, from Upper Egypt, from Cush, from Elam, from Babylonia, from Hamath and from the islands of the Mediterranean."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 11:16",
-                                             "text":  "There will be a highway for the remnant of his people that is left from Assyria, as there was for Israel when they came up from Egypt."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 19:23",
-                                             "text":  "In that day there will be a highway from Egypt to Assyria. The Assyrians will go to Egypt and the Egyptians to Assyria. The Egyptians and Assyrians will worship together."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 19:24",
-                                             "text":  "In that day Israel will be the third, along with Egypt and Assyria, a blessing on the earth."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 19:25",
-                                             "text":  "The Lord Almighty will bless them, saying, �Blessed be Egypt my people, Assyria my handiwork, and Israel my inheritance.�"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 20:1",
-                                             "text":  "In the year that the supreme commander, sent by Sargon king of Assyria, came to Ashdod and attacked and captured it�"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 20:4",
-                                             "text":  "so the king of Assyria will lead away stripped and barefoot the Egyptian captives and Cushite exiles, young and old, with buttocks bared�to Egypt`s shame."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 20:6",
-                                             "text":  "In that day the people who live on this coast will say, �See what has happened to those we relied on, those we fled to for help and deliverance from the king of Assyria! How then can we escape?`�"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 27:13",
-                                             "text":  "And in that day a great trumpet will sound. Those who were perishing in Assyria and those who were exiled in Egypt will come and worship the Lord on the holy mountain in Jerusalem."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 36:1",
-                                             "text":  "In the fourteenth year of King Hezekiah`s reign, Sennacherib king of Assyria attacked all the fortified cities of Judah and captured them."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 36:2",
-                                             "text":  "Then the king of Assyria sent his field commander with a large army from Lachish to King Hezekiah at Jerusalem. When the commander stopped at the aqueduct of the Upper Pool, on the road to the Launderer`s Field,"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 36:4",
-                                             "text":  "The field commander said to them, �Tell Hezekiah: ��This is what the great king, the king of Assyria, says: On what are you basing this confidence of yours?"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 36:8",
-                                             "text":  "��Come now, make a bargain with my master, the king of Assyria: I will give you two thousand horses�if you can put riders on them!"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 36:13",
-                                             "text":  "Then the commander stood and called out in Hebrew, �Hear the words of the great king, the king of Assyria!"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 36:15",
-                                             "text":  "Do not let Hezekiah persuade you to trust in the Lord when he says, �The Lord will surely deliver us; this city will not be given into the hand of the king of Assyria.`"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 36:16",
-                                             "text":  "�Do not listen to Hezekiah. This is what the king of Assyria says: Make peace with me and come out to me. Then each of you will eat fruit from your own vine and fig tree and drink water from your own cistern,"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 36:18",
-                                             "text":  "�Do not let Hezekiah mislead you when he says, �The Lord will deliver us.` Have the gods of any nations ever delivered their lands from the hand of the king of Assyria?"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:4",
-                                             "text":  "It may be that the Lord your God will hear the words of the field commander, whom his master, the king of Assyria, has sent to ridicule the living God, and that he will rebuke him for the words the Lord your God has heard. Therefore pray for the remnant that still survives.�"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:6",
-                                             "text":  "Isaiah said to them, �Tell your master, �This is what the Lord says: Do not be afraid of what you have heard�those words with which the underlings of the king of Assyria have blasphemed me."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:8",
-                                             "text":  "When the field commander heard that the king of Assyria had left Lachish, he withdrew and found the king fighting against Libnah."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:10",
-                                             "text":  "�Say to Hezekiah king of Judah: Do not let the god you depend on deceive you when he says, �Jerusalem will not be given into the hands of the king of Assyria.`"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:11",
-                                             "text":  "Surely you have heard what the kings of Assyria have done to all the countries, destroying them completely. And will you be delivered?"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:18",
-                                             "text":  "�It is true, Lord, that the Assyrian kings have laid waste all these peoples and their lands."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:21",
-                                             "text":  "Then Isaiah son of Amoz sent a message to Hezekiah: �This is what the Lord, the God of Israel, says: Because you have prayed to me concerning Sennacherib king of Assyria,"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:33",
-                                             "text":  "�Therefore this is what the Lord says concerning the king of Assyria: �He will not enter this city or shoot an arrow here. He will not come before it with shield or build a siege ramp against it."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:37",
-                                             "text":  "So Sennacherib king of Assyria broke camp and withdrew. He returned to Nineveh and stayed there."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 38:6",
-                                             "text":  "And I will deliver you and this city from the hand of the king of Assyria. I will defend this city."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 2:18",
-                                             "text":  "Now why go to Egypt to drink water from the Nile? And why go to Assyria to drink water from the Euphrates?"
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 2:36",
-                                             "text":  "Why do you go about so much, changing your ways? You will be disappointed by Egypt as you were by Assyria."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 50:17",
-                                             "text":  "�Israel is a scattered flock that lions have chased away. The first to devour them was the king of Assyria; the last to crush their bones was Nebuchadnezzar king of Babylon.�"
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 50:18",
-                                             "text":  "Therefore this is what the Lord Almighty, the God of Israel, says: �I will punish the king of Babylon and his land as I punished the king of Assyria."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 23:7",
-                                             "text":  "She gave herself as a prostitute to all the elite of the Assyrians and defiled herself with all the idols of everyone she lusted after."
-                                         },
-                                         {
-                                             "reference":  "Hosea 7:11",
-                                             "text":  "�Ephraim is like a dove, easily deceived and senseless� now calling to Egypt, now turning to Assyria."
-                                         },
-                                         {
-                                             "reference":  "Hosea 8:9",
-                                             "text":  "For they have gone up to Assyria like a wild donkey wandering alone. Ephraim has sold herself to lovers."
-                                         },
-                                         {
-                                             "reference":  "Hosea 9:3",
-                                             "text":  "They will not remain in the Lord`s land; Ephraim will return to Egypt and eat unclean food in Assyria."
-                                         },
-                                         {
-                                             "reference":  "Hosea 10:6",
-                                             "text":  "It will be carried to Assyria as tribute for the great king. Ephraim will be disgraced; Israel will be ashamed of its foreign alliances."
-                                         },
-                                         {
-                                             "reference":  "Hosea 11:11",
-                                             "text":  "They will come from Egypt, trembling like sparrows, from Assyria, fluttering like doves. I will settle them in their homes,� declares the Lord."
-                                         },
-                                         {
-                                             "reference":  "Micah 5:6",
-                                             "text":  "who will rule the land of Assyria with the sword, the land of Nimrod with drawn sword. He will deliver us from the Assyrians when they invade our land and march across our borders."
-                                         },
-                                         {
-                                             "reference":  "Micah 7:12",
-                                             "text":  "In that day people will come to you from Assyria and the cities of Egypt, even from Egypt to the Euphrates and from sea to sea and from mountain to mountain."
-                                         },
-                                         {
-                                             "reference":  "Nahum 3:18",
-                                             "text":  "King of Assyria, your shepherds slumber; your nobles lie down to rest. Your people are scattered on the mountains with no one to gather them."
-                                         },
-                                         {
-                                             "reference":  "Zephaniah 2:13",
-                                             "text":  "He will stretch out his hand against the north and destroy Assyria, leaving Nineveh utterly desolate and dry as the desert."
-                                         },
-                                         {
-                                             "reference":  "Zechariah 10:10",
-                                             "text":  "I will bring them back from Egypt and gather them from Assyria. I will bring them to Gilead and Lebanon, and there will not be room enough for them."
-                                         },
-                                         {
-                                             "reference":  "Zechariah 10:11",
-                                             "text":  "They will pass through the sea of trouble; the surging sea will be subdued and all the depths of the Nile will dry up. Assyria`s pride will be brought down and Egypt`s scepter will pass away."
-                                         }
-                                     ],
-                          "description":  "Assyria was a powerful empire in the ancient Near East, known for its conquests of Israel and Judah and its capital at Nineveh, mentioned throughout the Old Testament.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Astaroth",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Deuteronomy 1:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Deuteronomy 1:4",
-                                             "text":  "This was after he had defeated Sihon king of the Amorites, who reigned in Heshbon, and at Edrei had defeated Og king of Bashan, who reigned in Ashtaroth."
-                                         }
-                                     ],
-                          "description":  "Astaroth refers to the Canaanite goddess Astarte, worshiped in various cities including Ashtaroth in Bashan, mentioned in the Book of Judges.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Asuppim",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "1 Chronicles 26:15",
-                                             "1 Chronicles 26:17"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 26:15",
-                                             "text":  "The lot for the South Gate fell to Obed-Edom, and the lot for the storehouse fell to his sons."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 26:17",
-                                             "text":  "There were six Levites a day on the east, four a day on the north, four a day on the south and two at a time at the storehouse."
-                                         }
-                                     ],
-                          "description":  "Asuppim, meaning �storehouses,� was a place in the temple where offerings were stored, mentioned in 1 Chronicles.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Atad",
                           "occurrence_count":  2,
                           "references":  [
@@ -3602,26 +2963,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Athach",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Samuel 30:30"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 30:30",
-                                             "text":  "to those in Hormah, Bor Ashan, Athak"
-                                         }
-                                     ],
-                          "description":  "Athach is a location in southern Judah to which David sent spoils from his victories over the Amalekites. It is one of the places where David distributed gifts to those who supported him.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Ataroth-addar"
+                                      ]
                       },
                       {
                           "name":  "Athens",
@@ -3714,35 +3059,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "Ava is a city mentioned in 2 Kings 17:24, from which people were brought by the Assyrians to repopulate Samaria after the Israelites were exiled. The inhabitants of Ava worshiped the gods Nibhaz and Tartak.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Aven",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Ezekiel 30:17",
-                                             "Hosea 10:8",
-                                             "Amos 1:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Ezekiel 30:17",
-                                             "text":  "The young men of Heliopolis and Bubastis will fall by the sword, and the cities themselves will go into captivity."
-                                         },
-                                         {
-                                             "reference":  "Hosea 10:8",
-                                             "text":  "The high places of wickedness will be destroyed� it is the sin of Israel. Thorns and thistles will grow up and cover their altars. Then they will say to the mountains, �Cover us!� and to the hills, �Fall on us!�"
-                                         },
-                                         {
-                                             "reference":  "Amos 1:5",
-                                             "text":  "I will break down the gate of Damascus; I will destroy the king who is in the Valley of Aven and the one who holds the scepter in Beth Eden. The people of Aram will go into exile to Kir,� says the Lord."
-                                         }
-                                     ],
-                          "description":  "Aven is a term used in the Bible to refer to places associated with idolatry. It is mentioned in Ezekiel 30:17, Hosea 10:8, and Amos 1:5, often symbolizing wickedness or vanity. For example, �Beth Aven� is used to describe Bethel when it became a center of idol worship.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -3930,55 +3246,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Azotus",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Acts 8:40"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Acts 8:40",
-                                             "text":  "Philip, however, appeared at Azotus and traveled about, preaching the gospel in all the towns until he reached Caesarea."
-                                         }
-                                     ],
-                          "description":  "Azotus, also known as Ashdod, is one of the five Philistine cities mentioned in the Bible. In Acts 8:40, it is where Philip the Evangelist was found after being transported by the Spirit of the Lord following his encounter with the Ethiopian eunuch.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Azzah",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Deuteronomy 2:23",
-                                             "1 Kings 4:24",
-                                             "Jeremiah 25:20"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Deuteronomy 2:23",
-                                             "text":  "And as for the Avvites who lived in villages as far as Gaza, the Caphtorites coming out from Caphtor destroyed them and settled in their place.)"
-                                         },
-                                         {
-                                             "reference":  "1 Kings 4:24",
-                                             "text":  "For he ruled over all the kingdoms west of the Euphrates River, from Tiphsah to Gaza, and had peace on all sides."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 25:20",
-                                             "text":  "and all the foreign people there; all the kings of Uz; all the kings of the Philistines (those of Ashkelon, Gaza, Ekron, and the people left at Ashdod);"
-                                         }
-                                     ],
-                          "description":  "Azzah is another name for Gaza, one of the principal cities of the Philistines mentioned in the Bible. It is referenced in passages describing its conquest and the judgment pronounced upon it by the prophets (Deuteronomy 2:23, Jeremiah 25:20).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Aznoth-tabor"
+                                      ]
                       },
                       {
                           "name":  "Baalah",
@@ -4116,68 +3387,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Baal-hamon",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Song of Solomon 8:11"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Song of Solomon 8:11",
-                                             "text":  "Solomon had a vineyard in Baal Hamon; he let out his vineyard to tenants. Each was to bring for its fruit a thousand shekels of silver."
-                                         }
-                                     ],
-                          "description":  "Baal-hamon is a place mentioned in Song of Solomon 8:11, where King Solomon had a vineyard. The exact location is unknown, but it is thought to symbolize abundance and prosperity.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Baal-hazor",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "2 Samuel 13:23"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Samuel 13:23",
-                                             "text":  "Two years later, when Absalom`s sheepshearers were at Baal Hazor near the border of Ephraim, he invited all the king`s sons to come there."
-                                         }
-                                     ],
-                          "description":  "Baal-hazor is a location mentioned in 2 Samuel 13:23 as the place where Absalom held a sheep-shearing festival. It is where he plotted the murder of his half-brother Amnon.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Baal-hermon",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Judges 3:3",
-                                             "1 Chronicles 5:23"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 3:3",
-                                             "text":  "the five rulers of the Philistines, all the Canaanites, the Sidonians, and the Hivites living in the Lebanon mountains from Mount Baal Hermon to Lebo Hamath."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 5:23",
-                                             "text":  "The people of the half-tribe of Manasseh were numerous; they settled in the land from Bashan to Baal Hermon, that is, to Senir (Mount Hermon)."
-                                         }
-                                     ],
-                          "description":  "Baal-hermon is a place mentioned in Judges 3:3 and 1 Chronicles 5:23. It is located near Mount Hermon and was one of the places inhabited by the Hivites, a Canaanite tribe during the time of the judges.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Baal-meon",
                           "occurrence_count":  3,
                           "references":  [
@@ -4200,68 +3409,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "Baal-meon is a town in the territory of Reuben, east of the Jordan River. It is mentioned in Numbers 32:38 and Ezekiel 25:9. The town was renamed �Beth-meon� by the Israelites and later became a Moabite town.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Baalperazim",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "2 Samuel 5:20",
-                                             "1 Chronicles 14:11"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Samuel 5:20",
-                                             "text":  "So David went to Baal Perazim, and there he defeated them. He said, �As waters break out, the Lord has broken out against my enemies before me.� So that place was called Baal Perazim."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 14:11",
-                                             "text":  "So David and his men went up to Baal Perazim, and there he defeated them. He said, �As waters break out, God has broken out against my enemies by my hand.� So that place was called Baal Perazim."
-                                         }
-                                     ],
-                          "description":  "Baalperazim is the site where David defeated the Philistines in a battle, as recorded in 2 Samuel 5:20. The name means �Lord of the Breakthroughs� and commemorates God�s help in securing David�s victory.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Baalshalisha",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "2 Kings 4:42"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Kings 4:42",
-                                             "text":  "A man came from Baal Shalishah, bringing the man of God twenty loaves of barley bread baked from the first ripe grain, along with some heads of new grain. �Give it to the people to eat,� Elisha said."
-                                         }
-                                     ],
-                          "description":  "Baalshalisha is a place in Israel mentioned in 2 Kings 4:42. A man from Baalshalisha brought the prophet Elisha bread made from the first fruits during a famine, which Elisha miraculously multiplied to feed a hundred men.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Baaltamar",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Judges 20:33"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 20:33",
-                                             "text":  "All the men of Israel moved from their places and took up positions at Baal Tamar, and the Israelite ambush charged out of its place on the west of Gibeah."
-                                         }
-                                     ],
-                          "description":  "Baaltamar is the location near Gibeah where the Israelites fought the Benjamites in Judges 20:33. The battle was part of a civil war triggered by the crime committed against the Levite�s concubine.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -5636,7 +4783,10 @@ window.BIBLE_LOCATIONS = {
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png",
                                             "36 Israel During the Time of Jesus.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Babylonia – Mesopotamian state"
+                                      ]
                       },
                       {
                           "name":  "Baca",
@@ -5697,25 +4847,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Bajith",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Isaiah 15:2"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Isaiah 15:2",
-                                             "text":  "Dibon goes up to its temple, to its high places to weep; Moab wails over Nebo and Medeba. Every head is shaved and every beard cut off."
-                                         }
-                                     ],
-                          "description":  "Bajith is mentioned in Isaiah 15:2 as a high place in Moab where the people went to weep and worship. It is associated with the Moabite god Chemosh and symbolizes the idolatrous worship practices of the Moabites.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Balah",
                           "occurrence_count":  1,
                           "references":  [
@@ -5728,25 +4859,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "Balah is another name for Baalah, a town in the territory of Judah mentioned in Joshua 19:3. It was allotted to the tribe of Simeon.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Bamah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Ezekiel 20:29"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Ezekiel 20:29",
-                                             "text":  "Then I said to them: What is this high place you go to?`� (It is called Bamah to this day.)"
-                                         }
-                                     ],
-                          "description":  "Bamah, meaning �high place,� refers to sites of worship, often associated with idolatry, mentioned in Ezekiel 20:29. These high places were locations where people offered sacrifices, sometimes contrary to the worship of Yahweh.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -6071,25 +5183,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Bathrabbim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Song of Solomon 7:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Song of Solomon 7:4",
-                                             "text":  "Your neck is like an ivory tower. Your eyes are the pools of Heshbon by the gate of Bath Rabbim. Your nose is like the tower of Lebanon looking toward Damascus."
-                                         }
-                                     ],
-                          "description":  "Bathrabbim is mentioned in Song of Solomon 7:4 as a gate in Heshbon, known for its pools. It is used metaphorically in the description of the beauty of the beloved in the Song of Solomon.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Bealoth",
                           "occurrence_count":  1,
                           "references":  [
@@ -6372,7 +5465,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beer-Sheba"
+                                      ]
                       },
                       {
                           "name":  "Beeshterah",
@@ -6387,85 +5483,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "Beeshterah is a city of refuge assigned to the Levites in the territory of Manasseh, east of the Jordan River, as mentioned in Joshua 21:27. It is also known as Ashtaroth.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Bela",
-                          "occurrence_count":  13,
-                          "references":  [
-                                             "Genesis 14:2",
-                                             "Genesis 14:8",
-                                             "Genesis 36:32",
-                                             "Genesis 36:33",
-                                             "Numbers 26:38",
-                                             "Numbers 26:40",
-                                             "1 Chronicles 1:43",
-                                             "1 Chronicles 1:44",
-                                             "1 Chronicles 5:8",
-                                             "1 Chronicles 7:6",
-                                             "1 Chronicles 7:7",
-                                             "1 Chronicles 8:1",
-                                             "1 Chronicles 8:3"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 14:2",
-                                             "text":  "these kings went to war against Bera king of Sodom, Birsha king of Gomorrah, Shinab king of Admah, Shemeber king of Zeboyim, and the king of Bela (that is, Zoar)."
-                                         },
-                                         {
-                                             "reference":  "Genesis 14:8",
-                                             "text":  "Then the king of Sodom, the king of Gomorrah, the king of Admah, the king of Zeboyim and the king of Bela (that is, Zoar) marched out and drew up their battle lines in the Valley of Siddim"
-                                         },
-                                         {
-                                             "reference":  "Genesis 36:32",
-                                             "text":  "Bela son of Beor became king of Edom. His city was named Dinhabah."
-                                         },
-                                         {
-                                             "reference":  "Genesis 36:33",
-                                             "text":  "When Bela died, Jobab son of Zerah from Bozrah succeeded him as king."
-                                         },
-                                         {
-                                             "reference":  "Numbers 26:38",
-                                             "text":  "The descendants of Benjamin by their clans were: through Bela, the Belaite clan; through Ashbel, the Ashbelite clan; through Ahiram, the Ahiramite clan;"
-                                         },
-                                         {
-                                             "reference":  "Numbers 26:40",
-                                             "text":  "The descendants of Bela through Ard and Naaman were: through Ard, the Ardite clan; through Naaman, the Naamite clan."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 1:43",
-                                             "text":  "These were the kings who reigned in Edom before any Israelite king reigned: Bela son of Beor, whose city was named Dinhabah."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 1:44",
-                                             "text":  "When Bela died, Jobab son of Zerah from Bozrah succeeded him as king."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 5:8",
-                                             "text":  "and Bela son of Azaz, the son of Shema, the son of Joel. They settled in the area from Aroer to Nebo and Baal Meon."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 7:6",
-                                             "text":  "Three sons of Benjamin: Bela, Beker and Jediael."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 7:7",
-                                             "text":  "The sons of Bela: Ezbon, Uzzi, Uzziel, Jerimoth and Iri, heads of families�five in all. Their genealogical record listed 22,034 fighting men."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 8:1",
-                                             "text":  "Benjamin was the father of Bela his firstborn, Ashbel the second son, Aharah the third,"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 8:3",
-                                             "text":  "The sons of Bela were: Addar, Gera, Abihud,"
-                                         }
-                                     ],
-                          "description":  "Bela is the name of a city and several individuals in the Bible. As a city, it was one of the five cities of the plain, also known as Zoar (Genesis 14:2). Bela is also the name of a son of Benjamin and a king of Edom.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -6626,35 +5643,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Besor",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "1 Samuel 30:9",
-                                             "1 Samuel 30:10",
-                                             "1 Samuel 30:21"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 30:9",
-                                             "text":  "David and the six hundred men with him came to the Besor Valley, where some stayed behind."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 30:10",
-                                             "text":  "Two hundred of them were too exhausted to cross the valley, but David and the other four hundred continued the pursuit."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 30:21",
-                                             "text":  "Then David came to the two hundred men who had been too exhausted to follow him and who were left behind at the Besor Valley. They came out to meet David and the men with him. As David and his men approached, he asked them how they were."
-                                         }
-                                     ],
-                          "description":  "The Brook Besor is mentioned in 1 Samuel 30:9-21 as the place where David�s men rested while pursuing the Amalekites. Those who stayed behind at the brook to rest were later rewarded equally with those who fought.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Betah",
                           "occurrence_count":  1,
                           "references":  [
@@ -6733,7 +5721,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-Anath"
+                                      ]
                       },
                       {
                           "name":  "Bethanoth",
@@ -6869,7 +5860,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-aram"
+                                      ]
                       },
                       {
                           "name":  "Betharbel",
@@ -6937,7 +5931,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-aven"
+                                      ]
                       },
                       {
                           "name":  "Bethazmaveth",
@@ -6956,7 +5953,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-azmaveth"
+                                      ]
                       },
                       {
                           "name":  "Beth-baal-meon",
@@ -6994,7 +5994,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-barah"
+                                      ]
                       },
                       {
                           "name":  "Bethbirei",
@@ -7013,7 +6016,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-birei"
+                                      ]
                       },
                       {
                           "name":  "Bethcar",
@@ -7032,7 +6038,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth Car"
+                                      ]
                       },
                       {
                           "name":  "Bethdagon",
@@ -7075,7 +6084,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-diblathaim"
+                                      ]
                       },
                       {
                           "name":  "Bethel",
@@ -7425,25 +6437,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Bethesda",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "John 5:2"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "John 5:2",
-                                             "text":  "Now there is in Jerusalem near the Sheep Gate a pool, which in Aramaic is called Bethesda and which is surrounded by five covered colonnades."
-                                         }
-                                     ],
-                          "description":  "Bethesda is a pool in Jerusalem mentioned in John 5:2, where a multitude of sick people waited for the stirring of the water. It is the site where Jesus healed a man who had been invalid for 38 years.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
                           "name":  "Bethgamul",
                           "occurrence_count":  1,
                           "references":  [
@@ -7460,31 +6453,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Bethhaccerem",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Nehemiah 3:14",
-                                             "Jeremiah 6:1"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Nehemiah 3:14",
-                                             "text":  "The Dung Gate was repaired by Malkijah son of Rekab, ruler of the district of Beth Hakkerem. He rebuilt it and put its doors with their bolts and bars in place."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 6:1",
-                                             "text":  "�Flee for safety, people of Benjamin! Flee from Jerusalem! Sound the trumpet in Tekoa! Raise the signal over Beth Hakkerem! For disaster looms out of the north, even terrible destruction."
-                                         }
-                                     ],
-                          "description":  "Bethhaccerem, meaning �house of the vineyard,� is mentioned in Nehemiah 3:14 and Jeremiah 6:1. It was a district in Judah and served as a signal station where a fire beacon was lit to warn of approaching danger.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-gamul"
+                                      ]
                       },
                       {
                           "name":  "Bethharan",
@@ -7654,7 +6626,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth Jeshimoth"
+                                      ]
                       },
                       {
                           "name":  "Bethjesimoth",
@@ -7692,7 +6667,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth Lebaoth"
+                                      ]
                       },
                       {
                           "name":  "Bethlehem",
@@ -7902,89 +6880,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Bethlehemjudah",
-                          "occurrence_count":  9,
-                          "references":  [
-                                             "Judges 17:7",
-                                             "Judges 17:8",
-                                             "Judges 17:9",
-                                             "Judges 19:1",
-                                             "Judges 19:2",
-                                             "Judges 19:18",
-                                             "Ruth 1:1",
-                                             "Ruth 1:2",
-                                             "1 Samuel 17:12"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 17:7",
-                                             "text":  "A young Levite from Bethlehem in Judah, who had been living within the clan of Judah,"
-                                         },
-                                         {
-                                             "reference":  "Judges 17:8",
-                                             "text":  "left that town in search of some other place to stay. On his way he came to Micah`s house in the hill country of Ephraim."
-                                         },
-                                         {
-                                             "reference":  "Judges 17:9",
-                                             "text":  "Micah asked him, �Where are you from?� �I`m a Levite from Bethlehem in Judah,� he said, �and I`m looking for a place to stay.�"
-                                         },
-                                         {
-                                             "reference":  "Judges 19:1",
-                                             "text":  "In those days Israel had no king. Now a Levite who lived in a remote area in the hill country of Ephraim took a concubine from Bethlehem in Judah."
-                                         },
-                                         {
-                                             "reference":  "Judges 19:2",
-                                             "text":  "But she was unfaithful to him. She left him and went back to her parents` home in Bethlehem, Judah. After she had been there four months,"
-                                         },
-                                         {
-                                             "reference":  "Judges 19:18",
-                                             "text":  "He answered, �We are on our way from Bethlehem in Judah to a remote area in the hill country of Ephraim where I live. I have been to Bethlehem in Judah and now I am going to the house of the Lord. No one has taken me in for the night."
-                                         },
-                                         {
-                                             "reference":  "Ruth 1:1",
-                                             "text":  "In the days when the judges ruled, there was a famine in the land. So a man from Bethlehem in Judah, together with his wife and two sons, went to live for a while in the country of Moab."
-                                         },
-                                         {
-                                             "reference":  "Ruth 1:2",
-                                             "text":  "The man`s name was Elimelek, his wife`s name was Naomi, and the names of his two sons were Mahlon and Kilion. They were Ephrathites from Bethlehem, Judah. And they went to Moab and lived there."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 17:12",
-                                             "text":  "Now David was the son of an Ephrathite named Jesse, who was from Bethlehem in Judah. Jesse had eight sons, and in Saul`s time he was very old."
-                                         }
-                                     ],
-                          "description":  "Bethlehemjudah is another name for Bethlehem, emphasizing its location within the tribe of Judah. It is mentioned in the context of various biblical stories, including the story of Ruth and the birthplace of Jesus.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Bethmaachah",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "2 Samuel 20:14",
-                                             "2 Samuel 20:15"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Samuel 20:14",
-                                             "text":  "Sheba passed through all the tribes of Israel to Abel Beth Maakah and through the entire region of the Bikrites, who gathered together and followed him."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 20:15",
-                                             "text":  "All the troops with Joab came and besieged Sheba in Abel Beth Maakah. They built a siege ramp up to the city, and it stood against the outer fortifications. While they were battering the wall to bring it down,"
-                                         }
-                                     ],
-                          "description":  "Bethmaachah is a city in northern Israel mentioned in 2 Samuel 20:14-15. It was besieged by Joab during the rebellion of Sheba, son of Bichri.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Bethmarcaboth",
                           "occurrence_count":  2,
                           "references":  [
@@ -8006,7 +6901,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-marcaboth"
+                                      ]
                       },
                       {
                           "name":  "Bethmeon",
@@ -8025,7 +6923,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-meon"
+                                      ]
                       },
                       {
                           "name":  "Bethnimrah",
@@ -8102,7 +7003,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth Peor"
+                                      ]
                       },
                       {
                           "name":  "Bethphage",
@@ -8150,7 +7054,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-phelet"
+                                      ]
                       },
                       {
                           "name":  "Bethrehob",
@@ -8174,7 +7081,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Beth-rehob"
+                                      ]
                       },
                       {
                           "name":  "Bethsaida",
@@ -8397,25 +7307,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "Bethshemesh is a Levitical city in the territory of Judah, mentioned in several passages including Joshua 15:10. It is the place where the Ark of the Covenant was returned by the Philistines after it caused plagues in their cities (1 Samuel 6:12-15).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Bethshittah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Judges 7:22"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 7:22",
-                                             "text":  "When the three hundred trumpets sounded, the Lord caused the men throughout the camp to turn on each other with their swords. The army fled to Beth Shittah toward Zererah as far as the border of Abel Meholah near Tabbath."
-                                         }
-                                     ],
-                          "description":  "Bethshittah is mentioned in Judges 7:22 as the place where the Midianites fled during Gideon�s surprise attack. The name means �house of the acacia� and indicates the presence of acacia trees in the area.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -8759,25 +7650,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Bozez",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Samuel 14:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 14:4",
-                                             "text":  "On each side of the pass that Jonathan intended to cross to reach the Philistine outpost was a cliff; one was called Bozez and the other Seneh."
-                                         }
-                                     ],
-                          "description":  "Bozez is one of the two rocky crags mentioned in 1 Samuel 14:4 that Jonathan and his armor-bearer climbed to attack the Philistine outpost.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Bozkath",
                           "occurrence_count":  1,
                           "references":  [
@@ -9019,26 +7891,11 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Calebephratah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 2:24"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 2:24",
-                                             "text":  "After Hezron died in Caleb Ephrathah, Abijah the wife of Hezron bore him Ashhur the father of Tekoa."
-                                         }
-                                     ],
-                          "description":  "Calebephratah is mentioned in 1 Chronicles 2:24 as the place where Hezron died. It is associated with Caleb, one of the leaders of Israel.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Kalhu",
+                                          "Nimrud – Assyrian city"
+                                      ]
                       },
                       {
                           "name":  "Calneh",
@@ -9081,25 +7938,6 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Calvary",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Luke 23:33"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Luke 23:33",
-                                             "text":  "When they came to the place called the Skull, they crucified him there, along with the criminals�one on his right, the other on his left."
-                                         }
-                                     ],
-                          "description":  "Calvary, also known as Golgotha, is the site just outside Jerusalem where Jesus was crucified. The name means �place of the skull,� and it is mentioned in Luke 23:33.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
                                         ]
                       },
                       {
@@ -9150,463 +7988,6 @@ window.BIBLE_LOCATIONS = {
                                      ],
                           "description":  "Cana is a town in Galilee mentioned in the New Testament, where Jesus performed his first miracle of turning water into wine (John 2:1-11). It is also the home of Nathanael, one of Jesus� disciples (John 21:2).",
                           "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Canaan",
-                          "occurrence_count":  88,
-                          "references":  [
-                                             "Genesis 9:18",
-                                             "Genesis 9:22",
-                                             "Genesis 9:25",
-                                             "Genesis 9:26",
-                                             "Genesis 9:27",
-                                             "Genesis 10:6",
-                                             "Genesis 10:15",
-                                             "Genesis 11:31",
-                                             "Genesis 12:5",
-                                             "Genesis 13:12",
-                                             "Genesis 16:3",
-                                             "Genesis 17:8",
-                                             "Genesis 23:2",
-                                             "Genesis 23:19",
-                                             "Genesis 28:1",
-                                             "Genesis 28:6",
-                                             "Genesis 28:8",
-                                             "Genesis 31:18",
-                                             "Genesis 33:18",
-                                             "Genesis 35:6",
-                                             "Genesis 36:2",
-                                             "Genesis 36:5",
-                                             "Genesis 36:6",
-                                             "Genesis 37:1",
-                                             "Genesis 42:5",
-                                             "Genesis 42:7",
-                                             "Genesis 42:13",
-                                             "Genesis 42:29",
-                                             "Genesis 42:32",
-                                             "Genesis 44:8",
-                                             "Genesis 45:17",
-                                             "Genesis 45:25",
-                                             "Genesis 46:6",
-                                             "Genesis 46:12",
-                                             "Genesis 46:31",
-                                             "Genesis 47:1",
-                                             "Genesis 47:4",
-                                             "Genesis 47:13",
-                                             "Genesis 47:14",
-                                             "Genesis 47:15",
-                                             "Genesis 48:3",
-                                             "Genesis 48:7",
-                                             "Genesis 49:30",
-                                             "Genesis 50:5",
-                                             "Genesis 50:13",
-                                             "Exodus 6:4",
-                                             "Exodus 15:15",
-                                             "Exodus 16:35",
-                                             "Leviticus 14:34",
-                                             "Leviticus 18:3",
-                                             "Leviticus 25:38",
-                                             "Numbers 13:2",
-                                             "Numbers 13:17",
-                                             "Numbers 26:19",
-                                             "Numbers 32:30",
-                                             "Numbers 32:32",
-                                             "Numbers 33:40",
-                                             "Numbers 33:51",
-                                             "Numbers 34:2",
-                                             "Numbers 34:29",
-                                             "Numbers 35:10",
-                                             "Numbers 35:14",
-                                             "Deuteronomy 32:49",
-                                             "Joshua 5:12",
-                                             "Joshua 14:1",
-                                             "Joshua 21:2",
-                                             "Joshua 22:9",
-                                             "Joshua 22:10",
-                                             "Joshua 22:11",
-                                             "Joshua 22:32",
-                                             "Joshua 24:3",
-                                             "Judges 3:1",
-                                             "Judges 4:2",
-                                             "Judges 4:23",
-                                             "Judges 4:24",
-                                             "Judges 5:19",
-                                             "Judges 21:12",
-                                             "1 Chronicles 1:8",
-                                             "1 Chronicles 1:13",
-                                             "1 Chronicles 16:18",
-                                             "Psalms 105:11",
-                                             "Psalms 106:38",
-                                             "Psalms 135:11",
-                                             "Isaiah 19:18",
-                                             "Ezekiel 16:3",
-                                             "Ezekiel 16:29",
-                                             "Zephaniah 2:5",
-                                             "Matthew 15:22"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 9:18",
-                                             "text":  "The sons of Noah who came out of the ark were Shem, Ham and Japheth. (Ham was the father of Canaan.)"
-                                         },
-                                         {
-                                             "reference":  "Genesis 9:22",
-                                             "text":  "Ham, the father of Canaan, saw his father naked and told his two brothers outside."
-                                         },
-                                         {
-                                             "reference":  "Genesis 9:25",
-                                             "text":  "he said, �Cursed be Canaan! The lowest of slaves will he be to his brothers.�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 9:26",
-                                             "text":  "He also said, �Praise be to the Lord, the God of Shem! May Canaan be the slave of Shem."
-                                         },
-                                         {
-                                             "reference":  "Genesis 9:27",
-                                             "text":  "May God extend Japheth`s territory; may Japheth live in the tents of Shem, and may Canaan be the slave of Japheth.�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 10:6",
-                                             "text":  "The sons of Ham: Cush, Egypt, Put and Canaan."
-                                         },
-                                         {
-                                             "reference":  "Genesis 10:15",
-                                             "text":  "Canaan was the father of Sidon his firstborn, and of the Hittites,"
-                                         },
-                                         {
-                                             "reference":  "Genesis 11:31",
-                                             "text":  "Terah took his son Abram, his grandson Lot son of Haran, and his daughter-in-law Sarai, the wife of his son Abram, and together they set out from Ur of the Chaldeans to go to Canaan. But when they came to Harran, they settled there."
-                                         },
-                                         {
-                                             "reference":  "Genesis 12:5",
-                                             "text":  "He took his wife Sarai, his nephew Lot, all the possessions they had accumulated and the people they had acquired in Harran, and they set out for the land of Canaan, and they arrived there."
-                                         },
-                                         {
-                                             "reference":  "Genesis 13:12",
-                                             "text":  "Abram lived in the land of Canaan, while Lot lived among the cities of the plain and pitched his tents near Sodom."
-                                         },
-                                         {
-                                             "reference":  "Genesis 16:3",
-                                             "text":  "So after Abram had been living in Canaan ten years, Sarai his wife took her Egyptian slave Hagar and gave her to her husband to be his wife."
-                                         },
-                                         {
-                                             "reference":  "Genesis 17:8",
-                                             "text":  "The whole land of Canaan, where you now reside as a foreigner, I will give as an everlasting possession to you and your descendants after you; and I will be their God.�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 23:2",
-                                             "text":  "She died at Kiriath Arba (that is, Hebron) in the land of Canaan, and Abraham went to mourn for Sarah and to weep over her."
-                                         },
-                                         {
-                                             "reference":  "Genesis 23:19",
-                                             "text":  "Afterward Abraham buried his wife Sarah in the cave in the field of Machpelah near Mamre (which is at Hebron) in the land of Canaan."
-                                         },
-                                         {
-                                             "reference":  "Genesis 28:1",
-                                             "text":  "So Isaac called for Jacob and blessed him. Then he commanded him: �Do not marry a Canaanite woman."
-                                         },
-                                         {
-                                             "reference":  "Genesis 28:6",
-                                             "text":  "Now Esau learned that Isaac had blessed Jacob and had sent him to Paddan Aram to take a wife from there, and that when he blessed him he commanded him, �Do not marry a Canaanite woman,�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 28:8",
-                                             "text":  "Esau then realized how displeasing the Canaanite women were to his father Isaac;"
-                                         },
-                                         {
-                                             "reference":  "Genesis 31:18",
-                                             "text":  "and he drove all his livestock ahead of him, along with all the goods he had accumulated in Paddan Aram, to go to his father Isaac in the land of Canaan."
-                                         },
-                                         {
-                                             "reference":  "Genesis 33:18",
-                                             "text":  "After Jacob came from Paddan Aram, he arrived safely at the city of Shechem in Canaan and camped within sight of the city."
-                                         },
-                                         {
-                                             "reference":  "Genesis 35:6",
-                                             "text":  "Jacob and all the people with him came to Luz (that is, Bethel) in the land of Canaan."
-                                         },
-                                         {
-                                             "reference":  "Genesis 36:2",
-                                             "text":  "Esau took his wives from the women of Canaan: Adah daughter of Elon the Hittite, and Oholibamah daughter of Anah and granddaughter of Zibeon the Hivite�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 36:5",
-                                             "text":  "and Oholibamah bore Jeush, Jalam and Korah. These were the sons of Esau, who were born to him in Canaan."
-                                         },
-                                         {
-                                             "reference":  "Genesis 36:6",
-                                             "text":  "Esau took his wives and sons and daughters and all the members of his household, as well as his livestock and all his other animals and all the goods he had acquired in Canaan, and moved to a land some distance from his brother Jacob."
-                                         },
-                                         {
-                                             "reference":  "Genesis 37:1",
-                                             "text":  "Jacob lived in the land where his father had stayed, the land of Canaan."
-                                         },
-                                         {
-                                             "reference":  "Genesis 42:5",
-                                             "text":  "So Israel`s sons were among those who went to buy grain, for there was famine in the land of Canaan also."
-                                         },
-                                         {
-                                             "reference":  "Genesis 42:7",
-                                             "text":  "As soon as Joseph saw his brothers, he recognized them, but he pretended to be a stranger and spoke harshly to them. �Where do you come from?� he asked. �From the land of Canaan,� they replied, �to buy food.�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 42:13",
-                                             "text":  "But they replied, �Your servants were twelve brothers, the sons of one man, who lives in the land of Canaan. The youngest is now with our father, and one is no more.�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 42:29",
-                                             "text":  "When they came to their father Jacob in the land of Canaan, they told him all that had happened to them. They said,"
-                                         },
-                                         {
-                                             "reference":  "Genesis 42:32",
-                                             "text":  "We were twelve brothers, sons of one father. One is no more, and the youngest is now with our father in Canaan.`"
-                                         },
-                                         {
-                                             "reference":  "Genesis 44:8",
-                                             "text":  "We even brought back to you from the land of Canaan the silver we found inside the mouths of our sacks. So why would we steal silver or gold from your master`s house?"
-                                         },
-                                         {
-                                             "reference":  "Genesis 45:17",
-                                             "text":  "Pharaoh said to Joseph, �Tell your brothers, �Do this: Load your animals and return to the land of Canaan,"
-                                         },
-                                         {
-                                             "reference":  "Genesis 45:25",
-                                             "text":  "So they went up out of Egypt and came to their father Jacob in the land of Canaan."
-                                         },
-                                         {
-                                             "reference":  "Genesis 46:6",
-                                             "text":  "So Jacob and all his offspring went to Egypt, taking with them their livestock and the possessions they had acquired in Canaan."
-                                         },
-                                         {
-                                             "reference":  "Genesis 46:12",
-                                             "text":  "The sons of Judah: Er, Onan, Shelah, Perez and Zerah (but Er and Onan had died in the land of Canaan). The sons of Perez: Hezron and Hamul."
-                                         },
-                                         {
-                                             "reference":  "Genesis 46:31",
-                                             "text":  "Then Joseph said to his brothers and to his father`s household, �I will go up and speak to Pharaoh and will say to him, �My brothers and my father`s household, who were living in the land of Canaan, have come to me."
-                                         },
-                                         {
-                                             "reference":  "Genesis 47:1",
-                                             "text":  "Joseph went and told Pharaoh, �My father and brothers, with their flocks and herds and everything they own, have come from the land of Canaan and are now in Goshen.�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 47:4",
-                                             "text":  "They also said to him, �We have come to live here for a while, because the famine is severe in Canaan and your servants` flocks have no pasture. So now, please let your servants settle in Goshen.�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 47:13",
-                                             "text":  "There was no food, however, in the whole region because the famine was severe; both Egypt and Canaan wasted away because of the famine."
-                                         },
-                                         {
-                                             "reference":  "Genesis 47:14",
-                                             "text":  "Joseph collected all the money that was to be found in Egypt and Canaan in payment for the grain they were buying, and he brought it to Pharaoh`s palace."
-                                         },
-                                         {
-                                             "reference":  "Genesis 47:15",
-                                             "text":  "When the money of the people of Egypt and Canaan was gone, all Egypt came to Joseph and said, �Give us food. Why should we die before your eyes? Our money is all gone.�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 48:3",
-                                             "text":  "Jacob said to Joseph, �God Almighty appeared to me at Luz in the land of Canaan, and there he blessed me"
-                                         },
-                                         {
-                                             "reference":  "Genesis 48:7",
-                                             "text":  "As I was returning from Paddan, to my sorrow Rachel died in the land of Canaan while we were still on the way, a little distance from Ephrath. So I buried her there beside the road to Ephrath� (that is, Bethlehem)."
-                                         },
-                                         {
-                                             "reference":  "Genesis 49:30",
-                                             "text":  "the cave in the field of Machpelah, near Mamre in Canaan, which Abraham bought along with the field as a burial place from Ephron the Hittite."
-                                         },
-                                         {
-                                             "reference":  "Genesis 50:5",
-                                             "text":  "�My father made me swear an oath and said, �I am about to die; bury me in the tomb I dug for myself in the land of Canaan.� Now let me go up and bury my father; then I will return.`�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 50:13",
-                                             "text":  "They carried him to the land of Canaan and buried him in the cave in the field of Machpelah, near Mamre, which Abraham had bought along with the field as a burial place from Ephron the Hittite."
-                                         },
-                                         {
-                                             "reference":  "Exodus 6:4",
-                                             "text":  "I also established my covenant with them to give them the land of Canaan, where they resided as foreigners."
-                                         },
-                                         {
-                                             "reference":  "Exodus 15:15",
-                                             "text":  "The chiefs of Edom will be terrified, the leaders of Moab will be seized with trembling, the people of Canaan will melt away;"
-                                         },
-                                         {
-                                             "reference":  "Exodus 16:35",
-                                             "text":  "The Israelites ate manna forty years, until they came to a land that was settled; they ate manna until they reached the border of Canaan."
-                                         },
-                                         {
-                                             "reference":  "Leviticus 14:34",
-                                             "text":  "�When you enter the land of Canaan, which I am giving you as your possession, and I put a spreading mold in a house in that land,"
-                                         },
-                                         {
-                                             "reference":  "Leviticus 18:3",
-                                             "text":  "You must not do as they do in Egypt, where you used to live, and you must not do as they do in the land of Canaan, where I am bringing you. Do not follow their practices."
-                                         },
-                                         {
-                                             "reference":  "Leviticus 25:38",
-                                             "text":  "I am the Lord your God, who brought you out of Egypt to give you the land of Canaan and to be your God."
-                                         },
-                                         {
-                                             "reference":  "Numbers 13:2",
-                                             "text":  "�Send some men to explore the land of Canaan, which I am giving to the Israelites. From each ancestral tribe send one of its leaders.�"
-                                         },
-                                         {
-                                             "reference":  "Numbers 13:17",
-                                             "text":  "When Moses sent them to explore Canaan, he said, �Go up through the Negev and on into the hill country."
-                                         },
-                                         {
-                                             "reference":  "Numbers 26:19",
-                                             "text":  "Er and Onan were sons of Judah, but they died in Canaan."
-                                         },
-                                         {
-                                             "reference":  "Numbers 32:30",
-                                             "text":  "But if they do not cross over with you armed, they must accept their possession with you in Canaan.�"
-                                         },
-                                         {
-                                             "reference":  "Numbers 32:32",
-                                             "text":  "We will cross over before the Lord into Canaan armed, but the property we inherit will be on this side of the Jordan.�"
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:40",
-                                             "text":  "The Canaanite king of Arad, who lived in the Negev of Canaan, heard that the Israelites were coming."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:51",
-                                             "text":  "�Speak to the Israelites and say to them: �When you cross the Jordan into Canaan,"
-                                         },
-                                         {
-                                             "reference":  "Numbers 34:2",
-                                             "text":  "�Command the Israelites and say to them: �When you enter Canaan, the land that will be allotted to you as an inheritance is to have these boundaries:"
-                                         },
-                                         {
-                                             "reference":  "Numbers 34:29",
-                                             "text":  "These are the men the Lord commanded to assign the inheritance to the Israelites in the land of Canaan."
-                                         },
-                                         {
-                                             "reference":  "Numbers 35:10",
-                                             "text":  "�Speak to the Israelites and say to them: �When you cross the Jordan into Canaan,"
-                                         },
-                                         {
-                                             "reference":  "Numbers 35:14",
-                                             "text":  "Give three on this side of the Jordan and three in Canaan as cities of refuge."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 32:49",
-                                             "text":  "�Go up into the Abarim Range to Mount Nebo in Moab, across from Jericho, and view Canaan, the land I am giving the Israelites as their own possession."
-                                         },
-                                         {
-                                             "reference":  "Joshua 5:12",
-                                             "text":  "The manna stopped the day after they ate this food from the land; there was no longer any manna for the Israelites, but that year they ate the produce of Canaan."
-                                         },
-                                         {
-                                             "reference":  "Joshua 14:1",
-                                             "text":  "Now these are the areas the Israelites received as an inheritance in the land of Canaan, which Eleazar the priest, Joshua son of Nun and the heads of the tribal clans of Israel allotted to them."
-                                         },
-                                         {
-                                             "reference":  "Joshua 21:2",
-                                             "text":  "at Shiloh in Canaan and said to them, �The Lord commanded through Moses that you give us towns to live in, with pasturelands for our livestock.�"
-                                         },
-                                         {
-                                             "reference":  "Joshua 22:9",
-                                             "text":  "So the Reubenites, the Gadites and the half-tribe of Manasseh left the Israelites at Shiloh in Canaan to return to Gilead, their own land, which they had acquired in accordance with the command of the Lord through Moses."
-                                         },
-                                         {
-                                             "reference":  "Joshua 22:10",
-                                             "text":  "When they came to Geliloth near the Jordan in the land of Canaan, the Reubenites, the Gadites and the half-tribe of Manasseh built an imposing altar there by the Jordan."
-                                         },
-                                         {
-                                             "reference":  "Joshua 22:11",
-                                             "text":  "And when the Israelites heard that they had built the altar on the border of Canaan at Geliloth near the Jordan on the Israelite side,"
-                                         },
-                                         {
-                                             "reference":  "Joshua 22:32",
-                                             "text":  "Then Phinehas son of Eleazar, the priest, and the leaders returned to Canaan from their meeting with the Reubenites and Gadites in Gilead and reported to the Israelites."
-                                         },
-                                         {
-                                             "reference":  "Joshua 24:3",
-                                             "text":  "But I took your father Abraham from the land beyond the Euphrates and led him throughout Canaan and gave him many descendants. I gave him Isaac,"
-                                         },
-                                         {
-                                             "reference":  "Judges 3:1",
-                                             "text":  "These are the nations the Lord left to test all those Israelites who had not experienced any of the wars in Canaan"
-                                         },
-                                         {
-                                             "reference":  "Judges 4:2",
-                                             "text":  "So the Lord sold them into the hands of Jabin king of Canaan, who reigned in Hazor. Sisera, the commander of his army, was based in Harosheth Haggoyim."
-                                         },
-                                         {
-                                             "reference":  "Judges 4:23",
-                                             "text":  "On that day God subdued Jabin king of Canaan before the Israelites."
-                                         },
-                                         {
-                                             "reference":  "Judges 4:24",
-                                             "text":  "And the hand of the Israelites pressed harder and harder against Jabin king of Canaan until they destroyed him."
-                                         },
-                                         {
-                                             "reference":  "Judges 5:19",
-                                             "text":  "�Kings came, they fought, the kings of Canaan fought. At Taanach, by the waters of Megiddo, they took no plunder of silver."
-                                         },
-                                         {
-                                             "reference":  "Judges 21:12",
-                                             "text":  "They found among the people living in Jabesh Gilead four hundred young women who had never slept with a man, and they took them to the camp at Shiloh in Canaan."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 1:8",
-                                             "text":  "The sons of Ham: Cush, Egypt, Put and Canaan."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 1:13",
-                                             "text":  "Canaan was the father of Sidon his firstborn, and of the Hittites,"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 16:18",
-                                             "text":  "�To you I will give the land of Canaan as the portion you will inherit.�"
-                                         },
-                                         {
-                                             "reference":  "Psalms 105:11",
-                                             "text":  "�To you I will give the land of Canaan as the portion you will inherit.�"
-                                         },
-                                         {
-                                             "reference":  "Psalms 106:38",
-                                             "text":  "They shed innocent blood, the blood of their sons and daughters, whom they sacrificed to the idols of Canaan, and the land was desecrated by their blood."
-                                         },
-                                         {
-                                             "reference":  "Psalms 135:11",
-                                             "text":  "Sihon king of the Amorites, Og king of Bashan, and all the kings of Canaan�"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 19:18",
-                                             "text":  "In that day five cities in Egypt will speak the language of Canaan and swear allegiance to the Lord Almighty. One of them will be called the City of the Sun."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 16:3",
-                                             "text":  "and say, �This is what the Sovereign Lord says to Jerusalem: Your ancestry and birth were in the land of the Canaanites; your father was an Amorite and your mother a Hittite."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 16:29",
-                                             "text":  "Then you increased your promiscuity to include Babylonia, a land of merchants, but even with this you were not satisfied."
-                                         },
-                                         {
-                                             "reference":  "Zephaniah 2:5",
-                                             "text":  "Woe to you who live by the sea, you Kerethite people; the word of the Lord is against you, Canaan, land of the Philistines. He says, �I will destroy you, and none will be left.�"
-                                         },
-                                         {
-                                             "reference":  "Matthew 15:22",
-                                             "text":  "A Canaanite woman from that vicinity came to him, crying out, �Lord, Son of David, have mercy on me! My daughter is demon-possessed and suffering terribly.�"
-                                         }
-                                     ],
-                          "description":  "Canaan is the name of the land promised to the descendants of Abraham, Isaac, and Jacob. It is also the name of the son of Ham, whose descendants populated this region (Genesis 9:18-27). The land of Canaan later became the land of Israel.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png",
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
@@ -10059,25 +8440,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Charashim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 4:14"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 4:14",
-                                             "text":  "Meonothai was the father of Ophrah. Seraiah was the father of Joab, the father of Ge Harashim. It was called this because its people were skilled workers."
-                                         }
-                                     ],
-                          "description":  "Charashim, meaning �craftsmen,� is a place mentioned in 1 Chronicles 4:14. It is associated with families skilled in various crafts and trades.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Charchemish",
                           "occurrence_count":  1,
                           "references":  [
@@ -10228,30 +8590,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Cherith",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "1 Kings 17:3",
-                                             "1 Kings 17:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Kings 17:3",
-                                             "text":  "�Leave here, turn eastward and hide in the Kerith Ravine, east of the Jordan."
-                                         },
-                                         {
-                                             "reference":  "1 Kings 17:5",
-                                             "text":  "So he did what the Lord had told him. He went to the Kerith Ravine, east of the Jordan, and stayed there."
-                                         }
-                                     ],
-                          "description":  "The Brook Cherith is the place where the prophet Elijah hid and was fed by ravens during a time of drought, as mentioned in 1 Kings 17:3-5.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Chesalon",
                           "occurrence_count":  1,
                           "references":  [
@@ -10321,25 +8659,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "Chezib is a town in the territory of Judah, mentioned in Genesis 38:5. It is the place where Judah�s wife gave birth to his son, Shelah.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Chidon",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 13:9"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 13:9",
-                                             "text":  "When they came to the threshing floor of Kidon, Uzzah reached out his hand to steady the ark, because the oxen stumbled."
-                                         }
-                                     ],
-                          "description":  "The threshing floor of Chidon is mentioned in 1 Chronicles 13:9 as the place where Uzzah touched the Ark of the Covenant and was struck down by God.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -10518,25 +8837,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "Chorashan is a town mentioned in 1 Samuel 30:30 as one of the places where David sent spoils after his victory over the Amalekites. It is located in the southern part of Judah.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Chozeba",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 4:22"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 4:22",
-                                             "text":  "Jokim, the men of Kozeba, and Joash and Saraph, who ruled in Moab and Jashubi Lehem. (These records are from ancient times.)"
-                                         }
-                                     ],
-                          "description":  "Chozeba is mentioned in 1 Chronicles 4:22 as the ancestral home of the descendants of Shelah, a son of Judah. It is also known as Chezib or Achzib.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -10828,25 +9128,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "Cushan is a region or people mentioned in Habakkuk 3:7. It is often identified with Cush, the region south of Egypt, or with the Midianites.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Cuth",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "2 Kings 17:30"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Kings 17:30",
-                                             "text":  "The people from Babylon made Sukkoth Benoth, those from Kuthah made Nergal, and those from Hamath made Ashima;"
-                                         }
-                                     ],
-                          "description":  "Cuth is mentioned in 2 Kings 17:30 as one of the regions from which the Assyrians brought people to resettle Samaria. The people of Cuth worshiped the god Nergal.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -11439,25 +9720,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Dedanim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Isaiah 21:13"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Isaiah 21:13",
-                                             "text":  "A prophecy against Arabia: You caravans of Dedanites, who camp in the thickets of Arabia,"
-                                         }
-                                     ],
-                          "description":  "Dedanim refers to the descendants of Dedan, a son of Raamah, mentioned in Isaiah 21:13. They were a trading people living in northern Arabia, known for their caravans.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Derbe",
                           "occurrence_count":  4,
                           "references":  [
@@ -11824,30 +10086,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Eben-ezer",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "1 Samuel 4:1",
-                                             "1 Samuel 5:1"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 4:1",
-                                             "text":  "And Samuel`s word came to all Israel. Now the Israelites went out to fight against the Philistines. The Israelites camped at Ebenezer, and the Philistines at Aphek."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 5:1",
-                                             "text":  "After the Philistines had captured the ark of God, they took it from Ebenezer to Ashdod."
-                                         }
-                                     ],
-                          "description":  "Stone of help, set up by Samuel after a victory over the Philistines.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Ebronah",
                           "occurrence_count":  2,
                           "references":  [
@@ -11865,25 +10103,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A campsite of the Israelites during their wilderness journey, located near Ezion-geber (Numbers 33:34).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Edar",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Genesis 35:21"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 35:21",
-                                             "text":  "Israel moved on again and pitched his tent beyond Migdal Eder."
-                                         }
-                                     ],
-                          "description":  "A location near Bethlehem where Jacob settled after the death of Rachel (Genesis 35:21).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -11997,7 +10216,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Garden of Eden"
+                                      ]
                       },
                       {
                           "name":  "Edom",
@@ -12412,60 +10634,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region southeast of Israel, inhabited by the descendants of Esau, often in conflict with Israel (Genesis 36:1, Numbers 20:14-21).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Edrei",
-                          "occurrence_count":  8,
-                          "references":  [
-                                             "Numbers 21:33",
-                                             "Deuteronomy 1:4",
-                                             "Deuteronomy 3:1",
-                                             "Deuteronomy 3:10",
-                                             "Joshua 12:4",
-                                             "Joshua 13:12",
-                                             "Joshua 13:31",
-                                             "Joshua 19:37"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 21:33",
-                                             "text":  "Then they turned and went up along the road toward Bashan, and Og king of Bashan and his whole army marched out to meet them in battle at Edrei."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 1:4",
-                                             "text":  "This was after he had defeated Sihon king of the Amorites, who reigned in Heshbon, and at Edrei had defeated Og king of Bashan, who reigned in Ashtaroth."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 3:1",
-                                             "text":  "Next we turned and went up along the road toward Bashan, and Og king of Bashan with his whole army marched out to meet us in battle at Edrei."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 3:10",
-                                             "text":  "We took all the towns on the plateau, and all Gilead, and all Bashan as far as Salekah and Edrei, towns of Og`s kingdom in Bashan."
-                                         },
-                                         {
-                                             "reference":  "Joshua 12:4",
-                                             "text":  "And the territory of Og king of Bashan, one of the last of the Rephaites, who reigned in Ashtaroth and Edrei."
-                                         },
-                                         {
-                                             "reference":  "Joshua 13:12",
-                                             "text":  "that is, the whole kingdom of Og in Bashan, who had reigned in Ashtaroth and Edrei. (He was the last of the Rephaites.) Moses had defeated them and taken over their land."
-                                         },
-                                         {
-                                             "reference":  "Joshua 13:31",
-                                             "text":  "half of Gilead, and Ashtaroth and Edrei (the royal cities of Og in Bashan). This was for the descendants of Makir son of Manasseh�for half of the sons of Makir, according to their clans."
-                                         },
-                                         {
-                                             "reference":  "Joshua 19:37",
-                                             "text":  "Kedesh, Edrei, En Hazor,"
-                                         }
-                                     ],
-                          "description":  "One of the royal cities of Og, king of Bashan, conquered by the Israelites (Numbers 21:33, Deuteronomy 3:10).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -15516,25 +13684,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Elbethel",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Genesis 35:7"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 35:7",
-                                             "text":  "There he built an altar, and he called the place El Bethel, because it was there that God revealed himself to him when he was fleeing from his brother."
-                                         }
-                                     ],
-                          "description":  "The name Jacob gave to the place where God appeared to him when he fled from Esau (Genesis 35:7).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Elealeh",
                           "occurrence_count":  5,
                           "references":  [
@@ -15567,25 +13716,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A town in the territory of Reuben, mentioned in the prophecies of Isaiah and Jeremiah (Numbers 32:37, Isaiah 15:4).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "EleloheIsrael",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Genesis 33:20"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 33:20",
-                                             "text":  "There he set up an altar and called it El Elohe Israel."
-                                         }
-                                     ],
-                          "description":  "An altar built by Jacob in Shechem, meaning �God, the God of Israel� (Genesis 33:20).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -15670,55 +13800,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Elon",
-                          "occurrence_count":  7,
-                          "references":  [
-                                             "Genesis 26:34",
-                                             "Genesis 36:2",
-                                             "Genesis 46:14",
-                                             "Numbers 26:26",
-                                             "Joshua 19:43",
-                                             "Judges 12:11",
-                                             "Judges 12:12"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 26:34",
-                                             "text":  "When Esau was forty years old, he married Judith daughter of Beeri the Hittite, and also Basemath daughter of Elon the Hittite."
-                                         },
-                                         {
-                                             "reference":  "Genesis 36:2",
-                                             "text":  "Esau took his wives from the women of Canaan: Adah daughter of Elon the Hittite, and Oholibamah daughter of Anah and granddaughter of Zibeon the Hivite�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 46:14",
-                                             "text":  "The sons of Zebulun: Sered, Elon and Jahleel."
-                                         },
-                                         {
-                                             "reference":  "Numbers 26:26",
-                                             "text":  "The descendants of Zebulun by their clans were: through Sered, the Seredite clan; through Elon, the Elonite clan; through Jahleel, the Jahleelite clan."
-                                         },
-                                         {
-                                             "reference":  "Joshua 19:43",
-                                             "text":  "Elon, Timnah, Ekron,"
-                                         },
-                                         {
-                                             "reference":  "Judges 12:11",
-                                             "text":  "After him, Elon the Zebulunite led Israel ten years."
-                                         },
-                                         {
-                                             "reference":  "Judges 12:12",
-                                             "text":  "Then Elon died and was buried in Aijalon in the land of Zebulun."
-                                         }
-                                     ],
-                          "description":  "A judge of Israel from the tribe of Zebulun, who led Israel for ten years (Judges 12:11-12).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Elonbethhanan",
                           "occurrence_count":  1,
                           "references":  [
@@ -15735,7 +13816,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Elon-beth-hanan"
+                                      ]
                       },
                       {
                           "name":  "Eloth",
@@ -15936,7 +14020,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "En-eglaim"
+                                      ]
                       },
                       {
                           "name":  "Engannim",
@@ -15965,7 +14052,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "En-gannim"
+                                      ]
                       },
                       {
                           "name":  "Engedi",
@@ -16009,7 +14099,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "En Gedi"
+                                      ]
                       },
                       {
                           "name":  "Enhaddah",
@@ -16028,7 +14121,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "En-haddah"
+                                      ]
                       },
                       {
                           "name":  "Enhakkore",
@@ -16047,7 +14143,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "En-hakkore"
+                                      ]
                       },
                       {
                           "name":  "Enhazor",
@@ -16062,25 +14161,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A town in the territory of Naphtali, mentioned in the list of towns assigned to that tribe (Joshua 19:37).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Enmishpat",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Genesis 14:7"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 14:7",
-                                             "text":  "Then they turned back and went to En Mishpat (that is, Kadesh), and they conquered the whole territory of the Amalekites, as well as the Amorites who were living in Hazezon Tamar."
-                                         }
-                                     ],
-                          "description":  "Another name for Kadesh, a location where Abraham defeated Chedorlaomer and the kings with him (Genesis 14:7).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -16162,7 +14242,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "En-shemesh"
+                                      ]
                       },
                       {
                           "name":  "Entappuah",
@@ -16177,25 +14260,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A town on the border of Manasseh and Ephraim, mentioned in the tribal allotments (Joshua 16:8, 17:7).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Ephesdammim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Samuel 17:1"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 17:1",
-                                             "text":  "Now the Philistines gathered their forces for war and assembled at Sokoh in Judah. They pitched camp at Ephes Dammim, between Sokoh and Azekah."
-                                         }
-                                     ],
-                          "description":  "A location between Socoh and Azekah, known as the site where the Philistines encamped before the battle with David and Goliath (1 Samuel 17:1).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -16301,79 +14365,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Ephratah",
-                          "occurrence_count":  5,
-                          "references":  [
-                                             "Ruth 4:11",
-                                             "1 Chronicles 2:50",
-                                             "1 Chronicles 4:4",
-                                             "Psalms 132:6",
-                                             "Micah 5:2"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Ruth 4:11",
-                                             "text":  "Then the elders and all the people at the gate said, �We are witnesses. May the Lord make the woman who is coming into your home like Rachel and Leah, who together built up the family of Israel. May you have standing in Ephrathah and be famous in Bethlehem."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 2:50",
-                                             "text":  "These were the descendants of Caleb. The sons of Hur the firstborn of Ephrathah: Shobal the father of Kiriath Jearim,"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 4:4",
-                                             "text":  "Penuel was the father of Gedor, and Ezer the father of Hushah. These were the descendants of Hur, the firstborn of Ephrathah and father of Bethlehem."
-                                         },
-                                         {
-                                             "reference":  "Psalms 132:6",
-                                             "text":  "We heard it in Ephrathah, we came upon it in the fields of Jaar:"
-                                         },
-                                         {
-                                             "reference":  "Micah 5:2",
-                                             "text":  "�But you, Bethlehem Ephrathah, though you are small among the clans of Judah, out of you will come for me one who will be ruler over Israel, whose origins are from of old, from ancient times.�"
-                                         }
-                                     ],
-                          "description":  "Another name for Bethlehem, mentioned in Ruth and Micah.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Ephrath",
-                          "occurrence_count":  4,
-                          "references":  [
-                                             "Genesis 35:16",
-                                             "Genesis 35:19",
-                                             "Genesis 48:7",
-                                             "1 Chronicles 2:19"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 35:16",
-                                             "text":  "Then they moved on from Bethel. While they were still some distance from Ephrath, Rachel began to give birth and had great difficulty."
-                                         },
-                                         {
-                                             "reference":  "Genesis 35:19",
-                                             "text":  "So Rachel died and was buried on the way to Ephrath (that is, Bethlehem)."
-                                         },
-                                         {
-                                             "reference":  "Genesis 48:7",
-                                             "text":  "As I was returning from Paddan, to my sorrow Rachel died in the land of Canaan while we were still on the way, a little distance from Ephrath. So I buried her there beside the road to Ephrath� (that is, Bethlehem)."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 2:19",
-                                             "text":  "When Azubah died, Caleb married Ephrath, who bore him Hur."
-                                         }
-                                     ],
-                          "description":  "Another name for Bethlehem, the birthplace of King David and later, Jesus Christ (Genesis 35:19, Micah 5:2).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -16496,40 +14487,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A town in the territory of Judah, mentioned in the book of Joshua.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Etham",
-                          "occurrence_count":  4,
-                          "references":  [
-                                             "Exodus 13:20",
-                                             "Numbers 33:6",
-                                             "Numbers 33:7",
-                                             "Numbers 33:8"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Exodus 13:20",
-                                             "text":  "After leaving Sukkoth they camped at Etham on the edge of the desert."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:6",
-                                             "text":  "They left Sukkoth and camped at Etham, on the edge of the desert."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:7",
-                                             "text":  "They left Etham, turned back to Pi Hahiroth, to the east of Baal Zephon, and camped near Migdol."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:8",
-                                             "text":  "They left Pi Hahiroth and passed through the sea into the desert, and when they had traveled for three days in the Desert of Etham, they camped at Marah."
-                                         }
-                                     ],
-                          "description":  "Location where the Israelites camped during the Exodus, mentioned in Exodus.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -16858,7 +14815,10 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Lithostrotos"
+                                      ]
                       },
                       {
                           "name":  "Gadarenes",
@@ -17573,7 +15533,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Gath-rimmon"
+                                      ]
                       },
                       {
                           "name":  "Gaza",
@@ -17862,25 +15825,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Gederite",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 27:28"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 27:28",
-                                             "text":  "Baal-Hanan the Gederite was in charge of the olive and sycamore-fig trees in the western foothills. Joash was in charge of the supplies of olive oil."
-                                         }
-                                     ],
-                          "description":  "Refers to a person from Geder, a city in Judah, mentioned in Chronicles.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Gederoth",
                           "occurrence_count":  2,
                           "references":  [
@@ -18120,60 +16064,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Geshur",
-                          "occurrence_count":  8,
-                          "references":  [
-                                             "2 Samuel 3:3",
-                                             "2 Samuel 13:37",
-                                             "2 Samuel 13:38",
-                                             "2 Samuel 14:23",
-                                             "2 Samuel 14:32",
-                                             "2 Samuel 15:8",
-                                             "1 Chronicles 2:23",
-                                             "1 Chronicles 3:2"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Samuel 3:3",
-                                             "text":  "his second, Kileab the son of Abigail the widow of Nabal of Carmel; the third, Absalom the son of Maakah daughter of Talmai king of Geshur;"
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 13:37",
-                                             "text":  "Absalom fled and went to Talmai son of Ammihud, the king of Geshur. But King David mourned many days for his son."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 13:38",
-                                             "text":  "After Absalom fled and went to Geshur, he stayed there three years."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 14:23",
-                                             "text":  "Then Joab went to Geshur and brought Absalom back to Jerusalem."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 14:32",
-                                             "text":  "Absalom said to Joab, �Look, I sent word to you and said, �Come here so I can send you to the king to ask, �Why have I come from Geshur? It would be better for me if I were still there!�` Now then, I want to see the king`s face, and if I am guilty of anything, let him put me to death.�"
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 15:8",
-                                             "text":  "While your servant was living at Geshur in Aram, I made this vow: �If the Lord takes me back to Jerusalem, I will worship the Lord in Hebron.`�"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 2:23",
-                                             "text":  "(But Geshur and Aram captured Havvoth Jair, as well as Kenath with its surrounding settlements�sixty towns.) All these were descendants of Makir the father of Gilead."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 3:2",
-                                             "text":  "the third, Absalom the son of Maakah daughter of Talmai king of Geshur; the fourth, Adonijah the son of Haggith;"
-                                         }
-                                     ],
-                          "description":  "A region northeast of Israel, known for its Aramean king Talmai and his daughter Maacah, who was the mother of Absalom (2 Samuel 3:3, 2 Samuel 13:37-38).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Geshuri",
                           "occurrence_count":  2,
                           "references":  [
@@ -18289,25 +16179,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A Canaanite city conquered by Joshua, later given to Solomon as part of his marriage alliance with Pharaoh�s daughter (Joshua 10:33, 1 Kings 9:16).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Giah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "2 Samuel 2:24"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Samuel 2:24",
-                                             "text":  "But Joab and Abishai pursued Abner, and as the sun was setting, they came to the hill of Ammah, near Giah on the way to the wasteland of Gibeon."
-                                         }
-                                     ],
-                          "description":  "A location mentioned as a landmark in the pursuit of Abner by Joab after the battle at Gibeon (2 Samuel 2:24).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -18603,25 +16474,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Gibeath",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 18:28"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 18:28",
-                                             "text":  "Zelah, Haeleph, the Jebusite city (that is, Jerusalem), Gibeah and Kiriath�fourteen towns and their villages. This was the inheritance of Benjamin for its clans."
-                                         }
-                                     ],
-                          "description":  "A place in Benjamin, often associated with Gibeah (1 Samuel 13:15-16).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Gibeon",
                           "occurrence_count":  35,
                           "references":  [
@@ -18804,25 +16656,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A significant Canaanite city whose inhabitants made a treaty with Joshua, later becoming a Levitical city (Joshua 9:3-27, 1 Kings 3:4-5).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Gidom",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Judges 20:45"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 20:45",
-                                             "text":  "As they turned and fled toward the wilderness to the rock of Rimmon, the Israelites cut down five thousand men along the roads. They kept pressing after the Benjamites as far as Gidom and struck down two thousand more."
-                                         }
-                                     ],
-                          "description":  "A place where the Benjaminites were pursued and defeated during the civil war with the other tribes (Judges 20:45).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -19363,215 +17196,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Gilgal",
-                          "occurrence_count":  39,
-                          "references":  [
-                                             "Deuteronomy 11:30",
-                                             "Joshua 4:19",
-                                             "Joshua 4:20",
-                                             "Joshua 5:9",
-                                             "Joshua 5:10",
-                                             "Joshua 9:6",
-                                             "Joshua 10:6",
-                                             "Joshua 10:7",
-                                             "Joshua 10:9",
-                                             "Joshua 10:15",
-                                             "Joshua 10:43",
-                                             "Joshua 12:23",
-                                             "Joshua 14:6",
-                                             "Joshua 15:7",
-                                             "Judges 2:1",
-                                             "Judges 3:19",
-                                             "1 Samuel 7:16",
-                                             "1 Samuel 10:8",
-                                             "1 Samuel 11:14",
-                                             "1 Samuel 11:15",
-                                             "1 Samuel 13:4",
-                                             "1 Samuel 13:7",
-                                             "1 Samuel 13:8",
-                                             "1 Samuel 13:12",
-                                             "1 Samuel 13:15",
-                                             "1 Samuel 15:12",
-                                             "1 Samuel 15:21",
-                                             "1 Samuel 15:33",
-                                             "2 Samuel 19:15",
-                                             "2 Samuel 19:40",
-                                             "2 Kings 2:1",
-                                             "2 Kings 4:38",
-                                             "Nehemiah 12:29",
-                                             "Hosea 4:15",
-                                             "Hosea 9:15",
-                                             "Hosea 12:11",
-                                             "Amos 4:4",
-                                             "Amos 5:5",
-                                             "Micah 6:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Deuteronomy 11:30",
-                                             "text":  "As you know, these mountains are across the Jordan, westward, toward the setting sun, near the great trees of Moreh, in the territory of those Canaanites living in the Arabah in the vicinity of Gilgal."
-                                         },
-                                         {
-                                             "reference":  "Joshua 4:19",
-                                             "text":  "On the tenth day of the first month the people went up from the Jordan and camped at Gilgal on the eastern border of Jericho."
-                                         },
-                                         {
-                                             "reference":  "Joshua 4:20",
-                                             "text":  "And Joshua set up at Gilgal the twelve stones they had taken out of the Jordan."
-                                         },
-                                         {
-                                             "reference":  "Joshua 5:9",
-                                             "text":  "Then the Lord said to Joshua, �Today I have rolled away the reproach of Egypt from you.� So the place has been called Gilgal to this day."
-                                         },
-                                         {
-                                             "reference":  "Joshua 5:10",
-                                             "text":  "On the evening of the fourteenth day of the month, while camped at Gilgal on the plains of Jericho, the Israelites celebrated the Passover."
-                                         },
-                                         {
-                                             "reference":  "Joshua 9:6",
-                                             "text":  "Then they went to Joshua in the camp at Gilgal and said to him and the Israelites, �We have come from a distant country; make a treaty with us.�"
-                                         },
-                                         {
-                                             "reference":  "Joshua 10:6",
-                                             "text":  "The Gibeonites then sent word to Joshua in the camp at Gilgal: �Do not abandon your servants. Come up to us quickly and save us! Help us, because all the Amorite kings from the hill country have joined forces against us.�"
-                                         },
-                                         {
-                                             "reference":  "Joshua 10:7",
-                                             "text":  "So Joshua marched up from Gilgal with his entire army, including all the best fighting men."
-                                         },
-                                         {
-                                             "reference":  "Joshua 10:9",
-                                             "text":  "After an all-night march from Gilgal, Joshua took them by surprise."
-                                         },
-                                         {
-                                             "reference":  "Joshua 10:15",
-                                             "text":  "Then Joshua returned with all Israel to the camp at Gilgal."
-                                         },
-                                         {
-                                             "reference":  "Joshua 10:43",
-                                             "text":  "Then Joshua returned with all Israel to the camp at Gilgal."
-                                         },
-                                         {
-                                             "reference":  "Joshua 12:23",
-                                             "text":  "the king of Dor (in Naphoth Dor) onethe king of Goyim in Gilgal one"
-                                         },
-                                         {
-                                             "reference":  "Joshua 14:6",
-                                             "text":  "Now the people of Judah approached Joshua at Gilgal, and Caleb son of Jephunneh the Kenizzite said to him, �You know what the Lord said to Moses the man of God at Kadesh Barnea about you and me."
-                                         },
-                                         {
-                                             "reference":  "Joshua 15:7",
-                                             "text":  "The boundary then went up to Debir from the Valley of Achor and turned north to Gilgal, which faces the Pass of Adummim south of the gorge. It continued along to the waters of En Shemesh and came out at En Rogel."
-                                         },
-                                         {
-                                             "reference":  "Judges 2:1",
-                                             "text":  "The angel of the Lord went up from Gilgal to Bokim and said, �I brought you up out of Egypt and led you into the land I swore to give to your ancestors. I said, �I will never break my covenant with you,"
-                                         },
-                                         {
-                                             "reference":  "Judges 3:19",
-                                             "text":  "But on reaching the stone images near Gilgal he himself went back to Eglon and said, �Your Majesty, I have a secret message for you.� The king said to his attendants, �Leave us!� And they all left."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 7:16",
-                                             "text":  "From year to year he went on a circuit from Bethel to Gilgal to Mizpah, judging Israel in all those places."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 10:8",
-                                             "text":  "�Go down ahead of me to Gilgal. I will surely come down to you to sacrifice burnt offerings and fellowship offerings, but you must wait seven days until I come to you and tell you what you are to do.�"
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 11:14",
-                                             "text":  "Then Samuel said to the people, �Come, let us go to Gilgal and there renew the kingship.�"
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 11:15",
-                                             "text":  "So all the people went to Gilgal and made Saul king in the presence of the Lord. There they sacrificed fellowship offerings before the Lord, and Saul and all the Israelites held a great celebration."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 13:4",
-                                             "text":  "So all Israel heard the news: �Saul has attacked the Philistine outpost, and now Israel has become obnoxious to the Philistines.� And the people were summoned to join Saul at Gilgal."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 13:7",
-                                             "text":  "Some Hebrews even crossed the Jordan to the land of Gad and Gilead. Saul remained at Gilgal, and all the troops with him were quaking with fear."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 13:8",
-                                             "text":  "He waited seven days, the time set by Samuel; but Samuel did not come to Gilgal, and Saul`s men began to scatter."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 13:12",
-                                             "text":  "I thought, �Now the Philistines will come down against me at Gilgal, and I have not sought the Lord`s favor.` So I felt compelled to offer the burnt offering.�"
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 13:15",
-                                             "text":  "Then Samuel left Gilgal and went up to Gibeah in Benjamin, and Saul counted the men who were with him. They numbered about six hundred."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 15:12",
-                                             "text":  "Early in the morning Samuel got up and went to meet Saul, but he was told, �Saul has gone to Carmel. There he has set up a monument in his own honor and has turned and gone on down to Gilgal.�"
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 15:21",
-                                             "text":  "The soldiers took sheep and cattle from the plunder, the best of what was devoted to God, in order to sacrifice them to the Lord your God at Gilgal.�"
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 15:33",
-                                             "text":  "But Samuel said, �As your sword has made women childless, so will your mother be childless among women.� And Samuel put Agag to death before the Lord at Gilgal."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 19:15",
-                                             "text":  "Then the king returned and went as far as the Jordan. Now the men of Judah had come to Gilgal to go out and meet the king and bring him across the Jordan."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 19:40",
-                                             "text":  "When the king crossed over to Gilgal, Kimham crossed with him. All the troops of Judah and half the troops of Israel had taken the king over."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 2:1",
-                                             "text":  "When the Lord was about to take Elijah up to heaven in a whirlwind, Elijah and Elisha were on their way from Gilgal."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 4:38",
-                                             "text":  "Elisha returned to Gilgal and there was a famine in that region. While the company of the prophets was meeting with him, he said to his servant, �Put on the large pot and cook some stew for these prophets.�"
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 12:29",
-                                             "text":  "from Beth Gilgal, and from the area of Geba and Azmaveth, for the musicians had built villages for themselves around Jerusalem."
-                                         },
-                                         {
-                                             "reference":  "Hosea 4:15",
-                                             "text":  "�Though you, Israel, commit adultery, do not let Judah become guilty. �Do not go to Gilgal; do not go up to Beth Aven. And do not swear, �As surely as the Lord lives!`"
-                                         },
-                                         {
-                                             "reference":  "Hosea 9:15",
-                                             "text":  "�Because of all their wickedness in Gilgal, I hated them there. Because of their sinful deeds, I will drive them out of my house. I will no longer love them; all their leaders are rebellious."
-                                         },
-                                         {
-                                             "reference":  "Hosea 12:11",
-                                             "text":  "Is Gilead wicked? Its people are worthless! Do they sacrifice bulls in Gilgal? Their altars will be like piles of stones on a plowed field."
-                                         },
-                                         {
-                                             "reference":  "Amos 4:4",
-                                             "text":  "�Go to Bethel and sin; go to Gilgal and sin yet more. Bring your sacrifices every morning, your tithes every three years."
-                                         },
-                                         {
-                                             "reference":  "Amos 5:5",
-                                             "text":  "do not seek Bethel, do not go to Gilgal, do not journey to Beersheba. For Gilgal will surely go into exile, and Bethel will be reduced to nothing.�"
-                                         },
-                                         {
-                                             "reference":  "Micah 6:5",
-                                             "text":  "My people, remember what Balak king of Moab plotted and what Balaam son of Beor answered. Remember your journey from Shittim to Gilgal, that you may know the righteous acts of the Lord.�"
-                                         }
-                                     ],
-                          "description":  "An important location in the history of Israel, where the Israelites first camped after crossing the Jordan and where Saul was confirmed as king (Joshua 4:19-20, 1 Samuel 11:14-15).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Giloh",
                           "occurrence_count":  2,
                           "references":  [
@@ -19670,30 +17294,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A place mentioned in the prophecy of Jeremiah, possibly a hill near Jerusalem (Jeremiah 31:39).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Gob",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "2 Samuel 21:18",
-                                             "2 Samuel 21:19"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Samuel 21:18",
-                                             "text":  "In the course of time, there was another battle with the Philistines, at Gob. At that time Sibbekai the Hushathite killed Saph, one of the descendants of Rapha."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 21:19",
-                                             "text":  "In another battle with the Philistines at Gob, Elhanan son of Jair the Bethlehemite killed the brother of Goliath the Gittite, who had a spear with a shaft like a weaver`s rod."
-                                         }
-                                     ],
-                          "description":  "A location where David�s warriors fought and defeated the Philistines in battles led by Elhanan (2 Samuel 21:18-19).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -19873,45 +17473,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Gomorrha",
-                          "occurrence_count":  5,
-                          "references":  [
-                                             "Matthew 10:15",
-                                             "Mark 6:11",
-                                             "Romans 9:29",
-                                             "2 Peter 2:6",
-                                             "Jude 1:7"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Matthew 10:15",
-                                             "text":  "Truly I tell you, it will be more bearable for Sodom and Gomorrah on the day of judgment than for that town."
-                                         },
-                                         {
-                                             "reference":  "Mark 6:11",
-                                             "text":  "And if any place will not welcome you or listen to you, leave that place and shake the dust off your feet as a testimony against them.�"
-                                         },
-                                         {
-                                             "reference":  "Romans 9:29",
-                                             "text":  "It is just as Isaiah said previously: �Unless the Lord Almighty had left us descendants, we would have become like Sodom, we would have been like Gomorrah.�"
-                                         },
-                                         {
-                                             "reference":  "2 Peter 2:6",
-                                             "text":  "if he condemned the cities of Sodom and Gomorrah by burning them to ashes, and made them an example of what is going to happen to the ungodly;"
-                                         },
-                                         {
-                                             "reference":  "Jude 1:7",
-                                             "text":  "In a similar way, Sodom and Gomorrah and the surrounding towns gave themselves up to sexual immorality and perversion. They serve as an example of those who suffer the punishment of eternal fire."
-                                         }
-                                     ],
-                          "description":  "Another reference to Gomorrah, mentioned in the New Testament in the context of judgment (Matthew 10:15, Mark 6:11, Romans 9:29, 2 Peter 2:6).",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
                           "name":  "Goshen",
                           "occurrence_count":  14,
                           "references":  [
@@ -19996,74 +17557,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Gozan",
-                          "occurrence_count":  5,
-                          "references":  [
-                                             "2 Kings 17:6",
-                                             "2 Kings 18:11",
-                                             "2 Kings 19:12",
-                                             "1 Chronicles 5:26",
-                                             "Isaiah 37:12"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Kings 17:6",
-                                             "text":  "In the ninth year of Hoshea, the king of Assyria captured Samaria and deported the Israelites to Assyria. He settled them in Halah, in Gozan on the Habor River and in the towns of the Medes."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 18:11",
-                                             "text":  "The king of Assyria deported Israel to Assyria and settled them in Halah, in Gozan on the Habor River and in towns of the Medes."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:12",
-                                             "text":  "Did the gods of the nations that were destroyed by my predecessors deliver them�the gods of Gozan, Harran, Rezeph and the people of Eden who were in Tel Assar?"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 5:26",
-                                             "text":  "So the God of Israel stirred up the spirit of Pul king of Assyria (that is, Tiglath-Pileser king of Assyria), who took the Reubenites, the Gadites and the half-tribe of Manasseh into exile. He took them to Halah, Habor, Hara and the river of Gozan, where they are to this day."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:12",
-                                             "text":  "Did the gods of the nations that were destroyed by my predecessors deliver them�the gods of Gozan, Harran, Rezeph and the people of Eden who were in Tel Assar?"
-                                         }
-                                     ],
-                          "description":  "A location to which the Israelites were exiled, mentioned in Kings and Chronicles.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Grecia",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Daniel 8:21",
-                                             "Daniel 10:20",
-                                             "Daniel 11:2"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Daniel 8:21",
-                                             "text":  "The shaggy goat is the king of Greece, and the large horn between its eyes is the first king."
-                                         },
-                                         {
-                                             "reference":  "Daniel 10:20",
-                                             "text":  "So he said, �Do you know why I have come to you? Soon I will return to fight against the prince of Persia, and when I go, the prince of Greece will come;"
-                                         },
-                                         {
-                                             "reference":  "Daniel 11:2",
-                                             "text":  "�Now then, I tell you the truth: Three more kings will arise in Persia, and then a fourth, who will be far richer than all the others. When he has gained power by his wealth, he will stir up everyone against the kingdom of Greece."
-                                         }
-                                     ],
-                          "description":  "Refers to Greece, particularly in the prophetic visions in the book of Daniel.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Greece",
                           "occurrence_count":  2,
                           "references":  [
@@ -20110,25 +17603,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Gur",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "2 Kings 9:27"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Kings 9:27",
-                                             "text":  "When Ahaziah king of Judah saw what had happened, he fled up the road to Beth Haggan. Jehu chased him, shouting, �Kill him too!� They wounded him in his chariot on the way up to Gur near Ibleam, but he escaped to Megiddo and died there."
-                                         }
-                                     ],
-                          "description":  "A location mentioned in the context of the death of King Ahaziah.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Gurbaal",
                           "occurrence_count":  1,
                           "references":  [
@@ -20145,7 +17619,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Gur-baal"
+                                      ]
                       },
                       {
                           "name":  "Habor",
@@ -20222,7 +17699,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Hadad-Rimmon"
+                                      ]
                       },
                       {
                           "name":  "Hadashah",
@@ -20304,25 +17784,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region mentioned in Zechariah in the context of a prophecy.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Hagarenes",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Psalms 83:6"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Psalms 83:6",
-                                             "text":  "the tents of Edom and the Ishmaelites, of Moab and the Hagrites,"
-                                         }
-                                     ],
-                          "description":  "A nomadic tribe, descendants of Hagar, mentioned in Psalms as adversaries of Israel.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -20697,7 +18158,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Hammoth-dor"
+                                      ]
                       },
                       {
                           "name":  "Hamonah",
@@ -20712,30 +18176,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A place mentioned in Ezekiel in connection with the burial of Gog�s multitude.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Hamongog",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Ezekiel 39:11",
-                                             "Ezekiel 39:15"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Ezekiel 39:11",
-                                             "text":  "��On that day I will give Gog a burial place in Israel, in the valley of those who travel east of the Sea. It will block the way of travelers, because Gog and all his hordes will be buried there. So it will be called the Valley of Hamon Gog."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 39:15",
-                                             "text":  "As they go through the land, anyone who sees a human bone will leave a marker beside it until the gravediggers bury it in the Valley of Hamon Gog,"
-                                         }
-                                     ],
-                          "description":  "Another place in Ezekiel associated with the burial of Gog�s forces.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -20827,25 +18267,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A town in the territory of Issachar, mentioned in the book of Joshua.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Hara",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 5:26"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 5:26",
-                                             "text":  "So the God of Israel stirred up the spirit of Pul king of Assyria (that is, Tiglath-Pileser king of Assyria), who took the Reubenites, the Gadites and the half-tribe of Manasseh into exile. He took them to Halah, Habor, Hara and the river of Gozan, where they are to this day."
-                                         }
-                                     ],
-                          "description":  "A place in Mesopotamia where the Israelites were exiled by the Assyrians (1 Chronicles 5:26).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -21041,30 +18462,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Havothjair",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Numbers 32:41",
-                                             "Judges 10:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 32:41",
-                                             "text":  "Jair, a descendant of Manasseh, captured their settlements and called them Havvoth Jair."
-                                         },
-                                         {
-                                             "reference":  "Judges 10:4",
-                                             "text":  "He had thirty sons, who rode thirty donkeys. They controlled thirty towns in Gilead, which to this day are called Havvoth Jair."
-                                         }
-                                     ],
-                          "description":  "A group of villages in Gilead, associated with Jair, mentioned in Numbers and Judges.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Hazaraddar",
                           "occurrence_count":  1,
                           "references":  [
@@ -21081,7 +18478,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Hazar-addar"
+                                      ]
                       },
                       {
                           "name":  "Hazarenan",
@@ -21115,7 +18515,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Hazar-enan"
+                                      ]
                       },
                       {
                           "name":  "Hazargaddah",
@@ -21134,7 +18537,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Hazar-gaddah"
+                                      ]
                       },
                       {
                           "name":  "Hazarhatticon",
@@ -21187,7 +18593,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Hazar-shual"
+                                      ]
                       },
                       {
                           "name":  "Hazarsusah",
@@ -21206,7 +18615,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Hazar-susah"
+                                      ]
                       },
                       {
                           "name":  "Hazarsusim",
@@ -21259,45 +18671,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A significant city or region in biblical history.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Hazeroth",
-                          "occurrence_count":  5,
-                          "references":  [
-                                             "Numbers 11:35",
-                                             "Numbers 12:16",
-                                             "Numbers 33:17",
-                                             "Numbers 33:18",
-                                             "Deuteronomy 1:1"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 11:35",
-                                             "text":  "From Kibroth Hattaavah the people traveled to Hazeroth and stayed there."
-                                         },
-                                         {
-                                             "reference":  "Numbers 12:16",
-                                             "text":  "After that, the people left Hazeroth and encamped in the Desert of Paran."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:17",
-                                             "text":  "They left Kibroth Hattaavah and camped at Hazeroth."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:18",
-                                             "text":  "They left Hazeroth and camped at Rithmah."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 1:1",
-                                             "text":  "These are the words Moses spoke to all Israel in the wilderness east of the Jordan�that is, in the Arabah�opposite Suph, between Paran and Tophel, Laban, Hazeroth and Dizahab."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -21898,36 +19271,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Hemath",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "1 Chronicles 2:55",
-                                             "1 Chronicles 13:5",
-                                             "Amos 6:14"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 2:55",
-                                             "text":  "and the clans of scribes who lived at Jabez: the Tirathites, Shimeathites and Sucathites. These are the Kenites who came from Hammath, the father of the Rekabites."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 13:5",
-                                             "text":  "So David assembled all Israel, from the Shihor River in Egypt to Lebo Hamath, to bring the ark of God from Kiriath Jearim."
-                                         },
-                                         {
-                                             "reference":  "Amos 6:14",
-                                             "text":  "For the Lord God Almighty declares, �I will stir up a nation against you, Israel, that will oppress you all the way from Lebo Hamath to the valley of the Arabah.�"
-                                         }
-                                     ],
-                          "description":  "A place mentioned in the genealogies of the descendants of Judah (1 Chronicles 2:55).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Helkath-hazzurim"
+                                      ]
                       },
                       {
                           "name":  "Hena",
@@ -22446,25 +19793,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Hobah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Genesis 14:15"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 14:15",
-                                             "text":  "During the night Abram divided his men to attack them and he routed them, pursuing them as far as Hobah, north of Damascus."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Holon",
                           "occurrence_count":  3,
                           "references":  [
@@ -22568,105 +19896,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Horeb",
-                          "occurrence_count":  17,
-                          "references":  [
-                                             "Exodus 3:1",
-                                             "Exodus 17:6",
-                                             "Exodus 33:6",
-                                             "Deuteronomy 1:2",
-                                             "Deuteronomy 1:6",
-                                             "Deuteronomy 1:19",
-                                             "Deuteronomy 4:10",
-                                             "Deuteronomy 4:15",
-                                             "Deuteronomy 5:2",
-                                             "Deuteronomy 9:8",
-                                             "Deuteronomy 18:16",
-                                             "Deuteronomy 29:1",
-                                             "1 Kings 8:9",
-                                             "1 Kings 19:8",
-                                             "2 Chronicles 5:10",
-                                             "Psalms 106:19",
-                                             "Malachi 4:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Exodus 3:1",
-                                             "text":  "Now Moses was tending the flock of Jethro his father-in-law, the priest of Midian, and he led the flock to the far side of the wilderness and came to Horeb, the mountain of God."
-                                         },
-                                         {
-                                             "reference":  "Exodus 17:6",
-                                             "text":  "I will stand there before you by the rock at Horeb. Strike the rock, and water will come out of it for the people to drink.� So Moses did this in the sight of the elders of Israel."
-                                         },
-                                         {
-                                             "reference":  "Exodus 33:6",
-                                             "text":  "So the Israelites stripped off their ornaments at Mount Horeb."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 1:2",
-                                             "text":  "(It takes eleven days to go from Horeb to Kadesh Barnea by the Mount Seir road.)"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 1:6",
-                                             "text":  "The Lord our God said to us at Horeb, �You have stayed long enough at this mountain."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 1:19",
-                                             "text":  "Then, as the Lord our God commanded us, we set out from Horeb and went toward the hill country of the Amorites through all that vast and dreadful wilderness that you have seen, and so we reached Kadesh Barnea."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 4:10",
-                                             "text":  "Remember the day you stood before the Lord your God at Horeb, when he said to me, �Assemble the people before me to hear my words so that they may learn to revere me as long as they live in the land and may teach them to their children.�"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 4:15",
-                                             "text":  "You saw no form of any kind the day the Lord spoke to you at Horeb out of the fire. Therefore watch yourselves very carefully,"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 5:2",
-                                             "text":  "The Lord our God made a covenant with us at Horeb."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 9:8",
-                                             "text":  "At Horeb you aroused the Lord`s wrath so that he was angry enough to destroy you."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 18:16",
-                                             "text":  "For this is what you asked of the Lord your God at Horeb on the day of the assembly when you said, �Let us not hear the voice of the Lord our God nor see this great fire anymore, or we will die.�"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 29:1",
-                                             "text":  "These are the terms of the covenant the Lord commanded Moses to make with the Israelites in Moab, in addition to the covenant he had made with them at Horeb."
-                                         },
-                                         {
-                                             "reference":  "1 Kings 8:9",
-                                             "text":  "There was nothing in the ark except the two stone tablets that Moses had placed in it at Horeb, where the Lord made a covenant with the Israelites after they came out of Egypt."
-                                         },
-                                         {
-                                             "reference":  "1 Kings 19:8",
-                                             "text":  "So he got up and ate and drank. Strengthened by that food, he traveled forty days and forty nights until he reached Horeb, the mountain of God."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 5:10",
-                                             "text":  "There was nothing in the ark except the two tablets that Moses had placed in it at Horeb, where the Lord made a covenant with the Israelites after they came out of Egypt."
-                                         },
-                                         {
-                                             "reference":  "Psalms 106:19",
-                                             "text":  "At Horeb they made a calf and worshiped an idol cast from metal."
-                                         },
-                                         {
-                                             "reference":  "Malachi 4:4",
-                                             "text":  "�Remember the law of my servant Moses, the decrees and laws I gave him at Horeb for all Israel."
-                                         }
-                                     ],
-                          "description":  "Another name for Mount Sinai, where Moses received the Ten Commandments (Exodus 3:1, Deuteronomy 5:2).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Horem",
                           "occurrence_count":  1,
                           "references":  [
@@ -22703,30 +19932,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A location in the wilderness journey of the Israelites.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Horims",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Deuteronomy 2:12",
-                                             "Deuteronomy 2:22"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Deuteronomy 2:12",
-                                             "text":  "Horites used to live in Seir, but the descendants of Esau drove them out. They destroyed the Horites from before them and settled in their place, just as Israel did in the land the Lord gave them as their possession.)"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 2:22",
-                                             "text":  "The Lord had done the same for the descendants of Esau, who lived in Seir, when he destroyed the Horites from before them. They drove them out and have lived in their place to this day."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -22859,35 +20064,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A Levite appointed as a gatekeeper of the Ark of the Covenant (1 Chronicles 16:38).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Hoshaiah",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Nehemiah 12:32",
-                                             "Jeremiah 42:1",
-                                             "Jeremiah 43:2"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Nehemiah 12:32",
-                                             "text":  "Hoshaiah and half the leaders of Judah followed them,"
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 42:1",
-                                             "text":  "Then all the army officers, including Johanan son of Kareah and Jezaniah son of Hoshaiah, and all the people from the least to the greatest approached"
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 43:2",
-                                             "text":  "Azariah son of Hoshaiah and Johanan son of Kareah and all the arrogant men said to Jeremiah, �You are lying! The Lord our God has not sent you to say, �You must not go to Egypt to settle there.`"
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -23060,40 +20236,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Idumea",
-                          "occurrence_count":  4,
-                          "references":  [
-                                             "Isaiah 34:5",
-                                             "Isaiah 34:6",
-                                             "Ezekiel 35:15",
-                                             "Ezekiel 36:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Isaiah 34:5",
-                                             "text":  "My sword has drunk its fill in the heavens; see, it descends in judgment on Edom, the people I have totally destroyed."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 34:6",
-                                             "text":  "The sword of the Lord is bathed in blood, it is covered with fat� the blood of lambs and goats, fat from the kidneys of rams. For the Lord has a sacrifice in Bozrah and a great slaughter in the land of Edom."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 35:15",
-                                             "text":  "Because you rejoiced when the inheritance of Israel became desolate, that is how I will treat you. You will be desolate, Mount Seir, you and all of Edom. Then they will know that I am the Lord.`�"
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 36:5",
-                                             "text":  "this is what the Sovereign Lord says: In my burning zeal I have spoken against the rest of the nations, and against all Edom, for with glee and with malice in their hearts they made my land their own possession so that they might plunder its pastureland.`"
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -23736,30 +20878,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Ishtob",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "2 Samuel 10:6",
-                                             "2 Samuel 10:8"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Samuel 10:6",
-                                             "text":  "When the Ammonites realized that they had become obnoxious to David, they hired twenty thousand Aramean foot soldiers from Beth Rehob and Zobah, as well as the king of Maakah with a thousand men, and also twelve thousand men from Tob."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 10:8",
-                                             "text":  "The Ammonites came out and drew up in battle formation at the entrance of their city gate, while the Arameans of Zobah and Rehob and the men of Tob and Maakah were by themselves in the open country."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Ishuah",
                           "occurrence_count":  1,
                           "references":  [
@@ -23776,40 +20894,6 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Italy",
-                          "occurrence_count":  4,
-                          "references":  [
-                                             "Acts 18:2",
-                                             "Acts 27:1",
-                                             "Acts 27:6",
-                                             "Hebrews 13:24"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Acts 18:2",
-                                             "text":  "There he met a Jew named Aquila, a native of Pontus, who had recently come from Italy with his wife Priscilla, because Claudius had ordered all Jews to leave Rome. Paul went to see them,"
-                                         },
-                                         {
-                                             "reference":  "Acts 27:1",
-                                             "text":  "When it was decided that we would sail for Italy, Paul and some other prisoners were handed over to a centurion named Julius, who belonged to the Imperial Regiment."
-                                         },
-                                         {
-                                             "reference":  "Acts 27:6",
-                                             "text":  "There the centurion found an Alexandrian ship sailing for Italy and put us on board."
-                                         },
-                                         {
-                                             "reference":  "Hebrews 13:24",
-                                             "text":  "Greet all your leaders and all the Lord`s people. Those from Italy send you their greetings."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
                                         ]
                       },
                       {
@@ -23848,7 +20932,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Ittah-kazin"
+                                      ]
                       },
                       {
                           "name":  "Ituraea",
@@ -23892,30 +20979,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city conquered by the Assyrians, mentioned in the context of their conquests (2 Kings 18:34).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Jaazer",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Numbers 21:32",
-                                             "Numbers 32:35"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 21:32",
-                                             "text":  "After Moses had sent spies to Jazer, the Israelites captured its surrounding settlements and drove out the Amorites who were there."
-                                         },
-                                         {
-                                             "reference":  "Numbers 32:35",
-                                             "text":  "Atroth Shophan, Jazer, Jogbehah,"
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -24216,49 +21279,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Jahaza",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 13:18"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 13:18",
-                                             "text":  "Jahaz, Kedemoth, Mephaath,"
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Jahazah",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Joshua 21:36",
-                                             "Jeremiah 48:21"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 21:36",
-                                             "text":  "from the tribe of Reuben, Bezer, Jahaz,"
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 48:21",
-                                             "text":  "Judgment has come to the plateau� to Holon, Jahzah and Mephaath,"
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Jahzah",
                           "occurrence_count":  1,
                           "references":  [
@@ -24295,25 +21315,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city linked to the historical or prophetic books of the Bible.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Janum",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 15:53"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 15:53",
-                                             "text":  "Janim, Beth Tappuah, Aphekah,"
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -24405,7 +21406,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Jarmuth (Yarmut)"
+                                      ]
                       },
                       {
                           "name":  "Jashubilehem",
@@ -24544,40 +21548,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Jebus",
-                          "occurrence_count":  4,
-                          "references":  [
-                                             "Judges 19:10",
-                                             "Judges 19:11",
-                                             "1 Chronicles 11:4",
-                                             "1 Chronicles 11:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 19:10",
-                                             "text":  "But, unwilling to stay another night, the man left and went toward Jebus (that is, Jerusalem), with his two saddled donkeys and his concubine."
-                                         },
-                                         {
-                                             "reference":  "Judges 19:11",
-                                             "text":  "When they were near Jebus and the day was almost gone, the servant said to his master, �Come, let`s stop at this city of the Jebusites and spend the night.�"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 11:4",
-                                             "text":  "David and all the Israelites marched to Jerusalem (that is, Jebus). The Jebusites who lived there"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 11:5",
-                                             "text":  "said to David, �You will not get in here.� Nevertheless, David captured the fortress of Zion�which is the City of David."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Jebusi",
                           "occurrence_count":  2,
                           "references":  [
@@ -24618,7 +21588,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Jegar-sahadutha"
+                                      ]
                       },
                       {
                           "name":  "Jehovahjireh",
@@ -24633,25 +21606,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A border or boundary described in the context of Israel�s land.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Jehovahnissi",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Exodus 17:15"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Exodus 17:15",
-                                             "text":  "Moses built an altar and called it The Lord is my Banner."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -24690,25 +21644,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region or city associated with a key biblical figure.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Jekabzeel",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Nehemiah 11:25"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Nehemiah 11:25",
-                                             "text":  "As for the villages with their fields, some of the people of Judah lived in Kiriath Arba and its surrounding settlements, in Dibon and its settlements, in Jekabzeel and its villages,"
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -28956,50 +25891,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Jeshimon",
-                          "occurrence_count":  6,
-                          "references":  [
-                                             "Numbers 21:20",
-                                             "Numbers 23:28",
-                                             "1 Samuel 23:19",
-                                             "1 Samuel 23:24",
-                                             "1 Samuel 26:1",
-                                             "1 Samuel 26:3"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 21:20",
-                                             "text":  "and from Bamoth to the valley in Moab where the top of Pisgah overlooks the wasteland."
-                                         },
-                                         {
-                                             "reference":  "Numbers 23:28",
-                                             "text":  "And Balak took Balaam to the top of Peor, overlooking the wasteland."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 23:19",
-                                             "text":  "The Ziphites went up to Saul at Gibeah and said, �Is not David hiding among us in the strongholds at Horesh, on the hill of Hakilah, south of Jeshimon?"
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 23:24",
-                                             "text":  "So they set out and went to Ziph ahead of Saul. Now David and his men were in the Desert of Maon, in the Arabah south of Jeshimon."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 26:1",
-                                             "text":  "The Ziphites went to Saul at Gibeah and said, �Is not David hiding on the hill of Hakilah, which faces Jeshimon?�"
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 26:3",
-                                             "text":  "Saul made his camp beside the road on the hill of Hakilah facing Jeshimon, but David stayed in the wilderness. When he saw that Saul had followed him there,"
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Jeshurun",
                           "occurrence_count":  3,
                           "references":  [
@@ -30408,25 +27299,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Jotbah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "2 Kings 21:19"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Kings 21:19",
-                                             "text":  "Amon was twenty-two years old when he became king, and he reigned in Jerusalem two years. His mother`s name was Meshullemeth daughter of Haruz; she was from Jotbah."
-                                         }
-                                     ],
-                          "description":  "The hometown of Meshullemeth, the mother of King Amon, mentioned in 2 Kings.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -34545,7 +31417,10 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Kingdom of Judah"
+                                      ]
                       },
                       {
                           "name":  "Judea",
@@ -34782,36 +31657,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Kanah",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Joshua 16:8",
-                                             "Joshua 17:9",
-                                             "Joshua 19:28"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 16:8",
-                                             "text":  "From Tappuah the border went west to the Kanah Ravine and ended at the Mediterranean Sea. This was the inheritance of the tribe of the Ephraimites, according to its clans."
-                                         },
-                                         {
-                                             "reference":  "Joshua 17:9",
-                                             "text":  "Then the boundary continued south to the Kanah Ravine. There were towns belonging to Ephraim lying among the towns of Manasseh, but the boundary of Manasseh was the northern side of the ravine and ended at the Mediterranean Sea."
-                                         },
-                                         {
-                                             "reference":  "Joshua 19:28",
-                                             "text":  "It went to Abdon, Rehob, Hammon and Kanah, as far as Greater Sidon."
-                                         }
-                                     ],
-                          "description":  "A brook marking the boundary between the territories of Ephraim and Manasseh, mentioned in Joshua.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Kadesh-Barnea"
+                                      ]
                       },
                       {
                           "name":  "Karkaa",
@@ -34826,25 +31675,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A location in the territory of Judah, mentioned in the book of Joshua.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Karkor",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Judges 8:10"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 8:10",
-                                             "text":  "Now Zebah and Zalmunna were in Karkor with a force of about fifteen thousand men, all that were left of the armies of the eastern peoples; a hundred and twenty thousand swordsmen had fallen."
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -35031,30 +31861,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Kehelathah",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Numbers 33:22",
-                                             "Numbers 33:23"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 33:22",
-                                             "text":  "They left Rissah and camped at Kehelathah."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:23",
-                                             "text":  "They left Kehelathah and camped at Mount Shepher."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Keilah",
                           "occurrence_count":  16,
                           "references":  [
@@ -35173,35 +31979,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Kerioth",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Joshua 15:25",
-                                             "Jeremiah 48:24",
-                                             "Jeremiah 48:41"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 15:25",
-                                             "text":  "Hazor Hadattah, Kerioth Hezron (that is, Hazor),"
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 48:24",
-                                             "text":  "to Kerioth and Bozrah� to all the towns of Moab, far and near."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 48:41",
-                                             "text":  "Kerioth will be captured and the strongholds taken. In that day the hearts of Moab`s warriors will be like the heart of a woman in labor."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Keziz",
                           "occurrence_count":  1,
                           "references":  [
@@ -35214,45 +31991,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A border or boundary described in the context of Israel�s land.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Kibrothhattaavah",
-                          "occurrence_count":  5,
-                          "references":  [
-                                             "Numbers 11:34",
-                                             "Numbers 11:35",
-                                             "Numbers 33:16",
-                                             "Numbers 33:17",
-                                             "Deuteronomy 9:22"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 11:34",
-                                             "text":  "Therefore the place was named Kibroth Hattaavah, because there they buried the people who had craved other food."
-                                         },
-                                         {
-                                             "reference":  "Numbers 11:35",
-                                             "text":  "From Kibroth Hattaavah the people traveled to Hazeroth and stayed there."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:16",
-                                             "text":  "They left the Desert of Sinai and camped at Kibroth Hattaavah."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:17",
-                                             "text":  "They left Kibroth Hattaavah and camped at Hazeroth."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 9:22",
-                                             "text":  "You also made the Lord angry at Taberah, at Massah and at Kibroth Hattaavah."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -35362,64 +32100,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Kir",
-                          "occurrence_count":  5,
-                          "references":  [
-                                             "2 Kings 16:9",
-                                             "Isaiah 15:1",
-                                             "Isaiah 22:6",
-                                             "Amos 1:5",
-                                             "Amos 9:7"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Kings 16:9",
-                                             "text":  "The king of Assyria complied by attacking Damascus and capturing it. He deported its inhabitants to Kir and put Rezin to death."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 15:1",
-                                             "text":  "A prophecy against Moab: Ar in Moab is ruined, destroyed in a night! Kir in Moab is ruined, destroyed in a night!"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 22:6",
-                                             "text":  "Elam takes up the quiver, with her charioteers and horses; Kir uncovers the shield."
-                                         },
-                                         {
-                                             "reference":  "Amos 1:5",
-                                             "text":  "I will break down the gate of Damascus; I will destroy the king who is in the Valley of Aven and the one who holds the scepter in Beth Eden. The people of Aram will go into exile to Kir,� says the Lord."
-                                         },
-                                         {
-                                             "reference":  "Amos 9:7",
-                                             "text":  "�Are not you Israelites the same to me as the Cushites?� declares the Lord. �Did I not bring Israel up from Egypt, the Philistines from Caphtor and the Arameans from Kir?"
-                                         }
-                                     ],
-                          "description":  "A place mentioned in the Bible as the origin of the Arameans and the destination of exiled Israelites (Isaiah 22:6, Amos 1:5).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Kirharaseth",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "2 Kings 3:25"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Kings 3:25",
-                                             "text":  "They destroyed the towns, and each man threw a stone on every good field until it was covered. They stopped up all the springs and cut down every good tree. Only Kir Hareseth was left with its stones in place, but men armed with slings surrounded it and attacked it."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Kirhareseth",
                           "occurrence_count":  1,
                           "references":  [
@@ -35475,44 +32155,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A location in the wilderness journey of the Israelites.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Kirioth",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Amos 2:2"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Amos 2:2",
-                                             "text":  "I will send fire on Moab that will consume the fortresses of Kerioth. Moab will go down in great tumult amid war cries and the blast of the trumpet."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Kirjath",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 18:28"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 18:28",
-                                             "text":  "Zelah, Haeleph, the Jebusite city (that is, Jerusalem), Gibeah and Kiriath�fourteen towns and their villages. This was the inheritance of Benjamin for its clans."
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -35605,30 +32247,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city linked to the historical or prophetic books of the Bible.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Kirjathbaal",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Joshua 15:60",
-                                             "Joshua 18:14"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 15:60",
-                                             "text":  "Kiriath Baal (that is, Kiriath Jearim) and Rabbah�two towns and their villages."
-                                         },
-                                         {
-                                             "reference":  "Joshua 18:14",
-                                             "text":  "From the hill facing Beth Horon on the south the boundary turned south along the western side and came out at Kiriath Baal (that is, Kiriath Jearim), a town of the people of Judah. This was the western side."
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -35751,7 +32369,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Kirjathjearim"
+                                      ]
                       },
                       {
                           "name":  "Kirjathsannah",
@@ -35865,25 +32486,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Kison",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Psalms 83:9"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Psalms 83:9",
-                                             "text":  "Do to them as you did to Midian, as you did to Sisera and Jabin at the river Kishon,"
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Kithlish",
                           "occurrence_count":  1,
                           "references":  [
@@ -35896,25 +32498,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A station during the Israelites� wilderness journey.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Kitron",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Judges 1:30"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 1:30",
-                                             "text":  "Neither did Zebulun drive out the Canaanites living in Kitron or Nahalol, so these Canaanites lived among them, but Zebulun did subject them to forced labor."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -36384,26 +32967,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Lakum",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 19:33"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 19:33",
-                                             "text":  "Their boundary went from Heleph and the large tree in Zaanannim, passing Adami Nekeb and Jabneel to Lakkum and ending at the Jordan."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Dan"
+                                      ]
                       },
                       {
                           "name":  "Laodicea",
@@ -36476,25 +33043,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A location in the wilderness journey of the Israelites.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Lasharon",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 12:18"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 12:18",
-                                             "text":  "the king of Aphek onethe king of Lasharon one"
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -37021,38 +33569,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Libya",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Ezekiel 30:5",
-                                             "Ezekiel 38:5",
-                                             "Acts 2:10"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Ezekiel 30:5",
-                                             "text":  "Cush and Libya, Lydia and all Arabia, Kub and the people of the covenant land will fall by the sword along with Egypt."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 38:5",
-                                             "text":  "Persia, Cush and Put will be with them, all with shields and helmets,"
-                                         },
-                                         {
-                                             "reference":  "Acts 2:10",
-                                             "text":  "Phrygia and Pamphylia, Egypt and the parts of Libya near Cyrene; visitors from Rome"
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png",
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
                           "name":  "Lod",
                           "occurrence_count":  4,
                           "references":  [
@@ -37213,25 +33729,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Lycia",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Acts 27:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Acts 27:5",
-                                             "text":  "When we had sailed across the open sea off the coast of Cilicia and Pamphylia, we landed at Myra in Lycia."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
                           "name":  "Lydda",
                           "occurrence_count":  3,
                           "references":  [
@@ -37302,25 +33799,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Maachathi",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Deuteronomy 3:14"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Deuteronomy 3:14",
-                                             "text":  "Jair, a descendant of Manasseh, took the whole region of Argob as far as the border of the Geshurites and the Maakathites; it was named after him, so that to this day Bashan is called Havvoth Jair.)"
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -37597,30 +34075,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Madon",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Joshua 11:1",
-                                             "Joshua 12:19"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 11:1",
-                                             "text":  "When Jabin king of Hazor heard of this, he sent word to Jobab king of Madon, to the kings of Shimron and Akshaph,"
-                                         },
-                                         {
-                                             "reference":  "Joshua 12:19",
-                                             "text":  "the king of Madon onethe king of Hazor one"
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Magdala",
                           "occurrence_count":  1,
                           "references":  [
@@ -37635,80 +34089,6 @@ window.BIBLE_LOCATIONS = {
                           "description":  "A town on the western shore of the Sea of Galilee, associated with Mary Magdalene (Matthew 15:39).",
                           "map_files":  [
                                             "sea-of-galilee-1903.jpg",
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Magdalene",
-                          "occurrence_count":  12,
-                          "references":  [
-                                             "Matthew 27:56",
-                                             "Matthew 27:61",
-                                             "Matthew 28:1",
-                                             "Mark 15:40",
-                                             "Mark 15:47",
-                                             "Mark 16:1",
-                                             "Mark 16:9",
-                                             "Luke 8:2",
-                                             "Luke 24:10",
-                                             "John 19:25",
-                                             "John 20:1",
-                                             "John 20:18"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Matthew 27:56",
-                                             "text":  "Among them were Mary Magdalene, Mary the mother of James and Joseph, and the mother of Zebedee`s sons."
-                                         },
-                                         {
-                                             "reference":  "Matthew 27:61",
-                                             "text":  "Mary Magdalene and the other Mary were sitting there opposite the tomb."
-                                         },
-                                         {
-                                             "reference":  "Matthew 28:1",
-                                             "text":  "After the Sabbath, at dawn on the first day of the week, Mary Magdalene and the other Mary went to look at the tomb."
-                                         },
-                                         {
-                                             "reference":  "Mark 15:40",
-                                             "text":  "Some women were watching from a distance. Among them were Mary Magdalene, Mary the mother of James the younger and of Joseph, and Salome."
-                                         },
-                                         {
-                                             "reference":  "Mark 15:47",
-                                             "text":  "Mary Magdalene and Mary the mother of Joseph saw where he was laid."
-                                         },
-                                         {
-                                             "reference":  "Mark 16:1",
-                                             "text":  "When the Sabbath was over, Mary Magdalene, Mary the mother of James, and Salome bought spices so that they might go to anoint Jesus` body."
-                                         },
-                                         {
-                                             "reference":  "Mark 16:9",
-                                             "text":  "When Jesus rose early on the first day of the week, he appeared first to Mary Magdalene, out of whom he had driven seven demons."
-                                         },
-                                         {
-                                             "reference":  "Luke 8:2",
-                                             "text":  "and also some women who had been cured of evil spirits and diseases: Mary (called Magdalene) from whom seven demons had come out;"
-                                         },
-                                         {
-                                             "reference":  "Luke 24:10",
-                                             "text":  "It was Mary Magdalene, Joanna, Mary the mother of James, and the others with them who told this to the apostles."
-                                         },
-                                         {
-                                             "reference":  "John 19:25",
-                                             "text":  "Near the cross of Jesus stood his mother, his mother`s sister, Mary the wife of Clopas, and Mary Magdalene."
-                                         },
-                                         {
-                                             "reference":  "John 20:1",
-                                             "text":  "Early on the first day of the week, while it was still dark, Mary Magdalene went to the tomb and saw that the stone had been removed from the entrance."
-                                         },
-                                         {
-                                             "reference":  "John 20:18",
-                                             "text":  "Mary Magdalene went to the disciples with the news: �I have seen the Lord!� And she told them that he had said these things to her."
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
@@ -37810,7 +34190,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Mahaneh Dan"
+                                      ]
                       },
                       {
                           "name":  "Mahavite",
@@ -37941,70 +34324,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A mountain or region mentioned in the conquest of Canaan.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Mamre",
-                          "occurrence_count":  10,
-                          "references":  [
-                                             "Genesis 13:18",
-                                             "Genesis 14:13",
-                                             "Genesis 14:24",
-                                             "Genesis 18:1",
-                                             "Genesis 23:17",
-                                             "Genesis 23:19",
-                                             "Genesis 25:9",
-                                             "Genesis 35:27",
-                                             "Genesis 49:30",
-                                             "Genesis 50:13"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 13:18",
-                                             "text":  "So Abram went to live near the great trees of Mamre at Hebron, where he pitched his tents. There he built an altar to the Lord."
-                                         },
-                                         {
-                                             "reference":  "Genesis 14:13",
-                                             "text":  "A man who had escaped came and reported this to Abram the Hebrew. Now Abram was living near the great trees of Mamre the Amorite, a brother of Eshkol and Aner, all of whom were allied with Abram."
-                                         },
-                                         {
-                                             "reference":  "Genesis 14:24",
-                                             "text":  "I will accept nothing but what my men have eaten and the share that belongs to the men who went with me�to Aner, Eshkol and Mamre. Let them have their share.�"
-                                         },
-                                         {
-                                             "reference":  "Genesis 18:1",
-                                             "text":  "The Lord appeared to Abraham near the great trees of Mamre while he was sitting at the entrance to his tent in the heat of the day."
-                                         },
-                                         {
-                                             "reference":  "Genesis 23:17",
-                                             "text":  "So Ephron`s field in Machpelah near Mamre�both the field and the cave in it, and all the trees within the borders of the field�was deeded"
-                                         },
-                                         {
-                                             "reference":  "Genesis 23:19",
-                                             "text":  "Afterward Abraham buried his wife Sarah in the cave in the field of Machpelah near Mamre (which is at Hebron) in the land of Canaan."
-                                         },
-                                         {
-                                             "reference":  "Genesis 25:9",
-                                             "text":  "His sons Isaac and Ishmael buried him in the cave of Machpelah near Mamre, in the field of Ephron son of Zohar the Hittite,"
-                                         },
-                                         {
-                                             "reference":  "Genesis 35:27",
-                                             "text":  "Jacob came home to his father Isaac in Mamre, near Kiriath Arba (that is, Hebron), where Abraham and Isaac had stayed."
-                                         },
-                                         {
-                                             "reference":  "Genesis 49:30",
-                                             "text":  "the cave in the field of Machpelah, near Mamre in Canaan, which Abraham bought along with the field as a burial place from Ephron the Hittite."
-                                         },
-                                         {
-                                             "reference":  "Genesis 50:13",
-                                             "text":  "They carried him to the land of Canaan and buried him in the cave in the field of Machpelah, near Mamre, which Abraham had bought along with the field as a burial place from Ephron the Hittite."
-                                         }
-                                     ],
-                          "description":  "An ancient Amorite who was an ally of Abraham, also the name of a location near Hebron (Genesis 14:13, Genesis 18:1).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -38201,25 +34520,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Mars",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Acts 17:22"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Acts 17:22",
-                                             "text":  "Paul then stood up in the meeting of the Areopagus and said: �People of Athens! I see that in every way you are very religious."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
                           "name":  "Mashal",
                           "occurrence_count":  1,
                           "references":  [
@@ -38256,69 +34556,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A place in Edom, associated with one of the early kings of Edom before the Israelite monarchy (Genesis 36:36).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Massah",
-                          "occurrence_count":  4,
-                          "references":  [
-                                             "Exodus 17:7",
-                                             "Deuteronomy 6:16",
-                                             "Deuteronomy 9:22",
-                                             "Deuteronomy 33:8"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Exodus 17:7",
-                                             "text":  "And he called the place Massah and Meribah because the Israelites quarreled and because they tested the Lord saying, �Is the Lord among us or not?�"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 6:16",
-                                             "text":  "Do not put the Lord your God to the test as you did at Massah."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 9:22",
-                                             "text":  "You also made the Lord angry at Taberah, at Massah and at Kibroth Hattaavah."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 33:8",
-                                             "text":  "About Levi he said: �Your Thummim and Urim belong to your faithful servant. You tested him at Massah; you contended with him at the waters of Meribah."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Mattan",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "2 Kings 11:18",
-                                             "2 Chronicles 23:17",
-                                             "Jeremiah 38:1"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Kings 11:18",
-                                             "text":  "All the people of the land went to the temple of Baal and tore it down. They smashed the altars and idols to pieces and killed Mattan the priest of Baal in front of the altars. Then Jehoiada the priest posted guards at the temple of the Lord."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 23:17",
-                                             "text":  "All the people went to the temple of Baal and tore it down. They smashed the altars and idols and killed Mattan the priest of Baal in front of the altars."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 38:1",
-                                             "text":  "Shephatiah son of Mattan, Gedaliah son of Pashhur, Jehukal son of Shelemiah, and Pashhur son of Malkijah heard what Jeremiah was telling all the people when he said,"
-                                         }
-                                     ],
-                          "description":  "The name of a priest of Baal killed by the people during Jehoiada�s reforms (2 Kings 11:18).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -38367,25 +34604,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region or city associated with a key biblical figure.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Mearah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 13:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 13:4",
-                                             "text":  "on the south; all the land of the Canaanites, from Arah of the Sidonians as far as Aphek and the border of the Amorites;"
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -38564,44 +34782,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Mejarkon",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 19:46"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 19:46",
-                                             "text":  "Me Jarkon and Rakkon, with the area facing Joppa."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Mekonah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Nehemiah 11:28"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Nehemiah 11:28",
-                                             "text":  "in Ziklag, in Mekonah and its settlements,"
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Melita",
                           "occurrence_count":  1,
                           "references":  [
@@ -38712,50 +34892,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Meribah",
-                          "occurrence_count":  6,
-                          "references":  [
-                                             "Exodus 17:7",
-                                             "Numbers 20:13",
-                                             "Numbers 20:24",
-                                             "Numbers 27:14",
-                                             "Deuteronomy 33:8",
-                                             "Psalms 81:7"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Exodus 17:7",
-                                             "text":  "And he called the place Massah and Meribah because the Israelites quarreled and because they tested the Lord saying, �Is the Lord among us or not?�"
-                                         },
-                                         {
-                                             "reference":  "Numbers 20:13",
-                                             "text":  "These were the waters of Meribah, where the Israelites quarreled with the Lord and where he was proved holy among them."
-                                         },
-                                         {
-                                             "reference":  "Numbers 20:24",
-                                             "text":  "�Aaron will be gathered to his people. He will not enter the land I give the Israelites, because both of you rebelled against my command at the waters of Meribah."
-                                         },
-                                         {
-                                             "reference":  "Numbers 27:14",
-                                             "text":  "for when the community rebelled at the waters in the Desert of Zin, both of you disobeyed my command to honor me as holy before their eyes.� (These were the waters of Meribah Kadesh, in the Desert of Zin.)"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 33:8",
-                                             "text":  "About Levi he said: �Your Thummim and Urim belong to your faithful servant. You tested him at Massah; you contended with him at the waters of Meribah."
-                                         },
-                                         {
-                                             "reference":  "Psalms 81:7",
-                                             "text":  "In your distress you called and I rescued you, I answered you out of a thundercloud; I tested you at the waters of Meribah."
-                                         }
-                                     ],
-                          "description":  "A place where the Israelites quarreled with Moses about water, leading to Moses striking the rock (Exodus 17:7, Numbers 20:13).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "MeribahKadesh",
                           "occurrence_count":  1,
                           "references":  [
@@ -38837,59 +34973,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Mesech",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Psalms 120:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Psalms 120:5",
-                                             "text":  "Woe to me that I dwell in Meshek, that I live among the tents of Kedar!"
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Mesha",
-                          "occurrence_count":  4,
-                          "references":  [
-                                             "Genesis 10:30",
-                                             "2 Kings 3:4",
-                                             "1 Chronicles 2:42",
-                                             "1 Chronicles 8:9"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 10:30",
-                                             "text":  "The region where they lived stretched from Mesha toward Sephar, in the eastern hill country."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 3:4",
-                                             "text":  "Now Mesha king of Moab raised sheep, and he had to pay the king of Israel a tribute of a hundred thousand lambs and the wool of a hundred thousand rams."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 2:42",
-                                             "text":  "The sons of Caleb the brother of Jerahmeel: Mesha his firstborn, who was the father of Ziph, and his son Mareshah, who was the father of Hebron."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 8:9",
-                                             "text":  "By his wife Hodesh he had Jobab, Zibia, Mesha, Malkam,"
-                                         }
-                                     ],
-                          "description":  "A king of Moab who rebelled against Israel and is known for the Mesha Stele, which records his victories (2 Kings 3:4-27).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Mesopotamia",
                           "occurrence_count":  7,
                           "references":  [
@@ -38942,25 +35025,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Methegammah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "2 Samuel 8:1"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Samuel 8:1",
-                                             "text":  "In the course of time, David defeated the Philistines and subdued them, and he took Metheg Ammah from the control of the Philistines."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Michmas",
                           "occurrence_count":  2,
                           "references":  [
@@ -38978,65 +35042,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A border or boundary described in the context of Israel�s land.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Michmash",
-                          "occurrence_count":  9,
-                          "references":  [
-                                             "1 Samuel 13:2",
-                                             "1 Samuel 13:5",
-                                             "1 Samuel 13:11",
-                                             "1 Samuel 13:16",
-                                             "1 Samuel 13:23",
-                                             "1 Samuel 14:5",
-                                             "1 Samuel 14:31",
-                                             "Nehemiah 11:31",
-                                             "Isaiah 10:28"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 13:2",
-                                             "text":  "Saul chose three thousand men from Israel; two thousand were with him at Mikmash and in the hill country of Bethel, and a thousand were with Jonathan at Gibeah in Benjamin. The rest of the men he sent back to their homes."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 13:5",
-                                             "text":  "The Philistines assembled to fight Israel, with three thousand chariots, six thousand charioteers, and soldiers as numerous as the sand on the seashore. They went up and camped at Mikmash, east of Beth Aven."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 13:11",
-                                             "text":  "�What have you done?� asked Samuel. Saul replied, �When I saw that the men were scattering, and that you did not come at the set time, and that the Philistines were assembling at Mikmash,"
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 13:16",
-                                             "text":  "Saul and his son Jonathan and the men with them were staying in Gibeah in Benjamin, while the Philistines camped at Mikmash."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 13:23",
-                                             "text":  "Now a detachment of Philistines had gone out to the pass at Mikmash."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 14:5",
-                                             "text":  "One cliff stood to the north toward Mikmash, the other to the south toward Geba."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 14:31",
-                                             "text":  "That day, after the Israelites had struck down the Philistines from Mikmash to Aijalon, they were exhausted."
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 11:31",
-                                             "text":  "The descendants of the Benjamites from Geba lived in Mikmash, Aija, Bethel and its settlements,"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 10:28",
-                                             "text":  "They enter Aiath; they pass through Migron; they store supplies at Mikmash."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -39387,25 +35392,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Miletum",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "2 Timothy 4:20"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Timothy 4:20",
-                                             "text":  "Erastus stayed in Corinth, and I left Trophimus sick in Miletus."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
                           "name":  "Miletus",
                           "occurrence_count":  2,
                           "references":  [
@@ -39427,94 +35413,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Millo",
-                          "occurrence_count":  9,
-                          "references":  [
-                                             "Judges 9:6",
-                                             "Judges 9:20",
-                                             "2 Samuel 5:9",
-                                             "1 Kings 9:15",
-                                             "1 Kings 9:24",
-                                             "1 Kings 11:27",
-                                             "2 Kings 12:20",
-                                             "1 Chronicles 11:8",
-                                             "2 Chronicles 32:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 9:6",
-                                             "text":  "Then all the citizens of Shechem and Beth Millo gathered beside the great tree at the pillar in Shechem to crown Abimelek king."
-                                         },
-                                         {
-                                             "reference":  "Judges 9:20",
-                                             "text":  "But if you have not, let fire come out from Abimelek and consume you, the citizens of Shechem and Beth Millo, and let fire come out from you, the citizens of Shechem and Beth Millo, and consume Abimelek!�"
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 5:9",
-                                             "text":  "David then took up residence in the fortress and called it the City of David. He built up the area around it, from the terraces inward."
-                                         },
-                                         {
-                                             "reference":  "1 Kings 9:15",
-                                             "text":  "Here is the account of the forced labor King Solomon conscripted to build the Lord`s temple, his own palace, the terraces, the wall of Jerusalem, and Hazor, Megiddo and Gezer."
-                                         },
-                                         {
-                                             "reference":  "1 Kings 9:24",
-                                             "text":  "After Pharaoh`s daughter had come up from the City of David to the palace Solomon had built for her, he constructed the terraces."
-                                         },
-                                         {
-                                             "reference":  "1 Kings 11:27",
-                                             "text":  "Here is the account of how he rebelled against the king: Solomon had built the terraces and had filled in the gap in the wall of the city of David his father."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 12:20",
-                                             "text":  "His officials conspired against him and assassinated him at Beth Millo, on the road down to Silla."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 11:8",
-                                             "text":  "He built up the city around it, from the terraces to the surrounding wall, while Joab restored the rest of the city."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 32:5",
-                                             "text":  "Then he worked hard repairing all the broken sections of the wall and building towers on it. He built another wall outside that one and reinforced the terraces of the City of David. He also made large numbers of weapons and shields."
-                                         }
-                                     ],
-                          "description":  "Structure in Jerusalem, built by Solomon, mentioned in Kings and Chronicles.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Miniamin",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "2 Chronicles 31:15",
-                                             "Nehemiah 12:17",
-                                             "Nehemiah 12:41"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Chronicles 31:15",
-                                             "text":  "Eden, Miniamin, Jeshua, Shemaiah, Amariah and Shekaniah assisted him faithfully in the towns of the priests, distributing to their fellow priests according to their divisions, old and young alike."
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 12:17",
-                                             "text":  "of Abijah`s, Zikri; of Miniamin`s and of Moadiah`s, Piltai;"
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 12:41",
-                                             "text":  "as well as the priests�Eliakim, Maaseiah, Miniamin, Micaiah, Elioenai, Zechariah and Hananiah with their trumpets�"
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -39554,25 +35452,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city linked to the historical or prophetic books of the Bible.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Miphkad",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Nehemiah 3:31"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Nehemiah 3:31",
-                                             "text":  "Next to him, Malkijah, one of the goldsmiths, made repairs as far as the house of the temple servants and the merchants, opposite the Inspection Gate, and as far as the room above the corner;"
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -39639,7 +35518,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Misrephoth-maim"
+                                      ]
                       },
                       {
                           "name":  "Mithcah",
@@ -39682,25 +35564,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Mizar",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Psalms 42:6"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Psalms 42:6",
-                                             "text":  "My soul is downcast within me; therefore I will remember you from the land of the Jordan, the heights of Hermon�from Mount Mizar."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -40745,35 +36608,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Moreh",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Genesis 12:6",
-                                             "Deuteronomy 11:30",
-                                             "Judges 7:1"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 12:6",
-                                             "text":  "Abram traveled through the land as far as the site of the great tree of Moreh at Shechem. At that time the Canaanites were in the land."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 11:30",
-                                             "text":  "As you know, these mountains are across the Jordan, westward, toward the setting sun, near the great trees of Moreh, in the territory of those Canaanites living in the Arabah in the vicinity of Gilgal."
-                                         },
-                                         {
-                                             "reference":  "Judges 7:1",
-                                             "text":  "Early in the morning, Jerub-Baal (that is, Gideon) and all his men camped at the spring of Harod. The camp of Midian was north of them in the valley near the hill of Moreh."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Moreshethgath",
                           "occurrence_count":  1,
                           "references":  [
@@ -40810,25 +36644,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "The region where Abraham was told to sacrifice Isaac, later the site of Solomon�s temple (Genesis 22:2, 2 Chronicles 3:1).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Mosera",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Deuteronomy 10:6"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Deuteronomy 10:6",
-                                             "text":  "(The Israelites traveled from the wells of Bene Jaakan to Moserah. There Aaron died and was buried, and Eleazar his son succeeded him as priest."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -40934,7 +36749,10 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Mount of Olives"
+                                      ]
                       },
                       {
                           "name":  "Mozah",
@@ -40968,30 +36786,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city in Lycia where Paul changed ships on his way to Rome (Acts 27:5-6).",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Mysia",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Acts 16:7",
-                                             "Acts 16:8"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Acts 16:7",
-                                             "text":  "When they came to the border of Mysia, they tried to enter Bithynia, but the Spirit of Jesus would not allow them to."
-                                         },
-                                         {
-                                             "reference":  "Acts 16:8",
-                                             "text":  "So they passed by Mysia and went down to Troas."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
@@ -41056,44 +36850,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Nahaliel",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Numbers 21:19"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 21:19",
-                                             "text":  "from Mattanah to Nahaliel, from Nahaliel to Bamoth,"
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Nahallal",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 19:15"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 19:15",
-                                             "text":  "Included were Kattath, Nahalal, Shimron, Idalah and Bethlehem. There were twelve towns and their villages."
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Nahalol",
                           "occurrence_count":  1,
                           "references":  [
@@ -41129,294 +36885,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Naioth",
-                          "occurrence_count":  5,
-                          "references":  [
-                                             "1 Samuel 19:18",
-                                             "1 Samuel 19:19",
-                                             "1 Samuel 19:22",
-                                             "1 Samuel 19:23",
-                                             "1 Samuel 20:1"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 19:18",
-                                             "text":  "When David had fled and made his escape, he went to Samuel at Ramah and told him all that Saul had done to him. Then he and Samuel went to Naioth and stayed there."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 19:19",
-                                             "text":  "Word came to Saul: �David is in Naioth at Ramah�;"
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 19:22",
-                                             "text":  "Finally, he himself left for Ramah and went to the great cistern at Seku. And he asked, �Where are Samuel and David?� �Over in Naioth at Ramah,� they said."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 19:23",
-                                             "text":  "So Saul went to Naioth at Ramah. But the Spirit of God came even on him, and he walked along prophesying until he came to Naioth."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 20:1",
-                                             "text":  "Then David fled from Naioth at Ramah and went to Jonathan and asked, �What have I done? What is my crime? How have I wronged your father, that he is trying to kill me?�"
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Naphtali",
-                          "occurrence_count":  47,
-                          "references":  [
-                                             "Genesis 30:8",
-                                             "Genesis 35:25",
-                                             "Genesis 46:24",
-                                             "Genesis 49:21",
-                                             "Exodus 1:4",
-                                             "Numbers 1:15",
-                                             "Numbers 1:42",
-                                             "Numbers 1:43",
-                                             "Numbers 2:29",
-                                             "Numbers 7:78",
-                                             "Numbers 10:27",
-                                             "Numbers 13:14",
-                                             "Numbers 26:48",
-                                             "Numbers 26:50",
-                                             "Numbers 34:28",
-                                             "Deuteronomy 27:13",
-                                             "Deuteronomy 33:23",
-                                             "Deuteronomy 34:2",
-                                             "Joshua 19:32",
-                                             "Joshua 19:39",
-                                             "Joshua 20:7",
-                                             "Joshua 21:6",
-                                             "Joshua 21:32",
-                                             "Judges 1:33",
-                                             "Judges 4:6",
-                                             "Judges 4:10",
-                                             "Judges 5:18",
-                                             "Judges 6:35",
-                                             "Judges 7:23",
-                                             "1 Kings 4:15",
-                                             "1 Kings 7:14",
-                                             "1 Kings 15:20",
-                                             "2 Kings 15:29",
-                                             "1 Chronicles 2:2",
-                                             "1 Chronicles 6:62",
-                                             "1 Chronicles 6:76",
-                                             "1 Chronicles 7:13",
-                                             "1 Chronicles 12:34",
-                                             "1 Chronicles 12:40",
-                                             "1 Chronicles 27:19",
-                                             "2 Chronicles 16:4",
-                                             "2 Chronicles 34:6",
-                                             "Psalms 68:27",
-                                             "Isaiah 9:1",
-                                             "Ezekiel 48:3",
-                                             "Ezekiel 48:4",
-                                             "Ezekiel 48:34"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 30:8",
-                                             "text":  "Then Rachel said, �I have had a great struggle with my sister, and I have won.� So she named him Naphtali."
-                                         },
-                                         {
-                                             "reference":  "Genesis 35:25",
-                                             "text":  "The sons of Rachel`s servant Bilhah: Dan and Naphtali."
-                                         },
-                                         {
-                                             "reference":  "Genesis 46:24",
-                                             "text":  "The sons of Naphtali: Jahziel, Guni, Jezer and Shillem."
-                                         },
-                                         {
-                                             "reference":  "Genesis 49:21",
-                                             "text":  "�Naphtali is a doe set free that bears beautiful fawns."
-                                         },
-                                         {
-                                             "reference":  "Exodus 1:4",
-                                             "text":  "Dan and Naphtali; Gad and Asher."
-                                         },
-                                         {
-                                             "reference":  "Numbers 1:15",
-                                             "text":  "from Naphtali, Ahira son of Enan.�"
-                                         },
-                                         {
-                                             "reference":  "Numbers 1:42",
-                                             "text":  "From the descendants of Naphtali: All the men twenty years old or more who were able to serve in the army were listed by name, according to the records of their clans and families."
-                                         },
-                                         {
-                                             "reference":  "Numbers 1:43",
-                                             "text":  "The number from the tribe of Naphtali was 53,400."
-                                         },
-                                         {
-                                             "reference":  "Numbers 2:29",
-                                             "text":  "The tribe of Naphtali will be next. The leader of the people of Naphtali is Ahira son of Enan."
-                                         },
-                                         {
-                                             "reference":  "Numbers 7:78",
-                                             "text":  "On the twelfth day Ahira son of Enan, the leader of the people of Naphtali, brought his offering."
-                                         },
-                                         {
-                                             "reference":  "Numbers 10:27",
-                                             "text":  "and Ahira son of Enan was over the division of the tribe of Naphtali."
-                                         },
-                                         {
-                                             "reference":  "Numbers 13:14",
-                                             "text":  "from the tribe of Naphtali, Nahbi son of Vophsi;"
-                                         },
-                                         {
-                                             "reference":  "Numbers 26:48",
-                                             "text":  "The descendants of Naphtali by their clans were: through Jahzeel, the Jahzeelite clan; through Guni, the Gunite clan;"
-                                         },
-                                         {
-                                             "reference":  "Numbers 26:50",
-                                             "text":  "These were the clans of Naphtali; those numbered were 45,400."
-                                         },
-                                         {
-                                             "reference":  "Numbers 34:28",
-                                             "text":  "Pedahel son of Ammihud, the leader from the tribe of Naphtali.�"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 27:13",
-                                             "text":  "And these tribes shall stand on Mount Ebal to pronounce curses: Reuben, Gad, Asher, Zebulun, Dan and Naphtali."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 33:23",
-                                             "text":  "About Naphtali he said: �Naphtali is abounding with the favor of the Lord and is full of his blessing; he will inherit southward to the lake.�"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 34:2",
-                                             "text":  "all of Naphtali, the territory of Ephraim and Manasseh, all the land of Judah as far as the Mediterranean Sea,"
-                                         },
-                                         {
-                                             "reference":  "Joshua 19:32",
-                                             "text":  "The sixth lot came out for Naphtali according to its clans:"
-                                         },
-                                         {
-                                             "reference":  "Joshua 19:39",
-                                             "text":  "These towns and their villages were the inheritance of the tribe of Naphtali, according to its clans."
-                                         },
-                                         {
-                                             "reference":  "Joshua 20:7",
-                                             "text":  "So they set apart Kedesh in Galilee in the hill country of Naphtali, Shechem in the hill country of Ephraim, and Kiriath Arba (that is, Hebron) in the hill country of Judah."
-                                         },
-                                         {
-                                             "reference":  "Joshua 21:6",
-                                             "text":  "The descendants of Gershon were allotted thirteen towns from the clans of the tribes of Issachar, Asher, Naphtali and the half-tribe of Manasseh in Bashan."
-                                         },
-                                         {
-                                             "reference":  "Joshua 21:32",
-                                             "text":  "from the tribe of Naphtali, Kedesh in Galilee (a city of refuge for one accused of murder), Hammoth Dor and Kartan, together with their pasturelands�three towns."
-                                         },
-                                         {
-                                             "reference":  "Judges 1:33",
-                                             "text":  "Neither did Naphtali drive out those living in Beth Shemesh or Beth Anath; but the Naphtalites too lived among the Canaanite inhabitants of the land, and those living in Beth Shemesh and Beth Anath became forced laborers for them."
-                                         },
-                                         {
-                                             "reference":  "Judges 4:6",
-                                             "text":  "She sent for Barak son of Abinoam from Kedesh in Naphtali and said to him, �The Lord, the God of Israel, commands you: �Go, take with you ten thousand men of Naphtali and Zebulun and lead them up to Mount Tabor."
-                                         },
-                                         {
-                                             "reference":  "Judges 4:10",
-                                             "text":  "There Barak summoned Zebulun and Naphtali, and ten thousand men went up under his command. Deborah also went up with him."
-                                         },
-                                         {
-                                             "reference":  "Judges 5:18",
-                                             "text":  "The people of Zebulun risked their very lives; so did Naphtali on the terraced fields."
-                                         },
-                                         {
-                                             "reference":  "Judges 6:35",
-                                             "text":  "He sent messengers throughout Manasseh, calling them to arms, and also into Asher, Zebulun and Naphtali, so that they too went up to meet them."
-                                         },
-                                         {
-                                             "reference":  "Judges 7:23",
-                                             "text":  "Israelites from Naphtali, Asher and all Manasseh were called out, and they pursued the Midianites."
-                                         },
-                                         {
-                                             "reference":  "1 Kings 4:15",
-                                             "text":  "Ahimaaz�in Naphtali (he had married Basemath daughter of Solomon);"
-                                         },
-                                         {
-                                             "reference":  "1 Kings 7:14",
-                                             "text":  "whose mother was a widow from the tribe of Naphtali and whose father was from Tyre and a skilled craftsman in bronze. Huram was filled with wisdom, with understanding and with knowledge to do all kinds of bronze work. He came to King Solomon and did all the work assigned to him."
-                                         },
-                                         {
-                                             "reference":  "1 Kings 15:20",
-                                             "text":  "Ben-Hadad agreed with King Asa and sent the commanders of his forces against the towns of Israel. He conquered Ijon, Dan, Abel Beth Maakah and all Kinnereth in addition to Naphtali."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 15:29",
-                                             "text":  "In the time of Pekah king of Israel, Tiglath-Pileser king of Assyria came and took Ijon, Abel Beth Maakah, Janoah, Kedesh and Hazor. He took Gilead and Galilee, including all the land of Naphtali, and deported the people to Assyria."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 2:2",
-                                             "text":  "Dan, Joseph, Benjamin, Naphtali, Gad and Asher."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 6:62",
-                                             "text":  "The descendants of Gershon, clan by clan, were allotted thirteen towns from the tribes of Issachar, Asher and Naphtali, and from the part of the tribe of Manasseh that is in Bashan."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 6:76",
-                                             "text":  "and from the tribe of Naphtali they received Kedesh in Galilee, Hammon and Kiriathaim, together with their pasturelands."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 7:13",
-                                             "text":  "The sons of Naphtali: Jahziel, Guni, Jezer and Shillem�the descendants of Bilhah."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 12:34",
-                                             "text":  "from Naphtali�1,000 officers, together with 37,000 men carrying shields and spears;"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 12:40",
-                                             "text":  "Also, their neighbors from as far away as Issachar, Zebulun and Naphtali came bringing food on donkeys, camels, mules and oxen. There were plentiful supplies of flour, fig cakes, raisin cakes, wine, olive oil, cattle and sheep, for there was joy in Israel."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 27:19",
-                                             "text":  "over Zebulun: Ishmaiah son of Obadiah; over Naphtali: Jerimoth son of Azriel;"
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 16:4",
-                                             "text":  "Ben-Hadad agreed with King Asa and sent the commanders of his forces against the towns of Israel. They conquered Ijon, Dan, Abel Maim and all the store cities of Naphtali."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 34:6",
-                                             "text":  "In the towns of Manasseh, Ephraim and Simeon, as far as Naphtali, and in the ruins around them,"
-                                         },
-                                         {
-                                             "reference":  "Psalms 68:27",
-                                             "text":  "There is the little tribe of Benjamin, leading them, there the great throng of Judah`s princes, and there the princes of Zebulun and of Naphtali."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 9:1",
-                                             "text":  "Nevertheless, there will be no more gloom for those who were in distress. In the past he humbled the land of Zebulun and the land of Naphtali, but in the future he will honor Galilee of the nations, by the Way of the Sea, beyond the Jordan�"
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 48:3",
-                                             "text":  "�Naphtali will have one portion; it will border the territory of Asher from east to west."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 48:4",
-                                             "text":  "�Manasseh will have one portion; it will border the territory of Naphtali from east to west."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 48:34",
-                                             "text":  "�On the west side, which is 4,500 cubits long, will be three gates: the gate of Gad, the gate of Asher and the gate of Naphtali."
-                                         }
-                                     ],
-                          "description":  "One of the twelve tribes of Israel, descended from the son of Jacob and Bilhah (Genesis 30:7-8, Joshua 19:32-39).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -41753,25 +37221,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Nekeb",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 19:33"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 19:33",
-                                             "text":  "Their boundary went from Heleph and the large tree in Zaanannim, passing Adami Nekeb and Jabneel to Lakkum and ending at the Jordan."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Nephthalim",
                           "occurrence_count":  3,
                           "references":  [
@@ -41801,30 +37250,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Nephtoah",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Joshua 15:9",
-                                             "Joshua 18:15"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 15:9",
-                                             "text":  "From the hilltop the boundary headed toward the spring of the waters of Nephtoah, came out at the towns of Mount Ephron and went down toward Baalah (that is, Kiriath Jearim)."
-                                         },
-                                         {
-                                             "reference":  "Joshua 18:15",
-                                             "text":  "The southern side began at the outskirts of Kiriath Jearim on the west, and the boundary came out at the spring of the waters of Nephtoah."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Netophah",
                           "occurrence_count":  2,
                           "references":  [
@@ -41842,25 +37267,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A border or boundary described in the context of Israel�s land.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Netophathi",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Nehemiah 12:28"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Nehemiah 12:28",
-                                             "text":  "The musicians also were brought together from the region around Jerusalem�from the villages of the Netophathites,"
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -41987,176 +37393,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Nineveh",
-                          "occurrence_count":  17,
-                          "references":  [
-                                             "Genesis 10:11",
-                                             "Genesis 10:12",
-                                             "2 Kings 19:36",
-                                             "Isaiah 37:37",
-                                             "Jonah 1:2",
-                                             "Jonah 3:2",
-                                             "Jonah 3:3",
-                                             "Jonah 3:4",
-                                             "Jonah 3:5",
-                                             "Jonah 3:6",
-                                             "Jonah 3:7",
-                                             "Jonah 4:11",
-                                             "Nahum 1:1",
-                                             "Nahum 2:8",
-                                             "Nahum 3:7",
-                                             "Zephaniah 2:13",
-                                             "Matthew 12:41"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 10:11",
-                                             "text":  "From that land he went to Assyria, where he built Nineveh, Rehoboth Ir, Calah"
-                                         },
-                                         {
-                                             "reference":  "Genesis 10:12",
-                                             "text":  "and Resen, which is between Nineveh and Calah�which is the great city."
-                                         },
-                                         {
-                                             "reference":  "2 Kings 19:36",
-                                             "text":  "So Sennacherib king of Assyria broke camp and withdrew. He returned to Nineveh and stayed there."
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:37",
-                                             "text":  "So Sennacherib king of Assyria broke camp and withdrew. He returned to Nineveh and stayed there."
-                                         },
-                                         {
-                                             "reference":  "Jonah 1:2",
-                                             "text":  "�Go to the great city of Nineveh and preach against it, because its wickedness has come up before me.�"
-                                         },
-                                         {
-                                             "reference":  "Jonah 3:2",
-                                             "text":  "�Go to the great city of Nineveh and proclaim to it the message I give you.�"
-                                         },
-                                         {
-                                             "reference":  "Jonah 3:3",
-                                             "text":  "Jonah obeyed the word of the Lord and went to Nineveh. Now Nineveh was a very large city; it took three days to go through it."
-                                         },
-                                         {
-                                             "reference":  "Jonah 3:4",
-                                             "text":  "Jonah began by going a day`s journey into the city, proclaiming, �Forty more days and Nineveh will be overthrown.�"
-                                         },
-                                         {
-                                             "reference":  "Jonah 3:5",
-                                             "text":  "The Ninevites believed God. A fast was proclaimed, and all of them, from the greatest to the least, put on sackcloth."
-                                         },
-                                         {
-                                             "reference":  "Jonah 3:6",
-                                             "text":  "When Jonah`s warning reached the king of Nineveh, he rose from his throne, took off his royal robes, covered himself with sackcloth and sat down in the dust."
-                                         },
-                                         {
-                                             "reference":  "Jonah 3:7",
-                                             "text":  "This is the proclamation he issued in Nineveh: �By the decree of the king and his nobles: Do not let people or animals, herds or flocks, taste anything; do not let them eat or drink."
-                                         },
-                                         {
-                                             "reference":  "Jonah 4:11",
-                                             "text":  "And should I not have concern for the great city of Nineveh, in which there are more than a hundred and twenty thousand people who cannot tell their right hand from their left�and also many animals?�"
-                                         },
-                                         {
-                                             "reference":  "Nahum 1:1",
-                                             "text":  "A prophecy concerning Nineveh. The book of the vision of Nahum the Elkoshite."
-                                         },
-                                         {
-                                             "reference":  "Nahum 2:8",
-                                             "text":  "Nineveh is like a pool whose water is draining away. �Stop! Stop!� they cry, but no one turns back."
-                                         },
-                                         {
-                                             "reference":  "Nahum 3:7",
-                                             "text":  "All who see you will flee from you and say, �Nineveh is in ruins�who will mourn for her?` Where can I find anyone to comfort you?�"
-                                         },
-                                         {
-                                             "reference":  "Zephaniah 2:13",
-                                             "text":  "He will stretch out his hand against the north and destroy Assyria, leaving Nineveh utterly desolate and dry as the desert."
-                                         },
-                                         {
-                                             "reference":  "Matthew 12:41",
-                                             "text":  "The men of Nineveh will stand up at the judgment with this generation and condemn it; for they repented at the preaching of Jonah, and now something greater than Jonah is here."
-                                         }
-                                     ],
-                          "description":  "The capital of the Assyrian Empire, known for its wickedness and the preaching of Jonah (Jonah 1:1-3:10, Nahum 1:1-3:19).",
-                          "map_files":  [
-                                            "22 The Assyrian Empire.png",
-                                            "01 The Near East.png",
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Nob",
-                          "occurrence_count":  6,
-                          "references":  [
-                                             "1 Samuel 21:1",
-                                             "1 Samuel 22:9",
-                                             "1 Samuel 22:11",
-                                             "1 Samuel 22:19",
-                                             "Nehemiah 11:32",
-                                             "Isaiah 10:32"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 21:1",
-                                             "text":  "David went to Nob, to Ahimelek the priest. Ahimelek trembled when he met him, and asked, �Why are you alone? Why is no one with you?�"
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 22:9",
-                                             "text":  "But Doeg the Edomite, who was standing with Saul`s officials, said, �I saw the son of Jesse come to Ahimelek son of Ahitub at Nob."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 22:11",
-                                             "text":  "Then the king sent for the priest Ahimelek son of Ahitub and all the men of his family, who were the priests at Nob, and they all came to the king."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 22:19",
-                                             "text":  "He also put to the sword Nob, the town of the priests, with its men and women, its children and infants, and its cattle, donkeys and sheep."
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 11:32",
-                                             "text":  "in Anathoth, Nob and Ananiah,"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 10:32",
-                                             "text":  "This day they will halt at Nob; they will shake their fist at the mount of Daughter Zion, at the hill of Jerusalem."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Nobah",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Numbers 32:42",
-                                             "Judges 8:11"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 32:42",
-                                             "text":  "And Nobah captured Kenath and its surrounding settlements and called it Nobah after himself."
-                                         },
-                                         {
-                                             "reference":  "Judges 8:11",
-                                             "text":  "Gideon went up by the route of the nomads east of Nobah and Jogbehah and attacked the unsuspecting army."
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Nod",
                           "occurrence_count":  1,
                           "references":  [
@@ -42169,55 +37405,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "The land to which Cain was exiled after murdering Abel (Genesis 4:16).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Noph",
-                          "occurrence_count":  7,
-                          "references":  [
-                                             "Isaiah 19:13",
-                                             "Jeremiah 2:16",
-                                             "Jeremiah 44:1",
-                                             "Jeremiah 46:14",
-                                             "Jeremiah 46:19",
-                                             "Ezekiel 30:13",
-                                             "Ezekiel 30:16"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Isaiah 19:13",
-                                             "text":  "The officials of Zoan have become fools, the leaders of Memphis are deceived; the cornerstones of her peoples have led Egypt astray."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 2:16",
-                                             "text":  "Also, the men of Memphis and Tahpanhes have cracked your skull."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 44:1",
-                                             "text":  "This word came to Jeremiah concerning all the Jews living in Lower Egypt�in Migdol, Tahpanhes and Memphis�and in Upper Egypt:"
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 46:14",
-                                             "text":  "�Announce this in Egypt, and proclaim it in Migdol; proclaim it also in Memphis and Tahpanhes: �Take your positions and get ready, for the sword devours those around you.`"
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 46:19",
-                                             "text":  "Pack your belongings for exile, you who live in Egypt, for Memphis will be laid waste and lie in ruins without inhabitant."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 30:13",
-                                             "text":  "��This is what the Sovereign Lord says: ��I will destroy the idols and put an end to the images in Memphis. No longer will there be a prince in Egypt, and I will spread fear throughout the land."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 30:16",
-                                             "text":  "I will set fire to Egypt; Pelusium will writhe in agony. Thebes will be taken by storm; Memphis will be in constant distress."
-                                         }
-                                     ],
-                          "description":  "Another name for Memphis, the ancient capital of Egypt, mentioned in prophetic warnings (Isaiah 19:13, Jeremiah 46:19).",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -42271,186 +37458,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city linked to the historical or prophetic books of the Bible.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Og",
-                          "occurrence_count":  22,
-                          "references":  [
-                                             "Numbers 21:33",
-                                             "Numbers 32:33",
-                                             "Deuteronomy 1:4",
-                                             "Deuteronomy 3:1",
-                                             "Deuteronomy 3:3",
-                                             "Deuteronomy 3:4",
-                                             "Deuteronomy 3:10",
-                                             "Deuteronomy 3:11",
-                                             "Deuteronomy 3:13",
-                                             "Deuteronomy 4:47",
-                                             "Deuteronomy 29:7",
-                                             "Deuteronomy 31:4",
-                                             "Joshua 2:10",
-                                             "Joshua 9:10",
-                                             "Joshua 12:4",
-                                             "Joshua 13:12",
-                                             "Joshua 13:30",
-                                             "Joshua 13:31",
-                                             "1 Kings 4:19",
-                                             "Nehemiah 9:22",
-                                             "Psalms 135:11",
-                                             "Psalms 136:20"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 21:33",
-                                             "text":  "Then they turned and went up along the road toward Bashan, and Og king of Bashan and his whole army marched out to meet them in battle at Edrei."
-                                         },
-                                         {
-                                             "reference":  "Numbers 32:33",
-                                             "text":  "Then Moses gave to the Gadites, the Reubenites and the half-tribe of Manasseh son of Joseph the kingdom of Sihon king of the Amorites and the kingdom of Og king of Bashan�the whole land with its cities and the territory around them."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 1:4",
-                                             "text":  "This was after he had defeated Sihon king of the Amorites, who reigned in Heshbon, and at Edrei had defeated Og king of Bashan, who reigned in Ashtaroth."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 3:1",
-                                             "text":  "Next we turned and went up along the road toward Bashan, and Og king of Bashan with his whole army marched out to meet us in battle at Edrei."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 3:3",
-                                             "text":  "So the Lord our God also gave into our hands Og king of Bashan and all his army. We struck them down, leaving no survivors."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 3:4",
-                                             "text":  "At that time we took all his cities. There was not one of the sixty cities that we did not take from them�the whole region of Argob, Og`s kingdom in Bashan."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 3:10",
-                                             "text":  "We took all the towns on the plateau, and all Gilead, and all Bashan as far as Salekah and Edrei, towns of Og`s kingdom in Bashan."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 3:11",
-                                             "text":  "(Og king of Bashan was the last of the Rephaites. His bed was decorated with iron and was more than nine cubits long and four cubits wide. It is still in Rabbah of the Ammonites.)"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 3:13",
-                                             "text":  "The rest of Gilead and also all of Bashan, the kingdom of Og, I gave to the half-tribe of Manasseh. (The whole region of Argob in Bashan used to be known as a land of the Rephaites."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 4:47",
-                                             "text":  "They took possession of his land and the land of Og king of Bashan, the two Amorite kings east of the Jordan."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 29:7",
-                                             "text":  "When you reached this place, Sihon king of Heshbon and Og king of Bashan came out to fight against us, but we defeated them."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 31:4",
-                                             "text":  "And the Lord will do to them what he did to Sihon and Og, the kings of the Amorites, whom he destroyed along with their land."
-                                         },
-                                         {
-                                             "reference":  "Joshua 2:10",
-                                             "text":  "We have heard how the Lord dried up the water of the Red Sea for you when you came out of Egypt, and what you did to Sihon and Og, the two kings of the Amorites east of the Jordan, whom you completely destroyed."
-                                         },
-                                         {
-                                             "reference":  "Joshua 9:10",
-                                             "text":  "and all that he did to the two kings of the Amorites east of the Jordan�Sihon king of Heshbon, and Og king of Bashan, who reigned in Ashtaroth."
-                                         },
-                                         {
-                                             "reference":  "Joshua 12:4",
-                                             "text":  "And the territory of Og king of Bashan, one of the last of the Rephaites, who reigned in Ashtaroth and Edrei."
-                                         },
-                                         {
-                                             "reference":  "Joshua 13:12",
-                                             "text":  "that is, the whole kingdom of Og in Bashan, who had reigned in Ashtaroth and Edrei. (He was the last of the Rephaites.) Moses had defeated them and taken over their land."
-                                         },
-                                         {
-                                             "reference":  "Joshua 13:30",
-                                             "text":  "The territory extending from Mahanaim and including all of Bashan, the entire realm of Og king of Bashan�all the settlements of Jair in Bashan, sixty towns,"
-                                         },
-                                         {
-                                             "reference":  "Joshua 13:31",
-                                             "text":  "half of Gilead, and Ashtaroth and Edrei (the royal cities of Og in Bashan). This was for the descendants of Makir son of Manasseh�for half of the sons of Makir, according to their clans."
-                                         },
-                                         {
-                                             "reference":  "1 Kings 4:19",
-                                             "text":  "Geber son of Uri�in Gilead (the country of Sihon king of the Amorites and the country of Og king of Bashan). He was the only governor over the district."
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 9:22",
-                                             "text":  "�You gave them kingdoms and nations, allotting to them even the remotest frontiers. They took over the country of Sihon king of Heshbon and the country of Og king of Bashan."
-                                         },
-                                         {
-                                             "reference":  "Psalms 135:11",
-                                             "text":  "Sihon king of the Amorites, Og king of Bashan, and all the kings of Canaan�"
-                                         },
-                                         {
-                                             "reference":  "Psalms 136:20",
-                                             "text":  "and Og king of Bashan� His love endures forever."
-                                         }
-                                     ],
-                          "description":  "The king of Bashan, a giant defeated by the Israelites during their conquest of Canaan (Deuteronomy 3:1-11).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Olivet",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "2 Samuel 15:30",
-                                             "Acts 1:12"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Samuel 15:30",
-                                             "text":  "But David continued up the Mount of Olives, weeping as he went; his head was covered and he was barefoot. All the people with him covered their heads too and were weeping as they went up."
-                                         },
-                                         {
-                                             "reference":  "Acts 1:12",
-                                             "text":  "Then the apostles returned to Jerusalem from the hill called the Mount of Olives, a Sabbath day`s walk from the city."
-                                         }
-                                     ],
-                          "description":  "Another name for the Mount of Olives, a significant location in the ministry of Jesus (Luke 22:39).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png",
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "On",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Genesis 41:45",
-                                             "Genesis 41:50",
-                                             "Genesis 46:20"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 41:45",
-                                             "text":  "Pharaoh gave Joseph the name Zaphenath-Paneah and gave him Asenath daughter of Potiphera, priest of On, to be his wife. And Joseph went throughout the land of Egypt."
-                                         },
-                                         {
-                                             "reference":  "Genesis 41:50",
-                                             "text":  "Before the years of famine came, two sons were born to Joseph by Asenath daughter of Potiphera, priest of On."
-                                         },
-                                         {
-                                             "reference":  "Genesis 46:20",
-                                             "text":  "In Egypt, Manasseh and Ephraim were born to Joseph by Asenath daughter of Potiphera, priest of On."
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -42609,40 +37616,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Oreb",
-                          "occurrence_count":  4,
-                          "references":  [
-                                             "Judges 7:25",
-                                             "Judges 8:3",
-                                             "Psalms 83:11",
-                                             "Isaiah 10:26"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 7:25",
-                                             "text":  "They also captured two of the Midianite leaders, Oreb and Zeeb. They killed Oreb at the rock of Oreb, and Zeeb at the winepress of Zeeb. They pursued the Midianites and brought the heads of Oreb and Zeeb to Gideon, who was by the Jordan."
-                                         },
-                                         {
-                                             "reference":  "Judges 8:3",
-                                             "text":  "God gave Oreb and Zeeb, the Midianite leaders, into your hands. What was I able to do compared to you?� At this, their resentment against him subsided."
-                                         },
-                                         {
-                                             "reference":  "Psalms 83:11",
-                                             "text":  "Make their nobles like Oreb and Zeeb, all their princes like Zebah and Zalmunna,"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 10:26",
-                                             "text":  "The Lord Almighty will lash them with a whip, as when he struck down Midian at the rock of Oreb; and he will raise his staff over the waters, as he did in Egypt."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Osee",
                           "occurrence_count":  1,
                           "references":  [
@@ -42659,25 +37632,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Padan",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Genesis 48:7"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 48:7",
-                                             "text":  "As I was returning from Paddan, to my sorrow Rachel died in the land of Canaan while we were still on the way, a little distance from Ephrath. So I buried her there beside the road to Ephrath� (that is, Bethlehem)."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -42745,50 +37699,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Pahathmoab",
-                          "occurrence_count":  6,
-                          "references":  [
-                                             "Ezra 2:6",
-                                             "Ezra 8:4",
-                                             "Ezra 10:30",
-                                             "Nehemiah 3:11",
-                                             "Nehemiah 7:11",
-                                             "Nehemiah 10:14"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Ezra 2:6",
-                                             "text":  "of Pahath-Moab (through the line of Jeshua and Joab) 2,812"
-                                         },
-                                         {
-                                             "reference":  "Ezra 8:4",
-                                             "text":  "of the descendants of Pahath-Moab, Eliehoenai son of Zerahiah, and with him 200 men;"
-                                         },
-                                         {
-                                             "reference":  "Ezra 10:30",
-                                             "text":  "From the descendants of Pahath-Moab: Adna, Kelal, Benaiah, Maaseiah, Mattaniah, Bezalel, Binnui and Manasseh."
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 3:11",
-                                             "text":  "Malkijah son of Harim and Hasshub son of Pahath-Moab repaired another section and the Tower of the Ovens."
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 7:11",
-                                             "text":  "of Pahath-Moab (through the line of Jeshua and Joab) 2,818"
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 10:14",
-                                             "text":  "The leaders of the people: Parosh, Pahath-Moab, Elam, Zattu, Bani,"
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Pai",
                           "occurrence_count":  1,
                           "references":  [
@@ -42830,25 +37740,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region or city associated with a key biblical figure.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Palestine",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joel 3:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joel 3:4",
-                                             "text":  "�Now what have you against me, Tyre and Sidon and all you regions of Philistia? Are you repaying me for something I have done? If you are paying me back, I will swiftly and speedily return on your own heads what you have done."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -43021,25 +37912,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Parmashta",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Esther 9:9"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Esther 9:9",
-                                             "text":  "Parmashta, Arisai, Aridai and Vaizatha,"
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Parshandatha",
                           "occurrence_count":  1,
                           "references":  [
@@ -43071,25 +37943,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city linked to the historical or prophetic books of the Bible.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Pasdammim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 11:13"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 11:13",
-                                             "text":  "He was with David at Pas Dammim when the Philistines gathered there for battle. At a place where there was a field full of barley, the troops fled from the Philistines."
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -43218,25 +38071,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Peniel",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Genesis 32:30"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 32:30",
-                                             "text":  "So Jacob called the place Peniel, saying, �It is because I saw God face to face, and yet my life was spared.�"
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Penuel",
                           "occurrence_count":  7,
                           "references":  [
@@ -43320,25 +38154,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Perazim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Isaiah 28:21"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Isaiah 28:21",
-                                             "text":  "The Lord will rise up as he did at Mount Perazim, he will rouse himself as in the Valley of Gibeon� to do his work, his strange work, and perform his task, his alien task."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Perezuzza",
                           "occurrence_count":  1,
                           "references":  [
@@ -43374,7 +38189,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Perez Uzzah"
+                                      ]
                       },
                       {
                           "name":  "Perga",
@@ -43427,147 +38245,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Persia",
-                          "occurrence_count":  25,
-                          "references":  [
-                                             "2 Chronicles 36:20",
-                                             "2 Chronicles 36:22",
-                                             "2 Chronicles 36:23",
-                                             "Ezra 1:1",
-                                             "Ezra 1:2",
-                                             "Ezra 1:8",
-                                             "Ezra 3:7",
-                                             "Ezra 4:3",
-                                             "Ezra 4:5",
-                                             "Ezra 4:7",
-                                             "Ezra 4:24",
-                                             "Ezra 6:14",
-                                             "Ezra 7:1",
-                                             "Ezra 9:9",
-                                             "Esther 1:3",
-                                             "Esther 1:14",
-                                             "Esther 1:18",
-                                             "Esther 10:2",
-                                             "Ezekiel 27:10",
-                                             "Ezekiel 38:5",
-                                             "Daniel 8:20",
-                                             "Daniel 10:1",
-                                             "Daniel 10:13",
-                                             "Daniel 10:20",
-                                             "Daniel 11:2"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Chronicles 36:20",
-                                             "text":  "He carried into exile to Babylon the remnant, who escaped from the sword, and they became servants to him and his successors until the kingdom of Persia came to power."
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 36:22",
-                                             "text":  "In the first year of Cyrus king of Persia, in order to fulfill the word of the Lord spoken by Jeremiah, the Lord moved the heart of Cyrus king of Persia to make a proclamation throughout his realm and also to put it in writing:"
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 36:23",
-                                             "text":  "�This is what Cyrus king of Persia says: ��The Lord, the God of heaven, has given me all the kingdoms of the earth and he has appointed me to build a temple for him at Jerusalem in Judah. Any of his people among you may go up, and may the Lord their God be with them.`�"
-                                         },
-                                         {
-                                             "reference":  "Ezra 1:1",
-                                             "text":  "In the first year of Cyrus king of Persia, in order to fulfill the word of the Lord spoken by Jeremiah, the Lord moved the heart of Cyrus king of Persia to make a proclamation throughout his realm and also to put it in writing:"
-                                         },
-                                         {
-                                             "reference":  "Ezra 1:2",
-                                             "text":  "�This is what Cyrus king of Persia says: ��The Lord, the God of heaven, has given me all the kingdoms of the earth and he has appointed me to build a temple for him at Jerusalem in Judah."
-                                         },
-                                         {
-                                             "reference":  "Ezra 1:8",
-                                             "text":  "Cyrus king of Persia had them brought by Mithredath the treasurer, who counted them out to Sheshbazzar the prince of Judah."
-                                         },
-                                         {
-                                             "reference":  "Ezra 3:7",
-                                             "text":  "Then they gave money to the masons and carpenters, and gave food and drink and olive oil to the people of Sidon and Tyre, so that they would bring cedar logs by sea from Lebanon to Joppa, as authorized by Cyrus king of Persia."
-                                         },
-                                         {
-                                             "reference":  "Ezra 4:3",
-                                             "text":  "But Zerubbabel, Joshua and the rest of the heads of the families of Israel answered, �You have no part with us in building a temple to our God. We alone will build it for the Lord, the God of Israel, as King Cyrus, the king of Persia, commanded us.�"
-                                         },
-                                         {
-                                             "reference":  "Ezra 4:5",
-                                             "text":  "They bribed officials to work against them and frustrate their plans during the entire reign of Cyrus king of Persia and down to the reign of Darius king of Persia."
-                                         },
-                                         {
-                                             "reference":  "Ezra 4:7",
-                                             "text":  "And in the days of Artaxerxes king of Persia, Bishlam, Mithredath, Tabeel and the rest of his associates wrote a letter to Artaxerxes. The letter was written in Aramaic script and in the Aramaic language."
-                                         },
-                                         {
-                                             "reference":  "Ezra 4:24",
-                                             "text":  "Thus the work on the house of God in Jerusalem came to a standstill until the second year of the reign of Darius king of Persia."
-                                         },
-                                         {
-                                             "reference":  "Ezra 6:14",
-                                             "text":  "So the elders of the Jews continued to build and prosper under the preaching of Haggai the prophet and Zechariah, a descendant of Iddo. They finished building the temple according to the command of the God of Israel and the decrees of Cyrus, Darius and Artaxerxes, kings of Persia."
-                                         },
-                                         {
-                                             "reference":  "Ezra 7:1",
-                                             "text":  "After these things, during the reign of Artaxerxes king of Persia, Ezra son of Seraiah, the son of Azariah, the son of Hilkiah,"
-                                         },
-                                         {
-                                             "reference":  "Ezra 9:9",
-                                             "text":  "Though we are slaves, our God has not forsaken us in our bondage. He has shown us kindness in the sight of the kings of Persia: He has granted us new life to rebuild the house of our God and repair its ruins, and he has given us a wall of protection in Judah and Jerusalem."
-                                         },
-                                         {
-                                             "reference":  "Esther 1:3",
-                                             "text":  "and in the third year of his reign he gave a banquet for all his nobles and officials. The military leaders of Persia and Media, the princes, and the nobles of the provinces were present."
-                                         },
-                                         {
-                                             "reference":  "Esther 1:14",
-                                             "text":  "and were closest to the king�Karshena, Shethar, Admatha, Tarshish, Meres, Marsena and Memukan, the seven nobles of Persia and Media who had special access to the king and were highest in the kingdom."
-                                         },
-                                         {
-                                             "reference":  "Esther 1:18",
-                                             "text":  "This very day the Persian and Median women of the nobility who have heard about the queen`s conduct will respond to all the king`s nobles in the same way. There will be no end of disrespect and discord."
-                                         },
-                                         {
-                                             "reference":  "Esther 10:2",
-                                             "text":  "And all his acts of power and might, together with a full account of the greatness of Mordecai, whom the king had promoted, are they not written in the book of the annals of the kings of Media and Persia?"
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 27:10",
-                                             "text":  "��Men of Persia, Lydia and Put served as soldiers in your army. They hung their shields and helmets on your walls, bringing you splendor."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 38:5",
-                                             "text":  "Persia, Cush and Put will be with them, all with shields and helmets,"
-                                         },
-                                         {
-                                             "reference":  "Daniel 8:20",
-                                             "text":  "The two-horned ram that you saw represents the kings of Media and Persia."
-                                         },
-                                         {
-                                             "reference":  "Daniel 10:1",
-                                             "text":  "In the third year of Cyrus king of Persia, a revelation was given to Daniel (who was called Belteshazzar). Its message was true and it concerned a great war. The understanding of the message came to him in a vision."
-                                         },
-                                         {
-                                             "reference":  "Daniel 10:13",
-                                             "text":  "But the prince of the Persian kingdom resisted me twenty-one days. Then Michael, one of the chief princes, came to help me, because I was detained there with the king of Persia."
-                                         },
-                                         {
-                                             "reference":  "Daniel 10:20",
-                                             "text":  "So he said, �Do you know why I have come to you? Soon I will return to fight against the prince of Persia, and when I go, the prince of Greece will come;"
-                                         },
-                                         {
-                                             "reference":  "Daniel 11:2",
-                                             "text":  "�Now then, I tell you the truth: Three more kings will arise in Persia, and then a fourth, who will be far richer than all the others. When he has gained power by his wealth, he will stir up everyone against the kingdom of Greece."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
-                          "map_files":  [
-                                            "26 The Persian Empire.png",
-                                            "25 The Median Empire.png",
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -43643,30 +38320,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Philadelphia",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Revelation 1:11",
-                                             "Revelation 3:7"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Revelation 1:11",
-                                             "text":  "which said: �Write on a scroll what you see and send it to the seven churches: to Ephesus, Smyrna, Pergamum, Thyatira, Sardis, Philadelphia and Laodicea.�"
-                                         },
-                                         {
-                                             "reference":  "Revelation 3:7",
-                                             "text":  "�To the angel of the church in Philadelphia write: These are the words of him who is holy and true, who holds the key of David. What he opens no one can shut, and what he shuts no one can open."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
                           "name":  "Philippi",
                           "occurrence_count":  6,
                           "references":  [
@@ -43709,35 +38362,6 @@ window.BIBLE_LOCATIONS = {
                                             "38 The Mediterranean World During the Time of Acts.png",
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Phrygia",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Acts 2:10",
-                                             "Acts 16:6",
-                                             "Acts 18:23"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Acts 2:10",
-                                             "text":  "Phrygia and Pamphylia, Egypt and the parts of Libya near Cyrene; visitors from Rome"
-                                         },
-                                         {
-                                             "reference":  "Acts 16:6",
-                                             "text":  "Paul and his companions traveled throughout the region of Phrygia and Galatia, having been kept by the Holy Spirit from preaching the word in the province of Asia."
-                                         },
-                                         {
-                                             "reference":  "Acts 18:23",
-                                             "text":  "After spending some time in Antioch, Paul set out from there and traveled from place to place throughout the region of Galatia and Phrygia, strengthening all the disciples."
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
                                         ]
                       },
                       {
@@ -43924,25 +38548,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Praetorium",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Mark 15:16"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Mark 15:16",
-                                             "text":  "The soldiers led Jesus away into the palace (that is, the Praetorium) and called together the whole company of soldiers."
-                                         }
-                                     ],
-                          "description":  "The official residence of the Roman governor, where Jesus was mocked before his crucifixion.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
                           "name":  "Ptolemais",
                           "occurrence_count":  1,
                           "references":  [
@@ -44024,104 +38629,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Rabbah",
-                          "occurrence_count":  12,
-                          "references":  [
-                                             "Joshua 13:25",
-                                             "Joshua 15:60",
-                                             "2 Samuel 11:1",
-                                             "2 Samuel 12:26",
-                                             "2 Samuel 12:27",
-                                             "2 Samuel 12:29",
-                                             "2 Samuel 17:27",
-                                             "1 Chronicles 20:1",
-                                             "Jeremiah 49:2",
-                                             "Jeremiah 49:3",
-                                             "Ezekiel 25:5",
-                                             "Amos 1:14"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 13:25",
-                                             "text":  "The territory of Jazer, all the towns of Gilead and half the Ammonite country as far as Aroer, near Rabbah;"
-                                         },
-                                         {
-                                             "reference":  "Joshua 15:60",
-                                             "text":  "Kiriath Baal (that is, Kiriath Jearim) and Rabbah�two towns and their villages."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 11:1",
-                                             "text":  "In the spring, at the time when kings go off to war, David sent Joab out with the king`s men and the whole Israelite army. They destroyed the Ammonites and besieged Rabbah. But David remained in Jerusalem."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 12:26",
-                                             "text":  "Meanwhile Joab fought against Rabbah of the Ammonites and captured the royal citadel."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 12:27",
-                                             "text":  "Joab then sent messengers to David, saying, �I have fought against Rabbah and taken its water supply."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 12:29",
-                                             "text":  "So David mustered the entire army and went to Rabbah, and attacked and captured it."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 17:27",
-                                             "text":  "When David came to Mahanaim, Shobi son of Nahash from Rabbah of the Ammonites, and Makir son of Ammiel from Lo Debar, and Barzillai the Gileadite from Rogelim"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 20:1",
-                                             "text":  "In the spring, at the time when kings go off to war, Joab led out the armed forces. He laid waste the land of the Ammonites and went to Rabbah and besieged it, but David remained in Jerusalem. Joab attacked Rabbah and left it in ruins."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 49:2",
-                                             "text":  "But the days are coming,� declares the Lord, �when I will sound the battle cry against Rabbah of the Ammonites; it will become a mound of ruins, and its surrounding villages will be set on fire. Then Israel will drive out those who drove her out,� says the Lord."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 49:3",
-                                             "text":  "�Wail, Heshbon, for Ai is destroyed! Cry out, you inhabitants of Rabbah! Put on sackcloth and mourn; rush here and there inside the walls, for Molek will go into exile, together with his priests and officials."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 25:5",
-                                             "text":  "I will turn Rabbah into a pasture for camels and Ammon into a resting place for sheep. Then you will know that I am the Lord."
-                                         },
-                                         {
-                                             "reference":  "Amos 1:14",
-                                             "text":  "I will set fire to the walls of Rabbah that will consume her fortresses amid war cries on the day of battle, amid violent winds on a stormy day."
-                                         }
-                                     ],
-                          "description":  "The capital of the Ammonites, captured by King David�s forces (2 Samuel 12:26-31).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Rabbath",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Deuteronomy 3:11",
-                                             "Ezekiel 21:20"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Deuteronomy 3:11",
-                                             "text":  "(Og king of Bashan was the last of the Rephaites. His bed was decorated with iron and was more than nine cubits long and four cubits wide. It is still in Rabbah of the Ammonites.)"
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 21:20",
-                                             "text":  "Mark out one road for the sword to come against Rabbah of the Ammonites and another against Judah and fortified Jerusalem."
-                                         }
-                                     ],
-                          "description":  "The capital of the Ammonites, mentioned in the context of King Og and in Ezekiel.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Rabbith",
                           "occurrence_count":  1,
                           "references":  [
@@ -44138,25 +38645,6 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Rachab",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Matthew 1:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Matthew 1:5",
-                                             "text":  "Salmon the father of Boaz, whose mother was Rahab, Boaz the father of Obed, whose mother was Ruth, Obed the father of Jesse,"
-                                         }
-                                     ],
-                          "description":  "Another spelling of Rahab, the Canaanite woman who hid the spies, mentioned in Matthew.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
                                         ]
                       },
                       {
@@ -44493,7 +38981,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Ramath-Mizpeh"
+                                      ]
                       },
                       {
                           "name":  "Ramoth",
@@ -44709,7 +39200,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Rehoboth (Bible)"
+                                      ]
                       },
                       {
                           "name":  "Rekem",
@@ -44763,25 +39257,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A station during the Israelites� wilderness journey.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Remmon",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 19:7"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 19:7",
-                                             "text":  "Ain, Rimmon, Ether and Ashan�four towns and their villages�"
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -44859,30 +39334,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city built by Nimrod between Nineveh and Calah (Genesis 10:12).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Rezeph",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "2 Kings 19:12",
-                                             "Isaiah 37:12"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Kings 19:12",
-                                             "text":  "Did the gods of the nations that were destroyed by my predecessors deliver them�the gods of Gozan, Harran, Rezeph and the people of Eden who were in Tel Assar?"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 37:12",
-                                             "text":  "Did the gods of the nations that were destroyed by my predecessors deliver them�the gods of Gozan, Harran, Rezeph and the people of Eden who were in Tel Assar?"
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -44997,30 +39448,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Rimmonparez",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Numbers 33:19",
-                                             "Numbers 33:20"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 33:19",
-                                             "text":  "They left Rithmah and camped at Rimmon Perez."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:20",
-                                             "text":  "They left Rimmon Perez and camped at Libnah."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Rissah",
                           "occurrence_count":  2,
                           "references":  [
@@ -45093,67 +39520,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Rome",
-                          "occurrence_count":  9,
-                          "references":  [
-                                             "Acts 2:10",
-                                             "Acts 18:2",
-                                             "Acts 19:21",
-                                             "Acts 23:11",
-                                             "Acts 28:14",
-                                             "Acts 28:16",
-                                             "Romans 1:7",
-                                             "Romans 1:15",
-                                             "2 Timothy 1:17"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Acts 2:10",
-                                             "text":  "Phrygia and Pamphylia, Egypt and the parts of Libya near Cyrene; visitors from Rome"
-                                         },
-                                         {
-                                             "reference":  "Acts 18:2",
-                                             "text":  "There he met a Jew named Aquila, a native of Pontus, who had recently come from Italy with his wife Priscilla, because Claudius had ordered all Jews to leave Rome. Paul went to see them,"
-                                         },
-                                         {
-                                             "reference":  "Acts 19:21",
-                                             "text":  "After all this had happened, Paul decided to go to Jerusalem, passing through Macedonia and Achaia. �After I have been there,� he said, �I must visit Rome also.�"
-                                         },
-                                         {
-                                             "reference":  "Acts 23:11",
-                                             "text":  "The following night the Lord stood near Paul and said, �Take courage! As you have testified about me in Jerusalem, so you must also testify in Rome.�"
-                                         },
-                                         {
-                                             "reference":  "Acts 28:14",
-                                             "text":  "There we found some brothers and sisters who invited us to spend a week with them. And so we came to Rome."
-                                         },
-                                         {
-                                             "reference":  "Acts 28:16",
-                                             "text":  "When we got to Rome, Paul was allowed to live by himself, with a soldier to guard him."
-                                         },
-                                         {
-                                             "reference":  "Romans 1:7",
-                                             "text":  "To all in Rome who are loved by God and called to be his holy people: Grace and peace to you from God our Father and from the Lord Jesus Christ."
-                                         },
-                                         {
-                                             "reference":  "Romans 1:15",
-                                             "text":  "That is why I am so eager to preach the gospel also to you who are in Rome."
-                                         },
-                                         {
-                                             "reference":  "2 Timothy 1:17",
-                                             "text":  "On the contrary, when he was in Rome, he searched hard for me until he found me."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "33 The Roman Empire.png",
-                                            "42 Pauls Journey to Rome.png",
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
                           "name":  "Rumah",
                           "occurrence_count":  1,
                           "references":  [
@@ -45213,35 +39579,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Salcah",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Joshua 12:5",
-                                             "Joshua 13:11",
-                                             "1 Chronicles 5:11"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 12:5",
-                                             "text":  "He ruled over Mount Hermon, Salekah, all of Bashan to the border of the people of Geshur and Maakah, and half of Gilead to the border of Sihon king of Heshbon."
-                                         },
-                                         {
-                                             "reference":  "Joshua 13:11",
-                                             "text":  "It also included Gilead, the territory of the people of Geshur and Maakah, all of Mount Hermon and all Bashan as far as Salekah�"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 5:11",
-                                             "text":  "The Gadites lived next to them in Bashan, as far as Salekah:"
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -45928,7 +40265,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Shomron"
+                                      ]
                       },
                       {
                           "name":  "Samos",
@@ -46007,25 +40347,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Saraph",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 4:22"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 4:22",
-                                             "text":  "Jokim, the men of Kozeba, and Joash and Saraph, who ruled in Moab and Jashubi Lehem. (These records are from ancient times.)"
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Sardis",
                           "occurrence_count":  3,
                           "references":  [
@@ -46074,30 +40395,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Sarid",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Joshua 19:10",
-                                             "Joshua 19:12"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 19:10",
-                                             "text":  "The third lot came up for Zebulun according to its clans: The boundary of their inheritance went as far as Sarid."
-                                         },
-                                         {
-                                             "reference":  "Joshua 19:12",
-                                             "text":  "It turned east from Sarid toward the sunrise to the territory of Kisloth Tabor and went on to Daberath and up to Japhia."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Saron",
                           "occurrence_count":  1,
                           "references":  [
@@ -46129,25 +40426,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region or city associated with a key biblical figure.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Sechu",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Samuel 19:22"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 19:22",
-                                             "text":  "Finally, he himself left for Ramah and went to the great cistern at Seku. And he asked, �Where are Samuel and David?� �Over in Naioth at Ramah,� they said."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -46802,26 +41080,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Seleucia",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Acts 13:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Acts 13:4",
-                                             "text":  "The two of them, sent on their way by the Holy Spirit, went down to Seleucia and sailed from there to Cyprus."
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Sela Hammahlekoth"
+                                      ]
                       },
                       {
                           "name":  "Senaah",
@@ -46860,30 +41122,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city linked to the historical or prophetic books of the Bible.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Senir",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "1 Chronicles 5:23",
-                                             "Ezekiel 27:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 5:23",
-                                             "text":  "The people of the half-tribe of Manasseh were numerous; they settled in the land from Bashan to Baal Hermon, that is, to Senir (Mount Hermon)."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 27:5",
-                                             "text":  "They made all your timbers of juniper from Senir; they took a cedar from Lebanon to make a mast for you."
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -47040,25 +41278,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Shahazimah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 19:22"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 19:22",
-                                             "text":  "The boundary touched Tabor, Shahazumah and Beth Shemesh, and ended at the Jordan. There were sixteen towns and their villages."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Shalem",
                           "occurrence_count":  1,
                           "references":  [
@@ -47071,25 +41290,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A border or boundary described in the context of Israel�s land.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Shalim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Samuel 9:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 9:4",
-                                             "text":  "So he passed through the hill country of Ephraim and through the area around Shalisha, but they did not find them. They went on into the district of Shaalim, but the donkeys were not there. Then he passed through the territory of Benjamin, but they did not find them."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -47128,30 +41328,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region or city associated with a key biblical figure.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Shalmai",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Ezra 2:46",
-                                             "Nehemiah 7:48"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Ezra 2:46",
-                                             "text":  "Hagab, Shalmai, Hanan,"
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 7:48",
-                                             "text":  "Lebana, Hagaba, Shalmai,"
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -47280,25 +41456,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Sharuhen",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 19:6"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 19:6",
-                                             "text":  "Beth Lebaoth and Sharuhen�thirteen towns and their villages;"
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Shaveh|Kiriathaim",
                           "occurrence_count":  1,
                           "references":  [
@@ -47315,7 +41472,10 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
+                                        ],
+                          "aliases":  [
+                                          "Shaveh Kiriathaim"
+                                      ]
                       },
                       {
                           "name":  "Shebah",
@@ -47349,30 +41509,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city linked to the historical or prophetic books of the Bible.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Shecaniah",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "1 Chronicles 24:11",
-                                             "2 Chronicles 31:15"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 24:11",
-                                             "text":  "the ninth to Jeshua, the tenth to Shekaniah,"
-                                         },
-                                         {
-                                             "reference":  "2 Chronicles 31:15",
-                                             "text":  "Eden, Miniamin, Jeshua, Shemaiah, Amariah and Shekaniah assisted him faithfully in the towns of the priests, distributing to their fellow priests according to their divisions, old and young alike."
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -47752,25 +41888,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Shen",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Samuel 7:12"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 7:12",
-                                             "text":  "Then Samuel took a stone and set it up between Mizpah and Shen. He named it Ebenezer, saying, �Thus far the Lord has helped us.�"
-                                         }
-                                     ],
-                          "description":  "A location mentioned in connection with the return of the Ark of the Covenant (1 Samuel 7:12).",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Shenir",
                           "occurrence_count":  2,
                           "references":  [
@@ -47819,30 +41936,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Sheshach",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Jeremiah 25:26",
-                                             "Jeremiah 51:41"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Jeremiah 25:26",
-                                             "text":  "and all the kings of the north, near and far, one after the other�all the kingdoms on the face of the earth. And after all of them, the king of Sheshak will drink it too."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 51:41",
-                                             "text":  "�How Sheshak will be captured, the boast of the whole earth seized! How desolate Babylon will be among the nations!"
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Shibmah",
                           "occurrence_count":  1,
                           "references":  [
@@ -47862,25 +41955,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Shicron",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 15:11"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 15:11",
-                                             "text":  "It went to the northern slope of Ekron, turned toward Shikkeron, passed along to Mount Baalah and reached Jabneel. The boundary ended at the sea."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Shigionoth",
                           "occurrence_count":  1,
                           "references":  [
@@ -47893,25 +41967,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A border or boundary described in the context of Israel�s land.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Shihor",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 13:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 13:5",
-                                             "text":  "So David assembled all Israel, from the Shihor River in Egypt to Lebo Hamath, to bring the ark of God from Kiriath Jearim."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -47950,25 +42005,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region or city associated with a key biblical figure.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Shiloah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Isaiah 8:6"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Isaiah 8:6",
-                                             "text":  "�Because this people has rejected the gently flowing waters of Shiloah and rejoices over Rezin and the son of Remaliah,"
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -48232,199 +42268,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Shittim",
-                          "occurrence_count":  32,
-                          "references":  [
-                                             "Exodus 25:5",
-                                             "Exodus 25:10",
-                                             "Exodus 25:13",
-                                             "Exodus 25:23",
-                                             "Exodus 25:28",
-                                             "Exodus 26:15",
-                                             "Exodus 26:26",
-                                             "Exodus 26:32",
-                                             "Exodus 26:37",
-                                             "Exodus 27:1",
-                                             "Exodus 27:6",
-                                             "Exodus 30:1",
-                                             "Exodus 30:5",
-                                             "Exodus 35:7",
-                                             "Exodus 35:24",
-                                             "Exodus 36:20",
-                                             "Exodus 36:31",
-                                             "Exodus 36:36",
-                                             "Exodus 37:1",
-                                             "Exodus 37:4",
-                                             "Exodus 37:10",
-                                             "Exodus 37:15",
-                                             "Exodus 37:25",
-                                             "Exodus 37:28",
-                                             "Exodus 38:1",
-                                             "Exodus 38:6",
-                                             "Numbers 25:1",
-                                             "Deuteronomy 10:3",
-                                             "Joshua 2:1",
-                                             "Joshua 3:1",
-                                             "Joel 3:18",
-                                             "Micah 6:5"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Exodus 25:5",
-                                             "text":  "ram skins dyed red and another type of durable leather; acacia wood;"
-                                         },
-                                         {
-                                             "reference":  "Exodus 25:10",
-                                             "text":  "�Have them make an ark of acacia wood�two and a half cubits long, a cubit and a half wide, and a cubit and a half high."
-                                         },
-                                         {
-                                             "reference":  "Exodus 25:13",
-                                             "text":  "Then make poles of acacia wood and overlay them with gold."
-                                         },
-                                         {
-                                             "reference":  "Exodus 25:23",
-                                             "text":  "�Make a table of acacia wood�two cubits long, a cubit wide and a cubit and a half high."
-                                         },
-                                         {
-                                             "reference":  "Exodus 25:28",
-                                             "text":  "Make the poles of acacia wood, overlay them with gold and carry the table with them."
-                                         },
-                                         {
-                                             "reference":  "Exodus 26:15",
-                                             "text":  "�Make upright frames of acacia wood for the tabernacle."
-                                         },
-                                         {
-                                             "reference":  "Exodus 26:26",
-                                             "text":  "�Also make crossbars of acacia wood: five for the frames on one side of the tabernacle,"
-                                         },
-                                         {
-                                             "reference":  "Exodus 26:32",
-                                             "text":  "Hang it with gold hooks on four posts of acacia wood overlaid with gold and standing on four silver bases."
-                                         },
-                                         {
-                                             "reference":  "Exodus 26:37",
-                                             "text":  "Make gold hooks for this curtain and five posts of acacia wood overlaid with gold. And cast five bronze bases for them."
-                                         },
-                                         {
-                                             "reference":  "Exodus 27:1",
-                                             "text":  "�Build an altar of acacia wood, three cubits high; it is to be square, five cubits long and five cubits wide."
-                                         },
-                                         {
-                                             "reference":  "Exodus 27:6",
-                                             "text":  "Make poles of acacia wood for the altar and overlay them with bronze."
-                                         },
-                                         {
-                                             "reference":  "Exodus 30:1",
-                                             "text":  "�Make an altar of acacia wood for burning incense."
-                                         },
-                                         {
-                                             "reference":  "Exodus 30:5",
-                                             "text":  "Make the poles of acacia wood and overlay them with gold."
-                                         },
-                                         {
-                                             "reference":  "Exodus 35:7",
-                                             "text":  "ram skins dyed red and another type of durable leather; acacia wood;"
-                                         },
-                                         {
-                                             "reference":  "Exodus 35:24",
-                                             "text":  "Those presenting an offering of silver or bronze brought it as an offering to the Lord, and everyone who had acacia wood for any part of the work brought it."
-                                         },
-                                         {
-                                             "reference":  "Exodus 36:20",
-                                             "text":  "They made upright frames of acacia wood for the tabernacle."
-                                         },
-                                         {
-                                             "reference":  "Exodus 36:31",
-                                             "text":  "They also made crossbars of acacia wood: five for the frames on one side of the tabernacle,"
-                                         },
-                                         {
-                                             "reference":  "Exodus 36:36",
-                                             "text":  "They made four posts of acacia wood for it and overlaid them with gold. They made gold hooks for them and cast their four silver bases."
-                                         },
-                                         {
-                                             "reference":  "Exodus 37:1",
-                                             "text":  "Bezalel made the ark of acacia wood�two and a half cubits long, a cubit and a half wide, and a cubit and a half high."
-                                         },
-                                         {
-                                             "reference":  "Exodus 37:4",
-                                             "text":  "Then he made poles of acacia wood and overlaid them with gold."
-                                         },
-                                         {
-                                             "reference":  "Exodus 37:10",
-                                             "text":  "They made the table of acacia wood�two cubits long, a cubit wide and a cubit and a half high."
-                                         },
-                                         {
-                                             "reference":  "Exodus 37:15",
-                                             "text":  "The poles for carrying the table were made of acacia wood and were overlaid with gold."
-                                         },
-                                         {
-                                             "reference":  "Exodus 37:25",
-                                             "text":  "They made the altar of incense out of acacia wood. It was square, a cubit long and a cubit wide and two cubits high�its horns of one piece with it."
-                                         },
-                                         {
-                                             "reference":  "Exodus 37:28",
-                                             "text":  "They made the poles of acacia wood and overlaid them with gold."
-                                         },
-                                         {
-                                             "reference":  "Exodus 38:1",
-                                             "text":  "They built the altar of burnt offering of acacia wood, three cubits high; it was square, five cubits long and five cubits wide."
-                                         },
-                                         {
-                                             "reference":  "Exodus 38:6",
-                                             "text":  "They made the poles of acacia wood and overlaid them with bronze."
-                                         },
-                                         {
-                                             "reference":  "Numbers 25:1",
-                                             "text":  "While Israel was staying in Shittim, the men began to indulge in sexual immorality with Moabite women,"
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 10:3",
-                                             "text":  "So I made the ark out of acacia wood and chiseled out two stone tablets like the first ones, and I went up on the mountain with the two tablets in my hands."
-                                         },
-                                         {
-                                             "reference":  "Joshua 2:1",
-                                             "text":  "Then Joshua son of Nun secretly sent two spies from Shittim. �Go, look over the land,� he said, �especially Jericho.� So they went and entered the house of a prostitute named Rahab and stayed there."
-                                         },
-                                         {
-                                             "reference":  "Joshua 3:1",
-                                             "text":  "Early in the morning Joshua and all the Israelites set out from Shittim and went to the Jordan, where they camped before crossing over."
-                                         },
-                                         {
-                                             "reference":  "Joel 3:18",
-                                             "text":  "�In that day the mountains will drip new wine, and the hills will flow with milk; all the ravines of Judah will run with water. A fountain will flow out of the Lord`s house and will water the valley of acacias."
-                                         },
-                                         {
-                                             "reference":  "Micah 6:5",
-                                             "text":  "My people, remember what Balak king of Moab plotted and what Balaam son of Beor answered. Remember your journey from Shittim to Gilgal, that you may know the righteous acts of the Lord.�"
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Shocho",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "2 Chronicles 28:18"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Chronicles 28:18",
-                                             "text":  "while the Philistines had raided towns in the foothills and in the Negev of Judah. They captured and occupied Beth Shemesh, Aijalon and Gederoth, as well as Soko, Timnah and Gimzo, with their surrounding villages."
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Shochoh",
                           "occurrence_count":  1,
                           "references":  [
@@ -48456,25 +42299,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city linked to the historical or prophetic books of the Bible.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Shophan",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Numbers 32:35"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 32:35",
-                                             "text":  "Atroth Shophan, Jazer, Jogbehah,"
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -48717,25 +42541,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Sichem",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Genesis 12:6"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 12:6",
-                                             "text":  "Abram traveled through the land as far as the site of the great tree of Moreh at Shechem. At that time the Canaanites were in the land."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Siddim",
                           "occurrence_count":  3,
                           "references":  [
@@ -48852,35 +42657,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Sihor",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Joshua 13:3",
-                                             "Isaiah 23:3",
-                                             "Jeremiah 2:18"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 13:3",
-                                             "text":  "from the Shihor River on the east of Egypt to the territory of Ekron on the north, all of it counted as Canaanite though held by the five Philistine rulers in Gaza, Ashdod, Ashkelon, Gath and Ekron; the territory of the Avvites"
-                                         },
-                                         {
-                                             "reference":  "Isaiah 23:3",
-                                             "text":  "On the great waters came the grain of the Shihor; the harvest of the Nile was the revenue of Tyre, and she became the marketplace of the nations."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 2:18",
-                                             "text":  "Now why go to Egypt to drink water from the Nile? And why go to Assyria to drink water from the Euphrates?"
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Silla",
                           "occurrence_count":  1,
                           "references":  [
@@ -48897,54 +42673,6 @@ window.BIBLE_LOCATIONS = {
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
                                             "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Siloah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Nehemiah 3:15"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Nehemiah 3:15",
-                                             "text":  "The Fountain Gate was repaired by Shallun son of Kol-Hozeh, ruler of the district of Mizpah. He rebuilt it, roofing it over and putting its doors and bolts and bars in place. He also repaired the wall of the Pool of Siloam, by the King`s Garden, as far as the steps going down from the City of David."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Siloam",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "Luke 13:4",
-                                             "John 9:7",
-                                             "John 9:11"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Luke 13:4",
-                                             "text":  "Or those eighteen who died when the tower in Siloam fell on them�do you think they were more guilty than all the others living in Jerusalem?"
-                                         },
-                                         {
-                                             "reference":  "John 9:7",
-                                             "text":  "�Go,� he told him, �wash in the Pool of Siloam� (this word means �Sent�). So the man went and washed, and came home seeing."
-                                         },
-                                         {
-                                             "reference":  "John 9:11",
-                                             "text":  "He replied, �The man they call Jesus made some mud and put it on my eyes. He told me to go to Siloam and wash. So I went and washed, and then I could see.�"
-                                         }
-                                     ],
-                          "description":  "A pool in Jerusalem where Jesus healed a man born blind (John 9:7).",
-                          "map_files":  [
-                                            "36 Israel During the Time of Jesus.png",
-                                            "37 Israel During the Time of Acts.png",
-                                            "38 The Mediterranean World During the Time of Acts.png"
                                         ]
                       },
                       {
@@ -49169,25 +42897,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Sinim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Isaiah 49:12"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Isaiah 49:12",
-                                             "text":  "See, they will come from afar� some from the north, some from the west, some from the region of Aswan.�"
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Sion",
                           "occurrence_count":  9,
                           "references":  [
@@ -49288,30 +42997,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Sirion",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Deuteronomy 3:9",
-                                             "Psalms 29:6"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Deuteronomy 3:9",
-                                             "text":  "(Hermon is called Sirion by the Sidonians; the Amorites call it Senir.)"
-                                         },
-                                         {
-                                             "reference":  "Psalms 29:6",
-                                             "text":  "He makes Lebanon leap like a calf, Sirion like a young wild ox."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Smyrna",
                           "occurrence_count":  2,
                           "references":  [
@@ -49333,30 +43018,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Socoh",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Joshua 15:35",
-                                             "Joshua 15:48"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 15:35",
-                                             "text":  "Jarmuth, Adullam, Sokoh, Azekah,"
-                                         },
-                                         {
-                                             "reference":  "Joshua 15:48",
-                                             "text":  "In the hill country: Shamir, Jattir, Sokoh,"
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -49631,25 +43292,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Sorek",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Judges 16:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 16:4",
-                                             "text":  "Some time later, he fell in love with a woman in the Valley of Sorek whose name was Delilah."
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Spain",
                           "occurrence_count":  2,
                           "references":  [
@@ -49825,30 +43467,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Syene",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Ezekiel 29:10",
-                                             "Ezekiel 30:6"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Ezekiel 29:10",
-                                             "text":  "therefore I am against you and against your streams, and I will make the land of Egypt a ruin and a desolate waste from Migdol to Aswan, as far as the border of Cush."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 30:6",
-                                             "text":  "��This is what the Lord says: ��The allies of Egypt will fall and her proud strength will fail. From Migdol to Aswan they will fall by the sword within her, declares the Sovereign Lord."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Syracuse",
                           "occurrence_count":  1,
                           "references":  [
@@ -49868,25 +43486,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Syriack",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Daniel 2:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Daniel 2:4",
-                                             "text":  "Then the astrologers answered the king, �May the king live forever! Tell your servants the dream, and we will interpret it.�"
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Syriadamascus",
                           "occurrence_count":  1,
                           "references":  [
@@ -49899,25 +43498,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A border or boundary described in the context of Israel�s land.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Syriamaachah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 19:6"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 19:6",
-                                             "text":  "When the Ammonites realized that they had become obnoxious to David, Hanun and the Ammonites sent a thousand talents of silver to hire chariots and charioteers from Aram Naharaim, Aram Maakah and Zobah."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -49981,25 +43561,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region or city associated with a key biblical figure.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Tabbath",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Judges 7:22"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Judges 7:22",
-                                             "text":  "When the three hundred trumpets sounded, the Lord caused the men throughout the camp to turn on each other with their swords. The army fled to Beth Shittah toward Zererah as far as the border of Abel Meholah near Tabbath."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -50119,64 +43680,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Tahapanes",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Jeremiah 2:16"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Jeremiah 2:16",
-                                             "text":  "Also, the men of Memphis and Tahpanhes have cracked your skull."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Tahath",
-                          "occurrence_count":  5,
-                          "references":  [
-                                             "Numbers 33:26",
-                                             "Numbers 33:27",
-                                             "1 Chronicles 6:24",
-                                             "1 Chronicles 6:37",
-                                             "1 Chronicles 7:20"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 33:26",
-                                             "text":  "They left Makheloth and camped at Tahath."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:27",
-                                             "text":  "They left Tahath and camped at Terah."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 6:24",
-                                             "text":  "Tahath his son, Uriel his son, Uzziah his son and Shaul his son."
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 6:37",
-                                             "text":  "the son of Tahath, the son of Assir, the son of Ebiasaph, the son of Korah,"
-                                         },
-                                         {
-                                             "reference":  "1 Chronicles 7:20",
-                                             "text":  "The descendants of Ephraim: Shuthelah, Bered his son, Tahath his son, Eleadah his son, Tahath his son,"
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Tahpanhes",
                           "occurrence_count":  5,
                           "references":  [
@@ -50228,25 +43731,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city linked to the historical or prophetic books of the Bible.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Tanach",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 21:25"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 21:25",
-                                             "text":  "From half the tribe of Manasseh they received Taanach and Gath Rimmon, together with their pasturelands�two towns."
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -50578,35 +44062,6 @@ window.BIBLE_LOCATIONS = {
                                              "text":  "But the woman from Tekoa said to him, �Let my lord the king pardon me and my family, and let the king and his throne be without guilt.�"
                                          }
                                      ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Tekoah",
-                          "occurrence_count":  3,
-                          "references":  [
-                                             "2 Samuel 14:2",
-                                             "2 Samuel 14:4",
-                                             "2 Samuel 14:9"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "2 Samuel 14:2",
-                                             "text":  "So Joab sent someone to Tekoa and had a wise woman brought from there. He said to her, �Pretend you are in mourning. Dress in mourning clothes, and don`t use any cosmetic lotions. Act like a woman who has spent many days grieving for the dead."
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 14:4",
-                                             "text":  "When the woman from Tekoa went to the king, she fell with her face to the ground to pay him honor, and she said, �Help me, Your Majesty!�"
-                                         },
-                                         {
-                                             "reference":  "2 Samuel 14:9",
-                                             "text":  "But the woman from Tekoa said to him, �Let my lord the king pardon me and my family, and let the king and his throne be without guilt.�"
-                                         }
-                                     ],
                           "description":  "Alternate spelling of Tekoa, a town in Judah, birthplace of the prophet Amos, mentioned in Chronicles.",
                           "map_files":  [
                                             "09 The Promised Land.png",
@@ -50634,25 +44089,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Telaim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Samuel 15:4"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Samuel 15:4",
-                                             "text":  "So Saul summoned the men and mustered them at Telaim�two hundred thousand foot soldiers and ten thousand from Judah."
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Telassar",
                           "occurrence_count":  1,
                           "references":  [
@@ -50665,30 +44101,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A border or boundary described in the context of Israel�s land.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Telem",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Joshua 15:24",
-                                             "Ezra 10:24"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 15:24",
-                                             "text":  "Ziph, Telem, Bealoth,"
-                                         },
-                                         {
-                                             "reference":  "Ezra 10:24",
-                                             "text":  "From the musicians: Eliashib. From the gatekeepers: Shallum, Telem and Uri."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -50732,25 +44144,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region or city associated with a key biblical figure.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Temani",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Genesis 36:34"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 36:34",
-                                             "text":  "When Jobab died, Husham from the land of the Temanites succeeded him as king."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -50875,25 +44268,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Thimnathah",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 19:43"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 19:43",
-                                             "text":  "Elon, Timnah, Ekron,"
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Thyatira",
                           "occurrence_count":  4,
                           "references":  [
@@ -50955,25 +44329,6 @@ window.BIBLE_LOCATIONS = {
                                             "36 Israel During the Time of Jesus.png",
                                             "37 Israel During the Time of Acts.png",
                                             "38 The Mediterranean World During the Time of Acts.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Tibhath",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 18:8"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 18:8",
-                                             "text":  "From Tebah and Kun, towns that belonged to Hadadezer, David took a great quantity of bronze, which Solomon used to make the bronze Sea, the pillars and various bronze articles."
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
                                         ]
                       },
                       {
@@ -51199,25 +44554,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Tolad",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "1 Chronicles 4:29"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "1 Chronicles 4:29",
-                                             "text":  "Bilhah, Ezem, Tolad,"
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Tophel",
                           "occurrence_count":  1,
                           "references":  [
@@ -51230,60 +44566,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A station during the Israelites� wilderness journey.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Tophet",
-                          "occurrence_count":  8,
-                          "references":  [
-                                             "Isaiah 30:33",
-                                             "Jeremiah 7:31",
-                                             "Jeremiah 7:32",
-                                             "Jeremiah 19:6",
-                                             "Jeremiah 19:11",
-                                             "Jeremiah 19:12",
-                                             "Jeremiah 19:13",
-                                             "Jeremiah 19:14"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Isaiah 30:33",
-                                             "text":  "Topheth has long been prepared; it has been made ready for the king. Its fire pit has been made deep and wide, with an abundance of fire and wood; the breath of the Lord, like a stream of burning sulfur, sets it ablaze."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 7:31",
-                                             "text":  "They have built the high places of Topheth in the Valley of Ben Hinnom to burn their sons and daughters in the fire�something I did not command, nor did it enter my mind."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 7:32",
-                                             "text":  "So beware, the days are coming, declares the Lord, when people will no longer call it Topheth or the Valley of Ben Hinnom, but the Valley of Slaughter, for they will bury the dead in Topheth until there is no more room."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 19:6",
-                                             "text":  "So beware, the days are coming, declares the Lord, when people will no longer call this place Topheth or the Valley of Ben Hinnom, but the Valley of Slaughter."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 19:11",
-                                             "text":  "and say to them, �This is what the Lord Almighty says: I will smash this nation and this city just as this potter`s jar is smashed and cannot be repaired. They will bury the dead in Topheth until there is no more room."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 19:12",
-                                             "text":  "This is what I will do to this place and to those who live here, declares the Lord. I will make this city like Topheth."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 19:13",
-                                             "text":  "The houses in Jerusalem and those of the kings of Judah will be defiled like this place, Topheth�all the houses where they burned incense on the roofs to all the starry hosts and poured out drink offerings to other gods.`�"
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 19:14",
-                                             "text":  "Jeremiah then returned from Topheth, where the Lord had sent him to prophesy, and stood in the court of the Lord`s temple and said to all the people,"
-                                         }
-                                     ],
-                          "description":  "A person or family listed among those who returned from exile.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -51618,120 +44900,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Tyrus",
-                          "occurrence_count":  20,
-                          "references":  [
-                                             "Jeremiah 25:22",
-                                             "Jeremiah 27:3",
-                                             "Jeremiah 47:4",
-                                             "Ezekiel 26:2",
-                                             "Ezekiel 26:3",
-                                             "Ezekiel 26:4",
-                                             "Ezekiel 26:7",
-                                             "Ezekiel 26:15",
-                                             "Ezekiel 27:2",
-                                             "Ezekiel 27:3",
-                                             "Ezekiel 27:8",
-                                             "Ezekiel 27:32",
-                                             "Ezekiel 28:2",
-                                             "Ezekiel 28:12",
-                                             "Ezekiel 29:18",
-                                             "Hosea 9:13",
-                                             "Amos 1:9",
-                                             "Amos 1:10",
-                                             "Zechariah 9:2",
-                                             "Zechariah 9:3"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Jeremiah 25:22",
-                                             "text":  "all the kings of Tyre and Sidon; the kings of the coastlands across the sea;"
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 27:3",
-                                             "text":  "Then send word to the kings of Edom, Moab, Ammon, Tyre and Sidon through the envoys who have come to Jerusalem to Zedekiah king of Judah."
-                                         },
-                                         {
-                                             "reference":  "Jeremiah 47:4",
-                                             "text":  "For the day has come to destroy all the Philistines and to remove all survivors who could help Tyre and Sidon. The Lord is about to destroy the Philistines, the remnant from the coasts of Caphtor."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 26:2",
-                                             "text":  "�Son of man, because Tyre has said of Jerusalem, �Aha! The gate to the nations is broken, and its doors have swung open to me; now that she lies in ruins I will prosper,`"
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 26:3",
-                                             "text":  "therefore this is what the Sovereign Lord says: I am against you, Tyre, and I will bring many nations against you, like the sea casting up its waves."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 26:4",
-                                             "text":  "They will destroy the walls of Tyre and pull down her towers; I will scrape away her rubble and make her a bare rock."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 26:7",
-                                             "text":  "�For this is what the Sovereign Lord says: From the north I am going to bring against Tyre Nebuchadnezzar king of Babylon, king of kings, with horses and chariots, with horsemen and a great army."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 26:15",
-                                             "text":  "�This is what the Sovereign Lord says to Tyre: Will not the coastlands tremble at the sound of your fall, when the wounded groan and the slaughter takes place in you?"
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 27:2",
-                                             "text":  "�Son of man, take up a lament concerning Tyre."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 27:3",
-                                             "text":  "Say to Tyre, situated at the gateway to the sea, merchant of peoples on many coasts, �This is what the Sovereign Lord says: ��You say, Tyre, �I am perfect in beauty.�"
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 27:8",
-                                             "text":  "Men of Sidon and Arvad were your oarsmen; your skilled men, Tyre, were aboard as your sailors."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 27:32",
-                                             "text":  "As they wail and mourn over you, they will take up a lament concerning you: �Who was ever silenced like Tyre, surrounded by the sea?�"
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 28:2",
-                                             "text":  "�Son of man, say to the ruler of Tyre, �This is what the Sovereign Lord says: ��In the pride of your heart you say, �I am a god; I sit on the throne of a god in the heart of the seas.� But you are a mere mortal and not a god, though you think you are as wise as a god."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 28:12",
-                                             "text":  "�Son of man, take up a lament concerning the king of Tyre and say to him: �This is what the Sovereign Lord says: ��You were the seal of perfection, full of wisdom and perfect in beauty."
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 29:18",
-                                             "text":  "�Son of man, Nebuchadnezzar king of Babylon drove his army in a hard campaign against Tyre; every head was rubbed bare and every shoulder made raw. Yet he and his army got no reward from the campaign he led against Tyre."
-                                         },
-                                         {
-                                             "reference":  "Hosea 9:13",
-                                             "text":  "I have seen Ephraim, like Tyre, planted in a pleasant place. But Ephraim will bring out their children to the slayer.�"
-                                         },
-                                         {
-                                             "reference":  "Amos 1:9",
-                                             "text":  "This is what the Lord says: �For three sins of Tyre, even for four, I will not relent. Because she sold whole communities of captives to Edom, disregarding a treaty of brotherhood,"
-                                         },
-                                         {
-                                             "reference":  "Amos 1:10",
-                                             "text":  "I will send fire on the walls of Tyre that will consume her fortresses.�"
-                                         },
-                                         {
-                                             "reference":  "Zechariah 9:2",
-                                             "text":  "and on Hamath too, which borders on it, and on Tyre and Sidon, though they are very skillful."
-                                         },
-                                         {
-                                             "reference":  "Zechariah 9:3",
-                                             "text":  "Tyre has built herself a stronghold; she has heaped up silver like dust, and gold like the dirt of the streets."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Ulai",
                           "occurrence_count":  2,
                           "references":  [
@@ -51799,40 +44967,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Ur of the Chaldees",
-                          "occurrence_count":  4,
-                          "references":  [
-                                             "Genesis 11:28",
-                                             "Genesis 11:31",
-                                             "Genesis 15:7",
-                                             "Nehemiah 9:7"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 11:28",
-                                             "text":  "While his father Terah was still alive, Haran died in Ur of the Chaldeans, in the land of his birth."
-                                         },
-                                         {
-                                             "reference":  "Genesis 11:31",
-                                             "text":  "Terah took his son Abram, his grandson Lot son of Haran, and his daughter-in-law Sarai, the wife of his son Abram, and together they set out from Ur of the Chaldeans to go to Canaan. But when they came to Harran, they settled there."
-                                         },
-                                         {
-                                             "reference":  "Genesis 15:7",
-                                             "text":  "He also said to him, �I am the Lord, who brought you out of Ur of the Chaldeans to give you this land to take possession of it.�"
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 9:7",
-                                             "text":  "�You are the Lord God, who chose Abram and brought him out of Ur of the Chaldeans and named him Abraham."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Uzzen-sherah",
                           "occurrence_count":  1,
                           "references":  [
@@ -51883,25 +45017,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A city linked to the historical or prophetic books of the Bible.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Zaanan",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Micah 1:11"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Micah 1:11",
-                                             "text":  "Pass by naked and in shame, you who live in Shaphir. Those who live in Zaanan will not come out. Beth Ezel is in mourning; it no longer protects you."
-                                         }
-                                     ],
-                          "description":  "A tribe or location mentioned in biblical context.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -52024,30 +45139,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Zalmonah",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Numbers 33:41",
-                                             "Numbers 33:42"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 33:41",
-                                             "text":  "They left Mount Hor and camped at Zalmonah."
-                                         },
-                                         {
-                                             "reference":  "Numbers 33:42",
-                                             "text":  "They left Zalmonah and camped at Punon."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Zanoah",
                           "occurrence_count":  5,
                           "references":  [
@@ -52125,25 +45216,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Zared",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Numbers 21:12"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 21:12",
-                                             "text":  "From there they moved on and camped in the Zered Valley."
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Zarephath",
                           "occurrence_count":  3,
                           "references":  [
@@ -52185,25 +45257,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A region or city associated with a key biblical figure.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Zarethshahar",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 13:19"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 13:19",
-                                             "text":  "Kiriathaim, Sibmah, Zereth Shahar on the hill in the valley,"
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -52290,69 +45343,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A location in the wilderness journey of the Israelites.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Zeboim",
-                          "occurrence_count":  5,
-                          "references":  [
-                                             "Genesis 10:19",
-                                             "Deuteronomy 29:23",
-                                             "1 Samuel 13:18",
-                                             "Nehemiah 11:34",
-                                             "Hosea 11:8"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Genesis 10:19",
-                                             "text":  "and the borders of Canaan reached from Sidon toward Gerar as far as Gaza, and then toward Sodom, Gomorrah, Admah and Zeboyim, as far as Lasha."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 29:23",
-                                             "text":  "The whole land will be a burning waste of salt and sulfur�nothing planted, nothing sprouting, no vegetation growing on it. It will be like the destruction of Sodom and Gomorrah, Admah and Zeboyim, which the Lord overthrew in fierce anger."
-                                         },
-                                         {
-                                             "reference":  "1 Samuel 13:18",
-                                             "text":  "another toward Beth Horon, and the third toward the borderland overlooking the Valley of Zeboyim facing the wilderness."
-                                         },
-                                         {
-                                             "reference":  "Nehemiah 11:34",
-                                             "text":  "in Hadid, Zeboim and Neballat,"
-                                         },
-                                         {
-                                             "reference":  "Hosea 11:8",
-                                             "text":  "�How can I give you up, Ephraim? How can I hand you over, Israel? How can I treat you like Admah? How can I make you like Zeboyim? My heart is changed within me; all my compassion is aroused."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Zedad",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Numbers 34:8",
-                                             "Ezekiel 47:15"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 34:8",
-                                             "text":  "and from Mount Hor to Lebo Hamath. Then the boundary will go to Zedad,"
-                                         },
-                                         {
-                                             "reference":  "Ezekiel 47:15",
-                                             "text":  "�This is to be the boundary of the land: �On the north side it will run from the Mediterranean Sea by the Hethlon road past Lebo Hamath to Zedad,"
-                                         }
-                                     ],
-                          "description":  "A location described in the context of Israel�s geography.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -52503,30 +45493,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Zered",
-                          "occurrence_count":  2,
-                          "references":  [
-                                             "Deuteronomy 2:13",
-                                             "Deuteronomy 2:14"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Deuteronomy 2:13",
-                                             "text":  "And the Lord said, �Now get up and cross the Zered Valley.� So we crossed the valley."
-                                         },
-                                         {
-                                             "reference":  "Deuteronomy 2:14",
-                                             "text":  "Thirty-eight years passed from the time we left Kadesh Barnea until we crossed the Zered Valley. By then, that entire generation of fighting men had perished from the camp, as the Lord had sworn to them."
-                                         }
-                                     ],
-                          "description":  "A location associated with prophetic visions or events.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Zereda",
                           "occurrence_count":  1,
                           "references":  [
@@ -52577,25 +45543,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A border or boundary described in the context of Israel�s land.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Ziddim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Joshua 19:35"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Joshua 19:35",
-                                             "text":  "The fortified towns were Ziddim, Zer, Hammath, Rakkath, Kinnereth,"
-                                         }
-                                     ],
-                          "description":  "A place mentioned in a prophecy or historical narrative.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",
@@ -53712,25 +46659,6 @@ window.BIBLE_LOCATIONS = {
                                         ]
                       },
                       {
-                          "name":  "Ziphron",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Numbers 34:9"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 34:9",
-                                             "text":  "continue to Ziphron and end at Hazar Enan. This will be your boundary on the north."
-                                         }
-                                     ],
-                          "description":  "A location linked with the exodus or conquest narratives.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
                           "name":  "Ziz",
                           "occurrence_count":  1,
                           "references":  [
@@ -53963,25 +46891,6 @@ window.BIBLE_LOCATIONS = {
                                          }
                                      ],
                           "description":  "A location in the wilderness journey of the Israelites.",
-                          "map_files":  [
-                                            "09 The Promised Land.png",
-                                            "05 The Land of Canaan.png",
-                                            "01 The Near East.png"
-                                        ]
-                      },
-                      {
-                          "name":  "Zophim",
-                          "occurrence_count":  1,
-                          "references":  [
-                                             "Numbers 23:14"
-                                         ],
-                          "verses":  [
-                                         {
-                                             "reference":  "Numbers 23:14",
-                                             "text":  "So he took him to the field of Zophim on the top of Pisgah, and there he built seven altars and offered a bull and a ram on each altar."
-                                         }
-                                     ],
-                          "description":  "A person or place mentioned in the genealogies or lists.",
                           "map_files":  [
                                             "09 The Promised Land.png",
                                             "05 The Land of Canaan.png",

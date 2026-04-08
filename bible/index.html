@@ -398,12 +398,13 @@
     .location-map-controls button:hover { background: var(--bg-soft); }
     .location-map-frame { aspect-ratio: 1 / 1; width: 100%; border-radius: 0.9rem; overflow: hidden; background: var(--bg-muted); border: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: center; }
     .location-map-frame img { width: 100%; height: 100%; object-fit: contain; display: block; transform: scale(var(--location-map-scale, 1)); transform-origin: center center; transition: transform 0.18s ease; }
-    .location-map-gallery { margin: 0.85rem 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 0.6rem; }
+    .location-map-gallery { margin: 0.85rem 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(72px, 1fr)); gap: 0.5rem; }
+    .location-map-gallery[hidden] { display: none; }
     .location-map-gallery button { width: 100%; border: 1px solid var(--border-soft); border-radius: 0.8rem; background: var(--surface); padding: 0.35rem; cursor: pointer; text-align: left; }
     .location-map-gallery button:hover { border-color: #94a3b8; background: var(--bg-soft); }
     .location-map-gallery button.active { border-color: var(--verse-accent, #0066cc); box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12); }
     .location-map-gallery img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 0.55rem; display: block; }
-    .location-map-gallery span { display: block; margin-top: 0.35rem; font-size: 0.78rem; line-height: 1.35; color: var(--text-soft); }
+    .location-map-gallery span { display: block; margin-top: 0.28rem; font-size: 0.7rem; line-height: 1.25; color: var(--text-soft); }
     .location-map-caption { margin: 0.75rem 0 0; color: var(--text-soft); font-size: 0.92rem; }
     .location-description { margin: 1rem 0 0; color: var(--text); line-height: 1.6; }
     .location-references { margin: 1rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.55rem; }
@@ -684,7 +685,7 @@
       .footer-card { padding: 0.95rem; }
       .chapter-nav-bar { position: sticky; top: auto; bottom: calc(0.9rem + env(safe-area-inset-bottom)); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; height: auto; margin-top: 0.25rem; pointer-events: none; }
       body.compare-mode .chapter-nav-bar { position: fixed; left: 0.85rem; right: 0.85rem; bottom: calc(0.7rem + env(safe-area-inset-bottom)); margin-top: 0; z-index: 40; }
-      .nav-btn { position: static; top: auto; width: 100%; height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: auto; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); background: color-mix(in srgb, var(--surface) 68%, transparent); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); }
+      .nav-btn { position: static; top: auto; width: 100%; height: 3.6rem; border-radius: 1rem; font-size: 1.1rem; z-index: auto; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16); background: color-mix(in srgb, var(--surface) 68%, transparent); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); pointer-events: auto; touch-action: manipulation; }
       body.dark-mode .nav-btn { background: color-mix(in srgb, var(--surface) 80%, transparent); }
       .prev-btn { left: auto; right: auto; }
       .next-btn { right: auto; left: auto; }
@@ -955,6 +956,8 @@
   <script>
     const LOCATION_DATA_PATH = 'data/locations.json';
     const LOCAL_LOCATION_BUNDLE = 'data/locations.js';
+    const LOCATION_MEDIA_DATA_PATH = 'data/location-media.json';
+    const LOCAL_LOCATION_MEDIA_BUNDLE = 'data/location-media.js';
     const WORD_MEANING_DATA_PATH = 'data/word-meanings.json';
     const LOCAL_WORD_MEANING_BUNDLE = 'data/word-meanings.js';
     const TRANSLATIONS = {
@@ -1091,6 +1094,7 @@
       readingStatusRaf: null,
       locationEntries: [],
       locationLookup: new Map(),
+      locationMediaLookup: new Map(),
       locationPattern: null,
       locationMapFiles: [],
       activeLocationMap: null,
@@ -1641,6 +1645,19 @@
       return window.BIBLE_LOCATIONS || null;
     }
 
+    async function loadBundledLocationMediaData() {
+      if (window.BIBLE_LOCATION_MEDIA) {
+        return window.BIBLE_LOCATION_MEDIA;
+      }
+
+      if (window.location.protocol !== 'file:') {
+        return null;
+      }
+
+      await loadScript(LOCAL_LOCATION_MEDIA_BUNDLE);
+      return window.BIBLE_LOCATION_MEDIA || null;
+    }
+
     async function loadBundledWordMeaningData() {
       if (window.BIBLE_WORD_MEANINGS) {
         return window.BIBLE_WORD_MEANINGS;
@@ -1662,11 +1679,19 @@
       return await response.json();
     }
 
+    function getLocationMatchNames(entry) {
+      const names = [entry?.name];
+      if (Array.isArray(entry?.aliases)) {
+        names.push(...entry.aliases);
+      }
+
+      return Array.from(new Set(names.filter(Boolean).map((name) => String(name).trim()).filter(Boolean)));
+    }
+
     function buildLocationMatcher(locations) {
-      const names = locations
-        .map((entry) => entry.name)
-        .filter(Boolean)
-        .sort((a, b) => b.length - a.length);
+      const names = Array.from(new Set(
+        locations.flatMap((entry) => getLocationMatchNames(entry))
+      )).sort((a, b) => b.length - a.length);
 
       if (!names.length) {
         return null;
@@ -1678,14 +1703,33 @@
     async function loadLocationData() {
       try {
         const bundledLocations = await loadBundledLocationData();
+        const bundledLocationMedia = await loadBundledLocationMediaData();
         const data = bundledLocations || await fetchJson(LOCATION_DATA_PATH);
+        const mediaData = bundledLocationMedia || await fetchJson(LOCATION_MEDIA_DATA_PATH).catch(() => null);
         const entries = Array.isArray(data.locations) ? data.locations : [];
+        const mediaEntries = Array.isArray(mediaData?.entries) ? mediaData.entries : [];
+        const mediaLookup = new Map(mediaEntries.map((entry) => [entry.name, entry]));
+        entries.forEach((entry) => {
+          const media = mediaLookup.get(entry.name);
+          if (Array.isArray(media?.files) && media.files.length) {
+            entry.media_files = media.files.slice(0, 6);
+          }
+        });
+        const locationLookup = new Map();
+        entries.forEach((entry) => {
+          getLocationMatchNames(entry).forEach((name) => {
+            locationLookup.set(name, entry);
+          });
+        });
+
         state.locationEntries = entries;
-        state.locationLookup = new Map(entries.map((entry) => [entry.name, entry]));
+        state.locationMediaLookup = mediaLookup;
+        state.locationLookup = locationLookup;
         state.locationPattern = buildLocationMatcher(entries);
       } catch (error) {
         console.warn('Could not load location data:', error);
         state.locationEntries = [];
+        state.locationMediaLookup = new Map();
         state.locationLookup = new Map();
         state.locationPattern = null;
       }
@@ -2651,38 +2695,10 @@
     }
 
     function getMapFilesForLocation(entry) {
-      if (Array.isArray(entry.map_files) && entry.map_files.length) {
-        return entry.map_files.slice(0, 6);
+      if (Array.isArray(entry.media_files) && entry.media_files.length) {
+        return entry.media_files.slice(0, 6);
       }
-
-      const maps = [];
-      const seen = new Set();
-
-      function addMap(fileName) {
-        if (!fileName || seen.has(fileName)) {
-          return;
-        }
-        seen.add(fileName);
-        maps.push(fileName);
-      }
-
-      (LOCATION_TO_MAPS[entry.name] || []).forEach(addMap);
-      addMap(BOOK_TO_MAP[getCanonicalBookName(state.translationId, state.currentBook)] || BOOK_TO_MAP[state.currentBook]);
-
-      getLocationReferenceBooks(entry)
-        .slice(0, 4)
-        .forEach((bookName) => addMap(BOOK_TO_MAP[getCanonicalBookName(state.translationId, bookName)] || BOOK_TO_MAP[bookName]));
-
-      if (NEW_TESTAMENT_BOOKS.has(getCanonicalBookName(state.translationId, state.currentBook))) {
-        addMap('37 Israel During the Time of Acts.png');
-        addMap('38 The Mediterranean World During the Time of Acts.png');
-      } else {
-        addMap('09 The Promised Land.png');
-        addMap('01 The Near East.png');
-      }
-
-      addMap('Near East.png');
-      return maps.slice(0, 6);
+      return [];
     }
 
     function updateLocationMapZoom() {
@@ -2701,9 +2717,19 @@
       buttons.forEach((button) => {
         button.classList.toggle('active', button.dataset.mapFile === mapFile);
       });
+
+      const relatedMapFiles = state.locationMapFiles.filter((fileName) => fileName !== mapFile);
+      renderLocationMapGalleryButtons(relatedMapFiles);
     }
 
-    function renderLocationMapGallery(mapFiles) {
+    function renderLocationMapGalleryButtons(mapFiles) {
+      if (!Array.isArray(mapFiles) || !mapFiles.length) {
+        locationMapGalleryEl.hidden = true;
+        locationMapGalleryEl.innerHTML = '';
+        return;
+      }
+
+      locationMapGalleryEl.hidden = false;
       locationMapGalleryEl.innerHTML = mapFiles.map((mapFile) => `
         <li>
           <button type="button" data-map-file="${escapeHtml(mapFile)}">
@@ -2712,10 +2738,20 @@
           </button>
         </li>
       `).join('');
+    }
 
-      const firstMap = mapFiles[0];
+    function renderLocationMapGallery(mapFiles) {
+      state.locationMapFiles = Array.from(new Set(Array.isArray(mapFiles) ? mapFiles.filter(Boolean) : []));
+      const firstMap = state.locationMapFiles[0];
       if (firstMap) {
         selectLocationMap(firstMap);
+      } else {
+        locationMapGalleryEl.hidden = true;
+        locationMapGalleryEl.innerHTML = '';
+        state.activeLocationMap = null;
+        locationModalImageEl.removeAttribute('src');
+        locationModalImageEl.alt = '';
+        locationMapCaptionEl.textContent = '';
       }
     }
 
@@ -2726,7 +2762,6 @@
       }
 
       const mapFiles = getMapFilesForLocation(entry);
-      state.locationMapFiles = mapFiles;
       locationModalTitleEl.textContent = entry.name;
       locationModalSubtitleEl.textContent = `${entry.occurrence_count} verse reference${entry.occurrence_count === 1 ? '' : 's'} in the location index`;
       renderLocationMapGallery(mapFiles);
