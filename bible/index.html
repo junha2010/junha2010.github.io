@@ -85,7 +85,7 @@
       --ot-button-bg: #e6f3ff;
       --nt-button-bg: #fee2e2;
     }
-    body { margin: 0; min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: var(--bg); color: var(--text); }
+    body { margin: 0; min-height: 100vh; font-family: var(--reader-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif); background: var(--bg); color: var(--text); }
     body.no-copy,
     body.no-copy *:not(input):not(textarea) {
       -webkit-user-select: none;
@@ -323,6 +323,320 @@
       border-radius: 0.28rem;
       background: rgba(8, 47, 73, 0.12);
     }
+    .dev-sidepanel {
+      position: fixed;
+      top: 6.8rem;
+      z-index: 34;
+      width: 238px;
+      max-height: calc(100vh - 8.4rem);
+      overflow: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(0.8rem);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+    .dev-sidepanel::-webkit-scrollbar { width: 0; height: 0; display: none; }
+    body.developer-mode .dev-sidepanel {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .dev-sidepanel-left { left: 1rem; }
+    .dev-sidepanel-right { right: 1rem; }
+    .dev-sidepanel-card {
+      position: relative;
+      border: 1px solid rgba(125, 211, 252, 0.16);
+      border-radius: 1.35rem;
+      background:
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.18) 0%, transparent 34%),
+        radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.12) 0%, transparent 28%),
+        linear-gradient(180deg, rgba(8, 47, 73, 0.92) 0%, rgba(15, 23, 42, 0.97) 100%);
+      color: #e0f2fe;
+      box-shadow:
+        0 22px 42px rgba(2, 6, 23, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 0 0 1px rgba(125, 211, 252, 0.04);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 1rem;
+      overflow: hidden;
+    }
+    .dev-sidepanel-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.1) 0%, transparent 42%, rgba(56, 189, 248, 0.04) 100%);
+      pointer-events: none;
+    }
+    .dev-sidepanel-card + .dev-sidepanel-card { margin-top: 0.8rem; }
+    .dev-sidepanel-title {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin: 0 0 0.4rem;
+      padding: 0.34rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(125, 211, 252, 0.16);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7dd3fc;
+    }
+    .dev-sidepanel-subtitle {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 0.95rem;
+      color: #d6e4f0;
+      font-size: 0.79rem;
+      line-height: 1.5;
+      max-width: 15rem;
+    }
+    .dev-sidepanel-grid { position: relative; z-index: 1; display: grid; gap: 0.75rem; }
+    .dev-mini-field {
+      display: grid;
+      gap: 0.42rem;
+      padding: 0.72rem 0.75rem;
+      border-radius: 1rem;
+      background: rgba(15, 23, 42, 0.32);
+      border: 1px solid rgba(125, 211, 252, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+    .dev-mini-field label {
+      font-size: 0.69rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c7d8e8;
+    }
+    .dev-mini-input,
+    .dev-mini-select {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 100%;
+      border: 1px solid rgba(125, 211, 252, 0.14);
+      border-radius: 0.9rem;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.56) 100%);
+      color: #f8fbff;
+      padding: 0.8rem 0.9rem;
+      font: inherit;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        inset 0 0 0 1px rgba(125, 211, 252, 0.03),
+        0 10px 22px rgba(2, 6, 23, 0.18);
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+    .dev-mini-input:focus-visible,
+    .dev-mini-select:focus-visible {
+      outline: 2px solid rgba(56, 189, 248, 0.65);
+      outline-offset: 2px;
+    }
+    .dev-mini-select {
+      padding-right: 2.9rem;
+      cursor: pointer;
+      background-image:
+        linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.56) 100%),
+        radial-gradient(circle at calc(100% - 1.25rem) 50%, rgba(56, 189, 248, 0.22) 0%, rgba(56, 189, 248, 0.14) 38%, transparent 40%),
+        linear-gradient(45deg, transparent 50%, #bfeaff 50%),
+        linear-gradient(135deg, #bfeaff 50%, transparent 50%);
+      background-repeat: no-repeat;
+      background-size:
+        auto,
+        auto,
+        1.6rem 1.6rem,
+        0.42rem 0.42rem,
+        0.42rem 0.42rem;
+      background-position:
+        0 0,
+        0 0,
+        calc(100% - 0.45rem) 50%,
+        calc(100% - 1.28rem) calc(50% - 0.08rem),
+        calc(100% - 1.02rem) calc(50% - 0.08rem);
+    }
+    .dev-mini-select:hover,
+    .dev-mini-input:hover {
+      border-color: rgba(125, 211, 252, 0.28);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        inset 0 0 0 1px rgba(125, 211, 252, 0.05),
+        0 14px 28px rgba(2, 6, 23, 0.22);
+    }
+    .dev-mini-range {
+      width: 100%;
+      height: 1.35rem;
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      cursor: pointer;
+      filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.12));
+    }
+    .dev-mini-range:focus-visible {
+      outline: none;
+    }
+    .dev-mini-range::-webkit-slider-runnable-track {
+      height: 0.56rem;
+      border-radius: 999px;
+      background:
+        linear-gradient(90deg, rgba(56, 189, 248, 0.9) 0%, rgba(59, 130, 246, 0.78) 52%, rgba(99, 102, 241, 0.82) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.22),
+        inset 0 -1px 0 rgba(15, 23, 42, 0.24),
+        0 0 0 1px rgba(125, 211, 252, 0.12);
+    }
+    .dev-mini-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: -0.27rem;
+      border-radius: 50%;
+      border: 1px solid rgba(224, 242, 254, 0.84);
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,0.98) 0%, rgba(224, 242, 254, 0.96) 36%, rgba(125, 211, 252, 0.92) 100%);
+      box-shadow:
+        0 0 0 0.22rem rgba(56, 189, 248, 0.14),
+        0 10px 20px rgba(2, 6, 23, 0.3);
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+    .dev-mini-range:hover::-webkit-slider-thumb {
+      transform: scale(1.06);
+      box-shadow:
+        0 0 0 0.28rem rgba(56, 189, 248, 0.18),
+        0 12px 24px rgba(2, 6, 23, 0.34);
+    }
+    .dev-mini-range::-moz-range-track {
+      height: 0.56rem;
+      border: 0;
+      border-radius: 999px;
+      background:
+        linear-gradient(90deg, rgba(56, 189, 248, 0.9) 0%, rgba(59, 130, 246, 0.78) 52%, rgba(99, 102, 241, 0.82) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.22),
+        inset 0 -1px 0 rgba(15, 23, 42, 0.24),
+        0 0 0 1px rgba(125, 211, 252, 0.12);
+    }
+    .dev-mini-range::-moz-range-progress {
+      height: 0.56rem;
+      border-radius: 999px;
+      background:
+        linear-gradient(90deg, rgba(56, 189, 248, 0.96) 0%, rgba(59, 130, 246, 0.84) 100%);
+    }
+    .dev-mini-range::-moz-range-thumb {
+      width: 1.1rem;
+      height: 1.1rem;
+      border: 1px solid rgba(224, 242, 254, 0.84);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,0.98) 0%, rgba(224, 242, 254, 0.96) 36%, rgba(125, 211, 252, 0.92) 100%);
+      box-shadow:
+        0 0 0 0.22rem rgba(56, 189, 248, 0.14),
+        0 10px 20px rgba(2, 6, 23, 0.3);
+    }
+    .dev-sidepanel .translation-option {
+      border-radius: 0.95rem;
+      border-color: rgba(125, 211, 252, 0.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 100%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.6) 100%);
+      color: #f8fbff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .dev-sidepanel .translation-option:hover {
+      border-color: rgba(125, 211, 252, 0.3);
+      background:
+        linear-gradient(180deg, rgba(56, 189, 248, 0.14) 0%, rgba(255,255,255,0) 100%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.72) 100%);
+    }
+    .dev-sidepanel .translation-option.active {
+      border-color: rgba(125, 211, 252, 0.34);
+      background:
+        linear-gradient(180deg, rgba(56, 189, 248, 0.2) 0%, rgba(255,255,255,0.02) 100%),
+        linear-gradient(180deg, rgba(8, 47, 73, 0.92) 0%, rgba(15, 23, 42, 0.82) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 12px 24px rgba(2, 6, 23, 0.2);
+    }
+    .translation-option[data-dev-font-family] .translation-option-label {
+      font-family: var(--dev-font-preview, inherit);
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+    .dev-mini-picker-btn {
+      min-height: 3.2rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: 0.9rem;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 100%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.56) 100%);
+      border-color: rgba(125, 211, 252, 0.14);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        inset 0 0 0 1px rgba(125, 211, 252, 0.03),
+        0 10px 22px rgba(2, 6, 23, 0.18);
+    }
+    .dev-mini-picker-btn:hover {
+      border-color: rgba(125, 211, 252, 0.28);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        inset 0 0 0 1px rgba(125, 211, 252, 0.05),
+        0 14px 28px rgba(2, 6, 23, 0.22);
+    }
+    .dev-mini-value {
+      min-width: 3.6rem;
+      padding: 0.32rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.54);
+      border: 1px solid rgba(125, 211, 252, 0.12);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #d7f0ff;
+      justify-self: end;
+      text-align: center;
+    }
+    .dev-mini-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .dev-mini-actions {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.82rem;
+    }
+    .dev-mini-btn {
+      border: 1px solid rgba(125, 211, 252, 0.16);
+      border-radius: 0.92rem;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.52) 100%);
+      color: #f8fbff;
+      padding: 0.82rem 0.72rem;
+      font: inherit;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .dev-mini-btn:hover {
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.88) 0%, rgba(15, 23, 42, 0.68) 100%);
+      border-color: rgba(125, 211, 252, 0.34);
+      box-shadow: 0 10px 20px rgba(2, 6, 23, 0.22);
+    }
+    .dev-mini-btn:active { transform: scale(0.985); }
     @keyframes dev-xray-scan {
       0% { box-shadow: inset 0 0 0 0 rgba(56, 189, 248, 0.2); opacity: 0.46; }
       50% { box-shadow: inset 0 0 0 1px rgba(125, 211, 252, 0.24); opacity: 1; }
@@ -641,8 +955,8 @@
     .reading-status-btn:active { transform: scale(0.985); box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12); }
     .reading-status-label { display: block; margin: 0; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .reading-status-value { display: block; margin: 0.15rem 0 0; font-size: 0.94rem; font-weight: 700; color: var(--text-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 38vw; }
-    .content { position: relative; max-width: 900px; margin: 5.5rem auto 3rem; padding: 2rem 1.5rem; }
-    .chapter-title { font-size: calc(2.5rem * var(--text-scale)); font-weight: 700; margin: 0 0 1rem; color: var(--text-strong); text-align: center; }
+    .content { position: relative; max-width: 1180px; margin: 5.5rem auto 3rem; padding: 2rem 1.75rem; }
+    .chapter-title { font-size: calc(var(--reader-title-scale, 2.5) * 1rem * var(--text-scale)); font-weight: 700; margin: 0 0 1rem; color: var(--text-strong); text-align: center; }
     .hint { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }
     .compare-empty-state {
       display: grid;
@@ -714,11 +1028,11 @@
       text-underline-offset: 0.24em;
       text-decoration-skip-ink: none;
     }
-    .verse-line { margin: 0; line-height: 1.75; font-size: calc(1.05rem * var(--text-scale)); color: var(--text); }
-    .verse-container.reading-mode { max-width: 760px; margin: 0 auto; padding: 0.25rem 0; color: var(--text-strong); }
+    .verse-line { margin: 0; line-height: var(--reader-line-height, 1.75); letter-spacing: var(--reader-letter-spacing, normal); word-spacing: var(--reader-word-spacing, normal); font-size: calc(1.05rem * var(--text-scale)); color: var(--text); }
+    .verse-container.reading-mode { max-width: var(--reader-measure, 760px); margin: 0 auto; padding: 0.25rem 0; color: var(--text-strong); }
     .verse-container.reading-mode .verse-card { display: inline; border-left: none; padding: 0; margin: 0; position: static; scroll-margin-top: var(--verse-scroll-margin-reading); }
     .verse-container.reading-mode .verse-card + .verse-card::before { content: ' '; white-space: pre; }
-    .verse-container.reading-mode .verse-line { display: inline; margin: 0; line-height: 2.05; font-size: calc(1.12rem * var(--text-scale)); }
+    .verse-container.reading-mode .verse-line { display: inline; margin: 0; line-height: var(--reader-reading-line-height, 2.05); font-size: calc(1.12rem * var(--text-scale)); }
     .verse-container.reading-mode .verse-number { position: static; display: inline; padding-left: 0; width: auto; margin-right: 0.28rem; font-size: 0.78em; vertical-align: super; }
     .verse-container.reading-mode .verse-number.single-digit,
     .verse-container.reading-mode .verse-number.double-digit { font-size: 0.78em; }
@@ -1146,6 +1460,10 @@
       .dev-hud-meta { flex-direction: column; align-items: flex-start; }
       .dev-theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .dev-theme-preset-row { grid-template-columns: 1fr; }
+      .dev-sidepanel { display: none; }
+    }
+    @media (max-width: 1279px) {
+      .dev-sidepanel { display: none; }
     }
   </style>
 </head>
@@ -1507,6 +1825,83 @@
     </div>
   </div>
 
+  <aside id="devTypographyDock" class="dev-sidepanel dev-sidepanel-left" aria-hidden="true">
+    <div class="dev-sidepanel-card">
+      <h3 class="dev-sidepanel-title">Type Lab</h3>
+      <p class="dev-sidepanel-subtitle">Live typography controls for the reader.</p>
+      <div class="dev-sidepanel-grid">
+        <div class="dev-mini-field">
+          <label for="devFontFamilyButton">Font</label>
+          <div id="devFontFamilyPicker" class="verse-action-picker">
+            <button id="devFontFamilyButton" class="verse-action-picker-btn dev-mini-picker-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="devFontFamilyOptions">
+              <span class="verse-action-picker-value">
+                <span id="devFontFamilyValue" class="verse-action-picker-title">System UI</span>
+                <span class="verse-action-picker-caption">Reader font</span>
+              </span>
+              <span class="verse-action-picker-caret">▼</span>
+            </button>
+            <div id="devFontFamilyOptions" class="verse-action-picker-options" role="listbox" aria-label="Choose a font family"></div>
+          </div>
+        </div>
+        <div class="dev-mini-field">
+          <label for="devLetterSpacingRange">Letter spacing</label>
+          <div class="dev-mini-row">
+            <input id="devLetterSpacingRange" class="dev-mini-range" type="range" min="-0.02" max="0.16" step="0.01" value="0" />
+            <span id="devLetterSpacingValue" class="dev-mini-value">0em</span>
+          </div>
+        </div>
+        <div class="dev-mini-field">
+          <label for="devWordSpacingRange">Word spacing</label>
+          <div class="dev-mini-row">
+            <input id="devWordSpacingRange" class="dev-mini-range" type="range" min="0" max="0.35" step="0.01" value="0" />
+            <span id="devWordSpacingValue" class="dev-mini-value">0em</span>
+          </div>
+        </div>
+        <div class="dev-mini-field">
+          <label for="devLineHeightRange">Line height</label>
+          <div class="dev-mini-row">
+            <input id="devLineHeightRange" class="dev-mini-range" type="range" min="1.35" max="2.4" step="0.05" value="1.75" />
+            <span id="devLineHeightValue" class="dev-mini-value">1.75</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <aside id="devLayoutDock" class="dev-sidepanel dev-sidepanel-right" aria-hidden="true">
+    <div class="dev-sidepanel-card">
+      <h3 class="dev-sidepanel-title">Layout Lab</h3>
+      <p class="dev-sidepanel-subtitle">Use the empty space for live layout tuning.</p>
+      <div class="dev-sidepanel-grid">
+        <div class="dev-mini-field">
+          <label for="devReadingLineHeightRange">Reading height</label>
+          <div class="dev-mini-row">
+            <input id="devReadingLineHeightRange" class="dev-mini-range" type="range" min="1.6" max="2.6" step="0.05" value="2.05" />
+            <span id="devReadingLineHeightValue" class="dev-mini-value">2.05</span>
+          </div>
+        </div>
+        <div class="dev-mini-field">
+          <label for="devMeasureRange">Measure</label>
+          <div class="dev-mini-row">
+            <input id="devMeasureRange" class="dev-mini-range" type="range" min="700" max="1080" step="10" value="760" />
+            <span id="devMeasureValue" class="dev-mini-value">760px</span>
+          </div>
+        </div>
+        <div class="dev-mini-field">
+          <label for="devTitleScaleRange">Title scale</label>
+          <div class="dev-mini-row">
+            <input id="devTitleScaleRange" class="dev-mini-range" type="range" min="2" max="3.4" step="0.1" value="2.5" />
+            <span id="devTitleScaleValue" class="dev-mini-value">2.5x</span>
+          </div>
+        </div>
+        <div class="dev-mini-actions">
+          <button id="devApplyTypeLabButton" class="dev-mini-btn" type="button">Apply</button>
+          <button id="devResetTypeLabButton" class="dev-mini-btn" type="button">Reset</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
   <div id="verseActionModal" class="location-modal verse-action-modal" aria-hidden="true">
     <div class="verse-action-card" role="dialog" aria-modal="true" aria-labelledby="verseActionTitle">
       <div class="verse-action-header">
@@ -1682,6 +2077,26 @@
     const devHudRandomButton = document.getElementById('devHudRandomButton');
     const devHudXrayButton = document.getElementById('devHudXrayButton');
     const devHudOmniscienceButton = document.getElementById('devHudOmniscienceButton');
+    const devTypographyDock = document.getElementById('devTypographyDock');
+    const devLayoutDock = document.getElementById('devLayoutDock');
+    const devFontFamilyPicker = document.getElementById('devFontFamilyPicker');
+    const devFontFamilyButton = document.getElementById('devFontFamilyButton');
+    const devFontFamilyValue = document.getElementById('devFontFamilyValue');
+    const devFontFamilyOptions = document.getElementById('devFontFamilyOptions');
+    const devLetterSpacingRange = document.getElementById('devLetterSpacingRange');
+    const devLetterSpacingValue = document.getElementById('devLetterSpacingValue');
+    const devWordSpacingRange = document.getElementById('devWordSpacingRange');
+    const devWordSpacingValue = document.getElementById('devWordSpacingValue');
+    const devLineHeightRange = document.getElementById('devLineHeightRange');
+    const devLineHeightValue = document.getElementById('devLineHeightValue');
+    const devReadingLineHeightRange = document.getElementById('devReadingLineHeightRange');
+    const devReadingLineHeightValue = document.getElementById('devReadingLineHeightValue');
+    const devMeasureRange = document.getElementById('devMeasureRange');
+    const devMeasureValue = document.getElementById('devMeasureValue');
+    const devTitleScaleRange = document.getElementById('devTitleScaleRange');
+    const devTitleScaleValue = document.getElementById('devTitleScaleValue');
+    const devApplyTypeLabButton = document.getElementById('devApplyTypeLabButton');
+    const devResetTypeLabButton = document.getElementById('devResetTypeLabButton');
     const verseActionModal = document.getElementById('verseActionModal');
     const verseActionSubtitleEl = document.getElementById('verseActionSubtitle');
     const verseActionPicker = document.getElementById('verseActionPicker');
@@ -1774,7 +2189,16 @@
       devInteractionLog: [],
       devSearchLastResult: '',
       devThemePreset: 'reader',
-      devThemeOverrides: null
+      devThemeOverrides: null,
+      devTypeLab: {
+        fontFamily: 'system',
+        letterSpacing: 0,
+        wordSpacing: 0,
+        lineHeight: 1.75,
+        readingLineHeight: 2.05,
+        measure: 760,
+        titleScale: 2.5
+      }
     };
 
     const NEVER_WET_SEQUENCE = 'never-wet';
@@ -2140,6 +2564,8 @@
         if (devHud) {
           devHud.setAttribute('aria-hidden', 'true');
         }
+        devTypographyDock?.setAttribute('aria-hidden', 'true');
+        devLayoutDock?.setAttribute('aria-hidden', 'true');
         return;
       }
       const canonicalBook = state.currentBook ? getCanonicalBookName(state.translationId, state.currentBook) : 'Unavailable';
@@ -2176,6 +2602,8 @@
       if (devHud) {
         devHud.setAttribute('aria-hidden', 'false');
       }
+      devTypographyDock?.setAttribute('aria-hidden', 'false');
+      devLayoutDock?.setAttribute('aria-hidden', 'false');
       if (devHudReference) {
         devHudReference.textContent = state.currentBook && state.currentChapter
           ? `${state.currentBook} ${state.currentChapter}:${state.activeVerse || 1}`
@@ -2198,6 +2626,7 @@
       }
       updateDevVerseInspector();
       updateDevInteractionLog();
+      updateTypeLabControls();
       if (devSearchStatus) {
         devSearchStatus.textContent = state.devSearchLastResult || 'Searches the active Bible version and jumps to the first matching verse.';
       }
@@ -2602,6 +3031,14 @@
       }
       devThemePresetPicker.classList.toggle('open', isOpen);
       devThemePresetButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    function setDevFontFamilyPickerOpen(isOpen) {
+      if (!devFontFamilyPicker || !devFontFamilyButton) {
+        return;
+      }
+      devFontFamilyPicker.classList.toggle('open', isOpen);
+      devFontFamilyButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
 
     function updateComparePickerControls() {
@@ -3205,6 +3642,40 @@
       return `#${[r, g, b].map((value) => Math.max(0, Math.min(255, Math.round(value))).toString(16).padStart(2, '0')).join('')}`;
     }
 
+    function getTypeLabFontFamily(fontKey) {
+      switch (fontKey) {
+        case 'georgia':
+          return 'Georgia, "Times New Roman", serif';
+        case 'palatino':
+          return '"Palatino Linotype", Palatino, "Book Antiqua", serif';
+        case 'garamond':
+          return 'Garamond, Baskerville, "Times New Roman", serif';
+        case 'trebuchet':
+          return '"Trebuchet MS", Verdana, sans-serif';
+        case 'courier':
+          return '"Courier New", Courier, monospace';
+        default:
+          return '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif';
+      }
+    }
+
+    function getTypeLabFontLabel(fontKey) {
+      switch (fontKey) {
+        case 'georgia':
+          return 'Georgia';
+        case 'palatino':
+          return 'Palatino';
+        case 'garamond':
+          return 'Garamond';
+        case 'trebuchet':
+          return 'Trebuchet';
+        case 'courier':
+          return 'Courier';
+        default:
+          return 'System UI';
+      }
+    }
+
     function mixHex(baseHex, mixHexColor, weight = 0.5) {
       const base = hexToRgb(baseHex);
       const mix = hexToRgb(mixHexColor);
@@ -3244,6 +3715,69 @@
           `;
         }).join('');
       }
+    }
+
+    function updateTypeLabControls() {
+      const { fontFamily, letterSpacing, wordSpacing, lineHeight, readingLineHeight, measure, titleScale } = state.devTypeLab;
+      if (devFontFamilyValue) devFontFamilyValue.textContent = getTypeLabFontLabel(fontFamily);
+      if (devFontFamilyOptions) {
+        devFontFamilyOptions.innerHTML = [
+          ['system', 'System UI', 'Default reader font'],
+          ['georgia', 'Georgia', 'Classic serif'],
+          ['palatino', 'Palatino', 'Book-style serif'],
+          ['garamond', 'Garamond', 'Elegant old-style serif'],
+          ['trebuchet', 'Trebuchet', 'Soft sans-serif'],
+          ['courier', 'Courier', 'Monospace']
+        ].map(([value, label, description]) => `
+          <button type="button" class="translation-option${value === fontFamily ? ' active' : ''}" data-dev-font-family="${escapeHtml(value)}" role="option" aria-selected="${value === fontFamily ? 'true' : 'false'}" style="--dev-font-preview: ${escapeHtml(getTypeLabFontFamily(value))};">
+            <span class="translation-option-meta">
+              <span class="translation-option-label">${escapeHtml(label)}</span>
+              <span class="translation-option-description">${escapeHtml(description)}</span>
+            </span>
+            <span class="translation-option-check" aria-hidden="true">✓</span>
+          </button>
+        `).join('');
+      }
+      if (devLetterSpacingRange) devLetterSpacingRange.value = String(letterSpacing);
+      if (devLetterSpacingValue) devLetterSpacingValue.textContent = `${Number(letterSpacing).toFixed(2)}em`;
+      if (devWordSpacingRange) devWordSpacingRange.value = String(wordSpacing);
+      if (devWordSpacingValue) devWordSpacingValue.textContent = `${Number(wordSpacing).toFixed(2)}em`;
+      if (devLineHeightRange) devLineHeightRange.value = String(lineHeight);
+      if (devLineHeightValue) devLineHeightValue.textContent = Number(lineHeight).toFixed(2);
+      if (devReadingLineHeightRange) devReadingLineHeightRange.value = String(readingLineHeight);
+      if (devReadingLineHeightValue) devReadingLineHeightValue.textContent = Number(readingLineHeight).toFixed(2);
+      if (devMeasureRange) devMeasureRange.value = String(measure);
+      if (devMeasureValue) devMeasureValue.textContent = `${measure}px`;
+      if (devTitleScaleRange) devTitleScaleRange.value = String(titleScale);
+      if (devTitleScaleValue) devTitleScaleValue.textContent = `${Number(titleScale).toFixed(1)}x`;
+    }
+
+    function applyTypeLabSettings() {
+      const rootStyle = document.documentElement.style;
+      const config = state.devTypeLab;
+      rootStyle.setProperty('--reader-font-family', getTypeLabFontFamily(config.fontFamily));
+      rootStyle.setProperty('--reader-letter-spacing', `${Number(config.letterSpacing).toFixed(2)}em`);
+      rootStyle.setProperty('--reader-word-spacing', `${Number(config.wordSpacing).toFixed(2)}em`);
+      rootStyle.setProperty('--reader-line-height', Number(config.lineHeight).toFixed(2));
+      rootStyle.setProperty('--reader-reading-line-height', Number(config.readingLineHeight).toFixed(2));
+      rootStyle.setProperty('--reader-measure', `${config.measure}px`);
+      rootStyle.setProperty('--reader-title-scale', Number(config.titleScale).toFixed(1));
+      updateTypeLabControls();
+    }
+
+    function resetTypeLabSettings() {
+      state.devTypeLab = {
+        fontFamily: 'system',
+        letterSpacing: 0,
+        wordSpacing: 0,
+        lineHeight: 1.75,
+        readingLineHeight: 2.05,
+        measure: 760,
+        titleScale: 2.5
+      };
+      applyTypeLabSettings();
+      updateDevPanel();
+      setHint('Type Lab reset.');
     }
 
     function applyDevThemeOverrides() {
@@ -4097,6 +4631,7 @@
     updateTextScaleControls();
     updateCompareControls();
     applyDevThemeOverrides();
+    applyTypeLabSettings();
 
     function getLocationReferenceBooks(entry) {
       const books = [];
@@ -5085,6 +5620,53 @@
     devHudOmniscienceButton?.addEventListener('click', async () => {
       await activateOmniscienceMode();
     });
+    devFontFamilyButton?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setDevThemePresetPickerOpen(false);
+      setDevFontFamilyPickerOpen(!devFontFamilyPicker.classList.contains('open'));
+    });
+    devFontFamilyOptions?.addEventListener('click', (e) => {
+      const button = e.target.closest('[data-dev-font-family]');
+      if (!button) {
+        return;
+      }
+      state.devTypeLab.fontFamily = button.dataset.devFontFamily || 'system';
+      applyTypeLabSettings();
+      updateDevPanel();
+      setDevFontFamilyPickerOpen(false);
+    });
+    devLetterSpacingRange?.addEventListener('input', () => {
+      state.devTypeLab.letterSpacing = Number(devLetterSpacingRange.value);
+      applyTypeLabSettings();
+    });
+    devWordSpacingRange?.addEventListener('input', () => {
+      state.devTypeLab.wordSpacing = Number(devWordSpacingRange.value);
+      applyTypeLabSettings();
+    });
+    devLineHeightRange?.addEventListener('input', () => {
+      state.devTypeLab.lineHeight = Number(devLineHeightRange.value);
+      applyTypeLabSettings();
+    });
+    devReadingLineHeightRange?.addEventListener('input', () => {
+      state.devTypeLab.readingLineHeight = Number(devReadingLineHeightRange.value);
+      applyTypeLabSettings();
+    });
+    devMeasureRange?.addEventListener('input', () => {
+      state.devTypeLab.measure = Number(devMeasureRange.value);
+      applyTypeLabSettings();
+    });
+    devTitleScaleRange?.addEventListener('input', () => {
+      state.devTypeLab.titleScale = Number(devTitleScaleRange.value);
+      applyTypeLabSettings();
+    });
+    devApplyTypeLabButton?.addEventListener('click', () => {
+      applyTypeLabSettings();
+      updateDevPanel();
+      setHint('Type Lab applied.');
+    });
+    devResetTypeLabButton?.addEventListener('click', () => {
+      resetTypeLabSettings();
+    });
     translationPickerButton.addEventListener('click', (e) => {
       e.stopPropagation();
       closeMenu();
@@ -5334,6 +5916,9 @@
       if (!devThemePresetPicker?.contains(e.target)) {
         setDevThemePresetPickerOpen(false);
       }
+      if (!devFontFamilyPicker?.contains(e.target)) {
+        setDevFontFamilyPickerOpen(false);
+      }
     }, true);
 
     document.addEventListener('pointerdown', (e) => {
@@ -5408,6 +5993,9 @@
       }
       if (e.key === 'Escape' && devThemePresetPicker?.classList.contains('open')) {
         setDevThemePresetPickerOpen(false);
+      }
+      if (e.key === 'Escape' && devFontFamilyPicker?.classList.contains('open')) {
+        setDevFontFamilyPickerOpen(false);
       }
     });
 
