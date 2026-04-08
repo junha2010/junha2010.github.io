@@ -1,0 +1,30 @@
+{
+    "generated_at":  "2026-04-07T23:55:26-04:00",
+    "count":  2,
+    "entries":  [
+                    {
+                        "name":  "Abarim",
+                        "status":  "kept-existing",
+                        "files":  [
+                                      "09 The Promised Land.png",
+                                      "11 Israel After their Defeat of Sihon and Og.png",
+                                      "01 The Near East.png"
+                                  ],
+                        "candidates":  [
+
+                                       ]
+                    },
+                    {
+                        "name":  "Abelbethmaachah",
+                        "status":  "kept-existing",
+                        "files":  [
+                                      "09 The Promised Land.png",
+                                      "12 The Boundaries of Israel.png",
+                                      "05 The Land of Canaan.png"
+                                  ],
+                        "candidates":  [
+
+                                       ]
+                    }
+                ]
+}
