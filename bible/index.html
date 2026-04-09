@@ -769,9 +769,23 @@
     .settings-modal-title { margin: 0; font-size: 1.2rem; color: var(--text-strong); }
     .settings-modal-subtitle { margin: 0.25rem 0 0; color: var(--text-soft); font-size: 0.9rem; }
     .settings-modal-body { padding: 0 1rem 1rem; }
-    .settings-section-label { margin: 0 0 0.7rem; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
+    .settings-section-label { margin: 0; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .settings-group { display: grid; gap: 1rem; }
-    .settings-row { display: grid; gap: 0.7rem; }
+    .settings-row { position: relative; display: grid; gap: 0.7rem; }
+    .settings-row-head { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+    .settings-help-item { position: relative; flex: 0 0 auto; }
+    .settings-help-btn { width: 1.65rem; height: 1.65rem; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-soft); font: inherit; font-size: 0.88rem; font-weight: 900; line-height: 1; cursor: pointer; transition: border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
+    .settings-help-btn:hover { border-color: #94a3b8; color: var(--text-strong); box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08); }
+    .settings-help-btn:active { transform: scale(0.96); }
+    .settings-help-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .settings-help-item.open .settings-help-btn { border-color: var(--verse-accent, #0066cc); color: var(--verse-accent, #0066cc); }
+    .settings-help-tooltip { position: absolute; top: calc(100% + 0.45rem); right: 0; width: min(18rem, calc(100vw - 4rem)); padding: 0.8rem 0.9rem; border: 1px solid var(--border-soft); border-radius: 0.95rem; background: var(--surface-elevated); color: var(--text); box-shadow: var(--shadow-md); font-size: 0.82rem; line-height: 1.5; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-0.2rem) scale(0.98); transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease; z-index: 6; }
+    .settings-help-tooltip::before { content: ''; position: absolute; top: -0.4rem; right: 0.9rem; width: 0.72rem; height: 0.72rem; background: var(--surface-elevated); border-top: 1px solid var(--border-soft); border-left: 1px solid var(--border-soft); transform: rotate(45deg); }
+    .settings-help-item.open .settings-help-tooltip { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
+    @media (hover: hover) and (pointer: fine) {
+      .settings-help-item:hover .settings-help-tooltip,
+      .settings-help-item:focus-within .settings-help-tooltip { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
+    }
     .settings-helper { margin: -0.2rem 0 0; font-size: 0.82rem; color: var(--text-soft); }
     .mode-toggle { --toggle-count: 2; --toggle-gap: 0.25rem; --toggle-pad: 0.28rem; --active-index: 0; position: relative; display: inline-flex; align-items: center; gap: var(--toggle-gap); padding: var(--toggle-pad); border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 1px 2px rgba(15, 23, 42, 0.06); width: 100%; }
     .mode-toggle::before { content: ''; position: absolute; top: var(--toggle-pad); bottom: var(--toggle-pad); left: var(--toggle-pad); width: calc((100% - (var(--toggle-pad) * 2) - (var(--toggle-gap) * (var(--toggle-count) - 1))) / var(--toggle-count)); border-radius: 999px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16); transform: translateX(calc(var(--active-index) * (100% + var(--toggle-gap)))); transition: transform 0.28s cubic-bezier(.22,1,.36,1), background 0.22s ease; pointer-events: none; }
@@ -1395,6 +1409,7 @@
       .settings-modal-card { width: 100%; border-radius: 1.2rem 1.2rem 0 0; }
       .settings-modal .settings-modal-card { transform: translateY(100%); opacity: 1; transition: transform 0.34s cubic-bezier(.22,1,.36,1); }
       .settings-modal.open .settings-modal-card { transform: translateY(0); }
+      .settings-help-tooltip { width: min(17rem, calc(100vw - 3rem)); right: 0; }
       .content { margin-top: 5.3rem; margin-bottom: 7rem; padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom)); }
       body.compare-mode .chapter-title,
       body.compare-mode .hint { display: none; }
@@ -1684,28 +1699,52 @@
       <div class="settings-modal-body">
         <div class="settings-group">
           <div class="settings-row">
-            <p class="settings-section-label">Reading Mode</p>
+            <div class="settings-row-head">
+              <p class="settings-section-label">Reading Mode</p>
+              <div class="settings-help-item">
+                <button class="settings-help-btn" type="button" aria-label="Explain reading mode" aria-expanded="false">!</button>
+                <div class="settings-help-tooltip">Switch between separate verse cards and a continuous reading layout that feels more like a flowing chapter page.</div>
+              </div>
+            </div>
             <div class="mode-toggle" role="tablist" aria-label="Reading mode">
               <button id="readingModeOffBtn" class="mode-btn active" type="button" data-reading-mode="off" role="tab" aria-selected="true">Verse View</button>
               <button id="readingModeOnBtn" class="mode-btn" type="button" data-reading-mode="on" role="tab" aria-selected="false">Reading Mode</button>
             </div>
           </div>
           <div class="settings-row">
-            <p class="settings-section-label">Chapter Tap</p>
+            <div class="settings-row-head">
+              <p class="settings-section-label">Chapter Tap</p>
+              <div class="settings-help-item">
+                <button class="settings-help-btn" type="button" aria-label="Explain chapter tap" aria-expanded="false">!</button>
+                <div class="settings-help-tooltip">Choose what happens when you pick a chapter: open the whole chapter right away or ask which verse you want first.</div>
+              </div>
+            </div>
             <div class="mode-toggle" role="tablist" aria-label="Chapter tap behavior">
               <button id="chapterTapVerseBtn" class="mode-btn active" type="button" data-chapter-tap="verse-menu" role="tab" aria-selected="true">Ask Verse</button>
               <button id="chapterTapDirectBtn" class="mode-btn" type="button" data-chapter-tap="direct" role="tab" aria-selected="false">Open Chapter</button>
             </div>
           </div>
           <div class="settings-row">
-            <p class="settings-section-label">Theme</p>
+            <div class="settings-row-head">
+              <p class="settings-section-label">Theme</p>
+              <div class="settings-help-item">
+                <button class="settings-help-btn" type="button" aria-label="Explain theme" aria-expanded="false">!</button>
+                <div class="settings-help-tooltip">Change the reader between light mode and dark mode to match your room, screen brightness, or reading preference.</div>
+              </div>
+            </div>
             <div class="mode-toggle" role="tablist" aria-label="Theme">
               <button id="themeLightBtn" class="mode-btn active" type="button" data-theme-mode="light" role="tab" aria-selected="true">Light</button>
               <button id="themeDarkBtn" class="mode-btn" type="button" data-theme-mode="dark" role="tab" aria-selected="false">Dark</button>
             </div>
           </div>
           <div class="settings-row">
-            <p class="settings-section-label">Text Scale</p>
+            <div class="settings-row-head">
+              <p class="settings-section-label">Text Scale</p>
+              <div class="settings-help-item">
+                <button class="settings-help-btn" type="button" aria-label="Explain text scale" aria-expanded="false">!</button>
+                <div class="settings-help-tooltip">Increase or decrease the size of the Bible text so it is easier to read comfortably on your current screen.</div>
+              </div>
+            </div>
             <p class="settings-helper">Make the Bible text larger or smaller.</p>
             <div class="scale-slider-wrap">
               <input id="textScaleSlider" class="scale-slider" type="range" min="85" max="160" step="1" value="100" aria-label="Text scale" />
@@ -2077,6 +2116,7 @@
     const wordModalCloseBtn = document.getElementById('wordModalClose');
     const settingsModal = document.getElementById('settingsModal');
     const settingsModalCloseBtn = document.getElementById('settingsModalClose');
+    const settingsHelpItems = Array.from(document.querySelectorAll('.settings-help-item'));
     const devModal = document.getElementById('devModal');
     const devModalCloseBtn = document.getElementById('devModalClose');
     const devStateSummary = document.getElementById('devStateSummary');
@@ -4931,7 +4971,32 @@
       document.body.classList.remove('settings-open');
       document.body.style.overflow = '';
       setTranslationPickerOpen(false);
+      closeAllSettingsHelp();
       setMobileChromeHidden(false);
+    }
+
+    function isTouchTooltipMode() {
+      return window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    }
+
+    function closeAllSettingsHelp() {
+      settingsHelpItems.forEach((item) => {
+        item.classList.remove('open');
+        const button = item.querySelector('.settings-help-btn');
+        button?.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    function setSettingsHelpOpen(item, isOpen) {
+      if (!item) {
+        return;
+      }
+      if (isOpen) {
+        closeAllSettingsHelp();
+      }
+      item.classList.toggle('open', isOpen);
+      const button = item.querySelector('.settings-help-btn');
+      button?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
 
     function isMobileComparePaneLayout() {
@@ -6008,6 +6073,18 @@
         closeSettingsModal();
       }
     });
+    settingsHelpItems.forEach((item) => {
+      const button = item.querySelector('.settings-help-btn');
+      button?.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!isTouchTooltipMode()) {
+          setSettingsHelpOpen(item, !item.classList.contains('open'));
+          return;
+        }
+        setSettingsHelpOpen(item, !item.classList.contains('open'));
+      });
+    });
     copyVerseButton.addEventListener('click', async () => {
       await copySelectedVerse();
     });
@@ -6064,6 +6141,9 @@
       }
       if (!devFontFamilyPicker?.contains(e.target)) {
         setDevFontFamilyPickerOpen(false);
+      }
+      if (!e.target.closest('.settings-help-item')) {
+        closeAllSettingsHelp();
       }
     }, true);
 
@@ -6127,6 +6207,9 @@
       }
       if (e.key === 'Escape' && settingsModal.classList.contains('open')) {
         closeSettingsModal();
+      }
+      if (e.key === 'Escape') {
+        closeAllSettingsHelp();
       }
       if (e.key === 'Escape' && devModal.classList.contains('open')) {
         closeDevModal();
