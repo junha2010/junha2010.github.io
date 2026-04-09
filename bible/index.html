@@ -1009,8 +1009,18 @@
     body.compare-mode .compare-layout.compare-enabled .compare-pane-secondary { display: grid; padding-left: 0; }
     .compare-layout.compare-enabled .verse-container { max-width: none; overflow-anchor: none; }
     body.compare-mode .verse-container { min-height: 0; height: 100%; max-width: none; margin: 0; overflow-y: auto; overflow-x: hidden; padding: 0.95rem 1rem 1.1rem; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; touch-action: pan-y; overflow-anchor: none; }
-    .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; scroll-margin-top: var(--verse-scroll-margin); }
+    .verse-card { background: transparent; border: none; border-left: 3px solid var(--verse-accent, #0066cc); border-radius: 0; padding: 1rem 0 1rem 2.4rem; margin-bottom: 1.4rem; position: relative; scroll-margin-top: var(--verse-scroll-margin); transform-origin: center center; transition: transform 0.18s cubic-bezier(.22,1,.36,1), box-shadow 0.18s cubic-bezier(.22,1,.36,1), background 0.18s ease, border-radius 0.18s ease; }
     .verse-card.verse-flash { animation: verse-flash 1s ease; }
+    .verse-card.mobile-long-press-arming {
+      transform: scale(0.985);
+      background: color-mix(in srgb, var(--verse-accent, #0066cc) 6%, transparent);
+    }
+    .verse-card.mobile-long-press-active {
+      border-radius: 1rem;
+      background: color-mix(in srgb, var(--verse-accent, #0066cc) 12%, var(--surface-elevated));
+      box-shadow: 0 18px 36px color-mix(in srgb, var(--verse-accent, #0066cc) 18%, transparent);
+      animation: mobile-long-press-pop 0.28s cubic-bezier(.18,.89,.32,1.28) forwards;
+    }
     .verse-card.verse-context-selected .verse-line {
       text-decoration-line: underline;
       text-decoration-style: dotted;
@@ -1241,6 +1251,11 @@
       0% { background: color-mix(in srgb, var(--verse-accent, #0066cc) 26%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--verse-accent, #0066cc) 48%, transparent), 0 0 0 0 color-mix(in srgb, var(--verse-accent, #0066cc) 0%, transparent); }
       40% { background: color-mix(in srgb, var(--verse-accent, #0066cc) 16%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--verse-accent, #0066cc) 40%, transparent), 0 12px 28px color-mix(in srgb, var(--verse-accent, #0066cc) 18%, transparent); }
       100% { background: transparent; box-shadow: 0 0 0 1px color-mix(in srgb, var(--verse-accent, #0066cc) 0%, transparent), 0 0 0 0 color-mix(in srgb, var(--verse-accent, #0066cc) 0%, transparent); }
+    }
+    @keyframes mobile-long-press-pop {
+      0% { transform: scale(0.972); }
+      48% { transform: scale(1.035); }
+      100% { transform: scale(1.02); }
     }
     @keyframes never-wet-screen-wiggle {
       0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
@@ -2138,7 +2153,7 @@
     const emailVerseButton = document.getElementById('emailVerseButton');
     const developerModeBadge = document.getElementById('developerModeBadge');
     const neverWetEyes = document.getElementById('neverWetEyes');
-    const MOBILE_LONG_PRESS_MS = 450;
+    const MOBILE_LONG_PRESS_MS = 300;
     const MOBILE_LONG_PRESS_MOVE_TOLERANCE = 12;
 
     const state = {
@@ -2190,6 +2205,7 @@
       mobileLongPressTriggered: false,
       mobileLongPressStartAt: 0,
       mobileLongPressTarget: null,
+      mobileLongPressCard: null,
       mobileLongPressStartX: 0,
       mobileLongPressStartY: 0,
       mobileLongPressSuppressClickUntil: 0,
@@ -4098,16 +4114,22 @@
         window.clearTimeout(state.mobileLongPressTimerId);
       }
 
+      if (state.mobileLongPressCard) {
+        state.mobileLongPressCard.classList.remove('mobile-long-press-arming', 'mobile-long-press-active');
+      }
+
       state.mobileLongPressTimerId = null;
       state.mobileLongPressTriggered = false;
       state.mobileLongPressStartAt = 0;
       state.mobileLongPressTarget = null;
+      state.mobileLongPressCard = null;
       state.mobileLongPressStartX = 0;
       state.mobileLongPressStartY = 0;
     }
 
     function handleMobileLongPressStart(event) {
       const target = event.target instanceof HTMLElement ? event.target.closest('.verse-line, .verse-card') : null;
+      const verseCard = target instanceof HTMLElement ? target.closest('.verse-card') : null;
       if (!target || event.touches.length !== 1) {
         clearMobileLongPressState();
         return;
@@ -4116,11 +4138,17 @@
       clearMobileLongPressState();
       state.mobileLongPressStartAt = Date.now();
       state.mobileLongPressTarget = target;
+      state.mobileLongPressCard = verseCard;
       state.mobileLongPressStartX = event.touches[0].clientX;
       state.mobileLongPressStartY = event.touches[0].clientY;
+      state.mobileLongPressCard?.classList.add('mobile-long-press-arming');
       state.mobileLongPressTimerId = window.setTimeout(() => {
         state.mobileLongPressTriggered = true;
         state.mobileLongPressTimerId = null;
+        if (state.mobileLongPressCard) {
+          state.mobileLongPressCard.classList.remove('mobile-long-press-arming');
+          state.mobileLongPressCard.classList.add('mobile-long-press-active');
+        }
       }, MOBILE_LONG_PRESS_MS);
     }
 
@@ -4159,7 +4187,7 @@
         state.mobileLongPressSuppressClickUntil = Date.now() + 900;
         if (selection) {
           logDevInteraction('Long press', selection.reference);
-          window.setTimeout(() => openVerseActionMenu(selection), 30);
+          window.setTimeout(() => openVerseActionMenu(selection), 120);
         }
       }
 
@@ -5248,6 +5276,26 @@
       scheduleReadingStatusSync();
     }
 
+    function resetCompareChapterScrollPosition(behavior = 'auto') {
+      if (state.compareSyncSettleTimeoutId != null) {
+        window.clearTimeout(state.compareSyncSettleTimeoutId);
+        state.compareSyncSettleTimeoutId = null;
+      }
+
+      state.compareSyncIgnorePane = null;
+      state.compareSyncIgnoreUntil = 0;
+      verseContainer.scrollTo({ top: 0, behavior });
+      secondaryVerseContainer.scrollTo({ top: 0, behavior });
+
+      requestAnimationFrame(() => {
+        if (behavior === 'smooth') {
+          state.compareSyncIgnoreUntil = Date.now() + 450;
+        }
+        verseContainer.scrollTo({ top: 0, behavior });
+        secondaryVerseContainer.scrollTo({ top: 0, behavior });
+      });
+    }
+
     async function goToChapter(bookName, chapterNumber, options = {}) {
       const { scrollToTop = true, scrollVerse = null } = options;
 
@@ -5282,8 +5330,14 @@
       updateReadingStatus(state.activeVerse);
 
       if (scrollToTop) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (state.compareMode) {
+          resetCompareChapterScrollPosition('smooth');
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
         state.activeVerse = 1;
+        state.readingStatusPinnedVerse = 1;
+        state.readingStatusPinnedScrollTop = 0;
         updateReadingStatus(1);
       }
 
