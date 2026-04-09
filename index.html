@@ -9,24 +9,31 @@
     <link rel="icon" href="img/icon.png">
 </head>
 <body>
-    <ul>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/work.html">Work</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-        <li><a href="/brainwash/index.html">Brain Wash</a></li>
-        <li><a href="/bible/index.html">Bible</a></li>
-    </ul>
-    <center class="logo"><img src="img/logoforwebstienobackground.png" style="height:200px;"></center>
-    <div class="search">
-        <div class="search-bar">
-            <form action="https://www.google.com/search" method="get" >
-                <input type="text" placeholder="search in google" name="q">
-                <button type="submit"><ion-icon name="log-out-outline"></ion-icon></button>
-            </form>
-        </div>
-    </div>
+    <main class="page-shell">
+        <header class="hero">
+            <a class="logo" href="./index.html" aria-label="Go to homepage">
+                <img src="img/NEVER-WET.gif" alt="NEVER - WET logo">
+            </a>
 
+            <form class="search-bar" action="https://www.google.com/search" method="get">
+                <input type="text" name="q" placeholder="search in google" aria-label="Search Google">
+                <button type="submit" aria-label="Submit search">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                </button>
+            </form>
+        </header>
+
+        <section class="page-links" aria-labelledby="all-pages-title">
+            <div class="section-heading">
+                <h1 id="all-pages-title">All Pages</h1>
+                <p>Quick links to every HTML page in this website.</p>
+            </div>
+            <div class="link-grid" id="link-grid"></div>
+        </section>
+    </main>
+
+    <script src="js/index.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </html>

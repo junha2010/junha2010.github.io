@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="sheet">
+        <section class="worksheet">
+            <div class="worksheet-main">
+                <section class="table-wrap" aria-label="Periodic table of the elements">
+                    <div class="periodic-grid" id="periodic-grid"></div>
+                </section>
+
+                <section class="worksheet-note">
+                    <p>Any value in parentheses is the mass of the most stable or best known isotope for elements that do not occur naturally.</p>
+                </section>
+
+                <footer class="worksheet-footer">
+                    <p>NEVER-WET copyright</p>
+                </footer>
+            </div>
+
+            <aside class="worksheet-side">
+                <h1>Periodic Table of the Elements</h1>
+
+                <section class="search-block">
+                    <form id="element-search-form" class="search-form">
+                        <label for="element-search" class="search-label">Search Element Name</label>
+                        <div class="search-row">
+                            <input id="element-search" name="element-search" type="text" placeholder="ex. oxygen">
+                            <button type="submit">Find</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="legend-block">
+                    <button class="legend-item legend-filter" type="button" data-material="material-metal"><span class="legend-swatch material-metal"></span><span>metal</span></button>
+                    <button class="legend-item legend-filter" type="button" data-material="material-metalloid"><span class="legend-swatch material-metalloid"></span><span>metalloid</span></button>
+                    <button class="legend-item legend-filter" type="button" data-material="material-nonmetal"><span class="legend-swatch material-nonmetal"></span><span>non-metal</span></button>
+                </section>
+
+                <section class="diagram-block">
+                    <div class="diagram-panel">
+                        <div class="diagram-left">
+                            <div class="diagram-row"><span class="diagram-label">Atomic Number</span><span class="diagram-line"></span><span class="diagram-arrowhead">&gt;</span></div>
+                            <div class="diagram-row"><span class="diagram-label">Symbol</span><span class="diagram-line"></span><span class="diagram-arrowhead">&gt;</span></div>
+                            <div class="diagram-row"><span class="diagram-label">Name</span><span class="diagram-line"></span><span class="diagram-arrowhead">&gt;</span></div>
+                            <div class="diagram-row"><span class="diagram-label">Atomic Mass</span><span class="diagram-line"></span><span class="diagram-arrowhead">&gt;</span></div>
+                        </div>
+
+                        <div class="element-preview material-metal" id="element-preview" aria-hidden="true">
+                            <span class="cell-number" id="preview-number">22</span>
+                            <span class="cell-symbol" id="preview-symbol">Ti</span>
+                            <span class="cell-name" id="preview-name">Titanium</span>
+                            <span class="cell-mass" id="preview-mass">47.9</span>
+                            <span class="cell-charges" id="preview-charge">4+<br>3+</span>
+                        </div>
+
+                        <div class="diagram-right">
+                            <div class="diagram-row diagram-row-charge"><span class="diagram-arrowhead">&lt;</span><span class="diagram-line"></span><span class="diagram-label">Ion<br>Charge(s)</span></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="legend-block legend-block-small">
+                    <div class="legend-item"><span class="legend-box">O</span><span>natural</span></div>
+                    <div class="legend-item"><span class="legend-box">Db</span><span>synthetic</span></div>
+                </section>
+
+                <section class="details-panel" aria-live="polite">
+                    <h2 id="element-name">Titanium</h2>
+                    <p id="element-info">Atomic Number 22 - metal</p>
+                    <div class="details-grid">
+                        <p><strong>Symbol:</strong> <span id="element-symbol">Ti</span></p>
+                        <p><strong>Atomic Mass:</strong> <span id="element-mass">47.867(1)</span></p>
+                        <p><strong>Ion Charge(s):</strong> <span id="element-charges">-1, 2, 3, 4</span></p>
+                    </div>
+                </section>
+            </aside>
+        </section>
+        <footer class="sheet-footer">
+            <p>NEVER-WET copyright</p>
+        </footer>
+    </main>
+
+    <script src="elementDetails.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
