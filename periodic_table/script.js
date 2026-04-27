@@ -303,6 +303,17 @@ function clearSearchHighlight() {
     cards.forEach((card) => card.classList.remove("is-search-match"));
 }
 
+function findElementBySearchQuery(query) {
+    const normalizedQuery = query.trim().toLowerCase();
+
+    return elements.find((element) => {
+        return (
+            element.name.toLowerCase() === normalizedQuery ||
+            element.symbol.toLowerCase() === normalizedQuery
+        );
+    });
+}
+
 function bindSearch() {
     if (!searchForm || !searchInput) {
         return;
@@ -312,12 +323,12 @@ function bindSearch() {
         event.preventDefault();
         clearSearchHighlight();
 
-        const query = searchInput.value.trim().toLowerCase();
+        const query = searchInput.value.trim();
         if (!query) {
             return;
         }
 
-        const match = elements.find((element) => element.name.toLowerCase() === query);
+        const match = findElementBySearchQuery(query);
         if (!match) {
             return;
         }
