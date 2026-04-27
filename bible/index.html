@@ -110,6 +110,11 @@
     .compare-toggle-btn[aria-pressed="true"] { background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #ffffff; border-color: #0f172a; }
     .compare-toggle-icon { font-size: 1rem; line-height: 1; }
     .compare-toggle-text { font-size: 0.84rem; font-weight: 700; line-height: 1; }
+    .download-app-btn { display: inline-flex; align-items: center; justify-content: center; width: 2.9rem; height: 2.9rem; border: 1px solid var(--border-soft); border-radius: 999px; background: linear-gradient(180deg, var(--control-grad-start) 0%, var(--control-grad-end) 100%); color: var(--text-soft); cursor: pointer; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06); transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, color 0.18s ease; flex-shrink: 0; }
+    .download-app-btn:hover { color: var(--text-strong); border-color: #94a3b8; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12); transform: translateY(-1px); }
+    .download-app-btn:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .download-app-btn:active { transform: scale(0.965); box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12); }
+    .download-app-icon { width: 1.24rem; height: 1.24rem; display: block; }
     body.developer-mode .topbar {
       box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.18), var(--shadow-sm);
     }
@@ -769,6 +774,23 @@
     .settings-modal-title { margin: 0; font-size: 1.2rem; color: var(--text-strong); }
     .settings-modal-subtitle { margin: 0.25rem 0 0; color: var(--text-soft); font-size: 0.9rem; }
     .settings-modal-body { padding: 0 1rem 1rem; }
+    .download-modal-card { width: min(92vw, 440px); background: var(--surface-elevated); border-radius: 1rem; box-shadow: var(--shadow-lg); overflow: hidden; transform: translateY(2.2rem) scale(0.97); opacity: 0; transition: transform 0.3s cubic-bezier(.22,1,.36,1), opacity 0.24s ease; }
+    .download-modal.open .download-modal-card { transform: translateY(0) scale(1); opacity: 1; }
+    .download-modal-body { padding: 0.2rem 1rem 1rem; display: grid; gap: 0.85rem; }
+    .download-app-panel { border: 1px solid var(--border-soft); border-radius: 1rem; background: var(--surface-subtle); padding: 0.9rem; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.8rem; align-items: center; }
+    .download-app-mark { width: 3rem; height: 3rem; border-radius: 0.9rem; display: inline-flex; align-items: center; justify-content: center; background: #111111; color: #ffffff; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18); }
+    body.dark-mode .download-app-mark { background: #f5f5f5; color: #171717; }
+    .download-app-mark svg { width: 1.35rem; height: 1.35rem; }
+    .download-app-name { margin: 0; color: var(--text-strong); font-size: 1rem; font-weight: 800; }
+    .download-app-meta { margin: 0.2rem 0 0; color: var(--text-soft); font-size: 0.84rem; line-height: 1.45; }
+    .download-app-note { margin: 0; color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; }
+    .download-app-actions { display: grid; gap: 0.65rem; }
+    .download-app-primary { min-height: 3.05rem; border: 1px solid #111111; border-radius: 0.9rem; background: #111111; color: #ffffff; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 850; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; }
+    .download-app-primary:hover { background: #222222; box-shadow: 0 14px 30px rgba(15, 23, 42, 0.24); transform: translateY(-1px); }
+    .download-app-primary:focus-visible { outline: 2px solid #0066cc; outline-offset: 2px; }
+    .download-app-primary:active { transform: scale(0.985); box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18); }
+    body.dark-mode .download-app-primary { background: #f5f5f5; border-color: #f5f5f5; color: #171717; }
+    body.dark-mode .download-app-primary:hover { background: #ffffff; }
     .settings-section-label { margin: 0; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); }
     .settings-group { display: grid; gap: 1rem; }
     .settings-row { position: relative; display: grid; gap: 0.7rem; }
@@ -1353,6 +1375,7 @@
       }
       .compare-toggle-btn { width: 2.55rem; height: 2.55rem; padding: 0; }
       .compare-toggle-text { display: none; }
+      .download-app-btn { width: 2.55rem; height: 2.55rem; }
       .settings-btn { width: 2.55rem; height: 2.55rem; }
       .settings-select-btn { padding: 0.72rem 0.82rem; font-size: 0.88rem; }
       .settings-select-caption { font-size: 0.74rem; }
@@ -1407,6 +1430,10 @@
       .menu-subhead { font-size: 0.74rem; letter-spacing: 0.09em; }
       .settings-modal { align-items: flex-end; padding: 0; }
       .settings-modal-card { width: 100%; border-radius: 1.2rem 1.2rem 0 0; }
+      .download-modal { align-items: flex-end; padding: 0; }
+      .download-modal-card { width: 100%; border-radius: 1.2rem 1.2rem 0 0; }
+      .download-modal .download-modal-card { transform: translateY(100%); opacity: 1; transition: transform 0.34s cubic-bezier(.22,1,.36,1); }
+      .download-modal.open .download-modal-card { transform: translateY(0); }
       .settings-modal .settings-modal-card { transform: translateY(100%); opacity: 1; transition: transform 0.34s cubic-bezier(.22,1,.36,1); }
       .settings-modal.open .settings-modal-card { transform: translateY(0); }
       .settings-help-tooltip { width: min(17rem, calc(100vw - 3rem)); right: 0; }
@@ -1550,6 +1577,13 @@
       <button id="compareModeButton" class="compare-toggle-btn" type="button" aria-pressed="false" aria-label="Toggle compare mode">
         <span class="compare-toggle-icon">⇄</span>
         <span class="compare-toggle-text">Compare</span>
+      </button>
+      <button id="downloadAppButton" class="download-app-btn" type="button" aria-label="Open Android app download" aria-haspopup="dialog" aria-expanded="false">
+        <svg class="download-app-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 3.8v10.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+          <path d="m7.8 10.4 4.2 4.2 4.2-4.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M5.2 18.9h13.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+        </svg>
       </button>
       <button id="settingsButton" class="settings-btn" type="button" aria-label="Open settings" aria-haspopup="dialog" aria-expanded="false">
         <span class="settings-icon">⚙</span>
@@ -1757,6 +1791,39 @@
               <button class="scale-preset-btn" type="button" data-text-scale="145">145%</button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="downloadModal" class="location-modal download-modal" aria-hidden="true">
+    <div class="download-modal-card" role="dialog" aria-modal="true" aria-labelledby="downloadModalTitle">
+      <div class="settings-modal-header">
+        <div>
+          <h2 id="downloadModalTitle" class="settings-modal-title">Android App</h2>
+          <p class="settings-modal-subtitle">Download the APK for Android phones and tablets.</p>
+        </div>
+        <button id="downloadModalClose" class="location-close" type="button" aria-label="Close download popup">×</button>
+      </div>
+      <div class="download-modal-body">
+        <div class="download-app-panel">
+          <div class="download-app-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M12 3.8v10.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+              <path d="m7.8 10.4 4.2 4.2 4.2-4.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M5.2 18.9h13.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="download-app-name">Bible Viewer APK</p>
+            <p class="download-app-meta">Version 1.0 · Debug build · 763.58 MB</p>
+          </div>
+        </div>
+        <p class="download-app-note">This keeps the website available for PC users while Android users can install the packaged app. Android may ask you to allow installing APKs from the browser.</p>
+        <div class="download-app-actions">
+          <a class="download-app-primary" href="../bible-android/dist/BibleViewer-debug.apk" download="BibleViewer-debug.apk">
+            <span>Download APK</span>
+          </a>
         </div>
       </div>
     </div>
@@ -2065,6 +2132,9 @@
     const menuButton = document.getElementById('menuButton');
     const menuDrop = document.getElementById('menuDrop');
     const compareModeButton = document.getElementById('compareModeButton');
+    const downloadAppButton = document.getElementById('downloadAppButton');
+    const downloadModal = document.getElementById('downloadModal');
+    const downloadModalCloseBtn = document.getElementById('downloadModalClose');
     const settingsButton = document.getElementById('settingsButton');
     const translationPicker = document.getElementById('translationPicker');
     const translationPickerButton = document.getElementById('translationPickerButton');
@@ -4955,6 +5025,22 @@
       setMobileChromeHidden(false);
     }
 
+    function openDownloadModal() {
+      setMobileChromeHidden(false);
+      downloadModal.classList.add('open');
+      downloadModal.setAttribute('aria-hidden', 'false');
+      downloadAppButton.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDownloadModal() {
+      downloadModal.classList.remove('open');
+      downloadModal.setAttribute('aria-hidden', 'true');
+      downloadAppButton.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      setMobileChromeHidden(false);
+    }
+
     function openSettingsModal() {
       setMobileChromeHidden(false);
       settingsModal.classList.add('open');
@@ -5693,6 +5779,7 @@
         closeMenu();
       } else {
         setTranslationPickerOpen(false);
+        closeDownloadModal();
         await openMenu();
       }
     });
@@ -5701,10 +5788,23 @@
         closeSettingsModal();
       } else {
         closeMenu();
+        closeDownloadModal();
         closeDevModal();
         closeLocationModal();
         closeWordModal();
         openSettingsModal();
+      }
+    });
+    downloadAppButton.addEventListener('click', () => {
+      if (downloadModal.classList.contains('open')) {
+        closeDownloadModal();
+      } else {
+        closeMenu();
+        closeSettingsModal();
+        closeDevModal();
+        closeLocationModal();
+        closeWordModal();
+        openDownloadModal();
       }
     });
     developerModeBadge?.addEventListener('click', () => {
@@ -5716,6 +5816,7 @@
       } else {
         closeMenu();
         closeSettingsModal();
+        closeDownloadModal();
         closeLocationModal();
         closeWordModal();
         openDevModal();
@@ -6073,6 +6174,12 @@
         closeSettingsModal();
       }
     });
+    downloadModalCloseBtn.addEventListener('click', closeDownloadModal);
+    downloadModal.addEventListener('click', (e) => {
+      if (e.target === downloadModal) {
+        closeDownloadModal();
+      }
+    });
     settingsHelpItems.forEach((item) => {
       const button = item.querySelector('.settings-help-btn');
       button?.addEventListener('click', (e) => {
@@ -6207,6 +6314,9 @@
       }
       if (e.key === 'Escape' && settingsModal.classList.contains('open')) {
         closeSettingsModal();
+      }
+      if (e.key === 'Escape' && downloadModal.classList.contains('open')) {
+        closeDownloadModal();
       }
       if (e.key === 'Escape') {
         closeAllSettingsHelp();
