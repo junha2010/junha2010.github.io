@@ -1,6 +1,6 @@
 # Bible Android
 
-This is a small Android WebView wrapper for the existing `../bible` website. The website folder is not deleted or duplicated in source; Gradle packages it as Android assets when building the APK.
+This is a small Android WebView wrapper for the hosted Bible website at `https://junha2010.github.io/bible/`.
 
 Build:
 

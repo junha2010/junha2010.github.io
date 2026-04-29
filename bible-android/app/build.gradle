@@ -11,9 +11,4 @@ android {
         versionName '1.0'
     }
 
-    sourceSets {
-        main {
-            assets.srcDirs = ['../../bible']
-        }
-    }
 }

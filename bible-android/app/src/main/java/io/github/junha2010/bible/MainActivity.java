@@ -12,7 +12,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class MainActivity extends Activity {
-    private static final String APP_URL = "file:///android_asset/index.html";
+    private static final String APP_URL = "https://junha2010.github.io/bible/";
+    private static final String APP_HOST = "junha2010.github.io";
+    private static final String APP_PATH_PREFIX = "/bible";
 
     private WebView webView;
 
@@ -58,6 +60,12 @@ public class MainActivity extends Activity {
         }
 
         if ("http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme)) {
+            String host = uri.getHost();
+            String path = uri.getPath();
+            if (APP_HOST.equalsIgnoreCase(host) && path != null && path.startsWith(APP_PATH_PREFIX)) {
+                return false;
+            }
+
             try {
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
                 return true;
