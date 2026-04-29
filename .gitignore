@@ -1,4 +1,5 @@
 .idea
+.android-build-tools/
 
 Captures/Mozilla Firefox 2023-04-29 21-48-07.mp4
 Captures/Crazy Clips on X_ _Woman Slaps a Kid and Plays Victim After She Gets Hit Back https___t.co_cTvBj43mCm_ _ X - Opera 2023-10-29 20-06-00.mp4
@@ -8,3 +9,7 @@ Captures/Minecraft 2023-10-29 13-26-53.mp4
 Captures/YouTube - Opera 2023-10-15 22-48-06.mp4
 Captures/스피드 연결 - Opera 2023-10-09 23-28-59.mp4
 Captures/스피드 연결 - Opera 2023-10-29 12-42-26.mp4
+
+# JavaScript / Vite generated files
+**/node_modules/
+**/*.tsbuildinfo
