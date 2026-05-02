@@ -12,15 +12,18 @@
     "appId": "io.github.junha2010.bibleviewer",
     "productName": "Bible Viewer",
     "artifactName": "BibleViewer-Windows-${version}.${ext}",
+    "icon": "build/icon.ico",
     "toolsets": {
       "winCodeSign": "1.1.0"
     },
     "files": [
       "src/**/*",
+      "build/icon.png",
       "package.json"
     ],
     "win": {
       "signAndEditExecutable": false,
+      "icon": "build/icon.ico",
       "target": [
         "portable"
       ]
