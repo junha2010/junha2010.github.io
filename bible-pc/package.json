@@ -1,0 +1,36 @@
+{
+  "name": "bible-viewer-pc",
+  "version": "1.0.0",
+  "description": "Windows desktop wrapper for the hosted Bible Viewer website.",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "io.github.junha2010.bibleviewer",
+    "productName": "Bible Viewer",
+    "artifactName": "BibleViewer-Windows-${version}.${ext}",
+    "toolsets": {
+      "winCodeSign": "1.1.0"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "signAndEditExecutable": false,
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "BibleViewer-Windows-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^41.5.0",
+    "electron-builder": "^26.8.1"
+  }
+}

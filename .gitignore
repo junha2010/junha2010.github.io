@@ -13,3 +13,7 @@ Captures/스피드 연결 - Opera 2023-10-29 12-42-26.mp4
 # JavaScript / Vite generated files
 **/node_modules/
 **/*.tsbuildinfo
+
+# Bible PC build intermediates
+bible-pc/dist/win-unpacked/
+bible-pc/dist/builder-debug.yml
