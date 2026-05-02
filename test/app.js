@@ -1,8 +1,11 @@
-var score = 0;
+let scoreValue = 0;
 
 function score() {
-    score = score + 1;
-    document.querySelector(".score")
-    document.querySelector.(".score").innerHTML = score();
+    scoreValue += 1;
+
+    const scoreNode = document.querySelector(".score");
+    if (scoreNode) {
+        scoreNode.textContent = scoreValue;
+    }
 }
 

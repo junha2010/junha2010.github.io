@@ -1,6 +1,18 @@
 function Plant() {
-    var betAmount = document.getElementById("betAmount").value;
-    var bank = document.getElementById("bank").innerText;
-    document.getElementById('bank').innerText = bank - betAmount;
+    const betAmountNode = document.getElementById("betAmount");
+    const bankNode = document.getElementById("bank");
+
+    if (!betAmountNode || !bankNode) {
+        return;
+    }
+
+    const betAmount = Number(betAmountNode.value) || 0;
+    const currentBank = Number(bankNode.textContent || bankNode.value) || 0;
+    const nextBank = currentBank - betAmount;
+
+    if ("value" in bankNode) {
+        bankNode.value = nextBank;
+    } else {
+        bankNode.textContent = nextBank;
+    }
 }
-bank.value = bank.value - betAmount;

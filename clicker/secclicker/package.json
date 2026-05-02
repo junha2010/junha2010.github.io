@@ -1,0 +1,22 @@
+{
+    "name":  "never-wet-clicker",
+    "private":  true,
+    "version":  "1.0.0",
+    "type":  "module",
+    "scripts":  {
+                    "dev":  "vite --host 0.0.0.0 --open /dev.html",
+                    "build":  "tsc -b \u0026\u0026 vite build \u0026\u0026 node scripts/write-static-index.mjs",
+                    "preview":  "vite preview --host 0.0.0.0"
+                },
+    "dependencies":  {
+                         "react":  "^19.2.5",
+                         "react-dom":  "^19.2.5"
+                     },
+    "devDependencies":  {
+                            "@types/react":  "^19.2.14",
+                            "@types/react-dom":  "^19.2.3",
+                            "@vitejs/plugin-react":  "^6.0.1",
+                            "typescript":  "^6.0.3",
+                            "vite":  "^8.0.10"
+                        }
+}

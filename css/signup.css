@@ -1,4 +1,7 @@
-div button {
+button,
+input[type="button"],
+input[type="submit"],
+.btn {
     width: 100px;
     height: 40px;
     border-radius: 4px;
@@ -9,7 +12,10 @@ div button {
     font-size: 1rem;
 }
 
-div button:hover {
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+.btn:hover {
     cursor: pointer;
     background-color: #337AF1;
     transition: all 0.4s ease-out;

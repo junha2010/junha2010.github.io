@@ -1,0 +1,634 @@
+﻿{
+    "book":  "Amos",
+    "chapters":  [
+                     {
+                         "chapter":  "1",
+                         "verses":  [
+                                        {
+                                            "verse":  "1",
+                                            "text":  "The words of Amos which came to him in Accarim out of Thecue, which he saw concerning Jerusalem, in the days of Ozias king of Juda, and in the days of Jeroboam the son of Joas king of Israel, two years before the earthquake."
+                                        },
+                                        {
+                                            "verse":  "2",
+                                            "text":  "And he said, The Lord has spoken out of Sion, and has uttered his voice out of Jerusalem; and the pastures of the shepherds have mourned, and the top of Carmel is dried up."
+                                        },
+                                        {
+                                            "verse":  "3",
+                                            "text":  "And the Lord said, For three sins of Damascus, and for four, I will not turn away from it; because they sawed with iron saws the women with child of the Galaadites."
+                                        },
+                                        {
+                                            "verse":  "4",
+                                            "text":  "And I will send a fire on the house of Azael, and it shall devour the foundations of the son of Ader."
+                                        },
+                                        {
+                                            "verse":  "5",
+                                            "text":  "And I will break to pieces the bars of Damascus, and will destroy the inhabitants out of the plain of On, and will cut in pieces a tribe out of the men of Charrhan: and the famous people of Syria shall be led captive, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "6",
+                                            "text":  "Thus saith the Lord; For three sins of Gaza, and for four, I will not turn away from them; because they took prisoners the captivity of Solomon, to shut them up into Idumea."
+                                        },
+                                        {
+                                            "verse":  "7",
+                                            "text":  "And I will send forth a fire on the walls of Gaza, and it shall devour its foundations."
+                                        },
+                                        {
+                                            "verse":  "8",
+                                            "text":  "And I will destroy the inhabitants out of Azotus, and a tribe shall be cut off from Ascalon, and I will stretch out my hand upon Accaron: and the remnant of the Philistines shall perish, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "9",
+                                            "text":  "Thus saith the Lord; For three transgressions of Tyre, and for four, I will not turn away from it; because they shut up the prisoners of Solomon into Idumea, and remembered not the covenant of brethren."
+                                        },
+                                        {
+                                            "verse":  "10",
+                                            "text":  "And I will send forth a fire on the walls of Tyre, and it shall devour the foundations of it."
+                                        },
+                                        {
+                                            "verse":  "11",
+                                            "text":  "Thus saith the Lord; For three sins of Idumea, and for four, I will not turn away from them; because they pursued their brother with the sword, and destroyed the mother upon the earth, and summoned up his anger for a testimony, and kept up his fury to the end."
+                                        },
+                                        {
+                                            "verse":  "12",
+                                            "text":  "And I will send forth a fire upon Thaman, and it shall devour the foundations of her walls."
+                                        },
+                                        {
+                                            "verse":  "13",
+                                            "text":  "Thus saith the Lord; For three sins of the children of Ammon, and for four, I will not turn away from him; because they ripped up the women with child of the Galaadites, that they might widen their coasts."
+                                        },
+                                        {
+                                            "verse":  "14",
+                                            "text":  "And I will kindle a fire on the walls of Rabbath, and it shall devour her foundations with shouting in the day of war, and she shall be shaken in the days of her destruction:"
+                                        },
+                                        {
+                                            "verse":  "15",
+                                            "text":  "and her kings shall go into captivity, their priests and their rulers together, saith the Lord."
+                                        }
+                                    ]
+                     },
+                     {
+                         "chapter":  "2",
+                         "verses":  [
+                                        {
+                                            "verse":  "1",
+                                            "text":  "Thus saith the Lord; For three sins of Moab, and for four, I will not turn away from it; because they burnt the bones of the king of Idumea to lime."
+                                        },
+                                        {
+                                            "verse":  "2",
+                                            "text":  "But I will send forth a fire on Moab, and it shall devour the foundations of its cities: and Moab shall perish in weakness, with a shout, and with the sound of a trumpet."
+                                        },
+                                        {
+                                            "verse":  "3",
+                                            "text":  "And I will destroy the judge out of her, and slay all her princes with him, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "4",
+                                            "text":  "Thus saith the Lord; For three sins of the children of Juda, and for four, I will not turn away from him; because they have rejected the law of the Lord, and have not kept his ordinances, and their vain idols which they made, which their fathers followed, caused them to err."
+                                        },
+                                        {
+                                            "verse":  "5",
+                                            "text":  "And I will send a fire on Juda, and it shall devour the foundations of Jerusalem."
+                                        },
+                                        {
+                                            "verse":  "6",
+                                            "text":  "Thus saith the Lord; For three sins of Israel, and for four, I will not turn away from him; because they sold the righteous for silver, and the poor for sandals,"
+                                        },
+                                        {
+                                            "verse":  "7",
+                                            "text":  "wherewith to tread on the dust of the earth, and they have smitten upon the heads of the poor, and have perverted the way of the lowly: and a son and his father have gone in to the same maid, that they might profane the name of their God."
+                                        },
+                                        {
+                                            "verse":  "8",
+                                            "text":  "And binding their clothes with cords they have made them curtains near the altar, and they have drunk wine gained by extortion in the house of their God."
+                                        },
+                                        {
+                                            "verse":  "9",
+                                            "text":  "Nevertheless I cut off the Amorite from before them, whose height was as the height of a cedar, and he was strong as an oak; and I dried up his fruit from above, and his roots from beneath."
+                                        },
+                                        {
+                                            "verse":  "10",
+                                            "text":  "And I brought you up out of the land of Egypt, and led you about in the desert forty years, that ye should inherit the land of the Amorites."
+                                        },
+                                        {
+                                            "verse":  "11",
+                                            "text":  "And I took of your sons for prophets, and of your young men for consecration. Are not these things so, ye sons of Israel? saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "12",
+                                            "text":  "But ye gave the consecrated ones wine to drink; and ye commanded the prophets, saying, Prophesy not."
+                                        },
+                                        {
+                                            "verse":  "13",
+                                            "text":  "Therefore, behold, I roll under you, as a waggon full of straw is rolled."
+                                        },
+                                        {
+                                            "verse":  "14",
+                                            "text":  "And flight shall perish from the runner, and the strong shall not hold fast his strength, and the warrior shall not save his life:"
+                                        },
+                                        {
+                                            "verse":  "15",
+                                            "text":  "and the archer shall not withstand, and he that is swift of foot shall in no wise escape; and the horseman shall not save his life."
+                                        },
+                                        {
+                                            "verse":  "16",
+                                            "text":  "And the strong shall find no confidence in power: the naked shall flee away in that day, saith the Lord."
+                                        }
+                                    ]
+                     },
+                     {
+                         "chapter":  "3",
+                         "verses":  [
+                                        {
+                                            "verse":  "1",
+                                            "text":  "Hear ye this word, O house of Israel, which the Lord has spoken concerning you, and against the whole family whom I brought up out of the land of Egypt, saying,"
+                                        },
+                                        {
+                                            "verse":  "2",
+                                            "text":  "You especially have I known out of all the families of the earth: therefore will I take vengeance upon you for all your sins."
+                                        },
+                                        {
+                                            "verse":  "3",
+                                            "text":  "Shall two walk together at all, if they do not know one another?"
+                                        },
+                                        {
+                                            "verse":  "4",
+                                            "text":  "Will a lion roar out of his thicket if he has no prey? will a lion\u0027s whelp utter his voice at all out of his lair, if he have taken nothing?"
+                                        },
+                                        {
+                                            "verse":  "5",
+                                            "text":  "Will a bird fall on the earth without a fowler? will a snare be taken up from the earth without having taken anything?"
+                                        },
+                                        {
+                                            "verse":  "6",
+                                            "text":  "Shall the trumpet sound in the city, and the people not be alarmed? shall there be evil in a city which the Lord has not wrought?"
+                                        },
+                                        {
+                                            "verse":  "7",
+                                            "text":  "For the Lord God will do nothing, without revealing instruction to his servants the prophets."
+                                        },
+                                        {
+                                            "verse":  "8",
+                                            "text":  "A lion shall roar, and who will not be alarmed? the Lord God has spoken, and who will not prophesy?"
+                                        },
+                                        {
+                                            "verse":  "9",
+                                            "text":  "Proclaim it to the regions among the Assyrians, and to the regions of Egypt, and say, Gather yourselves to the mountain of Samaria, and behold many wonderful things in the midst of it, and the oppression that is in it."
+                                        },
+                                        {
+                                            "verse":  "10",
+                                            "text":  "And she knew not what things would come against her, saith the Lord, even those that store up wrong and misery in their countries."
+                                        },
+                                        {
+                                            "verse":  "11",
+                                            "text":  "Therefore thus saith the Lord God; O Tyre, thy land shall be made desolate round about thee; and he shall bring down thy strength out of thee, and thy countries shall be spoiled."
+                                        },
+                                        {
+                                            "verse":  "12",
+                                            "text":  "Thus saith the Lord; As when a shepherd rescues from the mouth of a lion two legs or a piece of an ear, so shall be drawn forth the children of Israel who dwell in Samaria in the presence of a foreign tribe, and in Damascus."
+                                        },
+                                        {
+                                            "verse":  "13",
+                                            "text":  "Hear, O ye priests, and testify to the house of Jacob, saith the Lord God Almighty."
+                                        },
+                                        {
+                                            "verse":  "14",
+                                            "text":  "For in the day wherein I shall take vengeance of the sins of Israel upon him, I will also take vengeance on the altars of Bæthel: and the horns of the altar shall be broken down, and they shall fall upon the ground."
+                                        },
+                                        {
+                                            "verse":  "15",
+                                            "text":  "I will crush and smite the turreted-house upon the summer-house; and the ivory-houses shall be destroyed, and many other houses also, saith the Lord."
+                                        }
+                                    ]
+                     },
+                     {
+                         "chapter":  "4",
+                         "verses":  [
+                                        {
+                                            "verse":  "1",
+                                            "text":  "Hear ye this word, ye heifers of the land of Basan that are in the mountain of Samaria, that oppress the poor, and trample on the needy, which say to their masters, Give us that we may drink."
+                                        },
+                                        {
+                                            "verse":  "2",
+                                            "text":  "The Lord swears by his holiness, that, behold, the days come upon you, when they shall take you with weapons, and fiery destroyers shall cast those with you into boiling caldrons."
+                                        },
+                                        {
+                                            "verse":  "3",
+                                            "text":  "And ye shall be brought forth naked in the presence of each other; and ye shall be cast forth on the mountain Romman, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "4",
+                                            "text":  "Ye went into Bæthel, and sinned, and ye multiplied sin at Galgala; and ye brought your meat-offerings in the morning, and your tithes every third day."
+                                        },
+                                        {
+                                            "verse":  "5",
+                                            "text":  "And they read the law without, and called for public professions: proclaim aloud that the children of Israel have loved these things, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "6",
+                                            "text":  "And I will give you dulness of teeth in all your cities, and want of bread in all your places: yet ye returned not to me, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "7",
+                                            "text":  "Also I withheld from you the rain three months before the harvest: and I will rain upon one city, and on another city I will not rain: one part shall be rained upon, and the part on which I shall not rain shall be dried up."
+                                        },
+                                        {
+                                            "verse":  "8",
+                                            "text":  "And the inhabitants of two or three cities shall be gathered to one city to drink water, and they shall not be satisfied: yet ye have not returned to me, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "9",
+                                            "text":  "I smote you with parching, and with blight: ye multiplied your gardens, your vineyards, and your fig-grounds, and the cankerworm devoured your oliveyards: yet not even thus did ye return to me, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "10",
+                                            "text":  "I sent pestilence among you by the way of Egypt, and slew your young men with the sword, together with thy horses that were taken captive; and in my wrath against you I set fire to your camps: yet not even thus did ye return to me, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "11",
+                                            "text":  "I overthrew you, as God overthrew Sodoma and Gomorrha, and ye became as a brand plucked out of the fire: yet not even thus did ye return to me, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "12",
+                                            "text":  "Therefore thus will I do to thee, O Israel: nay because I will do thus to thee, prepare to call on thy God, O Israel."
+                                        },
+                                        {
+                                            "verse":  "13",
+                                            "text":  "For, behold, I am he that strengthens the thunder, and creates the wind, and proclaims to men his Christ, forming the morning and the darkness, and mounting on the high places of the earth, The Lord God Almighty is his name."
+                                        }
+                                    ]
+                     },
+                     {
+                         "chapter":  "5",
+                         "verses":  [
+                                        {
+                                            "verse":  "1",
+                                            "text":  "Hear ye this word of the Lord, even a lamentation, which I take up against you. The house of Israel is fallen; it shall no more rise."
+                                        },
+                                        {
+                                            "verse":  "2",
+                                            "text":  "The virgin of Israel has fallen upon his land; there is none that shall raise her up."
+                                        },
+                                        {
+                                            "verse":  "3",
+                                            "text":  "Therefore thus saith the Lord God; The city out of which there went forth a thousand, in it there shall be left a hundred, and in that out of which there went forth a hundred, there shall be left ten to the house of Israel."
+                                        },
+                                        {
+                                            "verse":  "4",
+                                            "text":  "Wherefore thus saith the Lord to the house of Israel, Seek ye me, and ye shall live."
+                                        },
+                                        {
+                                            "verse":  "5",
+                                            "text":  "But seek not Bæthel, and go not in to Galgala, and cross not over to the Well of the Oath: for Galgala shall surely go into captivity, and Bæthel shall be as that which is not."
+                                        },
+                                        {
+                                            "verse":  "6",
+                                            "text":  "Seek ye the Lord, and ye shall live; lest the house of Joseph blaze as fire, and it devour him, and there shall be none to quench it for the house of Israel."
+                                        },
+                                        {
+                                            "verse":  "7",
+                                            "text":  "It is he that executes judgment in the height above, and he has established justice on the earth:"
+                                        },
+                                        {
+                                            "verse":  "8",
+                                            "text":  "who makes all things, and changes them, and turns darkness into the morning, and darkens the day into night: who calls for the water of the sea, and pours it out on the face of the earth: the Lord is his name:"
+                                        },
+                                        {
+                                            "verse":  "9",
+                                            "text":  "who dispenses ruin to strength, and brings distress upon the fortress."
+                                        },
+                                        {
+                                            "verse":  "10",
+                                            "text":  "They hated him that reproved in the gates, and abhorred holy speech."
+                                        },
+                                        {
+                                            "verse":  "11",
+                                            "text":  "Therefore because they have smitten the poor with their fists, and ye have received of them choice gifts; ye have built polished houses, but ye shall not dwell in them; ye have planted desirable vineyards, but ye shall not drink the wine of them."
+                                        },
+                                        {
+                                            "verse":  "12",
+                                            "text":  "For I know your many transgressions, and your sins are great, trampling on the just, taking bribes, and turning aside the judgment of the poor in the gates."
+                                        },
+                                        {
+                                            "verse":  "13",
+                                            "text":  "Therefore the prudent shall be silent at that time; for it is a time of evils."
+                                        },
+                                        {
+                                            "verse":  "14",
+                                            "text":  "Seek good, and not evil, that ye may live: and so the Lord God Almighty shall be with you, as ye have said,"
+                                        },
+                                        {
+                                            "verse":  "15",
+                                            "text":  "We have hated evil, and loved good: and restore ye judgment in the gates; that the Lord God Almighty may have mercy on the remnant of Joseph."
+                                        },
+                                        {
+                                            "verse":  "16",
+                                            "text":  "Therefore thus saith the Lord God Almighty; In all the streets shall be lamentations; and in all the ways shall it be said, Woe, woe! the husbandman shall be called to mourning and lamentation, and to them that are skilled in complaining."
+                                        },
+                                        {
+                                            "verse":  "17",
+                                            "text":  "And there shall be lamentation in all the ways; because I will pass through the midst of thee, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "18",
+                                            "text":  "Woe to you that desire the day of the Lord! what is this day of the Lord to you? whereas it is darkness, and not light."
+                                        },
+                                        {
+                                            "verse":  "19",
+                                            "text":  "As if a man should flee from the face of a lion, and a bear should meet him; and he should spring into his house, and lean his hands upon the wall, and a serpent should bite him."
+                                        },
+                                        {
+                                            "verse":  "20",
+                                            "text":  "Is not the day of the Lord darkness, and not light? and is not this day gloom without brightness?"
+                                        },
+                                        {
+                                            "verse":  "21",
+                                            "text":  "I hate, I reject your feasts, and I will not smell your meat-offerings in your general assemblies."
+                                        },
+                                        {
+                                            "verse":  "22",
+                                            "text":  "Wherefore if ye should bring me your whole-burnt-sacrifices and meat-offerings, I will not accept them: neither will I have respect to your grand peace-offerings."
+                                        },
+                                        {
+                                            "verse":  "23",
+                                            "text":  "Remove from me the sound of thy songs, and I will not hear the music of thine instruments."
+                                        },
+                                        {
+                                            "verse":  "24",
+                                            "text":  "But let judgment roll down as water, and righteousness as an impassable torrent."
+                                        },
+                                        {
+                                            "verse":  "25",
+                                            "text":  "Have ye offered to me victims and sacrifices, O house of Israel, forty years in the wilderness?"
+                                        },
+                                        {
+                                            "verse":  "26",
+                                            "text":  "Yea, ye took up the tabernacle of Moloch, and the star of your god Ræphan, the images of them which ye made for yourselves."
+                                        },
+                                        {
+                                            "verse":  "27",
+                                            "text":  "And I will carry you away beyond Damascus, saith the Lord, the Almighty God is his name."
+                                        }
+                                    ]
+                     },
+                     {
+                         "chapter":  "6",
+                         "verses":  [
+                                        {
+                                            "verse":  "1",
+                                            "text":  "Woe to them that set at nought Sion, and that trust in the mountain of Samaria: they have gathered the harvest of the heads of the nations, and they have gone in themselves."
+                                        },
+                                        {
+                                            "verse":  "2",
+                                            "text":  "O house of Israel, pass by all of you, and see; and pass by thence to Ematrabba; and thence descend to Geth of the Philistines, the chief of all these kingdoms, see if their coasts are greater than your coasts."
+                                        },
+                                        {
+                                            "verse":  "3",
+                                            "text":  "Ye who are approaching the evil day, who are drawing near and adopting false sabbaths;"
+                                        },
+                                        {
+                                            "verse":  "4",
+                                            "text":  "who sleep upon beds of ivory, and live delicately on their couches, and eat kids out of the flocks, and sucking calves out of the midst of the stalls;"
+                                        },
+                                        {
+                                            "verse":  "5",
+                                            "text":  "who excel in the sound of musical instruments; they have regarded them as abiding, not as fleeting pleasures;"
+                                        },
+                                        {
+                                            "verse":  "6",
+                                            "text":  "who drink strained wine, and anoint themselves with the best ointment: and have suffered nothing on occasion of the calamity of Joseph."
+                                        },
+                                        {
+                                            "verse":  "7",
+                                            "text":  "Therefore now shall they depart into captivity from the dominion of princes, and the neighing of horses shall be cut off from Ephraim."
+                                        },
+                                        {
+                                            "verse":  "8",
+                                            "text":  "For the Lord has sworn by himself, saying, Because I abhor all the pride of Jacob, I do also hate his countries, and I will cut off his city with all who inhabit it."
+                                        },
+                                        {
+                                            "verse":  "9",
+                                            "text":  "And it shall come to pass, if there be ten men left in one house, that they shall die."
+                                        },
+                                        {
+                                            "verse":  "10",
+                                            "text":  "But a remnant shall be left behind, and their relations shall take them, and shall strenuously endeavour to carry forth their bones from the house: and one shall say to the heads of the house, Is there yet any one else with thee? And he shall say, No one else. And the other shall say, Be silent, that thou name not the name of the Lord."
+                                        },
+                                        {
+                                            "verse":  "11",
+                                            "text":  "For, behold, the Lord commands, and he will smite the great house with breaches, and the little house with rents."
+                                        },
+                                        {
+                                            "verse":  "12",
+                                            "text":  "Will horses run upon rocks? will they refrain from neighing at mares? for ye have turned judgment into poison, and the fruit of righteousness into bitterness:"
+                                        },
+                                        {
+                                            "verse":  "13",
+                                            "text":  "ye who rejoice at vanity, who say, Have we not possessed horns by our own strength?"
+                                        },
+                                        {
+                                            "verse":  "14",
+                                            "text":  "For behold, O house of Israel, I will raise up against you a nation, saith the Lord of hosts; and they shall afflict you so that ye shall not enter into Æmath, and as it were from the river of the wilderness."
+                                        }
+                                    ]
+                     },
+                     {
+                         "chapter":  "7",
+                         "verses":  [
+                                        {
+                                            "verse":  "1",
+                                            "text":  "Thus has the Lord God shewed me; and, behold, a swarm of locusts coming from the east; and, behold, one caterpillar, king Gog."
+                                        },
+                                        {
+                                            "verse":  "2",
+                                            "text":  "And it came to pass when he had finished devouring the grass of the land, that I said, Lord God, be merciful; who shall raise up Jacob? for he is small in number."
+                                        },
+                                        {
+                                            "verse":  "3",
+                                            "text":  "Repent, O Lord, for this. And this shall not be, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "4",
+                                            "text":  "Thus has the Lord shewed me; and, behold, the Lord called for judgment by fire, and it devoured the great deep, and devoured the Lord\u0027s portion."
+                                        },
+                                        {
+                                            "verse":  "5",
+                                            "text":  "Then I said, O Lord, cease, I pray thee: who shall raise up Jacob? for he is small in number. Repent, O Lord, for this."
+                                        },
+                                        {
+                                            "verse":  "6",
+                                            "text":  "This also shall not be, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "7",
+                                            "text":  "Thus the Lord shewed me; and behold, he stood upon a wall of adamant, and in his hand was an adamant."
+                                        },
+                                        {
+                                            "verse":  "8",
+                                            "text":  "And the Lord said to me, What seest thou, Amos? And I said, An adamant. And the Lord said to me, Behold, I appoint an adamant in the midst of my people Israel: I will not pass by them any more."
+                                        },
+                                        {
+                                            "verse":  "9",
+                                            "text":  "And the joyful altars shall be abolished, and the sacrifices of Israel shall be set aside; and I will rise up against the house of Jeroboam with the sword."
+                                        },
+                                        {
+                                            "verse":  "10",
+                                            "text":  "Then Amasias the priest of Bæthel sent to Jeroboam king of Israel, saying, Amos is forming conspiracies against thee in the midst of the house of Israel: the land will be utterly unable to bear all his words."
+                                        },
+                                        {
+                                            "verse":  "11",
+                                            "text":  "For thus says Amos, Jeroboam shall die by the sword, and Israel shall be led away captive from his land."
+                                        },
+                                        {
+                                            "verse":  "12",
+                                            "text":  "And Amasias said to Amos, Go, seer, remove thou into the land of Juda, and live there, and thou shalt prophesy there:"
+                                        },
+                                        {
+                                            "verse":  "13",
+                                            "text":  "but thou shalt no longer prophesy at Bæthel: for it is the king\u0027s sanctuary, and it is the royal house."
+                                        },
+                                        {
+                                            "verse":  "14",
+                                            "text":  "And Amos answered, and said to Amasias, I was not a prophet, nor the son of a prophet; but I was a herdman, and a gatherer of sycamore fruits."
+                                        },
+                                        {
+                                            "verse":  "15",
+                                            "text":  "And the Lord took me from the sheep, and the Lord said to me, Go, and prophesy to my people Israel."
+                                        },
+                                        {
+                                            "verse":  "16",
+                                            "text":  "And now hear the word of the Lord: Thou sayest, Prophesy not to Israel, and raise not a tumult against the house of Jacob."
+                                        },
+                                        {
+                                            "verse":  "17",
+                                            "text":  "Therefore thus saith the Lord; Thy wife shall be a harlot in the city, and thy sons and thy daughters shall fall by the sword, and thy land shall be measured with the line; and thou shalt die in an unclean land; and Israel shall be led captive out of his land. Thus has the Lord God shewed me."
+                                        }
+                                    ]
+                     },
+                     {
+                         "chapter":  "8",
+                         "verses":  [
+                                        {
+                                            "verse":  "1",
+                                            "text":  "And behold a fowler\u0027s basket."
+                                        },
+                                        {
+                                            "verse":  "2",
+                                            "text":  "And he said, What seest thou, Amos? And I said, A fowler\u0027s basket. And the Lord said to me, The end is come upon my people Israel; I will not pass by them any more."
+                                        },
+                                        {
+                                            "verse":  "3",
+                                            "text":  "And the ceilings of the temple shall howl in that day, saith the Lord God: there shall be many a fallen one in every place; I will bring silence upon them."
+                                        },
+                                        {
+                                            "verse":  "4",
+                                            "text":  "Hear now this, ye that oppress the poor in the morning, and drive the needy ones by tyranny from the earth,"
+                                        },
+                                        {
+                                            "verse":  "5",
+                                            "text":  "saying, When will the month pass away, and we shall sell, and the sabbath, and we shall open the treasure, to make the measure small, and to enlarge the weight, and make the balance unfair?"
+                                        },
+                                        {
+                                            "verse":  "6",
+                                            "text":  "That we may buy the poor for silver, and the needy for shoes; and we will trade in every kind of fruit."
+                                        },
+                                        {
+                                            "verse":  "7",
+                                            "text":  "The Lord swears against the pride of Jacob, None of your works shall ever be forgotten."
+                                        },
+                                        {
+                                            "verse":  "8",
+                                            "text":  "And shall not the land be troubled for these things, and shall not every one who dwells in it mourn? whereas destruction shall come up as a river, and shall descend as the river of Egypt."
+                                        },
+                                        {
+                                            "verse":  "9",
+                                            "text":  "And it shall come to pass in that day, saith the Lord God, that the sun shall go down at noon, and the light shall be darkened on the earth by day:"
+                                        },
+                                        {
+                                            "verse":  "10",
+                                            "text":  "and I will turn your feasts into mourning, and all your songs into lamentation; and I will bring up sackcloth on all loins, and baldness on every head; and I will make them as the mourning of a beloved friend, and those with them as a day of grief."
+                                        },
+                                        {
+                                            "verse":  "11",
+                                            "text":  "Behold, the days come, saith the Lord, that I will send forth a famine on the land, not a famine of bread, nor a thirst for water, but a famine of hearing the word of the Lord."
+                                        },
+                                        {
+                                            "verse":  "12",
+                                            "text":  "And the waters shall be troubled from sea to sea, and from the north to the east shall men run hither and thither, seeking the word of the Lord, and they shall not find it."
+                                        },
+                                        {
+                                            "verse":  "13",
+                                            "text":  "In that day shall the fair virgins and the young men faint for thirst;"
+                                        },
+                                        {
+                                            "verse":  "14",
+                                            "text":  "they who swear by the propitiation of Samaria, and who say, Thy god, O Dan, lives; and, Thy god, O Bersabee, lives; and they shall fall, and shall no more rise again."
+                                        }
+                                    ]
+                     },
+                     {
+                         "chapter":  "9",
+                         "verses":  [
+                                        {
+                                            "verse":  "1",
+                                            "text":  "I saw the Lord standing on the altar: and he said, Smite the mercy-seat, and the porch shall be shaken: and cut through into the heads of all; and I will slay the remnant of them with the sword: no one of them fleeing shall escape, and no one of them striving to save himself shall be delivered."
+                                        },
+                                        {
+                                            "verse":  "2",
+                                            "text":  "Though they hide themselves in hell, thence shall my hand drag them forth; and though they go up to heaven, thence will I bring them down."
+                                        },
+                                        {
+                                            "verse":  "3",
+                                            "text":  "If they hide themselves in the top of Carmel, thence will I search them out and take them; and if they should go down from my presence into the depths of the sea, there will I command the serpent, and he shall bite them."
+                                        },
+                                        {
+                                            "verse":  "4",
+                                            "text":  "And if they should go into captivity before the face of their enemies, there will I command the sword, and it shall slay them: and I will set mine eyes against them for evil, and not for good."
+                                        },
+                                        {
+                                            "verse":  "5",
+                                            "text":  "And the Lord, the Lord God Almighty, is he that takes hold of the land, and causes it to shake, and all that inhabit it shall mourn; and its destruction shall go up as a river, and shall descend as the river of Egypt."
+                                        },
+                                        {
+                                            "verse":  "6",
+                                            "text":  "It is he that builds his ascent up to the sky, and establishes his promise on the earth; who calls the water of the sea, and pours it out on the face of the earth; the Lord Almighty is his name."
+                                        },
+                                        {
+                                            "verse":  "7",
+                                            "text":  "Are not ye to me as the sons of the Ethiopians, O children of Israel? saith the Lord. Did I not bring Israel up out of the land of Egypt, and the Philistines from Cappadocia, and the Syrians out of the deep?"
+                                        },
+                                        {
+                                            "verse":  "8",
+                                            "text":  "Behold, the eyes of the Lord God are upon the kingdom of sinners, and I will cut it off from the face of the earth; only I will not utterly cut off the house of Jacob, saith the Lord."
+                                        },
+                                        {
+                                            "verse":  "9",
+                                            "text":  "For I will give commandment, and sift the house of Israel among all the Gentiles, as corn is sifted in a sieve, and yet a fragment shall not in any wise fall upon the earth."
+                                        },
+                                        {
+                                            "verse":  "10",
+                                            "text":  "All the sinners of my people shall die by the sword, who say, Calamities shall certainly not draw near, nor come upon us."
+                                        },
+                                        {
+                                            "verse":  "11",
+                                            "text":  "In that day I will raise up the tabernacle of David that is fallen, and will rebuild the ruins of it, and will set up the parts thereof that have been broken down, and will build it up as in the ancient days:"
+                                        },
+                                        {
+                                            "verse":  "12",
+                                            "text":  "that the remnant of men, and all the Gentiles upon whom my name is called, may earnestly seek me, saith the Lord who does all these things."
+                                        },
+                                        {
+                                            "verse":  "13",
+                                            "text":  "Behold, the days come, saith the Lord, when the harvest shall overtake the vintage, and the grapes shall ripen at seedtime; and the mountains shall drop sweet wine, and all the hills shall be planted."
+                                        },
+                                        {
+                                            "verse":  "14",
+                                            "text":  "And I will turn the captivity of my people Israel, and they shall rebuild the ruined cities, and shall inhabit them; and they shall plant vineyards, and shall drink the wine from them; and they shall form gardens, and eat the fruit of them."
+                                        },
+                                        {
+                                            "verse":  "15",
+                                            "text":  "And I will plant them on their land, and they shall no more be plucked up from the land which I have given them, saith the Lord God Almighty."
+                                        }
+                                    ]
+                     }
+                 ]
+}

@@ -17,6 +17,16 @@ $booksPath = Join-Path $resolvedSourceDir 'Books.json'
 $books = Get-Content -Raw -Encoding UTF8 $booksPath | ConvertFrom-Json
 $bundle = [ordered]@{}
 
+function Get-VerseSortKey {
+  param([string]$Verse)
+
+  if ($Verse -match '^(\d+)([A-Za-z]*)$') {
+    return '{0:D4}-{1}' -f [int]$matches[1], $matches[2].ToLowerInvariant()
+  }
+
+  return "9999-$Verse"
+}
+
 foreach ($bookName in $books) {
   $bookPath = Join-Path $resolvedSourceDir ($bookName + '.json')
   if (-not (Test-Path $bookPath)) {
@@ -28,7 +38,7 @@ foreach ($bookName in $books) {
 
   foreach ($chapter in $rawBook.chapters) {
     $chapterNumber = [string]$chapter.chapter
-    $sortedVerses = @($chapter.verses | Sort-Object { [int]$_.verse } | ForEach-Object { $_.text })
+    $sortedVerses = @($chapter.verses | Sort-Object { Get-VerseSortKey $_.verse } | ForEach-Object { $_.text })
     $chapters[$chapterNumber] = $sortedVerses
   }
 
