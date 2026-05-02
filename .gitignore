@@ -17,3 +17,6 @@ Captures/스피드 연결 - Opera 2023-10-29 12-42-26.mp4
 # Bible PC build intermediates
 bible-pc/dist/win-unpacked/
 bible-pc/dist/builder-debug.yml
+
+# Duplicate checkout inside this repository
+junha2010.github.io/
